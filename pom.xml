@@ -16,6 +16,7 @@
     <properties>
         <java.version>17</java.version>
         <spring-boot-admin.version>2.6.0</spring-boot-admin.version>
+        <soy.version>2021-02-01</soy.version>
     </properties>
     <dependencies>
         <dependency>
@@ -34,17 +35,16 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.google.template</groupId>
+            <artifactId>soy</artifactId>
+            <version>${soy.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
