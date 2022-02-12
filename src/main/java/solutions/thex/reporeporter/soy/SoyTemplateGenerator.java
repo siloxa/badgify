@@ -12,8 +12,8 @@ import java.util.Map;
 
 /**
  * This class generates a file from a Soy template which is the Java
- * implementation of Closure Templates from Google.
- * See <a href="https://github.com/google/closure-templates">Closure templates
+ * implementation of Closure Templates from Google. See
+ * <a href="https://github.com/google/closure-templates">Closure templates
  * repository</a>
  */
 @AllArgsConstructor
