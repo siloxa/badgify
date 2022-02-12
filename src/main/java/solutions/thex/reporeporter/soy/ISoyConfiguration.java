@@ -33,4 +33,8 @@ public interface ISoyConfiguration {
     default void generate() throws IOException {
         SoyTemplateGenerator.generate(this);
     }
+
+    default String render() throws IOException {
+        return SoyTemplateGenerator.render(this);
+    }
 }
