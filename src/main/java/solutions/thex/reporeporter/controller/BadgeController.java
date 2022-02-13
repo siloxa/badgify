@@ -18,4 +18,30 @@ import java.io.IOException;
 @RequestMapping("/api/badge")
 public class BadgeController {
 
+    /**
+     * Returns a badge for the given repository.
+     *
+     * ?design={first=repo%20reporter;second=$GITHUB$;direction=h;left=second;right=first;color=#fff;bg=#f48024;
+     * theme=simple;link=https://github.com/TheXSolutions/repo-reporter}
+     *
+     * @param request The request.
+     * @param design  The design.
+     * @return The badge.
+     */
+    @GetMapping(path = "/", produces = "image/svg+xml")
+    public ResponseEntity<String> customBadge(HttpServletRequest request,
+                                              @RequestParam(value = "design", required = true, defaultValue = "-1")
+                                                      String design) throws Exception {
+        log.info("BadgeController.customBadge: " //
+                + "payload: " + design//
+                + "path= " + request.getRequestURI()//
+                + ", ip= " + request.getRemoteAddr()//
+                + ", user agent= " + request.getHeader("User-Agent"));
+
+        if ("-1".equals(design))
+            return new ResponseEntity<>("design can not be empty", HttpStatus.BAD_REQUEST);
+
+        return DesignResolver.resolve(DesignParser.parse(design));
+    }
+
 }
