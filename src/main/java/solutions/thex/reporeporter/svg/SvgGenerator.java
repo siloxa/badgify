@@ -13,13 +13,16 @@ import java.util.Objects;
 @Builder
 public class SvgGenerator implements ISoyConfiguration {
 
+    private String style;
     private String theme;
+    private String size;
+    private String direction;
     private String title;
     private String link;
     private String width;
     private String height;
+    private String bg;
     private String color;
-    private String content;
     private Path rootDirectory;
 
     @Override
@@ -29,12 +32,16 @@ public class SvgGenerator implements ISoyConfiguration {
 
     @Override
     public File getFile() throws IOException {
-        File tempFile = File.createTempFile(theme + ".svg", ".soy");
+        File tempFile = File.createTempFile(//
+                theme + "-" + size + "-" + direction + ".svg",//
+                ".soy");
         tempFile.deleteOnExit();
 
         FileUtils.copyInputStreamToFile(//
                 Objects.requireNonNull(//
-                        getClass().getClassLoader().getResourceAsStream("templates/simple.svg.soy")),//
+                        getClass().getClassLoader().getResourceAsStream(//
+                                "templates/" + style + "/"//
+                                        + theme + "-" + size + "-" + direction + ".svg.soy")),//
                 tempFile);
 
         return tempFile;
@@ -42,8 +49,13 @@ public class SvgGenerator implements ISoyConfiguration {
 
     @Override
     public Map<String, Object> getParameters() {
-        return Map.of("title", title, "link", link, "width", width, "height", height,
-                "color", color, "content", content);
+        return Map.of(//
+                "title", title,//
+                "link", link,//
+                "width", width,//
+                "height", height,//
+                "bg", bg,//
+                "color", color);
     }
 
     @Override
