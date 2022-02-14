@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import solutions.thex.reporeporter.svg.SvgGenerator;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -18,11 +23,12 @@ public class BadgeController {
 
     /**
      * Creates custom badges.
-     *
+     * <p>
      * Example: /?title=Repo%20Reporter&bg=f48024&link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
      * @param title   The title of the badge.
+     * @param logo    The logo of the badge.
      * @param link    The link of the badge.
      * @param bg      The background color of the badge.
      * @param size    The size of the badge.
@@ -34,6 +40,8 @@ public class BadgeController {
     public ResponseEntity<String> customBadge(HttpServletRequest request,//
                                               @RequestParam(value = "title")//
                                                       String title,
+                                              @RequestParam(value = "logo")//
+                                                      String logo,
                                               @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                       String theme,//
                                               @RequestParam(value = "size", required = false, defaultValue = "m")//
@@ -55,6 +63,7 @@ public class BadgeController {
                 + ", " + size//
                 + ", " + direction//
                 + ", " + title//
+                + ", " + logo//
                 + ", " + link//
                 + ",  " + width//
                 + ", " + height//
@@ -70,6 +79,7 @@ public class BadgeController {
                 .size(size)//
                 .direction(direction)//
                 .title(title)//
+                .logo(resolveLogo(logo, color))//
                 .link(link)//
                 .width(resolveWidth(width, size, title))//
                 .height(resolveHeight(height, size))//
@@ -77,6 +87,39 @@ public class BadgeController {
                 .color(color)//
                 .build().render();
         return new ResponseEntity<>(svg, HttpStatus.OK);
+    }
+
+    private String resolveLogo(String logo, String color) {
+        String file = retrieveLogoFile(logo);
+        file = fillColor(color, file);
+        file = replaceScapeChars(file);
+        return file;
+    }
+
+    private String fillColor(String color, String file) {
+        String start = file.substring(0, file.indexOf("<path") + 6);
+        String end = file.substring(file.indexOf("<path") + 5);
+        color = "fill=\"" + color + "\"";
+        return start + color + end;
+    }
+
+    private String replaceScapeChars(String file) {
+        file = file.replaceAll("\"", "&quot;");
+        file = file.replaceAll("'", "&apos;");
+        file = file.replaceAll("<", "&lt;");
+        file = file.replaceAll(">", "&gt;");
+        file = file.replaceAll("&", "&amp;");
+        return file;
+    }
+
+    private String retrieveLogoFile(String logo) {
+        return new BufferedReader(//
+                new InputStreamReader(//
+                        Objects.requireNonNull(//
+                                Thread.currentThread().getContextClassLoader()//
+                                        .getResourceAsStream("static/logos/" + logo + ".svg")),
+                        StandardCharsets.UTF_8)).lines()//
+                .collect(Collectors.joining("\n"));
     }
 
     private static String resolveWidth(String width, String size, String title) {

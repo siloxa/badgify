@@ -15,6 +15,7 @@ public class SvgGenerator implements ISoyConfiguration {
 
     private String style;
     private String theme;
+    private String logo;
     private String size;
     private String direction;
     private String title;
@@ -51,6 +52,7 @@ public class SvgGenerator implements ISoyConfiguration {
     public Map<String, Object> getParameters() {
         return Map.of(//
                 "title", title,//
+                "logo", logo,//
                 "link", link,//
                 "width", width,//
                 "height", height,//
