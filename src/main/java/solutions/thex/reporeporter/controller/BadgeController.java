@@ -44,7 +44,7 @@ public class BadgeController {
                                                       String logo,
                                               @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                       String theme,//
-                                              @RequestParam(value = "size", required = false, defaultValue = "m")//
+                                              @RequestParam(value = "size", required = false, defaultValue = "s")//
                                                       String size,//
                                               @RequestParam(value = "direction", required = false, defaultValue = "ltr")//
                                                       String direction,//
@@ -81,12 +81,22 @@ public class BadgeController {
                 .title(title)//
                 .logo(resolveLogo(logo, color))//
                 .link(link)//
+                .textLength(resolveTextLength(title))
+                .titleXPosition(resolveTitleXPosition(title))
                 .width(resolveWidth(width, size, title))//
                 .height(resolveHeight(height, size))//
                 .bg(bg)//
                 .color(color)//
                 .build().render();
         return new ResponseEntity<>(svg, HttpStatus.OK);
+    }
+
+    private String resolveTitleXPosition(String title) {
+        return String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 24)) * 10);
+    }
+
+    private String resolveTextLength(String title) {
+        return String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
     }
 
     private String resolveLogo(String logo, String color) {
@@ -136,16 +146,20 @@ public class BadgeController {
 
     private static String extractWidthDefaultValue(String size, String title) {
         String defaultWidth = "";
-        if (size.equals("m")) {
+        if (size.equals("s")) {
             defaultWidth = String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
+        } else if (size.equals("m")) {
+            defaultWidth = String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
         }
         return defaultWidth;
     }
 
     private static String extractHeightDefaultValue(String size) {
         String defaultHeight = "";
-        if (size.equals("m")) {
+        if (size.equals("s")) {
             defaultHeight = "24";
+        } else if (size.equals("m")) {
+            defaultHeight = "29";
         }
         return defaultHeight;
     }
