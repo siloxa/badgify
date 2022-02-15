@@ -20,6 +20,8 @@ public class SvgGenerator implements ISoyConfiguration {
     private String direction;
     private String title;
     private String link;
+    private String textLength;
+    private String titleXPosition;
     private String width;
     private String height;
     private String bg;
@@ -54,6 +56,8 @@ public class SvgGenerator implements ISoyConfiguration {
                 "title", title,//
                 "logo", logo,//
                 "link", link,//
+                "textLength", textLength,//
+                "titleXPosition", titleXPosition,//
                 "width", width,//
                 "height", height,//
                 "bg", bg,//
