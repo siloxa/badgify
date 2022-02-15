@@ -4,6 +4,8 @@
 {@param title: string}
 {@param logo: string}
 {@param link: string}
+{@param textLength: string}
+{@param titleXPosition: string}
 {@param width: string}
 {@param height: string}
 {@param bg: string}
@@ -32,8 +34,8 @@
         </g>
         <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
             <image x="4" y="4" width="16" height="16" xlink:href="data:image/svg+xml;utf-8,{/literal}{$logo}{literal}"/>
-            <text aria-hidden="true" x="785" y="170" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="1090">{/literal}{$title}{literal}</text>
-            <text x="785" y="160" transform="scale(.1)" fill="{/literal}{$color}{literal}" textLength="1090">{/literal}{$title}{literal}</text>
+            <text aria-hidden="true" x="{/literal}{$titleXPosition}{literal}" y="170" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="{/literal}{$textLength}{literal}">{/literal}{$title}{literal}</text>
+            <text x="{/literal}{$titleXPosition}{literal}" y="160" transform="scale(.1)" fill="{/literal}{$color}{literal}" textLength="{/literal}{$textLength}{literal}">{/literal}{$title}{literal}</text>
         </g>
     </a>
 </svg>
