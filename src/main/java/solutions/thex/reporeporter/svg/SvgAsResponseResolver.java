@@ -73,8 +73,10 @@ public class SvgAsResponseResolver {
         String textLength = "";
         if (size.equals("s")) {
             textLength = String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
-        } else if(size.equals("m")) {
+        } else if (size.equals("m")) {
             textLength = String.valueOf((int) Math.ceil(title.length() * 7.05882353) * 10);
+        } else if (size.equals("l")) {
+            textLength = String.valueOf((int) Math.ceil(title.length() * 8.2352941) * 10);
         }
         return textLength;
     }
@@ -83,8 +85,10 @@ public class SvgAsResponseResolver {
         String xPosition = "";
         if (size.equals("s")) {
             xPosition = String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 24)) * 10);
-        } else if(size.equals("m")) {
+        } else if (size.equals("m")) {
             xPosition = String.valueOf((int) Math.ceil((((title.length() * 7.05882353) / 2) + 27)) * 10);
+        } else if (size.equals("l")) {
+            xPosition = String.valueOf((int) Math.ceil((((title.length() * 8.2352941) / 2) + 34)) * 10);
         }
         return xPosition;
     }
@@ -107,6 +111,8 @@ public class SvgAsResponseResolver {
             defaultWidth = String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
         } else if (size.equals("m")) {
             defaultWidth = String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
+        } else if (size.equals("l")) {
+            defaultWidth = String.valueOf((int) Math.ceil((title.length() * 8.2352941) + 40));
         }
         return defaultWidth;
     }
@@ -117,6 +123,8 @@ public class SvgAsResponseResolver {
             defaultHeight = "24";
         } else if (size.equals("m")) {
             defaultHeight = "29";
+        } else if (size.equals("l")) {
+            defaultHeight = "35";
         }
         return defaultHeight;
     }
