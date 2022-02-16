@@ -1,20 +1,14 @@
 package solutions.thex.reporeporter.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import solutions.thex.reporeporter.svg.SvgGenerator;
+import solutions.thex.reporeporter.svg.SvgAsResponseResolver;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -38,26 +32,54 @@ public class BadgeController {
      */
     @GetMapping(path = "/", produces = "image/svg+xml")
     public ResponseEntity<String> customBadge(HttpServletRequest request,//
-                                              @RequestParam(value = "title")//
+                                              @RequestParam(value = "title",//
+                                                      required = false,//
+                                                      defaultValue = "-1")//
                                                       String title,
-                                              @RequestParam(value = "logo")//
+                                              @RequestParam(value = "logo",
+                                                      required = false,//
+                                                      defaultValue = "-1")//
                                                       String logo,
-                                              @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                              @RequestParam(value = "theme",//
+                                                      required = false,//
+                                                      defaultValue = "simple")//
                                                       String theme,//
-                                              @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                              @RequestParam(value = "size",//
+                                                      required = false,//
+                                                      defaultValue = "s")//
                                                       String size,//
-                                              @RequestParam(value = "direction", required = false, defaultValue = "ltr")//
+                                              @RequestParam(value = "direction",//
+                                                      required = false,//
+                                                      defaultValue = "ltr")//
                                                       String direction,//
-                                              @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                              @RequestParam(value = "link",//
+                                                      required = false,//
+                                                      defaultValue = "#")//
                                                       String link,//
-                                              @RequestParam(value = "width", required = false, defaultValue = "-1")//
+                                              @RequestParam(value = "width",//
+                                                      required = false,//
+                                                      defaultValue = "-1")//
                                                       String width,
-                                              @RequestParam(value = "height", required = false, defaultValue = "-1")//
+                                              @RequestParam(value = "height",//
+                                                      required = false,//
+                                                      defaultValue = "-1")//
                                                       String height,//
-                                              @RequestParam(value = "bg", required = false, defaultValue = "#e1e2e8")//
+                                              @RequestParam(value = "bg",//
+                                                      required = false,//
+                                                      defaultValue = "#e1e2e8")//
                                                       String bg,//
-                                              @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                              @RequestParam(value = "color",//
+                                                      required = false,//
+                                                      defaultValue = "rgb(255, 255, 255)")//
                                                       String color) throws Exception {
+        logger(request, title, logo, theme, size, direction, link, width, height, bg, color);
+
+        return SvgAsResponseResolver.resolve(//
+                "badge", title, logo, theme, size, direction, link, width, height, bg, color);
+    }
+
+    private void logger(HttpServletRequest request, String title, String logo, String theme, String size,//
+                        String direction, String link, String width, String height, String bg, String color) {
         log.info("BadgeController.customBadge: " //
                 + "payload: [" + theme//
                 + ", " + size//
@@ -72,96 +94,6 @@ public class BadgeController {
                 + ", path= " + request.getRequestURI()//
                 + ", ip= " + request.getRemoteAddr()//
                 + ", user agent= " + request.getHeader("User-Agent"));
-
-        String svg = SvgGenerator.builder()//
-                .style("badge")//
-                .theme(theme)//
-                .size(size)//
-                .direction(direction)//
-                .title(title)//
-                .logo(resolveLogo(logo, color))//
-                .link(link)//
-                .textLength(resolveTextLength(title))
-                .titleXPosition(resolveTitleXPosition(title))
-                .width(resolveWidth(width, size, title))//
-                .height(resolveHeight(height, size))//
-                .bg(bg)//
-                .color(color)//
-                .build().render();
-        return new ResponseEntity<>(svg, HttpStatus.OK);
-    }
-
-    private String resolveTitleXPosition(String title) {
-        return String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 24)) * 10);
-    }
-
-    private String resolveTextLength(String title) {
-        return String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
-    }
-
-    private String resolveLogo(String logo, String color) {
-        String file = retrieveLogoFile(logo);
-        file = fillColor(color, file);
-        file = replaceScapeChars(file);
-        return file;
-    }
-
-    private String fillColor(String color, String file) {
-        String start = file.substring(0, file.indexOf("<path") + 6);
-        String end = file.substring(file.indexOf("<path") + 5);
-        color = "fill=\"" + color + "\"";
-        return start + color + end;
-    }
-
-    private String replaceScapeChars(String file) {
-        file = file.replaceAll("\"", "&quot;");
-        file = file.replaceAll("'", "&apos;");
-        file = file.replaceAll("<", "&lt;");
-        file = file.replaceAll(">", "&gt;");
-        file = file.replaceAll("&", "&amp;");
-        return file;
-    }
-
-    private String retrieveLogoFile(String logo) {
-        return new BufferedReader(//
-                new InputStreamReader(//
-                        Objects.requireNonNull(//
-                                Thread.currentThread().getContextClassLoader()//
-                                        .getResourceAsStream("static/logos/" + logo + ".svg")),
-                        StandardCharsets.UTF_8)).lines()//
-                .collect(Collectors.joining("\n"));
-    }
-
-    private static String resolveWidth(String width, String size, String title) {
-        if ("-1".equals(width))
-            return extractWidthDefaultValue(size, title);
-        return width;
-    }
-
-    private static String resolveHeight(String height, String size) {
-        if ("-1".equals(height))
-            return extractHeightDefaultValue(size);
-        return height;
-    }
-
-    private static String extractWidthDefaultValue(String size, String title) {
-        String defaultWidth = "";
-        if (size.equals("s")) {
-            defaultWidth = String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
-        } else if (size.equals("m")) {
-            defaultWidth = String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
-        }
-        return defaultWidth;
-    }
-
-    private static String extractHeightDefaultValue(String size) {
-        String defaultHeight = "";
-        if (size.equals("s")) {
-            defaultHeight = "24";
-        } else if (size.equals("m")) {
-            defaultHeight = "29";
-        }
-        return defaultHeight;
     }
 
 }
