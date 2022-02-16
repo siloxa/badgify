@@ -27,8 +27,8 @@ public class SvgAsResponseResolver {
                 .title(title)//
                 .logo(resolveLogo(logo, color))//
                 .link(link)//
-                .textLength(resolveTextLength(title))
-                .titleXPosition(resolveTitleXPosition(title))
+                .textLength(resolveTextLength(title, size))
+                .titleXPosition(resolveTitleXPosition(title, size))
                 .width(resolveWidth(width, size, title))//
                 .height(resolveHeight(height, size))//
                 .bg(bg)//
@@ -69,12 +69,24 @@ public class SvgAsResponseResolver {
         return file;
     }
 
-    private static String resolveTextLength(String title) {
-        return String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
+    private static String resolveTextLength(String title, String size) {
+        String textLength = "";
+        if (size.equals("s")) {
+            textLength = String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
+        } else if(size.equals("m")) {
+            textLength = String.valueOf((int) Math.ceil(title.length() * 7.05882353) * 10);
+        }
+        return textLength;
     }
 
-    private static String resolveTitleXPosition(String title) {
-        return String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 24)) * 10);
+    private static String resolveTitleXPosition(String title, String size) {
+        String xPosition = "";
+        if (size.equals("s")) {
+            xPosition = String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 24)) * 10);
+        } else if(size.equals("m")) {
+            xPosition = String.valueOf((int) Math.ceil((((title.length() * 7.05882353) / 2) + 27)) * 10);
+        }
+        return xPosition;
     }
 
     private static String resolveWidth(String width, String size, String title) {
