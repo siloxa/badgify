@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import solutions.thex.reporeporter.svg.SvgAsResponseResolver;
+import solutions.thex.reporeporter.svg.SvgAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -48,7 +49,7 @@ public class BadgeController {
                                                       required = false,//
                                                       defaultValue = "s")//
                                                       String size,//
-                                              @RequestParam(value = "direction",//
+                                              @RequestParam(value = "dir",//
                                                       required = false,//
                                                       defaultValue = "ltr")//
                                                       String direction,//
@@ -74,8 +75,8 @@ public class BadgeController {
                                                       String color) throws Exception {
         logger(request, title, logo, theme, size, direction, link, width, height, bg, color);
 
-        return SvgAsResponseResolver.resolve(//
-                "badge", title, logo, theme, size, direction, link, width, height, bg, color);
+        return SvgAsResponseWrapper.resolve(//
+                paramsToMap("badge", title, logo, theme, size, direction, link, width, height, bg, color));
     }
 
     private void logger(HttpServletRequest request, String title, String logo, String theme, String size,//
@@ -94,6 +95,22 @@ public class BadgeController {
                 + ", path= " + request.getRequestURI()//
                 + ", ip= " + request.getRemoteAddr()//
                 + ", user agent= " + request.getHeader("User-Agent"));
+    }
+
+    private Map<String, String> paramsToMap(String style, String title, String logo, String theme, String size,//
+                                            String direction, String link, String width, String height,//
+                                            String bg, String color) {
+        return Map.ofEntries(Map.entry("style", style),//
+                Map.entry("title", title),//
+                Map.entry("logo", logo),//
+                Map.entry("theme", theme),//
+                Map.entry("size", size),//
+                Map.entry("direction", direction),//
+                Map.entry("link", link),//
+                Map.entry("width", width),//
+                Map.entry("height", height),//
+                Map.entry("bg", bg),//
+                Map.entry("color", color));
     }
 
 }
