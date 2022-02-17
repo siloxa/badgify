@@ -22,7 +22,8 @@ public class SvgGenerator implements ISoyConfiguration {
     private String link;
     private String textLength;
     private String titleXPosition;
-    private String logoXPosition;
+    @Builder.Default
+    private String logoXPosition = "-1";
     private String width;
     private String height;
     private String bg;
