@@ -13,21 +13,34 @@ import java.util.Objects;
 @Builder
 public class SvgGenerator implements ISoyConfiguration {
 
-    private String style;
-    private String theme;
-    private String logo;
-    private String size;
-    private String direction;
-    private String title;
-    private String link;
-    private String textLength;
-    private String titleXPosition;
+    @Builder.Default
+    private String style = "-1";
+    @Builder.Default
+    private String theme = "-1";
+    @Builder.Default
+    private String logo = "-1";
+    @Builder.Default
+    private String size = "-1";
+    @Builder.Default
+    private String direction = "-1";
+    @Builder.Default
+    private String title = "-1";
+    @Builder.Default
+    private String link = "-1";
+    @Builder.Default
+    private String textLength = "-1";
+    @Builder.Default
+    private String titleXPosition = "-1";
     @Builder.Default
     private String logoXPosition = "-1";
-    private String width;
-    private String height;
-    private String bg;
-    private String color;
+    @Builder.Default
+    private String width = "-1";
+    @Builder.Default
+    private String height = "-1";
+    @Builder.Default
+    private String bg = "-1";
+    @Builder.Default
+    private String color = "-1";
     private Path rootDirectory;
 
     @Override
@@ -42,12 +55,7 @@ public class SvgGenerator implements ISoyConfiguration {
                 ".soy");
         tempFile.deleteOnExit();
 
-        FileUtils.copyInputStreamToFile(//
-                Objects.requireNonNull(//
-                        getClass().getClassLoader().getResourceAsStream(//
-                                "templates/" + style + "/"//
-                                        + theme + "-" + size + "-" + direction + ".svg.soy")),//
-                tempFile);
+        loadTemplateIn(tempFile);
 
         return tempFile;
     }
@@ -71,4 +79,23 @@ public class SvgGenerator implements ISoyConfiguration {
     public Path getPath() {
         return rootDirectory.resolve("template.svg");
     }
+
+    private void loadTemplateIn(File tempFile) throws IOException {
+        FileUtils.copyInputStreamToFile(//
+                Objects.requireNonNull(//
+                        getClass().getClassLoader().getResourceAsStream(//
+                                getTemplatePath())),//
+                tempFile);
+    }
+
+    private String getTemplatePath() {
+        return switch (style) {
+            case "badge" -> "templates/" + style + "/"//
+                    + theme + "-" + size + "-" + direction + ".svg.soy";
+            case "logo" -> "templates/" + style + "/"//
+                    + theme + "-" + size + ".svg.soy";
+            default -> "";
+        };
+    }
+
 }

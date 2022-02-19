@@ -6,7 +6,7 @@ import solutions.thex.reporeporter.svg.SvgGenerator;
 import java.io.IOException;
 import java.util.Map;
 
-public class RTLSvgResolver extends SvgResolver {
+public class RTLBadgeResolver extends SvgResolver {
 
     public String resolve(Map<String, String> params) throws IOException {
         return SvgGenerator.builder()//
