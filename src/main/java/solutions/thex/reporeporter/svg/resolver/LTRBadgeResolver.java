@@ -6,7 +6,7 @@ import solutions.thex.reporeporter.svg.SvgResolver;
 import java.io.IOException;
 import java.util.Map;
 
-public class LTRSvgResolver extends SvgResolver {
+public class LTRBadgeResolver extends SvgResolver {
 
     @Override
     public String resolve(Map<String, String> params) throws IOException {
