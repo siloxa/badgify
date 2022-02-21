@@ -92,7 +92,7 @@ public class SvgGenerator implements ISoyConfiguration {
         return switch (style) {
             case "badge" -> "templates/" + style + "/"//
                     + theme + "-" + size + "-" + direction + ".svg.soy";
-            case "logo" -> "templates/" + style + "/"//
+            case "logo", "title" -> "templates/" + style + "/"//
                     + theme + "-" + size + ".svg.soy";
             default -> "";
         };
