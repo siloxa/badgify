@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import solutions.thex.reporeporter.svg.SvgAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.BadgeAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.LogoAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.TitleAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -101,6 +101,38 @@ public class BadgeController {
 
         return new LogoAsResponseWrapper().wrap(//
                 paramsToMap("logo", "-1", logo, theme, size, "-1", link, bg, color));
+    }
+
+    @GetMapping(path = "/title", produces = "image/svg+xml")
+    public ResponseEntity<String> titleBadge(HttpServletRequest request,//
+                                             @RequestParam(value = "title",//
+                                                     required = false,//
+                                                     defaultValue = "-1")//
+                                                     String title,
+                                             @RequestParam(value = "theme",//
+                                                     required = false,//
+                                                     defaultValue = "simple")//
+                                                     String theme,//
+                                             @RequestParam(value = "size",//
+                                                     required = false,//
+                                                     defaultValue = "s")//
+                                                     String size,//
+                                             @RequestParam(value = "link",//
+                                                     required = false,//
+                                                     defaultValue = "#")//
+                                                     String link,//
+                                             @RequestParam(value = "bg",//
+                                                     required = false,//
+                                                     defaultValue = "#e1e2e8")//
+                                                     String bg,//
+                                             @RequestParam(value = "color",//
+                                                     required = false,//
+                                                     defaultValue = "rgb(255, 255, 255)")//
+                                                     String color) throws Exception {
+        logger(request, title, "-1", theme, size, "-1", link, bg, color);
+
+        return new TitleAsResponseWrapper().wrap(//
+                paramsToMap("title", title, "-1", theme, size, "-1", link, bg, color));
     }
 
     private void logger(HttpServletRequest request, String title, String logo, String theme, String size,//
