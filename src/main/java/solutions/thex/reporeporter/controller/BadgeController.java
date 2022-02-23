@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import solutions.thex.reporeporter.svg.responseWrapper.BadgeAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.LogoAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.ProfileAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.TitleAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/badge")
 public class BadgeController {
+
 
     /**
      * Creates custom badges.
@@ -133,6 +135,26 @@ public class BadgeController {
 
         return new TitleAsResponseWrapper().wrap(//
                 paramsToMap("title", title, "-1", theme, size, "-1", link, bg, color));
+    }
+
+    @GetMapping(path = "/profile", produces = "image/svg+xml")
+    public ResponseEntity<String> profileBadge(HttpServletRequest request,//
+                                               @RequestParam(value = "id",//
+                                                       required = false,//
+                                                       defaultValue = "-1")//
+                                                       String id,
+                                               @RequestParam(value = "theme",//
+                                                       required = false,//
+                                                       defaultValue = "simple")//
+                                                       String theme,//
+                                               @RequestParam(value = "color",//
+                                                       required = false,//
+                                                       defaultValue = "rgb(255, 255, 255)")//
+                                                       String color) throws Exception {
+        //logger(request, title, "-1", theme, size, "-1", link, bg, color);
+
+        return new ProfileAsResponseWrapper().wrap(//
+                paramsToMap("profile", id, "-1", theme, "-1", "-1", "-1", "-1", color));
     }
 
     private void logger(HttpServletRequest request, String title, String logo, String theme, String size,//
