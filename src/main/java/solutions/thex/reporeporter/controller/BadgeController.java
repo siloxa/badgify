@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import solutions.thex.reporeporter.log.ControllerLogger;
-import solutions.thex.reporeporter.svg.responseWrapper.badge.CustomBadgeAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.badge.LinkAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.LogoAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.ProfileAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.TitleAsResponseWrapper;
@@ -55,7 +55,7 @@ public class BadgeController {
                                                     String color) throws Exception {
         logger.payloadLog("linkBadge", request, title, logo, theme, size, direction, link, bg, color);
 
-        return new CustomBadgeAsResponseWrapper().wrap(Map.of(//
+        return new LinkAsResponseWrapper().wrap(Map.of(//
                 "title", title,//
                 "logo", logo,//
                 "theme", theme,//
