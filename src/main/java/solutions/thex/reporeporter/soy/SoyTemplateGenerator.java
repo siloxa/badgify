@@ -40,16 +40,6 @@ public class SoyTemplateGenerator {
         }
     }
 
-    public static void generate(ISoyConfiguration configuration) throws IOException {
-        String generatedContent = render(configuration);
-        if (!Files.exists(configuration.getPath().getParent())) {
-            Files.createDirectories(configuration.getPath().getParent());
-        }
-        try (Writer writer = Files.newBufferedWriter(configuration.getPath())) {
-            writer.write(generatedContent);
-        }
-    }
-
     public static String render(ISoyConfiguration configuration) throws IOException {
         log.debug("-- {}", configuration.getFile().getAbsolutePath());
         Renderer renderer = getRenderer(configuration.getFile().getAbsolutePath(), configuration.getName());
