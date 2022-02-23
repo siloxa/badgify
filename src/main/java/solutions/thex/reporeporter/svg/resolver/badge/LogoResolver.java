@@ -1,7 +1,7 @@
 package solutions.thex.reporeporter.svg.resolver.badge;
 
 import solutions.thex.reporeporter.svg.SvgResolver;
-import solutions.thex.reporeporter.svg.generator.badge.LogoBadgeGenerator;
+import solutions.thex.reporeporter.svg.generator.badge.LogoGenerator;
 
 import java.io.IOException;
 import java.util.Map;
@@ -10,7 +10,7 @@ public class LogoResolver extends SvgResolver {
 
     @Override
     public String resolve(Map<String, String> params) throws IOException {
-        return LogoBadgeGenerator.builder()//
+        return LogoGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("logo"))//
