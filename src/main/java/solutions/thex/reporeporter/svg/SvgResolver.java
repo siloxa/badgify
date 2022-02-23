@@ -55,19 +55,7 @@ public abstract class SvgResolver {
         };
     }
 
-    protected String resolveWidth(String width, String size, String title) {
-        if ("-1".equals(width))
-            return extractWidthDefaultValue(size, title);
-        return width;
-    }
-
-    protected String resolveHeight(String height, String size) {
-        if ("-1".equals(height))
-            return extractHeightDefaultValue(size);
-        return height;
-    }
-
-    private String extractWidthDefaultValue(String size, String title) {
+    protected String resolveWidth(String size, String title) {
         return switch (size) {
             case "s" -> String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
             case "m" -> String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
@@ -76,7 +64,7 @@ public abstract class SvgResolver {
         };
     }
 
-    private String extractHeightDefaultValue(String size) {
+    protected String resolveHeight(String size) {
         return switch (size) {
             case "s" -> "24";
             case "m" -> "29";
