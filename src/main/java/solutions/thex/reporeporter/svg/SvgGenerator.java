@@ -41,6 +41,10 @@ public class SvgGenerator implements ISoyConfiguration {
     private String bg = "-1";
     @Builder.Default
     private String color = "-1";
+    @Builder.Default
+    private String avatar = "-1";
+    @Builder.Default
+    private String id = "-1";
     private Path rootDirectory;
 
     @Override
@@ -62,17 +66,19 @@ public class SvgGenerator implements ISoyConfiguration {
 
     @Override
     public Map<String, Object> getParameters() {
-        return Map.of(//
-                "title", title,//
-                "logo", logo,//
-                "link", link,//
-                "textLength", textLength,//
-                "titleXPosition", titleXPosition,//
-                "logoXPosition", logoXPosition,//
-                "width", width,//
-                "height", height,//
-                "bg", bg,//
-                "color", color);
+        return Map.ofEntries(//
+                Map.entry("title", title),//
+                Map.entry("logo", logo),//
+                Map.entry("link", link),//
+                Map.entry("textLength", textLength),//
+                Map.entry("titleXPosition", titleXPosition),//
+                Map.entry("logoXPosition", logoXPosition),//
+                Map.entry("width", width),//
+                Map.entry("height", height),//
+                Map.entry("bg", bg),//
+                Map.entry("color", color),//
+                Map.entry("avatar", avatar),//
+                Map.entry("id", id));
     }
 
     @Override
@@ -94,6 +100,8 @@ public class SvgGenerator implements ISoyConfiguration {
                     + theme + "-" + size + "-" + direction + ".svg.soy";
             case "logo", "title" -> "templates/" + style + "/"//
                     + theme + "-" + size + ".svg.soy";
+            case "profile" -> "templates/" + style + "/"//
+                    + theme + ".svg.soy";
             default -> "";
         };
     }
