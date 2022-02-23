@@ -1,14 +1,17 @@
 {namespace solutions.thex.reporeporter}
 {template .svg kind="text"}
 
+{@param link: string}
 {@param width: string}
 {@param title: string}
 {@param id: string}
+{@param bg: string}
 {@param color: string}
 {@param avatar: string}
 
 {literal}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="{/literal}{$width}{literal}" height="75" viewBox="0 0 {/literal}{$width}{literal} 75" aria-label="{/literal}{$title}{literal}" xml:space="preserve">
+<title>{/literal}{$title}{literal}</title>
 <defs>
 	<style>
 		@font-face {
@@ -20,14 +23,15 @@
             <circle cx="0" cy="0" r="290" fill="#FFFFFF" />
     </clipPath>
 </defs>
+<a target="_blank" xlink:href="{/literal}{$link}{literal}">
 <rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
 <g transform="matrix(1 0 0 1 125 37.5)" id="ab0d355c-6165-4828-82d1-449fcb684c95"  >
-<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  x="-125" y="-37.5" rx="0" ry="0" width="250" height="75" />
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {/literal}{if $bg == 'rgb(-1, -1, -1)'}{literal}rgb(255,255,255){/literal}{else}{$bg}{/if}{literal}; fill-opacity: {/literal}{if $bg == 'rgb(-1, -1, -1)'}{literal}0{/literal}{else}{literal}1{/literal}{/if}{literal}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  x="-125" y="-37.5" rx="10" ry="10" width="{/literal}{$width}{literal}" height="75" />
 </g>
 <g transform="matrix(Infinity NaN NaN Infinity 0 0)" id="a4ccd702-e648-41ea-9d0a-0c2a3fb5e703"  >
 </g>
 <g transform="matrix(0.86 0 0 0.86 44.07 37.5)" id="1b9b6a41-5da7-48d7-bc50-9eb25e27ae07"  >
-<path style="stroke: rgb(0,0,0); stroke-width: 0.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(101,101,101); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-50, -50)" d="M 50 92.875 C 26.358 92.875 7.125 73.642 7.125 50 C 7.125 26.358000000000004 26.358 7.125 50 7.125 C 73.642 7.125 92.875 26.358 92.875 50 C 92.875 73.642 73.642 92.875 50 92.875 z M 50 9.125 C 27.461 9.125 9.125 27.461 9.125 50 C 9.125 72.538 27.461 90.875 50 90.875 C 72.538 90.875 90.875 72.538 90.875 50 C 90.875 27.461 72.538 9.125 50 9.125 z" stroke-linecap="round" />
+<path style="stroke: {/literal}{$color}{literal}; stroke-width: 0.6; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {/literal}{$color}{literal}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-50, -50)" d="M 50 92.875 C 26.358 92.875 7.125 73.642 7.125 50 C 7.125 26.358000000000004 26.358 7.125 50 7.125 C 73.642 7.125 92.875 26.358 92.875 50 C 92.875 73.642 73.642 92.875 50 92.875 z M 50 9.125 C 27.461 9.125 9.125 27.461 9.125 50 C 9.125 72.538 27.461 90.875 50 90.875 C 72.538 90.875 90.875 72.538 90.875 50 C 90.875 27.461 72.538 9.125 50 9.125 z" stroke-linecap="round" />
 </g>
 <g transform="matrix(1 0 0 1 160.98 27.5)" style="" id="fb3c5972-886d-4947-9e94-f1ef4ac95d85"  >
 		<text xml:space="preserve" font-family="Exo" font-size="16" font-style="normal" font-weight="500" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {/literal}{$color}{literal}; fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-73.89" y="5.03" >{/literal}{$title}{literal}</tspan></text>
@@ -38,6 +42,7 @@
 <g transform="matrix(0.12 0 0 0.12 44 37.7)" id="00cdf3e1-d9e6-4dc8-bc4e-5a5eba6dd79d"  >
 	<image clip-path="url(#circleView)" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" xlink:href="data:image/jpeg;base64,{/literal}{$avatar}{literal}" x="-290" y="-290" width="580" height="580"></image>
 </g>
+</a>
 </svg>
 {/literal}
 {/template}
