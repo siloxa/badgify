@@ -13,11 +13,22 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>repo-reporter</name>
     <description>repo-reporter</description>
+
+    <developers>
+        <developer>
+            <name>Soroush Shemshadi</name>
+            <email>shuoros@yahoo.com</email>
+            <url>https://shuoros.github.io</url>
+        </developer>
+    </developers>
+
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <spring-boot-admin.version>2.6.0</spring-boot-admin.version>
         <soy.version>2021-02-01</soy.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -76,6 +87,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -106,8 +118,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>16</source>
-                    <target>16</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
         </plugins>
