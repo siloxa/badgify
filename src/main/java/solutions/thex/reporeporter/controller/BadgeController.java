@@ -24,7 +24,8 @@ public class BadgeController {
     /**
      * Creates custom badges.
      * <p>
-     * Example: /?title=Repo%20Reporter&bg=f48024&link=https://repo-reporter.thex.solutions
+     * Example: /link?title=repo-reporter&logo=github&theme=simple&size=s&dir=ltr&bg=f48024&color=fff
+     * &link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
      * @param title   The title of the badge.
@@ -49,7 +50,7 @@ public class BadgeController {
                                                     String direction,//
                                             @RequestParam(value = "link", required = false, defaultValue = "#")//
                                                     String link,//
-                                            @RequestParam(value = "bg", required = false, defaultValue = "#e1e2e8")//
+                                            @RequestParam(value = "bg", required = false, defaultValue = "000")//
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
@@ -68,6 +69,8 @@ public class BadgeController {
 
     /**
      * Creates logo badges.
+     * <p>
+     * Example: /logo?logo=github&theme=simple&size=s&bg=f48024&color=fff&link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
      * @param logo    The logo of the badge.
@@ -89,7 +92,7 @@ public class BadgeController {
                                                     String size,//
                                             @RequestParam(value = "link", required = false, defaultValue = "#")//
                                                     String link,//
-                                            @RequestParam(value = "bg", required = false, defaultValue = "#e1e2e8")//
+                                            @RequestParam(value = "bg", required = false, defaultValue = "000")//
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
@@ -106,6 +109,9 @@ public class BadgeController {
 
     /**
      * Creates title badges.
+     * <p>
+     * Example: /title?title=repo-reporter&theme=simple&size=s&bg=f48024&color=fff
+     * &link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
      * @param title   The title of the badge.
@@ -127,7 +133,7 @@ public class BadgeController {
                                                      String size,//
                                              @RequestParam(value = "link", required = false, defaultValue = "#")//
                                                      String link,//
-                                             @RequestParam(value = "bg", required = false, defaultValue = "#e1e2e8")//
+                                             @RequestParam(value = "bg", required = false, defaultValue = "000")//
                                                      String bg,//
                                              @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                      String color) throws Exception {
@@ -144,6 +150,8 @@ public class BadgeController {
 
     /**
      * Creates profile badges.
+     * <p>
+     * Example: /profile?id=TheXSolutions&theme=simple&size=s&bg=f48024&color=fff
      *
      * @param request The request.
      * @param id      The id of GitHub profile.
