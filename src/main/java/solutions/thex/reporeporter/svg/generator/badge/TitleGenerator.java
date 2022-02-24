@@ -34,6 +34,7 @@ public class TitleGenerator extends SvgGenerator {
 
     @Override
     public String getTemplatePath() {
-        return "templates/logo/" + theme + "-" + size + ".svg.soy";
+        return "templates/title/" + theme + "-" + size + ".svg.soy";
     }
+
 }
