@@ -34,4 +34,5 @@ public class LogoGenerator extends SvgGenerator {
     public String getTemplatePath() {
         return "templates/logo/" + theme + "-" + size + ".svg.soy";
     }
+
 }

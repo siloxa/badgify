@@ -39,6 +39,7 @@ public class RTLLinkGenerator extends SvgGenerator {
 
     @Override
     public String getTemplatePath() {
-        return "templates/link/" + theme + "-" + size + "-ltr.svg.soy";
+        return "templates/link/" + theme + "-" + size + "-rtl.svg.soy";
     }
+
 }

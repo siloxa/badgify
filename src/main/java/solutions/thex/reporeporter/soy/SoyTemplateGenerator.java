@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringEscapeUtils;
 
-import java.io.*;
-import java.nio.file.Files;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +28,7 @@ public class SoyTemplateGenerator {
      * Creates and return a {@link Renderer} using the templateURL provided
      *
      * @return created {@link Renderer}
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException if the template file is not found.
      */
     private static Renderer getRenderer(String path, String name) throws FileNotFoundException {
         SoyCompiler compiler = new SoyCompiler();

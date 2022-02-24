@@ -22,14 +22,6 @@ public class LTRLinkGenerator extends SvgGenerator {
 
     @Override
     public Map<String, Object> getParameters() {
-        System.out.println("title"+ title+ //
-                "link"+ link+ //
-                "textLength"+ textLength+ //
-                "titleXPosition"+ titleXPosition+ //
-                "width"+ width+ //
-                "height"+ height+ //
-                "bg"+ bg+ //
-                "color"+ color);
         return Map.of(//
                 "title", title, //
                 "logo", logo, //

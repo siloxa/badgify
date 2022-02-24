@@ -2,7 +2,6 @@ package solutions.thex.reporeporter.svg.resolver.badge;
 
 import org.json.JSONObject;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import solutions.thex.reporeporter.svg.SvgResolver;
 import solutions.thex.reporeporter.svg.generator.badge.ProfileGenerator;
@@ -15,7 +14,6 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.Map;
 
-@Component
 public class ProfileResolver extends SvgResolver {
 
     @Override
@@ -25,12 +23,18 @@ public class ProfileResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .title(resolveTitle(user))//
                 .link(resolveLink(params.get("id")))//
-                .width(resolveWidth(params.get("size"), user.getString("name")))//
+                .width(resolveWidth(params.get("size"), idOrNameToResolveWidth(params.get("id"), user.getString("name"))))//
                 .bg(params.get("bg"))//
                 .color(colorResolver(params.get("color")))//
                 .id(user.getString("login"))//
                 .avatar(resolveAvatar(user.getString("avatar_url")))//
                 .build().render();
+    }
+
+    private String idOrNameToResolveWidth(String id, String name) {
+        if (id.length() > name.length())
+            return "@" + id;
+        return name;
     }
 
     private String resolveLink(String id) {

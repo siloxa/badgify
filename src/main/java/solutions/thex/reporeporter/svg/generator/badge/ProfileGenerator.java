@@ -33,4 +33,5 @@ public class ProfileGenerator extends SvgGenerator {
     public String getTemplatePath() {
         return "templates/profile/" + theme + ".svg.soy";
     }
+
 }
