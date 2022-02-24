@@ -38,9 +38,6 @@
         <appender-ref ref="Console" />
     </root>
 
-    <!-- LOG "solutions.thex.*" at TRACE level -->
-    <logger name="solutions.thex" level="trace" />
-
     <!-- LOG "org.mongodb.*" at TRACE level -->
     <logger name="org.mongodb" level="ERROR" additivity="false">
         <appender-ref ref="RollingFile" />
