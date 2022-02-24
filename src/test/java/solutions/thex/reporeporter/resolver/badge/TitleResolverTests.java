@@ -90,7 +90,7 @@ public class TitleResolverTests {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = br.readLine()) != null) {
-                resultStringBuilder.append(line).append("\r\n");
+                resultStringBuilder.append(line).append("\n");
             }
         }
         return resultStringBuilder.toString();
