@@ -7,6 +7,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
+/**
+ * Implementation of
+ * {@link org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter}
+ * for application security configurations.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -16,10 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()//
-                .authorizeRequests()//
-                .antMatchers("/favicon.ico").permitAll()//
-                .antMatchers("/api/**").permitAll()//
+        http//
+                .authorizeRequests()
+                .antMatchers("/favicon.ico", "/api/**").permitAll()//
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
                 .antMatchers("/user/**").hasAnyAuthority("USER")//
                 .anyRequest().authenticated()//

@@ -1,27 +1,33 @@
-package solutions.thex.reporeporter.svg.resolver;
+package solutions.thex.reporeporter.svg.resolver.badge;
 
 import solutions.thex.reporeporter.svg.SvgResolver;
-import solutions.thex.reporeporter.svg.SvgGenerator;
+import solutions.thex.reporeporter.svg.generator.badge.RTLLinkGenerator;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class RTLBadgeResolver extends SvgResolver {
+/**
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgResolver} which resolves given parameters by user to
+ * a {@link solutions.thex.reporeporter.svg.resolver.badge.RTLLinkResolver} instance.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+public class RTLLinkResolver extends SvgResolver {
 
     public String resolve(Map<String, String> params) throws IOException {
-        return SvgGenerator.builder()//
-                .style(params.get("style"))//
+        return RTLLinkGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
-                .direction("rtl")//
                 .title(params.get("title"))//
                 .logo(resolveLogo(params.get("logo"), params.get("color")))//
                 .link(params.get("link"))//
                 .textLength(resolveTextLength(params.get("title"), params.get("size")))
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
                 .logoXPosition(resolveLogoXPosition(params.get("title"), params.get("size")))
-                .width(resolveWidth(params.get("width"), params.get("size"), params.get("title")))//
-                .height(resolveHeight(params.get("height"), params.get("size")))//
+                .width(resolveWidth(params.get("size"), params.get("title")))//
+                .height(resolveHeight(params.get("size")))//
                 .bg(params.get("bg"))//
                 .color(colorResolver(params.get("color")))//
                 .build().render();

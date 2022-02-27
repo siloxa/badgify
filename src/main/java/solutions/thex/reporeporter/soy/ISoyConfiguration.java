@@ -3,7 +3,6 @@ package solutions.thex.reporeporter.soy;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.Map;
 
 public interface ISoyConfiguration {
@@ -24,15 +23,6 @@ public interface ISoyConfiguration {
      * @return map of soy parameters
      */
     Map<String, Object> getParameters();
-
-    /**
-     * @return target file path
-     */
-    Path getPath() throws IOException;
-
-    default void generate() throws IOException {
-        SoyTemplateGenerator.generate(this);
-    }
 
     default String render() throws IOException {
         return SoyTemplateGenerator.render(this);
