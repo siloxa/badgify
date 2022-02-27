@@ -42,7 +42,7 @@
 - link, logo, title and GitHub profile badges.
 
 ## How To Use
-Here is a quick example of how to use the api. For more information, please visit the [repo-reporter website](https://repo-reporter.thex.solutions/) or read the [docs](https://github.com/TheXSolutions/repo-reporter/blob/main/doc).
+Here is a quick example of how to use the api. For more information, please visit the [repo-reporter website](https://repo-reporter.thex.solutions/) or read the [docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).
 
 ### Profile Badge
 for generating profile badges you can use the following api with your desired GitHub account id param :
@@ -64,7 +64,7 @@ To make an RTL link badge you must a dir parameter:
 
 ![](https://repo-reporter.thex.solutions/api/badge/link?title=سلام%20دنیا&logo=globe&dir=rtl)
 
-**! Learn about other params in [docs](https://github.com/TheXSolutions/repo-reporter/blob/main/doc).**
+**! Learn about other params in [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).**
 
 ### Logo Badge
 for generating logo badges you can use the following api with a logo param :
@@ -73,7 +73,7 @@ for generating logo badges you can use the following api with a logo param :
 
 ![](https://repo-reporter.thex.solutions/api/badge/logo?logo=peace)
 
-**! See list of supported logos and icons and learn about other params in [docs](https://github.com/TheXSolutions/repo-reporter/blob/main/doc).**
+**! See list of supported logos and icons and learn about other params in [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).**
 
 ### Title Badge
 for generating title badges you can use the following api with a title param :
@@ -82,7 +82,7 @@ for generating title badges you can use the following api with a title param :
 
 ![](https://repo-reporter.thex.solutions/api/badge/title?title=peace)
 
-**! Learn about other params in [docs](https://github.com/TheXSolutions/repo-reporter/blob/main/doc).**
+**! Learn about other params in [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).**
 
 ## Authors
 repo-reporter is developed by [Soroush Shemshadi](https://github.com/shuoros) and [contributors](https://github.com/TheXSolutions/repo-reporter/blob/main/CONTRIBUTORS.md).
@@ -97,7 +97,7 @@ To see the changes in different versions of repo-reporter, you can read the [rel
 If you encounter a bug or vulnerability, please read the [issue policy](https://github.com/TheXSolutions/repo-reporter/blob/main/ISSUES.md).
 
 ## Documentation
-To learn how to work with repo-reporter, please take a look at the [/doc](https://github.com/TheXSolutions/repo-reporter/tree/main/doc) folder.
+To learn how to work with repo-reporter, please take a look at the [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs) folder.
 
 ## Acknowledgement
 A greate thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the logo.
