@@ -17,10 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http//
-                .authorizeRequests()//
-                //.antMatchers("/actuator/**").hasIpAddress("127.0.0.1")//
-                .antMatchers("/error").permitAll()//
-                .antMatchers("/actuator/**").permitAll()//
+                .authorizeRequests()
                 .antMatchers("/favicon.ico", "/api/**").permitAll()//
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
                 .antMatchers("/user/**").hasAnyAuthority("USER")//
