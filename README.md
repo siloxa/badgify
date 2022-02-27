@@ -10,11 +10,11 @@
     	<a href="https://github.com/TheXSolutions/repo-reporter/search?l=java">
       		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=17&logo=java&bg=000&color=e75a00&size=m" />
     	</a>
-	<a href="https://github.com/TheXSolutions/repo-reporter/search?l=java">
+	<a href="https://github.com/TheXSolutions/repo-reporter/blob/main/LICENSE">
       		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=MIT&logo=scale-balanced&bg=000&color=930200&size=m" />
     	</a>
 	<a href="#">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/title?title=2.6K%20LINE%20CODE&bg=000&color=116979&size=m" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/title?title=2.6K%20LINES%20OF%20CODE&bg=000&color=116979&size=m" />
     </a>
     <a href="https://github.com/TheXSolutions/repo-reporter/releases/tag/v1.0.0">
       		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=%20%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4%DA%AF%D8%B1-%D9%85%D8%AE%D8%B2%D9%86%20%D9%86%D8%B3%D8%AE%D9%87%201.0.0&logo=github&size=m&dir=rtl" />
