@@ -2,7 +2,7 @@ version: '3.3'
 
 networks:
   spring-admin-network:
-    driver: bridge
+    external: true
 
 services:
   repo-reporter:
