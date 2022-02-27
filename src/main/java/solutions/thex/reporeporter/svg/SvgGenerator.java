@@ -1,51 +1,27 @@
 package solutions.thex.reporeporter.svg;
 
-import lombok.Builder;
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Component;
 import solutions.thex.reporeporter.soy.ISoyConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.util.Map;
 import java.util.Objects;
 
-@Builder
-public class SvgGenerator implements ISoyConfiguration {
+/**
+ * Implements {@link solutions.thex.reporeporter.soy.ISoyConfiguration}  to provide and abstract interface for
+ * different type of SVGs.Each derivative type must implement getTemplatePath() for .soy template file and
+ * getParameters() for the template parameters. For example see
+ * {@link solutions.thex.reporeporter.svg.generator.badge.LTRLinkGenerator}.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+@Component
+public abstract class SvgGenerator implements ISoyConfiguration {
 
-    @Builder.Default
-    private String style = "-1";
-    @Builder.Default
-    private String theme = "-1";
-    @Builder.Default
-    private String logo = "-1";
-    @Builder.Default
-    private String size = "-1";
-    @Builder.Default
-    private String direction = "-1";
-    @Builder.Default
-    private String title = "-1";
-    @Builder.Default
-    private String link = "-1";
-    @Builder.Default
-    private String textLength = "-1";
-    @Builder.Default
-    private String titleXPosition = "-1";
-    @Builder.Default
-    private String logoXPosition = "-1";
-    @Builder.Default
-    private String width = "-1";
-    @Builder.Default
-    private String height = "-1";
-    @Builder.Default
-    private String bg = "-1";
-    @Builder.Default
-    private String color = "-1";
-    @Builder.Default
-    private String avatar = "-1";
-    @Builder.Default
-    private String id = "-1";
-    private Path rootDirectory;
+    public abstract String getTemplatePath();
 
     @Override
     public String getName() {
@@ -55,7 +31,7 @@ public class SvgGenerator implements ISoyConfiguration {
     @Override
     public File getFile() throws IOException {
         File tempFile = File.createTempFile(//
-                theme + "-" + size + "-" + direction + ".svg",//
+                "template.svg",//
                 ".soy");
         tempFile.deleteOnExit();
 
@@ -64,46 +40,10 @@ public class SvgGenerator implements ISoyConfiguration {
         return tempFile;
     }
 
-    @Override
-    public Map<String, Object> getParameters() {
-        return Map.ofEntries(//
-                Map.entry("title", title),//
-                Map.entry("logo", logo),//
-                Map.entry("link", link),//
-                Map.entry("textLength", textLength),//
-                Map.entry("titleXPosition", titleXPosition),//
-                Map.entry("logoXPosition", logoXPosition),//
-                Map.entry("width", width),//
-                Map.entry("height", height),//
-                Map.entry("bg", bg),//
-                Map.entry("color", color),//
-                Map.entry("avatar", avatar),//
-                Map.entry("id", id));
-    }
-
-    @Override
-    public Path getPath() {
-        return rootDirectory.resolve("template.svg");
-    }
-
     private void loadTemplateIn(File tempFile) throws IOException {
         FileUtils.copyInputStreamToFile(//
-                Objects.requireNonNull(//
-                        getClass().getClassLoader().getResourceAsStream(//
-                                getTemplatePath())),//
+                Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(getTemplatePath())),//
                 tempFile);
-    }
-
-    private String getTemplatePath() {
-        return switch (style) {
-            case "badge" -> "templates/" + style + "/"//
-                    + theme + "-" + size + "-" + direction + ".svg.soy";
-            case "logo", "title" -> "templates/" + style + "/"//
-                    + theme + "-" + size + ".svg.soy";
-            case "profile" -> "templates/" + style + "/"//
-                    + theme + ".svg.soy";
-            default -> "";
-        };
     }
 
 }

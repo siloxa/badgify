@@ -1,0 +1,18 @@
+version: '3.3'
+
+networks:
+  spring-admin-network:
+    external: true
+
+services:
+  repo-reporter:
+    build:
+      context: .
+      args:
+        JAR_FILE: "./target/repo-reporter-1.0.0.jar"
+    image: repo-reporter
+    container_name: repo-reporter
+    ports:
+      - "127.0.0.1:8081:8585"
+    networks:
+      - spring-admin-network
