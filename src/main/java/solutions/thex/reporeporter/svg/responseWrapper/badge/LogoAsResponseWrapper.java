@@ -9,6 +9,14 @@ import solutions.thex.reporeporter.svg.resolver.badge.LogoResolver;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgAsResponseWrapper} which wrap up generated
+ * logo badge SVG as a response.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class LogoAsResponseWrapper implements SvgAsResponseWrapper {
 
     @Override

@@ -9,6 +9,15 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * Resolves an SVG generator class based on given parameters from user by resolve method.
+ * Different SVG types can implement this interface to provide their own SVG generator.
+ * For example see {@link solutions.thex.reporeporter.svg.resolver.badge.LTRLinkResolver}.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public abstract class SvgResolver {
 
     public abstract String resolve(Map<String, String> params) throws IOException;

@@ -14,6 +14,14 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.Map;
 
+/**
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgResolver} which resolves given parameters by user to
+ * a {@link solutions.thex.reporeporter.svg.generator.badge.ProfileGenerator} instance.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class ProfileResolver extends SvgResolver {
 
     @Override

@@ -1,16 +1,21 @@
 package solutions.thex.reporeporter.config;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
+/**
+ * An entry point before unauthorized requests. It will log the requested URI, remote ip address and return a 401 error.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Component
 @Slf4j
 public final class UnauthorizedEntryPoint implements AuthenticationEntryPoint {

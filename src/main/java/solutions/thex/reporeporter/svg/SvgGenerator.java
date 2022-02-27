@@ -8,6 +8,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Implements {@link solutions.thex.reporeporter.soy.ISoyConfiguration}  to provide and abstract interface for
+ * different type of SVGs.Each derivative type must implement getTemplatePath() for .soy template file and
+ * getParameters() for the template parameters. For example see
+ * {@link solutions.thex.reporeporter.svg.generator.badge.LTRLinkGenerator}.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Component
 public abstract class SvgGenerator implements ISoyConfiguration {
 

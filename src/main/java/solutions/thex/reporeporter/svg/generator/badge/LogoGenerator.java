@@ -5,6 +5,13 @@ import solutions.thex.reporeporter.svg.SvgGenerator;
 
 import java.util.Map;
 
+/**
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgGenerator} which generates a logo badge SVG.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Builder
 public class LogoGenerator extends SvgGenerator {
 

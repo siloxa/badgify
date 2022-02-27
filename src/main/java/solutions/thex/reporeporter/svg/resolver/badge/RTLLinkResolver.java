@@ -6,6 +6,14 @@ import solutions.thex.reporeporter.svg.generator.badge.RTLLinkGenerator;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgResolver} which resolves given parameters by user to
+ * a {@link solutions.thex.reporeporter.svg.resolver.badge.RTLLinkResolver} instance.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class RTLLinkResolver extends SvgResolver {
 
     public String resolve(Map<String, String> params) throws IOException {

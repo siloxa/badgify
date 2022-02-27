@@ -4,6 +4,13 @@ import org.json.JSONObject;
 
 import java.util.Date;
 
+/**
+ * A default json template for error messages including http status code, timestamp, and message.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class ErrorAsJson {
 
     JSONObject json = new JSONObject();
@@ -15,7 +22,6 @@ public class ErrorAsJson {
         json.put("path", path);
         json.put("timestamp", new Date().toString());
     }
-
 
 
     public String toString() {

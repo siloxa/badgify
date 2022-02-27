@@ -14,7 +14,13 @@ import solutions.thex.reporeporter.svg.responseWrapper.badge.TitleAsResponseWrap
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-
+/**
+ * Controller for the badge requests.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @RestController
 @RequestMapping("/api/badge")
 public class BadgeController {
@@ -23,7 +29,7 @@ public class BadgeController {
 
     /**
      * Creates custom badges.
-     * <p>
+     *
      * Example: /link?title=repo-reporter&logo=github&theme=simple&size=s&dir=ltr&bg=f48024&color=fff
      * &link=https://repo-reporter.thex.solutions
      *
@@ -69,7 +75,7 @@ public class BadgeController {
 
     /**
      * Creates logo badges.
-     * <p>
+     *
      * Example: /logo?logo=github&theme=simple&size=s&bg=f48024&color=fff&link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
@@ -109,7 +115,7 @@ public class BadgeController {
 
     /**
      * Creates title badges.
-     * <p>
+     *
      * Example: /title?title=repo-reporter&theme=simple&size=s&bg=f48024&color=fff
      * &link=https://repo-reporter.thex.solutions
      *
@@ -150,7 +156,7 @@ public class BadgeController {
 
     /**
      * Creates profile badges.
-     * <p>
+     *
      * Example: /profile?id=TheXSolutions&theme=simple&size=s&bg=f48024&color=fff
      *
      * @param request The request.

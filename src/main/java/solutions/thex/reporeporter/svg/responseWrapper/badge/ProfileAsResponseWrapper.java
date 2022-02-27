@@ -9,6 +9,14 @@ import solutions.thex.reporeporter.svg.resolver.badge.ProfileResolver;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgAsResponseWrapper} which wrap up generated
+ * profile badge SVG as a response.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class ProfileAsResponseWrapper implements SvgAsResponseWrapper {
     @Override
     public ResponseEntity<String> wrap(Map<String, String> params) throws IOException {
