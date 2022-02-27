@@ -25,7 +25,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <spring-boot-admin.version>2.6.0</spring-boot-admin.version>
+        <spring-boot-admin.version>2.6.2</spring-boot-admin.version>
         <soy.version>2021-02-01</soy.version>
     </properties>
 
