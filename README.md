@@ -29,7 +29,7 @@
 	</a>
 </p>
 <p align="center">
-	<a href="https://thex.solutions/support">
+	<a href="https://thex.solutions/donate">
 		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=0x130a1a681fd6ec43fd23a6a46bcaea7f311595fe&logo=ethereum&bg=fff&color=413946&size=m" />
 	</a>
 </p>
