@@ -49,7 +49,7 @@ for generating profile badges you can use the following api with your desired Gi
 
 `repo-reporter.thex.solutions/api/badge/profile?id=<your-github-account-id>`
 
-[![](https://repo-reporter.thex.solutions/api/badge/profile?id=TheXSolutions&color=f48024)](https://github.com/TheXSolutions) [![](https://repo-reporter.thex.solutions/api/badge/profile?id=shuoros&color=f48024)](https://github.com/shuoros)
+[![](https://repo-reporter.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions) [![](https://repo-reporter.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
 
 ### Link Badge
 for generating link badges you can use the following api with two title and logo params :
