@@ -6,7 +6,6 @@ import java.util.Objects;
 public class ColorResolver {
 
     public static String resolve(String color) {
-        System.out.println(DefaultColor.getColor(color));
         if (DefaultColor.getColor(color) != null) {
             return Objects.requireNonNull(DefaultColor.getColor(color)).toString();
         }
