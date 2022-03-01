@@ -11,12 +11,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InlineLinkAsResponseWrapper implements InlineSvgAsResponseWrapper {
-
+public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     @Override
     public ResponseEntity<String> wrap(String design) throws IOException {
-        if (isDesignValid(design)) {
+        if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractDesign(design);
             if (params.size() == 0) {
@@ -37,7 +36,7 @@ public class InlineLinkAsResponseWrapper implements InlineSvgAsResponseWrapper {
 
     @Override
     public ResponseEntity<String> wrapShort(String design) throws IOException {
-        if (isDesignValid(design)) {
+        if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractShortDesign(design);
             if (params.size() == 4) {
@@ -58,7 +57,7 @@ public class InlineLinkAsResponseWrapper implements InlineSvgAsResponseWrapper {
 
     private Map<String, String> extractShortDesign(String design) {
         Map<String, String> params = new HashMap<>();
-        String[] designParts = design.split("-");
+        String[] designParts = design.split(super.splitter());
         if (designParts.length == 4) {
             params.put("title", designParts[0]);
             params.put("logo", designParts[1]);
@@ -74,7 +73,7 @@ public class InlineLinkAsResponseWrapper implements InlineSvgAsResponseWrapper {
 
     private Map<String, String> extractDesign(String design) {
         Map<String, String> params = new HashMap<>();
-        String[] designParts = design.split("-");
+        String[] designParts = design.split(super.splitter());
         if (designParts.length == 8) {
             params.put("direction", designParts[0]);
             params.put("size", designParts[1]);

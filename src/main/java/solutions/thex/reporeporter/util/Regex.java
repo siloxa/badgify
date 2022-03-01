@@ -16,7 +16,7 @@ public class Regex {
         // Match regex against str
         final Matcher matcher = pattern.matcher(str);
         // Use results...
-        return matcher.find();
+        return matcher.results().count() >= 4;
     }
 
 }

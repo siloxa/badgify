@@ -5,16 +5,36 @@ import solutions.thex.reporeporter.util.Regex;
 
 import java.io.IOException;
 
-public interface InlineSvgAsResponseWrapper {
+public abstract class InlineSvgAsResponseWrapper {
 
-    ResponseEntity<String> wrap(String design) throws IOException;
+    abstract public ResponseEntity<String> wrap(String design) throws IOException;
 
-    ResponseEntity<String> wrapShort(String design) throws IOException;
+    abstract public ResponseEntity<String> wrapShort(String design) throws IOException;
 
-    default Boolean isDesignValid(String design) {
-        return Regex.builder()//
-                .pattern("[a-zA-Z0-9+#+%]\\w*")//
-                .build().matches(design);
+    private String splitter;
+
+    public String splitter() {
+        return this.splitter;
+    }
+
+    public Boolean isDesignValid(String design) {
+        if (Regex.builder()//
+                .pattern("[^ ]+")//
+                .build().matches(design)) {
+            splitter = " ";
+            return true;
+        } else if (Regex.builder()//
+                .pattern("[^_]+")//
+                .build().matches(design)) {
+            splitter = "_";
+            return true;
+        } else if (Regex.builder()//
+                .pattern("[^-]+")//
+                .build().matches(design)) {
+            splitter = "-";
+            return true;
+        }
+        return false;
     }
 
 }
