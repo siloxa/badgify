@@ -9,6 +9,8 @@ public interface InlineSvgAsResponseWrapper {
 
     ResponseEntity<String> wrap(String design) throws IOException;
 
+    ResponseEntity<String> wrapShort(String design) throws IOException;
+
     default Boolean isDesignValid(String design) {
         return Regex.builder()//
                 .pattern("[a-zA-Z0-9+#+%]\\w*")//

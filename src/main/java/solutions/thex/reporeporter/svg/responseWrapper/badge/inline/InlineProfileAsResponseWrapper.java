@@ -31,6 +31,7 @@ public class InlineProfileAsResponseWrapper implements InlineSvgAsResponseWrappe
                 HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @Override
     public ResponseEntity<String> wrapShort(String design) throws IOException {
         if (isDesignValid(design)) {
             final Map<String, String> params =//
