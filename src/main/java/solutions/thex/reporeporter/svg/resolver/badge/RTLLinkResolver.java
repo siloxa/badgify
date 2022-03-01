@@ -2,6 +2,7 @@ package solutions.thex.reporeporter.svg.resolver.badge;
 
 import solutions.thex.reporeporter.svg.SvgResolver;
 import solutions.thex.reporeporter.svg.generator.badge.RTLLinkGenerator;
+import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
 
 import java.io.IOException;
 import java.util.Map;
@@ -28,8 +29,8 @@ public class RTLLinkResolver extends SvgResolver {
                 .logoXPosition(resolveLogoXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
-                .bg(params.get("bg"))//
-                .color(colorResolver(params.get("color")))//
+                .bg(ColorResolver.resolve(params.get("bg")))//
+                .color(ColorResolver.resolve(params.get("color")))//
                 .build().render();
     }
 

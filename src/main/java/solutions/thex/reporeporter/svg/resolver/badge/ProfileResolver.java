@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import solutions.thex.reporeporter.svg.SvgResolver;
 import solutions.thex.reporeporter.svg.generator.badge.ProfileGenerator;
+import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -32,8 +33,8 @@ public class ProfileResolver extends SvgResolver {
                 .title(resolveTitle(user))//
                 .link(resolveLink(params.get("id")))//
                 .width(resolveWidth(params.get("size"), idOrNameToResolveWidth(params.get("id"), user.getString("name"))))//
-                .bg(params.get("bg"))//
-                .color(colorResolver(params.get("color")))//
+                .bg(ColorResolver.resolve(params.get("bg")))//
+                .color(ColorResolver.resolve(params.get("color")))//
                 .id(user.getString("login"))//
                 .avatar(resolveAvatar(user.getString("avatar_url")))//
                 .build().render();
