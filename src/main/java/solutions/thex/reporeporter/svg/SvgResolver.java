@@ -1,6 +1,9 @@
 package solutions.thex.reporeporter.svg;
 
 import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.DefaultColor;
+import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.DefaultColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.RandomColorResolver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,6 +31,37 @@ public abstract class SvgResolver {
         file = fillColor(color, file);
         file = replaceScapeChars(file);
         return file;
+    }
+
+    protected String resolveBG(String bg) {
+        if (DefaultColor.getColor(bg) != null) {
+            return DefaultColorResolver.resolve(bg);
+        } else if ("random".equals(bg)) {
+            return RandomColorResolver.resolve();
+        }
+        return ColorResolver.resolve(bg);
+    }
+
+    protected String resolveColor(String color, String bg) {
+        if ("rgb(255, 255, 255)".equals(color)) {
+            if (DefaultColor.GREEN.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.YELLOW.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.ORANGE.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.GRAY.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.LAVENDER.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.CYAN.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.WHITE.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            }
+            return DefaultColor.WHITE.toString();
+        }
+        return ColorResolver.resolve(color);
     }
 
     private String retrieveLogoFile(String logo) {
