@@ -62,10 +62,10 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
             params.put("title", designParts[0]);
             params.put("logo", designParts[1]);
             params.put("bg", designParts[2]);
-            params.put("color", designParts[3]);
+            params.put("size", designParts[3]);
         }
         params.put("direction", "ltr");
-        params.put("size", "s");
+        params.put("color", "rgb(255, 255, 255)");
         params.put("theme", "simple");
         params.put("link", "#");
         return params;

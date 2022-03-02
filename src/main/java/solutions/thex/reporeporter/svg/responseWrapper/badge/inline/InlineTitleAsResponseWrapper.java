@@ -56,9 +56,9 @@ public class InlineTitleAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (designParts.length == 3) {
             params.put("title", designParts[0]);
             params.put("bg", designParts[1]);
-            params.put("color", designParts[2]);
+            params.put("size", designParts[2]);
         }
-        params.put("size", "s");
+        params.put("color", "rgb(255, 255, 255)");
         params.put("theme", "simple");
         params.put("link", "#");
         return params;

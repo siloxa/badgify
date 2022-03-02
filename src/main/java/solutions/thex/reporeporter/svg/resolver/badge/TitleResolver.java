@@ -2,7 +2,6 @@ package solutions.thex.reporeporter.svg.resolver.badge;
 
 import solutions.thex.reporeporter.svg.SvgResolver;
 import solutions.thex.reporeporter.svg.generator.badge.TitleGenerator;
-import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
 
 import java.io.IOException;
 import java.util.Map;
@@ -19,6 +18,8 @@ public class TitleResolver extends SvgResolver {
 
     @Override
     public String resolve(Map<String, String> params) throws IOException {
+        final String bg = resolveBG(params.get("bg"));
+
         return TitleGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
@@ -28,8 +29,8 @@ public class TitleResolver extends SvgResolver {
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
-                .bg(ColorResolver.resolve(params.get("bg")))//
-                .color(ColorResolver.resolve(params.get("color")))//
+                .bg(bg)//
+                .color(resolveColor(params.get("color"), bg))//
                 .build().render();
     }
 
