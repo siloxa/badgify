@@ -23,7 +23,6 @@ public class LogoGenerator extends SvgGenerator {
     private String width;
     private String height;
     private String bg;
-    private String color;
 
     @Override
     public Map<String, Object> getParameters() {
@@ -33,8 +32,7 @@ public class LogoGenerator extends SvgGenerator {
                 "link", link,//
                 "width", width,//
                 "height", height,//
-                "bg", bg,//
-                "color", color);
+                "bg", bg);
     }
 
     @Override
