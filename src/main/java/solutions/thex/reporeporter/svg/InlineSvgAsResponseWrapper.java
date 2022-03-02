@@ -20,17 +20,17 @@ public abstract class InlineSvgAsResponseWrapper {
     public Boolean isDesignValid(String design) {
         if (Regex.builder()//
                 .pattern("[^ ]+")//
-                .build().matches(design)) {
+                .build().matches(design).count() > 2) {
             splitter = " ";
             return true;
         } else if (Regex.builder()//
                 .pattern("[^_]+")//
-                .build().matches(design)) {
+                .build().matches(design).count() > 2) {
             splitter = "_";
             return true;
         } else if (Regex.builder()//
                 .pattern("[^-]+")//
-                .build().matches(design)) {
+                .build().matches(design).count() > 2) {
             splitter = "-";
             return true;
         }
