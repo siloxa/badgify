@@ -17,11 +17,15 @@ public class ColorResolver {
     }
 
     private static String rgbStringBuilder(Color rgb) {
-        return "rgb(" + rgb.getRed() + "," + rgb.getGreen() + "," + rgb.getBlue() + ")";
+        return "rgb(" + rgb.getRed() + ", " + rgb.getGreen() + ", " + rgb.getBlue() + ")";
     }
 
     private static String standardize3HexTo6Hex(String color) {
-        return (color.length() == 3) ? color.concat(color) : color;
+        return (color.length() == 3) ?//
+                String.valueOf(color.charAt(0)) + String.valueOf(color.charAt(0)) +//
+                        String.valueOf(color.charAt(1)) + String.valueOf(color.charAt(1)) +//
+                        String.valueOf(color.charAt(2)) + String.valueOf(color.charAt(2)) ://
+                color;
     }
 
     private static Color hex2Rgb(String colorStr) {
