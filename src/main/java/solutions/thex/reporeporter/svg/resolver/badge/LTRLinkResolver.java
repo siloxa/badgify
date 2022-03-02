@@ -19,18 +19,20 @@ public class LTRLinkResolver extends SvgResolver {
 
     @Override
     public String resolve(Map<String, String> params) throws IOException {
+        final String bg = resolveBG(params.get("bg"));
+
         return LTRLinkGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("title"))//
-                .logo(resolveLogo(params.get("logo"), params.get("color")))//
+                .logo(resolveLogo(params.get("logo"), resolveColor(params.get("color"), bg)))//
                 .link(params.get("link"))//
                 .textLength(resolveTextLength(params.get("title"), params.get("size")))
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
-                .bg(ColorResolver.resolve(params.get("bg")))//
-                .color(ColorResolver.resolve(params.get("color")))//
+                .bg(bg)//
+                .color(resolveColor(params.get("color"), bg))//
                 .build().render();
     }
 
