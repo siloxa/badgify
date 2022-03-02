@@ -2,14 +2,18 @@ package solutions.thex.reporeporter.svg.resolver.badge.util;
 
 public enum DefaultColor {
 
-    RED("red", 147, 2, 0),
-    BLUE("blue", 15, 127, 191),
-    GREEN("green", 121, 181, 16),
-    YELLOW("yellow", 204, 174, 4),
-    ORANGE("orange", 219, 132, 0),
-    PURPLE("purple", 120, 17, 64),
-    PINK("pink", 184, 17, 159),
-    GREY("grey", 115, 115, 115),
+    RED("red", 190, 30, 45),
+    BLUE("blue", 28, 117, 188),
+    GREEN("green", 120, 193, 67),
+    YELLOW("yellow", 231, 209, 35),
+    ORANGE("orange", 245, 119, 31),
+    PURPLE("purple", 127, 63, 152),
+    PINK("pink", 255, 17, 125),
+    BROWN("brown", 117, 76, 41),
+    INDIGO("indigo", 38, 34, 98),
+    GRAY("gray", 115, 115, 115),
+    LAVENDER("lavender", 199, 153, 198),
+    CYAN("cyan", 111, 204, 221),
     BLACK("black", 0, 0, 0),
     WHITE("white", 255, 255, 255);
 
@@ -32,6 +36,10 @@ public enum DefaultColor {
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
