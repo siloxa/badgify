@@ -1,4 +1,4 @@
-package solutions.thex.reporeporter.resolver.badge.util.colorResolver;
+package solutions.thex.reporeporter.resolver.badge.util.color;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
