@@ -2,8 +2,8 @@ package solutions.thex.reporeporter.svg;
 
 import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
 import solutions.thex.reporeporter.svg.resolver.badge.util.DefaultColor;
-import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.DefaultColorResolver;
-import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.RandomColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.color.DefaultColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.color.RandomColorResolver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,8 +27,13 @@ public abstract class SvgResolver {
     public abstract String resolve(Map<String, String> params) throws IOException;
 
     protected String resolveLogo(String logo, String color) {
+        if (logo.split("\\.").length < 2)
+            logo = "font-awesome/" + logo;
+        else
+            logo = logo.split("\\.")[0] + "/" + logo.split("\\.")[1];
         String file = retrieveLogoFile(logo);
-        file = fillColor(color, file);
+        if (logo.startsWith("font-awesome/"))
+            file = fillColor(color, file);
         file = replaceScapeChars(file);
         return file;
     }
@@ -69,7 +74,8 @@ public abstract class SvgResolver {
                 new InputStreamReader(//
                         Objects.requireNonNull(//
                                 Thread.currentThread().getContextClassLoader()//
-                                        .getResourceAsStream("static/logos/" + logo + ".svg")),
+                                        .getResourceAsStream("static/" + logo.split("/")[0]//
+                                                + "/" + logo.split("/")[1] + ".svg")),
                         StandardCharsets.UTF_8)).lines()//
                 .collect(Collectors.joining("\n"));
     }
