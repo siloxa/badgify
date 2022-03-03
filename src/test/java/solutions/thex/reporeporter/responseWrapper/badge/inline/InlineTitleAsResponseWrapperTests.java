@@ -87,7 +87,7 @@ public class InlineTitleAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithWhiteSpaceSplitter() throws IOException {
         // Given
-        String design = "repo-reporter black white";
+        String design = "repo-reporter black s";
 
         // When
         var response = inlineTitleAsResponseWrapper.wrapShort(design);
@@ -99,7 +99,7 @@ public class InlineTitleAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithUnderLineSplitter() throws IOException {
         // Given
-        String design = "repo-reporter_black_white";
+        String design = "repo-reporter_black_s";
 
         // When
         var response = inlineTitleAsResponseWrapper.wrapShort(design);
@@ -111,7 +111,7 @@ public class InlineTitleAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithHyphenSplitter() throws IOException {
         // Given
-        String design = "repo_reporter-black-white";
+        String design = "repo_reporter-black-s";
 
         // When
         var response = inlineTitleAsResponseWrapper.wrapShort(design);

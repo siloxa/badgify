@@ -124,7 +124,7 @@ public class InlineBadgeControllerTests {
     void shortLinkBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/link";
-        uri += "/repo-reporter github black white";
+        uri += "/repo-reporter github black s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -140,7 +140,7 @@ public class InlineBadgeControllerTests {
     void shortLinkBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/link";
-        uri += "/repo-reporter_github_black_white";
+        uri += "/repo-reporter_github_black_s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -156,7 +156,7 @@ public class InlineBadgeControllerTests {
     void shortLinkBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/link";
-        uri += "/repo_reporter-github-black-white";
+        uri += "/repo_reporter-github-black-s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -254,7 +254,7 @@ public class InlineBadgeControllerTests {
     void shortLogoBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/logo";
-        uri += "/github black white";
+        uri += "/github black s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -270,7 +270,7 @@ public class InlineBadgeControllerTests {
     void shortLogoBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/logo";
-        uri += "/github_black_white";
+        uri += "/github_black_s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -286,7 +286,7 @@ public class InlineBadgeControllerTests {
     void shortLogoBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/logo";
-        uri += "/github-black-white";
+        uri += "/github-black-s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -384,7 +384,7 @@ public class InlineBadgeControllerTests {
     void shortTitleBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/title";
-        uri += "/repo-reporter black white";
+        uri += "/repo-reporter black s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -400,7 +400,7 @@ public class InlineBadgeControllerTests {
     void shortTitleBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/title";
-        uri += "/repo-reporter_black_white";
+        uri += "/repo-reporter_black_s";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -416,7 +416,7 @@ public class InlineBadgeControllerTests {
     void shortTitleBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/title";
-        uri += "/repo_reporter-black-white";
+        uri += "/repo_reporter-black-s";
 
         // When
         MvcResult mvcResult = mvc.perform(//

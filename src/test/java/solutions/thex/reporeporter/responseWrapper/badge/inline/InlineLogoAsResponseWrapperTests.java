@@ -87,7 +87,7 @@ public class InlineLogoAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithWhiteSpaceSplitter() throws IOException {
         // Given
-        String design = "github black white";
+        String design = "github black s";
 
         // When
         var response = inlineLogoAsResponseWrapper.wrapShort(design);
@@ -99,7 +99,7 @@ public class InlineLogoAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithUnderLineSplitter() throws IOException {
         // Given
-        String design = "github_black_white";
+        String design = "github_black_s";
 
         // When
         var response = inlineLogoAsResponseWrapper.wrapShort(design);
@@ -111,7 +111,7 @@ public class InlineLogoAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithHyphenSplitter() throws IOException {
         // Given
-        String design = "github-black-white";
+        String design = "github-black-s";
 
         // When
         var response = inlineLogoAsResponseWrapper.wrapShort(design);

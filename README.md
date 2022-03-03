@@ -37,9 +37,12 @@
 	<img src="https://repo-reporter.thex.solutions/api/badge/logo?logo=heart&bg=fff&color=f23d96&size=s" />
 </p>
 
-## What Is In V1.0.0
-- fully customizable api for generating online custom badges.
-- link, logo, title and GitHub profile badges.
+## What Is In V1.1.0
+- support for inline query params.
+- support for short inline query params(only required).
+- support for 3 different param splitter(underscore, hyphen, space).
+- add default colors. you can now pass name of color beside hex.
+- add random color generator for badges backgrounds or text colors.
 
 ## How To Use
 Here is a quick example of how to use the api. For more information, please visit the [repo-reporter website](https://repo-reporter.thex.solutions/) or read the [docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).
