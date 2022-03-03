@@ -1,6 +1,10 @@
 package solutions.thex.reporeporter.svg;
 
-import java.awt.*;
+import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.DefaultColor;
+import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.DefaultColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.RandomColorResolver;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,6 +33,37 @@ public abstract class SvgResolver {
         return file;
     }
 
+    protected String resolveBG(String bg) {
+        if (DefaultColor.getColor(bg) != null) {
+            return DefaultColorResolver.resolve(bg);
+        } else if ("random".equals(bg)) {
+            return RandomColorResolver.resolve();
+        }
+        return ColorResolver.resolve(bg);
+    }
+
+    protected String resolveColor(String color, String bg) {
+        if ("rgb(255, 255, 255)".equals(color)) {
+            if (DefaultColor.GREEN.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.YELLOW.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.ORANGE.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.GRAY.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.LAVENDER.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.CYAN.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            } else if (DefaultColor.WHITE.toString().equals(bg)) {
+                return DefaultColor.BLACK.toString();
+            }
+            return DefaultColor.WHITE.toString();
+        }
+        return ColorResolver.resolve(color);
+    }
+
     private String retrieveLogoFile(String logo) {
         return new BufferedReader(//
                 new InputStreamReader(//
@@ -42,7 +77,7 @@ public abstract class SvgResolver {
     private String fillColor(String color, String file) {
         String start = file.substring(0, file.indexOf("<path") + 6);
         String end = file.substring(file.indexOf("<path") + 5);
-        color = "fill=\"" + colorResolver(color) + "\"";
+        color = "fill=\"" + ColorResolver.resolve(color) + "\"";
         return start + color + end;
     }
 
@@ -80,26 +115,6 @@ public abstract class SvgResolver {
             case "l" -> "35";
             default -> "";
         };
-    }
-
-    protected String colorResolver(String color) {
-        if ("#".concat(color).matches("^#(?:[0-9a-fA-F]{3}){1,2}$")) {
-            Color rgb = hex2Rgb("#".concat(standardize3HexTo6Hex(color)));
-            return rgbStringBuilder(rgb);
-        }
-        return color;
-    }
-
-    private String rgbStringBuilder(Color rgb) {
-        return "rgb(" + rgb.getRed() + "," + rgb.getGreen() + "," + rgb.getBlue() + ")";
-    }
-
-    private String standardize3HexTo6Hex(String color) {
-        return (color.length() == 3) ? color.concat(color) : color;
-    }
-
-    private Color hex2Rgb(String colorStr) {
-        return Color.decode(colorStr);
     }
 
 }

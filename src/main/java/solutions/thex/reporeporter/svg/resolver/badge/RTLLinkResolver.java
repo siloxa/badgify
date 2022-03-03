@@ -2,6 +2,7 @@ package solutions.thex.reporeporter.svg.resolver.badge;
 
 import solutions.thex.reporeporter.svg.SvgResolver;
 import solutions.thex.reporeporter.svg.generator.badge.RTLLinkGenerator;
+import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
 
 import java.io.IOException;
 import java.util.Map;
@@ -17,19 +18,21 @@ import java.util.Map;
 public class RTLLinkResolver extends SvgResolver {
 
     public String resolve(Map<String, String> params) throws IOException {
+        final String bg = resolveBG(params.get("bg"));
+
         return RTLLinkGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("title"))//
-                .logo(resolveLogo(params.get("logo"), params.get("color")))//
+                .logo(resolveLogo(params.get("logo"), resolveColor(params.get("color"), bg)))//
                 .link(params.get("link"))//
                 .textLength(resolveTextLength(params.get("title"), params.get("size")))
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
                 .logoXPosition(resolveLogoXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
-                .bg(params.get("bg"))//
-                .color(colorResolver(params.get("color")))//
+                .bg(bg)//
+                .color(resolveColor(params.get("color"), bg))//
                 .build().render();
     }
 

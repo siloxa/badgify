@@ -18,16 +18,17 @@ public class LogoResolver extends SvgResolver {
 
     @Override
     public String resolve(Map<String, String> params) throws IOException {
+        final String bg = resolveBG(params.get("bg"));
+
         return LogoGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("logo"))//
-                .logo(resolveLogo(params.get("logo"), params.get("color")))//
+                .logo(resolveLogo(params.get("logo"), resolveColor(params.get("color"), bg)))//
                 .link(params.get("link"))//
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
-                .bg(params.get("bg"))//
-                .color(colorResolver(params.get("color")))//
+                .bg(bg)//
                 .build().render();
     }
 

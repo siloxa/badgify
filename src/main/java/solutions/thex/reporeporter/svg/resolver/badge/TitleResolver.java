@@ -18,6 +18,8 @@ public class TitleResolver extends SvgResolver {
 
     @Override
     public String resolve(Map<String, String> params) throws IOException {
+        final String bg = resolveBG(params.get("bg"));
+
         return TitleGenerator.builder()//
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
@@ -27,8 +29,8 @@ public class TitleResolver extends SvgResolver {
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
-                .bg(params.get("bg"))//
-                .color(colorResolver(params.get("color")))//
+                .bg(bg)//
+                .color(resolveColor(params.get("color"), bg))//
                 .build().render();
     }
 
