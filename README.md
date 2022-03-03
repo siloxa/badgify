@@ -24,6 +24,9 @@
     <a href="https://discord.gg/u3SsX89J">
       		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20server&logo=discord&bg=5858be&size=m" />
     </a>
+    <a href="https://t.me/TheXSolutions">
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20group&logo=telegram&bg=178baf&size=m" />
+    </a>
 </p>
 <p align="center">
 	If you like this project, please buy us a coffee!
