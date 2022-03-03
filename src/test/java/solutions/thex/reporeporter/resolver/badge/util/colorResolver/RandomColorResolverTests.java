@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
 import solutions.thex.reporeporter.svg.resolver.badge.util.DefaultColor;
-import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.RandomColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.color.RandomColorResolver;
 
 import java.util.ArrayList;
 import java.util.Arrays;

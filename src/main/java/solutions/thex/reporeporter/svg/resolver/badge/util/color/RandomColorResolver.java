@@ -1,4 +1,4 @@
-package solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver;
+package solutions.thex.reporeporter.svg.resolver.badge.util.color;
 
 import solutions.thex.reporeporter.svg.resolver.badge.util.ColorResolver;
 import solutions.thex.reporeporter.svg.resolver.badge.util.DefaultColor;

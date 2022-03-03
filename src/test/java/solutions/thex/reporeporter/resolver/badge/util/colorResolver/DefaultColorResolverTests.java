@@ -3,7 +3,7 @@ package solutions.thex.reporeporter.resolver.badge.util.colorResolver;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
-import solutions.thex.reporeporter.svg.resolver.badge.util.colorResolver.DefaultColorResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.util.color.DefaultColorResolver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
