@@ -1,4 +1,4 @@
-# repo-reporter Release Notes
+# badgify Release Notes
 
 ## next release
 

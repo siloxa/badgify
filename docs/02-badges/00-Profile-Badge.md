@@ -2,19 +2,19 @@
 
 profile badges are a way to show your profile to other users as an SVG image.
 
-[![](https://repo-reporter.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions)
+[![](https://badgify.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions)
 
 
 ## Path
-**`repo-reporter.thex.solutions/api/badge/profile`**
+**`badgify.thex.solutions/api/badge/profile`**
 
 ## Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/profile/<THEME>-<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>`
+`badgify.thex.solutions/api/badge/inline/profile/<THEME>-<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>`
 
 ## Short Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>`
+`badgify.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>`
 
 ## Parameters
 
