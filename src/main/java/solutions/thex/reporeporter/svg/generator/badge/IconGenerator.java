@@ -26,7 +26,6 @@ public class IconGenerator extends SvgGenerator {
 
     @Override
     public Map<String, Object> getParameters() {
-        System.out.println(icon + " " + title + " " + link + " " + width + " " + height + " " + bg);
         return Map.of(//
                 "icon", icon,//
                 "title", title,//
