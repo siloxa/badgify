@@ -3,41 +3,41 @@
 link badges are badges with two part, one icon and one title. they are used as a link to a social media or anything
 else.
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=purple)
+![](https://badgify.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=purple)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=yellow&size=m)
+![](https://badgify.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=yellow&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=blue&size=l)
+![](https://badgify.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=blue&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=green&size=l)
+![](https://badgify.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=green&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=pink&size=m)
+![](https://badgify.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=pink&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=red)
+![](https://badgify.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=red)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=lavender&dir=rtl)
+![](https://badgify.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=lavender&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=brown&size=m&dir=rtl)
+![](https://badgify.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=brown&size=m&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=gray&size=l&dir=rtl)
+![](https://badgify.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=gray&size=l&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=orange&size=l&dir=rtl)
+![](https://badgify.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=orange&size=l&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=cyan&size=m&dir=rtl)
+![](https://badgify.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=cyan&size=m&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=white&dir=rtl)
+![](https://badgify.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=white&dir=rtl)
 
 ## Path
 
-**`repo-reporter.thex.solutions/api/badge/link`**
+**`badgify.thex.solutions/api/badge/link`**
 
 ## Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/link/<DIRCTION>-<SIZE>-<THEME>-<TITLE>-<LOGO>-<BG>-<COLOR>-<LINK>`
+`badgify.thex.solutions/api/badge/inline/link/<DIRCTION>-<SIZE>-<THEME>-<TITLE>-<LOGO>-<BG>-<COLOR>-<LINK>`
 
 ## Short Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>`
+`badgify.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>`
 
 ## Parameters
 

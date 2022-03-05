@@ -2,29 +2,29 @@
 
 Title badges are just a simple title in badge.
 
-![](https://repo-reporter.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=purple)
+![](https://badgify.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=purple)
 
-![](https://repo-reporter.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=red&size=m)
+![](https://badgify.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=red&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=orange&size=l)
+![](https://badgify.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=orange&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=green&size=l)
+![](https://badgify.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=green&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=lavender&size=m)
+![](https://badgify.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=lavender&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=brown)
+![](https://badgify.thex.solutions/api/badge/title?title=hey%20i%20am%20title!&bg=brown)
 
 ## Path
 
-**`repo-reporter.thex.solutions/api/badge/title`**
+**`badgify.thex.solutions/api/badge/title`**
 
 ## Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/title/<SIZE>-<THEME>-<TITLE>-<BG>-<COLOR>-<LINK>`
+`badgify.thex.solutions/api/badge/inline/title/<SIZE>-<THEME>-<TITLE>-<BG>-<COLOR>-<LINK>`
 
 ## Short Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>`
+`badgify.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>`
 
 ## Parameters
 
