@@ -25,7 +25,7 @@ public class InlineLinkAsResponseWrapperTests {
     @Test
     void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenAnyOfParamsNotProvided() throws IOException {
         // Given
-        // missing logo param for example
+        // missing icon param for example
         String design = "ltr_s_simple_repo-reporter_black_white_#";
 
         // When
@@ -74,7 +74,7 @@ public class InlineLinkAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenAnyOfRequiredParamsNotProvided() throws IOException {
         // Given
-        // missing logo param for example
+        // missing icon param for example
         String design = "repo-reporter_black_white";
 
         // When

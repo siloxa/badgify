@@ -1,0 +1,37 @@
+{namespace solutions.thex.reporeporter}
+{template .svg kind="text"}
+
+{@param title: string}
+{@param icon: string}
+{@param link: string}
+{@param width: string}
+{@param height: string}
+{@param bg: string}
+
+{literal}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{/literal}{$width}{literal}" height="{/literal}{$height}{literal}" role="img" aria-label="{/literal}{$title}{literal}">
+    <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link"/>
+    <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-general-link"/>
+    <style xmlns="" lang="en" type="text/css" id="dark-mode-custom-style"/>
+    <style xmlns="" lang="en" type="text/css" id="dark-mode-native-style"/>
+    <title>{/literal}{$title}{literal}</title>
+    <a target="_blank" xlink:href="{/literal}{$link}{literal}">
+        <linearGradient id="s" x2="0" y2="100%">
+            <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+            <stop offset="1" stop-opacity=".1"/>
+        </linearGradient>
+        <clipPath id="r">
+            <rect width="{/literal}{$width}{literal}" height="{/literal}{$height}{literal}" rx="3" fill="#fff"/>
+        </clipPath>
+        <g clip-path="url(#r)">
+            <rect width="0" height="{/literal}{$height}{literal}" fill="#555"/>
+            <rect x="0" width="{/literal}{$width}{literal}" height="{/literal}{$height}{literal}" fill="{/literal}{$bg}{literal}"/>
+            <rect width="{/literal}{$width}{literal}" height="{/literal}{$height}{literal}" fill="url(#s)"/>
+        </g>
+        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+            <image x="4" y="4" width="16" height="16" xlink:href="{/literal}{$icon}{literal}"/>
+        </g>
+    </a>
+</svg>
+{/literal}
+{/template}

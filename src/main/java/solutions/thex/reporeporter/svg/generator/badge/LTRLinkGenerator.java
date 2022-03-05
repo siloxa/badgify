@@ -18,7 +18,7 @@ public class LTRLinkGenerator extends SvgGenerator {
     private String theme;
     private String size;
     private String title;
-    private String logo;
+    private String icon;
     private String link;
     private String textLength;
     private String titleXPosition;
@@ -31,7 +31,7 @@ public class LTRLinkGenerator extends SvgGenerator {
     public Map<String, Object> getParameters() {
         return Map.of(//
                 "title", title, //
-                "logo", logo, //
+                "icon", icon, //
                 "link", link, //
                 "textLength", textLength, //
                 "titleXPosition", titleXPosition, //

@@ -42,7 +42,7 @@ public class InlineBadgeControllerTests {
     void linkBadgeMustReturn422WhenOneOfParamsNotProvided() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/link";
-        // missing logo param for example
+        // missing icon param for example
         uri += "/ltr_s_simple_repo-reporter_black_white_thex.solutions";
 
         // When
@@ -107,7 +107,7 @@ public class InlineBadgeControllerTests {
     void shortLinkBadgeMustReturn422WhenOneOfParamsNotProvided() throws Exception {
         // Given
         String uri = host + "/api/badge/inline/short/link";
-        // missing logo param for example
+        // missing icon param for example
         uri += "/repo-reporter_black_white";
 
         // When
@@ -169,10 +169,10 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void logoBadgeMustReturn422WhenOneOfParamsNotProvided() throws Exception {
+    void iconBadgeMustReturn422WhenOneOfParamsNotProvided() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/logo";
-        // missing logo param for example
+        String uri = host + "/api/badge/inline/icon";
+        // missing icon param for example
         uri += "/s_simple_black_white_thex.solutions";
 
         // When
@@ -186,9 +186,9 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void logoBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
+    void iconBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/logo";
+        String uri = host + "/api/badge/inline/icon";
         uri += "/s simple github black white thex.solutions";
 
         // When
@@ -202,9 +202,9 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void logoBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
+    void iconBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/logo";
+        String uri = host + "/api/badge/inline/icon";
         uri += "/s_simple_github_black_white_thex.solutions";
 
         // When
@@ -218,9 +218,9 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void logoBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
+    void iconBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/logo";
+        String uri = host + "/api/badge/inline/icon";
         uri += "/s-simple-github-black-white-thex.solutions";
 
         // When
@@ -234,10 +234,10 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void shortLogoBadgeMustReturn422WhenOneOfParamsNotProvided() throws Exception {
+    void shortIconBadgeMustReturn422WhenOneOfParamsNotProvided() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/short/logo";
-        // missing logo param for example
+        String uri = host + "/api/badge/inline/short/icon";
+        // missing icon param for example
         uri += "/black_white";
 
         // When
@@ -251,9 +251,9 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void shortLogoBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
+    void shortIconBadgeMustReturn200WhenAllParamsProvidedWithWhiteSpaceSplitter() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/short/logo";
+        String uri = host + "/api/badge/inline/short/icon";
         uri += "/github black s";
 
         // When
@@ -267,9 +267,9 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void shortLogoBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
+    void shortIconBadgeMustReturn200WhenAllParamsProvidedWithUnderLineSplitter() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/short/logo";
+        String uri = host + "/api/badge/inline/short/icon";
         uri += "/github_black_s";
 
         // When
@@ -283,9 +283,9 @@ public class InlineBadgeControllerTests {
     }
 
     @Test
-    void shortLogoBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
+    void shortIconBadgeMustReturn200WhenAllParamsProvidedWithHyphenSplitter() throws Exception {
         // Given
-        String uri = host + "/api/badge/inline/short/logo";
+        String uri = host + "/api/badge/inline/short/icon";
         uri += "/github-black-s";
 
         // When

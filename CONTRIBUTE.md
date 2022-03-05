@@ -6,7 +6,7 @@ if you want to contribute to the repo-reporter project, this contributing guide 
 
 If you are good at working with SVGs, please help us to extend our theme library. You can join our discord server to discuss more about ideas.
 
-[![](https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20server&logo=discord&bg=5858be)](https://discord.gg/u3SsX89J)
+[![](https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20server&icon=discord&bg=5858be)](https://discord.gg/u3SsX89J)
 
 ## start contributing
 

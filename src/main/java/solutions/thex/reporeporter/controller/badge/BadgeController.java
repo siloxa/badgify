@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import solutions.thex.reporeporter.log.ControllerLogger;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.LinkAsResponseWrapper;
-import solutions.thex.reporeporter.svg.responseWrapper.badge.LogoAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.badge.IconAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.ProfileAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.TitleAsResponseWrapper;
 
@@ -30,12 +30,12 @@ public class BadgeController {
     /**
      * Creates custom badges.
      *
-     * Example: /link?title=repo-reporter&logo=github&theme=simple&size=s&dir=ltr&bg=f48024&color=fff
+     * Example: /link?title=repo-reporter&icon=github&theme=simple&size=s&dir=ltr&bg=f48024&color=fff
      * &link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
      * @param title   The title of the badge.
-     * @param logo    The logo of the badge.
+     * @param icon    The icon of the badge.
      * @param link    The link of the badge.
      * @param bg      The background color of the badge.
      * @param size    The size of the badge.
@@ -46,8 +46,8 @@ public class BadgeController {
     public ResponseEntity<String> linkBadge(HttpServletRequest request,//
                                             @RequestParam(value = "title", required = false, defaultValue = "-1")//
                                                     String title,
-                                            @RequestParam(value = "logo", required = false, defaultValue = "-1")//
-                                                    String logo,
+                                            @RequestParam(value = "icon", required = false, defaultValue = "-1")//
+                                                    String icon,
                                             @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                     String theme,//
                                             @RequestParam(value = "size", required = false, defaultValue = "s")//
@@ -60,11 +60,11 @@ public class BadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("linkBadge", request, title, logo, theme, size, direction, link, bg, color);
+        logger.payloadLog("linkBadge", request, title, icon, theme, size, direction, link, bg, color);
 
         return new LinkAsResponseWrapper().wrap(Map.of(//
                 "title", title,//
-                "logo", logo,//
+                "icon", icon,//
                 "theme", theme,//
                 "size", size,//
                 "direction", direction,//
@@ -74,12 +74,12 @@ public class BadgeController {
     }
 
     /**
-     * Creates logo badges.
+     * Creates icon badges.
      *
-     * Example: /logo?logo=github&theme=simple&size=s&bg=f48024&color=fff&link=https://repo-reporter.thex.solutions
+     * Example: /icon?icon=github&theme=simple&size=s&bg=f48024&color=fff&link=https://repo-reporter.thex.solutions
      *
      * @param request The request.
-     * @param logo    The logo of the badge.
+     * @param icon    The icon of the badge.
      * @param theme   The theme of the badge.
      * @param size    The size of the badge.
      * @param link    The link of the badge.
@@ -88,10 +88,10 @@ public class BadgeController {
      * @return The badge.
      * @throws Exception If the badge could not be created.
      */
-    @GetMapping(path = "/logo", produces = "image/svg+xml")
-    public ResponseEntity<String> logoBadge(HttpServletRequest request,//
-                                            @RequestParam(value = "logo", required = false, defaultValue = "-1")//
-                                                    String logo,
+    @GetMapping(path = "/icon", produces = "image/svg+xml")
+    public ResponseEntity<String> iconBadge(HttpServletRequest request,//
+                                            @RequestParam(value = "icon", required = false, defaultValue = "-1")//
+                                                    String icon,
                                             @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                     String theme,//
                                             @RequestParam(value = "size", required = false, defaultValue = "s")//
@@ -102,10 +102,10 @@ public class BadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("logoBadge", request, logo, theme, size, link, bg, color);
+        logger.payloadLog("iconBadge", request, icon, theme, size, link, bg, color);
 
-        return new LogoAsResponseWrapper().wrap(Map.of(//
-                "logo", logo,//
+        return new IconAsResponseWrapper().wrap(Map.of(//
+                "icon", icon,//
                 "theme", theme,//
                 "size", size,//
                 "link", link,//

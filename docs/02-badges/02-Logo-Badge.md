@@ -1,34 +1,34 @@
-# Logo Badge
+# Icon Badge
 
-logo badges are simple, but they are also a great way to show off thechnologie of your project by using its language logo or any other use.
+icon badges are simple, but they are also a great way to show off thechnologie of your project by using its language icon or any other use.
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=github&bg=purple)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=github&bg=purple)
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=github&bg=yellow&size=m)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=github&bg=yellow&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=github&bg=orange&size=l)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=github&bg=orange&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=github&bg=gray&size=l)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=github&bg=gray&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=github&bg=green&size=m)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=github&bg=green&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=github&bg=pink)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=github&bg=pink)
 
 ## Path
 
-**`repo-reporter.thex.solutions/api/badge/logo`**
+**`repo-reporter.thex.solutions/api/badge/icon`**
 
 ## Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/logo/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>`
+`repo-reporter.thex.solutions/api/badge/inline/icon/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>`
 
 ## Short Inline
 
-`repo-reporter.thex.solutions/api/badge/inline/short/logo/<LOGO>-<BG>-<SIZE>`
+`repo-reporter.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>`
 
 ## Parameters
 
-logo: **`string`** - the logo of the badge (required)
+icon: **`string`** - the icon of the badge (required)
 
 theme: **`string`** - the theme of the badge (default: `simple`)
 
