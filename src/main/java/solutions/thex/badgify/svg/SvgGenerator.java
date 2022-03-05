@@ -25,7 +25,7 @@ public abstract class SvgGenerator implements ISoyConfiguration {
 
     @Override
     public String getName() {
-        return "solutions.thex.reporeporter.svg";
+        return "solutions.thex.badgify.svg";
     }
 
     @Override
