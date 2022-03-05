@@ -46,7 +46,7 @@ public class BadgeControllerTests {
         // When
         MvcResult mvcResult = mvc.perform(//
                         MockMvcRequestBuilders.get(uri)
-                                .queryParam("logo", "github"))//
+                                .queryParam("icon", "github"))//
                 .andReturn();
 
         // Then
@@ -55,7 +55,7 @@ public class BadgeControllerTests {
     }
 
     @Test
-    void linkBadgeMustReturn422WhenLogoNotProvided() throws Exception {
+    void linkBadgeMustReturn422WhenIconNotProvided() throws Exception {
         // Given
         String uri = host + "/api/badge/link";
 
@@ -71,7 +71,7 @@ public class BadgeControllerTests {
     }
 
     @Test
-    void linkBadgeMustReturn200WhenBothLogoAndTitleProvided() throws Exception {
+    void linkBadgeMustReturn200WhenBothIconAndTitleProvided() throws Exception {
         // Given
         String uri = host + "/api/badge/link";
 
@@ -79,7 +79,7 @@ public class BadgeControllerTests {
         MvcResult mvcResult = mvc.perform(//
                         MockMvcRequestBuilders.get(uri)
                                 .queryParam("title", "repo-reporter")//
-                                .queryParam("logo", "github"))//
+                                .queryParam("icon", "github"))//
                 .andReturn();
 
         // Then
@@ -88,9 +88,9 @@ public class BadgeControllerTests {
     }
 
     @Test
-    void logoBadgeMustReturn422WhenLogoNotProvided() throws Exception {
+    void iconBadgeMustReturn422WhenIconNotProvided() throws Exception {
         // Given
-        String uri = host + "/api/badge/logo";
+        String uri = host + "/api/badge/icon";
 
         // When
         MvcResult mvcResult = mvc.perform(//
@@ -103,14 +103,14 @@ public class BadgeControllerTests {
     }
 
     @Test
-    void logoBadgeMustReturn422WhenLogoProvided() throws Exception {
+    void iconBadgeMustReturn422WhenIconProvided() throws Exception {
         // Given
-        String uri = host + "/api/badge/logo";
+        String uri = host + "/api/badge/icon";
 
         // When
         MvcResult mvcResult = mvc.perform(//
                         MockMvcRequestBuilders.get(uri)
-                                .queryParam("logo", "github"))//
+                                .queryParam("icon", "github"))//
                 .andReturn();
 
         // Then

@@ -20,7 +20,7 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractDesign(design);
             if (params.size() == 0) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Title or logo not provided!").toString(),//
+                        new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
@@ -41,7 +41,7 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractShortDesign(design);
             if (params.size() == 4) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Title or logo not provided!").toString(),//
+                        new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
@@ -60,7 +60,7 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
         String[] designParts = design.split(super.splitter());
         if (designParts.length == 4) {
             params.put("title", designParts[0]);
-            params.put("logo", designParts[1]);
+            params.put("icon", designParts[1]);
             params.put("bg", designParts[2]);
             params.put("size", designParts[3]);
         }
@@ -79,7 +79,7 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
             params.put("size", designParts[1]);
             params.put("theme", designParts[2]);
             params.put("title", designParts[3]);
-            params.put("logo", designParts[4]);
+            params.put("icon", designParts[4]);
             params.put("bg", designParts[5]);
             params.put("color", designParts[6]);
             params.put("link", designParts[7]);

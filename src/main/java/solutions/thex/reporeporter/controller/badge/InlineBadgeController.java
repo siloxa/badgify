@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import solutions.thex.reporeporter.log.ControllerLogger;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineLinkAsResponseWrapper;
-import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineLogoAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineIconAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineProfileAsResponseWrapper;
 import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineTitleAsResponseWrapper;
 
@@ -36,20 +36,20 @@ public class InlineBadgeController {
         return new InlineLinkAsResponseWrapper().wrapShort(desing);
     }
 
-    @GetMapping(path = "/logo/{design}", produces = "image/svg+xml")
-    public ResponseEntity<String> inlineLogoBadge(HttpServletRequest request,//
+    @GetMapping(path = "/icon/{design}", produces = "image/svg+xml")
+    public ResponseEntity<String> inlineIconBadge(HttpServletRequest request,//
                                                   @PathVariable(value = "design") String desing) throws IOException {
-        logger.payloadLog("inlineLogoBadge", request, desing);
+        logger.payloadLog("inlineIconBadge", request, desing);
 
-        return new InlineLogoAsResponseWrapper().wrap(desing);
+        return new InlineIconAsResponseWrapper().wrap(desing);
     }
 
-    @GetMapping(path = "/short/logo/{design}", produces = "image/svg+xml")
-    public ResponseEntity<String> shortInlineLogoBadge(HttpServletRequest request,//
+    @GetMapping(path = "/short/icon/{design}", produces = "image/svg+xml")
+    public ResponseEntity<String> shortInlineIconBadge(HttpServletRequest request,//
                                                        @PathVariable(value = "design") String desing) throws IOException {
-        logger.payloadLog("shortInlineLogoBadge", request, desing);
+        logger.payloadLog("shortInlineIconBadge", request, desing);
 
-        return new InlineLogoAsResponseWrapper().wrapShort(desing);
+        return new InlineIconAsResponseWrapper().wrapShort(desing);
     }
 
     @GetMapping(path = "/title/{design}", produces = "image/svg+xml")

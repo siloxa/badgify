@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineLogoAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.badge.inline.InlineIconAsResponseWrapper;
 
 import java.io.IOException;
 
@@ -13,23 +13,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class InlineLogoAsResponseWrapperTests {
+public class InlineIconAsResponseWrapperTests {
 
-    private InlineLogoAsResponseWrapper inlineLogoAsResponseWrapper;
+    private InlineIconAsResponseWrapper inlineIconAsResponseWrapper;
 
     @BeforeEach
     void setup() {
-        inlineLogoAsResponseWrapper = new InlineLogoAsResponseWrapper();
+        inlineIconAsResponseWrapper = new InlineIconAsResponseWrapper();
     }
 
     @Test
     void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenAnyOfParamsNotProvided() throws IOException {
         // Given
-        // missing logo param for example
+        // missing icon param for example
         String design = "s_simple_black_white_#";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrap(design);
+        var response = inlineIconAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
@@ -41,7 +41,7 @@ public class InlineLogoAsResponseWrapperTests {
         String design = "s simple github black white #";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrap(design);
+        var response = inlineIconAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -53,7 +53,7 @@ public class InlineLogoAsResponseWrapperTests {
         String design = "s_simple_github_black_white_#";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrap(design);
+        var response = inlineIconAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -65,7 +65,7 @@ public class InlineLogoAsResponseWrapperTests {
         String design = "s-simple-github-black-white-#";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrap(design);
+        var response = inlineIconAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -74,11 +74,11 @@ public class InlineLogoAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenAnyOfRequiredParamsNotProvided() throws IOException {
         // Given
-        // missing logo param for example
+        // missing icon param for example
         String design = "black_white";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrapShort(design);
+        var response = inlineIconAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
@@ -90,7 +90,7 @@ public class InlineLogoAsResponseWrapperTests {
         String design = "github black s";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrapShort(design);
+        var response = inlineIconAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -102,7 +102,7 @@ public class InlineLogoAsResponseWrapperTests {
         String design = "github_black_s";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrapShort(design);
+        var response = inlineIconAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -114,7 +114,7 @@ public class InlineLogoAsResponseWrapperTests {
         String design = "github-black-s";
 
         // When
-        var response = inlineLogoAsResponseWrapper.wrapShort(design);
+        var response = inlineIconAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());

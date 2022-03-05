@@ -4,13 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import solutions.thex.reporeporter.controller.error.ErrorAsBadge;
 import solutions.thex.reporeporter.svg.InlineSvgAsResponseWrapper;
-import solutions.thex.reporeporter.svg.resolver.badge.LogoResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.IconResolver;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InlineLogoAsResponseWrapper extends InlineSvgAsResponseWrapper {
+public class InlineIconAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     @Override
     public ResponseEntity<String> wrap(String design) throws IOException {
@@ -19,11 +19,11 @@ public class InlineLogoAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractDesign(design);
             if (params.size() == 0) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Logo not provided!").toString(),//
+                        new ErrorAsBadge(422, "Icon not provided!").toString(),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
-                    new LogoResolver().resolve(params) //
+                    new IconResolver().resolve(params) //
                     , HttpStatus.OK);
         }
         return new ResponseEntity<>(//
@@ -38,11 +38,11 @@ public class InlineLogoAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractShortDesign(design);
             if (params.size() == 3) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Logo not provided!").toString(),//
+                        new ErrorAsBadge(422, "Icon not provided!").toString(),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
-                    new LogoResolver().resolve(params) //
+                    new IconResolver().resolve(params) //
                     , HttpStatus.OK);
         }
         return new ResponseEntity<>(//
@@ -54,7 +54,7 @@ public class InlineLogoAsResponseWrapper extends InlineSvgAsResponseWrapper {
         Map<String, String> params = new HashMap<>();
         String[] designParts = design.split(super.splitter());
         if (designParts.length == 3) {
-            params.put("logo", designParts[0]);
+            params.put("icon", designParts[0]);
             params.put("bg", designParts[1]);
             params.put("size", designParts[2]);
         }
@@ -70,7 +70,7 @@ public class InlineLogoAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (designParts.length == 6) {
             params.put("size", designParts[0]);
             params.put("theme", designParts[1]);
-            params.put("logo", designParts[2]);
+            params.put("icon", designParts[2]);
             params.put("bg", designParts[3]);
             params.put("color", designParts[4]);
             params.put("link", designParts[5]);

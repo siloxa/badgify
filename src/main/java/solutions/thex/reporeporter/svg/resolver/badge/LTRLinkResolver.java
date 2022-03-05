@@ -25,7 +25,7 @@ public class LTRLinkResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("title"))//
-                .logo(resolveLogo(params.get("logo"), resolveColor(params.get("color"), bg)))//
+                .icon(resolveIcon(params.get("icon"), resolveColor(params.get("color"), bg)))//
                 .link(params.get("link"))//
                 .textLength(resolveTextLength(params.get("title"), params.get("size")))
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))

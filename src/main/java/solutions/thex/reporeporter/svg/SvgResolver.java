@@ -26,13 +26,13 @@ public abstract class SvgResolver {
 
     public abstract String resolve(Map<String, String> params) throws IOException;
 
-    protected String resolveLogo(String logo, String color) {
-        if (logo.split("\\.").length < 2)
-            logo = "font-awesome/" + logo;
+    protected String resolveIcon(String icon, String color) {
+        if (icon.split("\\.").length < 2)
+            icon = "font-awesome/" + icon;
         else
-            logo = logo.split("\\.")[0] + "/" + logo.split("\\.")[1];
-        String file = retrieveLogoFile(logo);
-        if (logo.startsWith("font-awesome/"))
+            icon = icon.split("\\.")[0] + "/" + icon.split("\\.")[1];
+        String file = retrieveIconFile(icon);
+        if (icon.startsWith("font-awesome/"))
             file = fillColor(color, file);
         file = replaceScapeChars(file);
         return file;
@@ -69,13 +69,13 @@ public abstract class SvgResolver {
         return ColorResolver.resolve(color);
     }
 
-    private String retrieveLogoFile(String logo) {
+    private String retrieveIconFile(String icon) {
         return new BufferedReader(//
                 new InputStreamReader(//
                         Objects.requireNonNull(//
                                 Thread.currentThread().getContextClassLoader()//
-                                        .getResourceAsStream("static/" + logo.split("/")[0]//
-                                                + "/" + logo.split("/")[1] + ".svg")),
+                                        .getResourceAsStream("static/" + icon.split("/")[0]//
+                                                + "/" + icon.split("/")[1] + ".svg")),
                         StandardCharsets.UTF_8)).lines()//
                 .collect(Collectors.joining("\n"));
     }

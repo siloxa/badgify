@@ -1,31 +1,31 @@
 # Link Badge
 
-link badges are badges with two part, one logo and one title. they are used as a link to a social media or anything
+link badges are badges with two part, one icon and one title. they are used as a link to a social media or anything
 else.
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&logo=github&bg=purple)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=purple)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&logo=github&bg=yellow&size=m)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=yellow&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&logo=github&bg=blue&size=l)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=blue&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&logo=github&bg=green&size=l)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=green&size=l)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&logo=github&bg=pink&size=m)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=pink&size=m)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&logo=github&bg=red)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=GitHub&icon=github&bg=red)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&logo=github&bg=lavender&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=lavender&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&logo=github&bg=brown&size=m&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=brown&size=m&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&logo=github&bg=gray&size=l&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=gray&size=l&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&logo=github&bg=orange&size=l&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=orange&size=l&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&logo=github&bg=cyan&size=m&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=cyan&size=m&dir=rtl)
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&logo=github&bg=white&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=گیتهاب&icon=github&bg=white&dir=rtl)
 
 ## Path
 
@@ -43,7 +43,7 @@ else.
 
 title: **`string`** - the title of the badge (required)
 
-logo: **`string`** - the logo of the badge (required)
+icon: **`string`** - the icon of the badge (required)
 
 theme: **`string`** - the theme of the badge (default: `simple`)
 

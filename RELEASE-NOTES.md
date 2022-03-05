@@ -13,4 +13,4 @@
 ## 1.0.0 (2022-02-27)
 ### New Features
 - fully customizable API for generating online custom badges.
-- link, logo, title and GitHub profile badges.
+- link, icon, title and GitHub profile badges.

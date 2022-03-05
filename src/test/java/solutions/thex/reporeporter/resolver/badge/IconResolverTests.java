@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
-import solutions.thex.reporeporter.svg.resolver.badge.LogoResolver;
+import solutions.thex.reporeporter.svg.resolver.badge.IconResolver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,20 +16,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class LogoResolverTests {
+public class IconResolverTests {
 
-    private LogoResolver logoResolver;
+    private IconResolver iconResolver;
 
     @BeforeEach
     void setup() {
-        logoResolver = new LogoResolver();
+        iconResolver = new IconResolver();
     }
 
     @Test
-    void logoResolverMustResolveSmallSizedLogoPramsAndReturnCorrectLogoBadge() throws IOException {
+    void iconResolverMustResolveSmallSizedIconPramsAndReturnCorrectIconBadge() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "size", "s",//
                 "link", "#",//
@@ -37,19 +37,19 @@ public class LogoResolverTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        String logoBadge = logoResolver.resolve(params);
+        String iconBadge = iconResolver.resolve(params);
 
         // Then
-        String orgLogoBadge = readFromInputStream(
-                getClass().getClassLoader().getResourceAsStream("static/logo/simple-s.svg"));
-        assertEquals(orgLogoBadge, logoBadge);
+        String orgIconBadge = readFromInputStream(
+                getClass().getClassLoader().getResourceAsStream("static/icon/simple-s.svg"));
+        assertEquals(orgIconBadge, iconBadge);
     }
 
     @Test
-    void logoResolverMustResolveMediumSizedLogoPramsAndReturnCorrectLogoBadge() throws IOException {
+    void iconResolverMustResolveMediumSizedIconPramsAndReturnCorrectIconBadge() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "size", "m",//
                 "link", "#",//
@@ -57,19 +57,19 @@ public class LogoResolverTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        String logoBadge = logoResolver.resolve(params);
+        String iconBadge = iconResolver.resolve(params);
 
         // Then
-        String orgLogoBadge = readFromInputStream(
-                getClass().getClassLoader().getResourceAsStream("static/logo/simple-m.svg"));
-        assertEquals(orgLogoBadge, logoBadge);
+        String orgIconBadge = readFromInputStream(
+                getClass().getClassLoader().getResourceAsStream("static/icon/simple-m.svg"));
+        assertEquals(orgIconBadge, iconBadge);
     }
 
     @Test
-    void logoResolverMustResolveLargeSizedLogoPramsAndReturnCorrectLogoBadge() throws IOException {
+    void iconResolverMustResolveLargeSizedIconPramsAndReturnCorrectIconBadge() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "size", "l",//
                 "link", "#",//
@@ -77,12 +77,12 @@ public class LogoResolverTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        String logoBadge = logoResolver.resolve(params);
+        String iconBadge = iconResolver.resolve(params);
 
         // Then
-        String orgLogoBadge = readFromInputStream(
-                getClass().getClassLoader().getResourceAsStream("static/logo/simple-l.svg"));
-        assertEquals(orgLogoBadge, logoBadge);
+        String orgIconBadge = readFromInputStream(
+                getClass().getClassLoader().getResourceAsStream("static/icon/simple-l.svg"));
+        assertEquals(orgIconBadge, iconBadge);
     }
 
     private String readFromInputStream(InputStream inputStream) throws IOException {

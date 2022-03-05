@@ -24,7 +24,7 @@ public class ErrorAsBadge extends LTRLinkResolver {
                 "direction", "ltr",//
                 "link", "#",//
                 "title", status + ": " + error,//
-                "logo", "triangle-exclamation",//
+                "icon", "triangle-exclamation",//
                 "bg", "c4160a",//
                 "color", "rgb(255, 255, 255)"));
     }

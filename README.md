@@ -5,16 +5,16 @@
 </p>
 <p align="center">
     	<a href="https://github.com/TheXSolutions/repo-reporter/releases/tag/v1.0.0">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=repo-reporter%20v1.1.0&logo=github&size=m&bg=random" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=repo-reporter%20v1.1.0&icon=github&size=m&bg=random" />
     	</a>
     	<a href="https://github.com/TheXSolutions/repo-reporter/search?l=java">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=17&logo=java&size=m&bg=random" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=17&icon=java&size=m&bg=random" />
     	</a>
 	<a href="https://github.com/TheXSolutions/repo-reporter/blob/main/LICENSE">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=MIT&logo=scale-balanced&size=m&bg=random" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=MIT&icon=scale-balanced&size=m&bg=random" />
     </a>
     <a href="https://github.com/TheXSolutions/repo-reporter/releases/tag/v1.1.0">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=%20%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4%DA%AF%D8%B1-%D9%85%D8%AE%D8%B2%D9%86%20%D9%86%D8%B3%D8%AE%D9%87%201.1.0&logo=github&size=m&dir=rtl&bg=random" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=%20%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4%DA%AF%D8%B1-%D9%85%D8%AE%D8%B2%D9%86%20%D9%86%D8%B3%D8%AE%D9%87%201.1.0&icon=github&size=m&dir=rtl&bg=random" />
     </a>
 </p>
 <p align="center">
@@ -22,10 +22,10 @@
 </p>
 <p align="center">
     <a href="https://discord.gg/u3SsX89J">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20server&logo=discord&bg=5858be&size=m" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20server&icon=discord&bg=5858be&size=m" />
     </a>
     <a href="https://t.me/TheXSolutions">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20group&logo=telegram&bg=178baf&size=m" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=TheX's%20group&icon=telegram&bg=178baf&size=m" />
     </a>
 </p>
 <p align="center">
@@ -33,16 +33,16 @@
 </p>
 <p align="center">
 	<a href="https://thex.solutions/donate">
-      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=bc1qr3k6c9gh5ef6wk3ynmjpjkr2kjj0tckdcn8aa7&logo=bitcoin-sign&bg=fff&color=ef730f&size=m" />
+      		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=bc1qr3k6c9gh5ef6wk3ynmjpjkr2kjj0tckdcn8aa7&icon=bitcoin-sign&bg=fff&color=ef730f&size=m" />
 	</a>
 </p>
 <p align="center">
 	<a href="https://thex.solutions/donate">
-		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=0x130a1a681fd6ec43fd23a6a46bcaea7f311595fe&logo=ethereum&bg=fff&color=413946&size=m" />
+		<img src="https://repo-reporter.thex.solutions/api/badge/link?title=0x130a1a681fd6ec43fd23a6a46bcaea7f311595fe&icon=ethereum&bg=fff&color=413946&size=m" />
 	</a>
 </p>
 <p align="center">
-	<img src="https://repo-reporter.thex.solutions/api/badge/logo?logo=heart&bg=fff&color=f23d96&size=s" />
+	<img src="https://repo-reporter.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s" />
 </p>
 
 ## What Is In V1.1.0
@@ -123,9 +123,9 @@ Short inline example:
 [![](https://repo-reporter.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions) [![](https://repo-reporter.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
 
 ### Link Badge
-For generating link badges you can use the following api with two title and logo params :
+For generating link badges you can use the following api with two title and icon params :
 
-`repo-reporter.thex.solutions/api/badge/link?title=Hello%20World&logo=globe`
+`repo-reporter.thex.solutions/api/badge/link?title=Hello%20World&icon=globe`
 
 Inline example:
 
@@ -135,32 +135,32 @@ Short inline example:
 
 `repo-reporter.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>`
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=Hello%20World&logo=globe)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=Hello%20World&icon=globe)
 
 To make an RTL link badge you must pass a dir parameter:
 
-`repo-reporter.thex.solutions/api/badge/link?title=Hello%20World&logo=globe&dir=rtl`
+`repo-reporter.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl`
 
-![](https://repo-reporter.thex.solutions/api/badge/link?title=سلام%20دنیا&logo=globe&dir=rtl)
+![](https://repo-reporter.thex.solutions/api/badge/link?title=سلام%20دنیا&icon=globe&dir=rtl)
 
 **! Learn about other params in [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).**
 
-### Logo Badge
-For generating logo badges you can use the following api with a logo param :
+### Icon Badge
+For generating icon badges you can use the following api with a icon param :
 
-`repo-reporter.thex.solutions/api/badge/logo?logo=peace`
+`repo-reporter.thex.solutions/api/badge/icon?icon=peace`
 
 Inline example:
 
-`repo-reporter.thex.solutions/api/badge/inline/logo/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>`
+`repo-reporter.thex.solutions/api/badge/inline/icon/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>`
 
 Short inline example:
 
-`repo-reporter.thex.solutions/api/badge/inline/short/logo/<LOGO>-<BG>-<SIZE>`
+`repo-reporter.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>`
 
-![](https://repo-reporter.thex.solutions/api/badge/logo?logo=peace)
+![](https://repo-reporter.thex.solutions/api/badge/icon?icon=peace)
 
-**! See list of supported logos and icons and learn about other params in [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).**
+**! See list of supported icons and icons and learn about other params in [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs).**
 
 ### Title Badge
 for generating title badges you can use the following api with a title param :
@@ -195,7 +195,7 @@ If you encounter a bug or vulnerability, please read the [issue policy](https://
 To learn how to work with repo-reporter, please take a look at the [/docs](https://github.com/TheXSolutions/repo-reporter/tree/main/docs) folder.
 
 ## Acknowledgement
-A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the logo.
+A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the icon.
 
 
-Made with ![](https://repo-reporter.thex.solutions/api/badge/logo?logo=heart&bg=fff&color=f23d96&size=s)  and ![](https://repo-reporter.thex.solutions/api/badge/logo?logo=java&bg=black&color=orange&size=s).
+Made with ![](https://repo-reporter.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s)  and ![](https://repo-reporter.thex.solutions/api/badge/icon?icon=java&bg=black&color=orange&size=s).

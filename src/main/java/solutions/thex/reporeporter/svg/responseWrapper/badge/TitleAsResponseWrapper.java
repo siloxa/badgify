@@ -23,7 +23,7 @@ public class TitleAsResponseWrapper implements SvgAsResponseWrapper {
     public ResponseEntity<String> wrap(Map<String, String> params) throws IOException {
         if ("-1".equals(params.get("title")))
             return new ResponseEntity<>(//
-                    new ErrorAsBadge(422, "Title or logo not provided!").toString(),//
+                    new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
                     HttpStatus.UNPROCESSABLE_ENTITY);
 
         return new ResponseEntity<>(//

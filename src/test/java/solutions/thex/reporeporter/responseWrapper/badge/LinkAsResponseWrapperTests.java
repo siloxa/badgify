@@ -28,7 +28,7 @@ public class LinkAsResponseWrapperTests {
         // Given
         Map<String, String> params = Map.of(//
                 "title", "-1",
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "direction", "ltr",//
                 "size", "s",//
@@ -44,11 +44,11 @@ public class LinkAsResponseWrapperTests {
     }
 
     @Test
-    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenLogoNotProvided() throws IOException {
+    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenIconNotProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
                 "title", "repo-reporter",
-                "logo", "-1",//
+                "icon", "-1",//
                 "theme", "simple",//
                 "direction", "ltr",//
                 "size", "s",//
@@ -64,11 +64,11 @@ public class LinkAsResponseWrapperTests {
     }
 
     @Test
-    void wrapMustReturnOKHttpStatusAsResponseEntityWhenBothLogoAndTitleProvided() throws IOException {
+    void wrapMustReturnOKHttpStatusAsResponseEntityWhenBothIconAndTitleProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
                 "title", "repo-reporter",
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "direction", "ltr",//
                 "size", "s",//

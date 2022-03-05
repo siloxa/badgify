@@ -6,18 +6,18 @@ import solutions.thex.reporeporter.svg.SvgGenerator;
 import java.util.Map;
 
 /**
- * An implementation of {@link solutions.thex.reporeporter.svg.SvgGenerator} which generates a logo badge SVG.
+ * An implementation of {@link solutions.thex.reporeporter.svg.SvgGenerator} which generates a icon badge SVG.
  *
  * @author Soroush Shemshadi
  * @version 1.0.0
  * @since 1.0.0
  */
 @Builder
-public class LogoGenerator extends SvgGenerator {
+public class IconGenerator extends SvgGenerator {
 
     private String theme;
     private String size;
-    private String logo;
+    private String icon;
     private String title;
     private String link;
     private String width;
@@ -26,8 +26,9 @@ public class LogoGenerator extends SvgGenerator {
 
     @Override
     public Map<String, Object> getParameters() {
+        System.out.println(icon + " " + title + " " + link + " " + width + " " + height + " " + bg);
         return Map.of(//
-                "logo", logo,//
+                "icon", icon,//
                 "title", title,//
                 "link", link,//
                 "width", width,//
@@ -37,7 +38,7 @@ public class LogoGenerator extends SvgGenerator {
 
     @Override
     public String getTemplatePath() {
-        return "templates/logo/" + theme + "-" + size + ".svg.soy";
+        return "templates/icon/" + theme + "-" + size + ".svg.soy";
     }
 
 }

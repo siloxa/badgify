@@ -24,11 +24,11 @@ public class RTLLinkResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("title"))//
-                .logo(resolveLogo(params.get("logo"), resolveColor(params.get("color"), bg)))//
+                .icon(resolveIcon(params.get("icon"), resolveColor(params.get("color"), bg)))//
                 .link(params.get("link"))//
                 .textLength(resolveTextLength(params.get("title"), params.get("size")))
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
-                .logoXPosition(resolveLogoXPosition(params.get("title"), params.get("size")))
+                .iconXPosition(resolveIconXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
                 .bg(bg)//
@@ -45,7 +45,7 @@ public class RTLLinkResolver extends SvgResolver {
         };
     }
 
-    private String resolveLogoXPosition(String title, String size) {
+    private String resolveIconXPosition(String title, String size) {
         return switch (size) {
             case "s" -> String.valueOf((int) Math.ceil(((title.length() * 6.4117647) + 8)));
             case "m" -> String.valueOf((int) Math.ceil(((title.length() * 7.05882353) + 8)));

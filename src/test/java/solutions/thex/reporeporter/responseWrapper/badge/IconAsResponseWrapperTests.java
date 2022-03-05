@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.reporeporter.svg.responseWrapper.badge.LogoAsResponseWrapper;
+import solutions.thex.reporeporter.svg.responseWrapper.badge.IconAsResponseWrapper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -14,20 +14,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class LogoAsResponseWrapperTests {
+public class IconAsResponseWrapperTests {
 
-    private LogoAsResponseWrapper logoAsResponseWrapper;
+    private IconAsResponseWrapper iconAsResponseWrapper;
 
     @BeforeEach
     void setup() {
-        logoAsResponseWrapper = new LogoAsResponseWrapper();
+        iconAsResponseWrapper = new IconAsResponseWrapper();
     }
 
     @Test
-    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenLogoNotProvided() throws IOException {
+    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenIconNotProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "logo", "-1",//
+                "icon", "-1",//
                 "theme", "simple",//
                 "size", "s",//
                 "link", "#",//
@@ -35,17 +35,17 @@ public class LogoAsResponseWrapperTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        var response = logoAsResponseWrapper.wrap(params);
+        var response = iconAsResponseWrapper.wrap(params);
 
         // Then
         assertEquals(response.getStatusCode(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @Test
-    void wrapMustReturnOKHttpStatusAsResponseEntityWhenLogoProvided() throws IOException {
+    void wrapMustReturnOKHttpStatusAsResponseEntityWhenIconProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "size", "s",//
                 "link", "#",//
@@ -53,7 +53,7 @@ public class LogoAsResponseWrapperTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        var response = logoAsResponseWrapper.wrap(params);
+        var response = iconAsResponseWrapper.wrap(params);
 
         // Then
         assertEquals(response.getStatusCode(), HttpStatus.OK);

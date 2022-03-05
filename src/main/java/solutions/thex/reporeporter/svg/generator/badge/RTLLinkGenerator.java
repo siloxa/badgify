@@ -19,11 +19,11 @@ public class RTLLinkGenerator extends SvgGenerator {
     private String size;
     private String direction;
     private String title;
-    private String logo;
+    private String icon;
     private String link;
     private String textLength;
     private String titleXPosition;
-    private String logoXPosition;
+    private String iconXPosition;
     private String width;
     private String height;
     private String bg;
@@ -33,11 +33,11 @@ public class RTLLinkGenerator extends SvgGenerator {
     public Map<String, Object> getParameters() {
         return Map.of(//
                 "title", title, //
-                "logo", logo, //
+                "icon", icon, //
                 "link", link, //
                 "textLength", textLength, //
                 "titleXPosition", titleXPosition, //
-                "logoXPosition", logoXPosition, //
+                "iconXPosition", iconXPosition, //
                 "width", width, //
                 "height", height, //
                 "bg", bg, //

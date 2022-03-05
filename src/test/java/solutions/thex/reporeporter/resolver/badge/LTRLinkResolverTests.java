@@ -30,7 +30,7 @@ public class LTRLinkResolverTests {
         // Given
         Map<String, String> params = Map.of(//
                 "title", "repo-reporter",//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "direction", "ltr",//
                 "size", "s",//
@@ -52,7 +52,7 @@ public class LTRLinkResolverTests {
         // Given
         Map<String, String> params = Map.of(//
                 "title", "repo-reporter",//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "direction", "ltr",//
                 "size", "m",//
@@ -74,7 +74,7 @@ public class LTRLinkResolverTests {
         // Given
         Map<String, String> params = Map.of(//
                 "title", "repo-reporter",//
-                "logo", "github",//
+                "icon", "github",//
                 "theme", "simple",//
                 "direction", "ltr",//
                 "size", "l",//
