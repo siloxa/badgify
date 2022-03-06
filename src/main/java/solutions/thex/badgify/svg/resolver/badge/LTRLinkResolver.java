@@ -24,14 +24,14 @@ public class LTRLinkResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("title"))//
-                .icon(resolveIcon(params.get("icon"), resolveColor(params.get("color"), bg)))//
+                .icon(resolveIcon(params.get("icon"), getColor(params, bg)))//
                 .link(params.get("link"))//
                 .textLength(resolveTextLength(params.get("title"), params.get("size")))
                 .titleXPosition(resolveTitleXPosition(params.get("title"), params.get("size")))
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
                 .bg(bg)//
-                .color(resolveColor(params.get("color"), bg))//
+                .color(getColor(params, bg))//
                 .build().render();
     }
 

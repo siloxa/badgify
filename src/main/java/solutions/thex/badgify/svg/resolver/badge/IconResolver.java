@@ -24,7 +24,7 @@ public class IconResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .size(params.get("size"))//
                 .title(params.get("icon"))//
-                .icon(resolveIcon(params.get("icon"), resolveColor(params.get("color"), bg)))//
+                .icon(resolveIcon(params.get("icon"), getColor(params, bg)))//
                 .link(params.get("link"))//
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//

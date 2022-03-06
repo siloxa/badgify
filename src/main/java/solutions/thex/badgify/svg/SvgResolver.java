@@ -70,6 +70,10 @@ public abstract class SvgResolver {
         return ColorResolver.resolve(color);
     }
 
+    protected String getColor(Map<String, String> params, String bg) {
+        return "edge".equals(params.get("theme")) ? bg : resolveColor(params.get("color"), bg);
+    }
+
     protected String resolveTextLength(String title, String size) {
         return switch (size) {
             case "s" -> String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
