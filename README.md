@@ -51,7 +51,7 @@
 		<img src="https://badgify.thex.solutions/api/badge/link?title=ENGLISH&icon=flag.us&bg=254a79&size=m" />
 	</a>
     <a href="https://github.com/TheXSolutions/badgify/tree/main/docs/READMES/FA.md">
-		<img src="https://badgify.thex.solutions/api/badge/link?title=فارسی&icon=flag.ir&bg=fff&size=m" />
+		<img src="https://badgify.thex.solutions/api/badge/link?title=%D9%81%D8%A7%D8%B1%D8%B3%DB%8C&icon=flag.ir&bg=fff&size=m" />
 	</a>
 </p>
 
