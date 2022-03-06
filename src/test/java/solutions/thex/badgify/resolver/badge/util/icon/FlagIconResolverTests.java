@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
 import solutions.thex.badgify.svg.resolver.badge.util.icon.FlagIconResolver;
-import solutions.thex.badgify.svg.resolver.badge.util.icon.IconscoutIconResolver;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
