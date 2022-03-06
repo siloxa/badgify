@@ -10,6 +10,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * An implementation of {@link solutions.thex.badgify.svg.InlineSvgAsResponseWrapper} which wrap up generated
+ * inline profile badge SVG as a response.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.1.0
+ * @since 1.1.0
+ */
 public class InlineProfileAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     @Override

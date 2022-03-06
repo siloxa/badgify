@@ -18,7 +18,7 @@ import java.util.Map;
  * Controller for the badge requests.
  *
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.2.0
  * @since 1.0.0
  */
 @RestController

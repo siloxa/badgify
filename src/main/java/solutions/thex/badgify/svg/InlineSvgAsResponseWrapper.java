@@ -5,6 +5,14 @@ import solutions.thex.badgify.util.Regex;
 
 import java.io.IOException;
 
+/**
+ * Wraps the generated svg as a response entity for inline requests. For example see
+ * {@link solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineLinkAsResponseWrapper}.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.1.0
+ * @since 1.1.0
+ */
 public abstract class InlineSvgAsResponseWrapper {
 
     abstract public ResponseEntity<String> wrap(String design) throws IOException;

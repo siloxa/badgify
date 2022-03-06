@@ -14,6 +14,13 @@ import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineTitleAsResp
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * Controller for the inline badge requests.
+ *
+ * @author Soroush Shemshadi
+ * @version 1.2.0
+ * @since 1.1.0
+ */
 @RestController
 @RequestMapping("/api/badge/inline")
 public class InlineBadgeController {
