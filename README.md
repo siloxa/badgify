@@ -1,11 +1,11 @@
 <p align="center">
- <img src="https://user-images.githubusercontent.com/45015114/155889609-9b2a0051-d86c-4c13-a549-e03836663ef0.png" align="center" alt="badgify" />
- <h2 align="center">badgify</h2>
- <p align="center">Is an easy to use api for generating online custom badges and github profiles summery and repository reports as SVG.</p>
+ <img src="https://user-images.githubusercontent.com/45015114/156922352-57d37457-1ac1-459f-b447-8734b9223bdc.png" align="center" alt="badgify" />
+ <h2 align="center">Badgify</h2>
+ <p align="center">Is an easy-to-use API for generating online custom badges and GitHub profiles' summaries and repositories' reports as SVG.</p>
 </p>
 <p align="center">
-    	<a href="https://github.com/TheXSolutions/badgify/releases/tag/v1.0.0">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=badgify%20v1.1.0&icon=github&size=m&bg=random" />
+    	<a href="https://github.com/TheXSolutions/badgify/releases/tag/v1.2.0">
+      		<img src="https://badgify.thex.solutions/api/badge/link?title=badgify%20v1.2.0&icon=github&size=m&bg=random" />
     	</a>
     	<a href="https://github.com/TheXSolutions/badgify/search?l=java">
       		<img src="https://badgify.thex.solutions/api/badge/link?title=17&icon=java&size=m&bg=random" />
@@ -13,19 +13,21 @@
 	<a href="https://github.com/TheXSolutions/badgify/blob/main/LICENSE">
       		<img src="https://badgify.thex.solutions/api/badge/link?title=MIT&icon=scale-balanced&size=m&bg=random" />
     </a>
-    <a href="https://github.com/TheXSolutions/badgify/releases/tag/v1.1.0">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=%20%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4%DA%AF%D8%B1-%D9%85%D8%AE%D8%B2%D9%86%20%D9%86%D8%B3%D8%AE%D9%87%201.1.0&icon=github&size=m&dir=rtl&bg=random" />
+    <a href="https://github.com/TheXSolutions/badgify/releases/tag/v1.2.0">
+      		<img src="https://badgify.thex.solutions/api/badge/link?title=%D8%A8%D8%AF%D8%AC%DB%8C%D9%81%D8%A7%DB%8C%20%D9%86%D8%B3%D8%AE%D9%87%20%DB%B1.%DB%B2.%DB%B0&icon=github&size=m&dir=rtl&bg=random" />
     </a>
-</p>
 <p align="center">
-	Let's discuss about new ideas:
-</p>
-<p align="center">
-    <a href="https://discord.gg/u3SsX89J">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=TheX's%20server&icon=discord&bg=5858be&size=m" />
+    <a href="https://github.com/TheXSolutions/badgify/issues/new/choose">
+      		<img src="https://badgify.thex.solutions/api/badge/title?title=Reoprt%20Bug&bg=254a79&size=m&theme=edge" />
     </a>
-    <a href="https://t.me/TheXSolutions">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=TheX's%20group&icon=telegram&bg=178baf&size=m" />
+    <a href="https://github.com/TheXSolutions/badgify/issues/new/choose">
+      		<img src="https://badgify.thex.solutions/api/badge/title?title=Request%20Feature&bg=254a79&size=m&theme=edge" />
+    </a>
+    <a href="https://github.com/TheXSolutions/badgify#contribution">
+      		<img src="https://badgify.thex.solutions/api/badge/title?title=Contribute&bg=254a79&size=m&theme=edge" />
+    </a>
+    <a href="https://github.com/TheXSolutions/badgify#how-to-use">
+      		<img src="https://badgify.thex.solutions/api/badge/title?title=How%20To%20Use&bg=254a79&size=m&theme=edge" />
     </a>
 </p>
 <p align="center">
@@ -42,23 +44,57 @@
 	</a>
 </p>
 <p align="center">
-	<img src="https://badgify.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s" />
+	<img src="https://badgify.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s" /> & <img src="https://badgify.thex.solutions/api/badge/icon?icon=peace&bg=fff&color=0286a9&size=s" /> 
+</p>
+<p align="center">
+	<a href="https://github.com/TheXSolutions/badgify/blob/main/README.md">
+		<img src="https://badgify.thex.solutions/api/badge/link?title=ENGLISH&icon=flag.us&bg=254a79&size=m" />
+	</a>
+    <a href="https://github.com/TheXSolutions/badgify/tree/main/docs/READMES/FA.md">
+		<img src="https://badgify.thex.solutions/api/badge/link?title=فارسی&icon=flag.ir&bg=fff&size=m" />
+	</a>
 </p>
 
-## What Is In V1.1.0
-- Support for inline query params.
-- Support for short inline query params(only required).
-- Support for 3 different param splitter(underscore, hyphen, space).
-- Add default colors. you can now pass name of color beside hex.
-- Add random color generator for badges backgrounds or text colors.
+## What Is In V1.2.0
+- Add flags icon support.
+- Add iconscout colory brands icons.
+- Add two new sharp and edge themes.
+
+## Contents
+- [Hosts](#hosts)
+- [How To Use](#how-to-use)
+  - [Default Colors](#default-colors)
+  - [Random Colors](#random-colors)
+  - [Inline Query Params](#inline-query-params)
+    - [Params Splitters](#params-splitters)
+- [APIs](#apis)
+  - [Profile Badge](#profile-badge)
+  - [Link Badge](#link-badge)
+  - [Icon Badge](#icon-badge)
+  - [Title Badge](#title-badge)
+- [Authors](#authors)
+- [Contribution](#contribution)
+- [Releases](#releases)
+- [Issues](#issues)
+- [Documentation](#documentation)
+- [Acknowledgement](#acknowledgement)
+
+## Hosts
+You can use any of the following hosts to badgify APIs:
+
+```md
+https://badgify.thex.solutions
+```
 
 ## How To Use
-Here is a quick example of how to use the api. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [docs](https://github.com/TheXSolutions/badgify/tree/main/docs).
+Here is a quick example of how to use APIs. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).
 
 ### Default Colors
 Instead of passing colors as hex you can use our pre-defined default colors names:
 
-`badgify.thex.solutions/api/badge/title?title=color&bg=<COLOR_NAME>`
+```md
+badgify.thex.solutions/api/badge/title?title=color&bg=<COLOR_NAME>
+```
 
 ![](https://badgify.thex.solutions/api/badge/title?title=red&bg=red&size=m)
 ![](https://badgify.thex.solutions/api/badge/title?title=blue&bg=blue&size=m)
@@ -74,14 +110,16 @@ Instead of passing colors as hex you can use our pre-defined default colors name
 ![](https://badgify.thex.solutions/api/badge/title?title=black&bg=black&size=m)
 ![](https://badgify.thex.solutions/api/badge/title?title=white&bg=white&size=m)
 
-**names aren't case-sensitive.**
+**Colors names aren't case-sensitive!**
 
-Think of a new cool color? Please let us know<3.
+Thinking of a new cool color? Please let us know<3.
 
 ### Random Colors
 For generating random colors you can use the following api with a random param as `bg` or `color` :
 
-`badgify.thex.solutions/api/badge/title?title=random&bg=random`
+```md
+badgify.thex.solutions/api/badge/title?title=random&bg=random
+```
 
 ![](https://badgify.thex.solutions/api/badge/title?title=random&bg=random&size=m)
 
@@ -90,11 +128,15 @@ For generating random colors you can use the following api with a random param a
 ### Inline Query Params
 Instead of passing the params as query params you can use inline params to just pass a string as design:
 
-`badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_DESIGN>`
+```md
+badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_DESIGN>
+```
 
 Or want to pass less params? You can use short inline:
 
-`badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_SHORT_DESIGN>`
+```md
+badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_SHORT_DESIGN>
+```
 
 #### Params Splitters
 You can use underscore, hyphen or space as a param splitter.
@@ -107,39 +149,55 @@ You can use underscore, hyphen or space as a param splitter.
 
 **Please take a look at each badge's examples to see how to inline params.**
 
+## APIs
+
 ### Profile Badge
 For generating profile badges you can use the following api with your desired GitHub account id param :
 
-`badgify.thex.solutions/api/badge/profile?id=<YOUR-GITHUB-ACCOUNT-ID>`
+```md
+badgify.thex.solutions/api/badge/profile?id=<YOUR-GITHUB-ACCOUNT-ID>
+```
 
 Inline example:
 
-`badgify.thex.solutions/api/badge/inline/profile/<THEME>-<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>`
+```md
+badgify.thex.solutions/api/badge/inline/profile/<THEME>-<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>
+```
 
 Short inline example:
 
-`badgify.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>`
+```md
+badgify.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>
+```
 
 [![](https://badgify.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions) [![](https://badgify.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
 
 ### Link Badge
 For generating link badges you can use the following api with two title and icon params :
 
-`badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe`
+```md
+badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe
+```
 
 Inline example:
 
-`badgify.thex.solutions/api/badge/inline/link/<DIRCTION>-<SIZE>-<THEME>-<TITLE>-<LOGO>-<BG>-<COLOR>-<LINK>`
+```md
+badgify.thex.solutions/api/badge/inline/link/<DIRCTION>-<SIZE>-<THEME>-<TITLE>-<LOGO>-<BG>-<COLOR>-<LINK>
+```
 
 Short inline example:
 
-`badgify.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>`
+```md
+badgify.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>
+```
 
 ![](https://badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe)
 
 To make an RTL link badge you must pass a dir parameter:
 
-`badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl`
+```md
+badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl
+```
 
 ![](https://badgify.thex.solutions/api/badge/link?title=سلام%20دنیا&icon=globe&dir=rtl)
 
@@ -148,15 +206,21 @@ To make an RTL link badge you must pass a dir parameter:
 ### Icon Badge
 For generating icon badges you can use the following api with a icon param :
 
-`badgify.thex.solutions/api/badge/icon?icon=peace`
+```md
+badgify.thex.solutions/api/badge/icon?icon=peace
+```
 
 Inline example:
 
-`badgify.thex.solutions/api/badge/inline/icon/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>`
+```md
+badgify.thex.solutions/api/badge/inline/icon/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>
+```
 
 Short inline example:
 
-`badgify.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>`
+```md
+badgify.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>
+```
 
 ![](https://badgify.thex.solutions/api/badge/icon?icon=peace)
 
@@ -165,15 +229,21 @@ Short inline example:
 ### Title Badge
 for generating title badges you can use the following api with a title param :
 
-`badgify.thex.solutions/api/badge/title?title=peace`
+```md
+badgify.thex.solutions/api/badge/title?title=peace
+```
 
 Inline example:
 
-`badgify.thex.solutions/api/badge/inline/title/<SIZE>-<THEME>-<TITLE>-<BG>-<COLOR>-<LINK>`
+```md
+badgify.thex.solutions/api/badge/inline/title/<SIZE>-<THEME>-<TITLE>-<BG>-<COLOR>-<LINK>
+```
 
 Short inline example:
 
-`badgify.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>`
+```md
+badgify.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>
+```
 
 ![](https://badgify.thex.solutions/api/badge/title?title=peace)
 
@@ -198,4 +268,4 @@ To learn how to work with badgify, please take a look at the [/docs](https://git
 A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the icon.
 
 
-Made with ![](https://badgify.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s)  and ![](https://badgify.thex.solutions/api/badge/icon?icon=java&bg=black&color=orange&size=s).
+Made with Love and Java=))
