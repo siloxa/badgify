@@ -6,21 +6,22 @@ import org.springframework.boot.test.context.SpringBootTest;
 import solutions.thex.badgify.svg.resolver.badge.util.icon.IconscoutIconResolver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class IconscoutIconResolverTests {
 
     @Test
-    void resolvedPathMustBeCorrect() {
+    void resolvedIconMustHaveDataDeclarationPrefix() {
         // Given
-        String countryCode = "color.github";
+        String icon = "color.github";
 
         // When
-        String resolvedPath = IconscoutIconResolver.resolve(countryCode);
+        String resolvedIcon = IconscoutIconResolver.resolve(icon);
 
         // Then
-        assertEquals("/icons/color/github.svg", resolvedPath);
+        assertTrue(resolvedIcon.startsWith("data:image/svg+xml;base64,"));
     }
 
 }
