@@ -62,6 +62,11 @@ public abstract class SvgResolver {
             }
             return DefaultColor.WHITE.toString();
         }
+        if (DefaultColor.getColor(color) != null) {
+            return DefaultColorResolver.resolve(color);
+        } else if ("random".equals(color)) {
+            return RandomColorResolver.resolve();
+        }
         return ColorResolver.resolve(color);
     }
 
