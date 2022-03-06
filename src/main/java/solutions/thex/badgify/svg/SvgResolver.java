@@ -4,7 +4,7 @@ import solutions.thex.badgify.svg.resolver.badge.util.ColorResolver;
 import solutions.thex.badgify.svg.resolver.badge.util.DefaultColor;
 import solutions.thex.badgify.svg.resolver.badge.util.color.DefaultColorResolver;
 import solutions.thex.badgify.svg.resolver.badge.util.color.RandomColorResolver;
-import solutions.thex.badgify.svg.resolver.badge.util.icon.FlagIconResolvers;
+import solutions.thex.badgify.svg.resolver.badge.util.icon.FlagIconResolver;
 import solutions.thex.badgify.svg.resolver.badge.util.icon.FontAwesomeIconResolver;
 import solutions.thex.badgify.svg.resolver.badge.util.icon.IconscoutIconResolver;
 
@@ -28,7 +28,7 @@ public abstract class SvgResolver {
         if (icon.split("\\.").length < 2)
             return FontAwesomeIconResolver.resolve(icon, color);
         else if ("flag".equals(icon.split("\\.")[0]))
-            return FlagIconResolvers.resolve(icon);
+            return FlagIconResolver.resolve(icon);
         else if ("color".equals(icon.split("\\.")[0]))
             return IconscoutIconResolver.resolve(icon);
         return "";
