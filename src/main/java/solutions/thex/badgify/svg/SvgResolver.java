@@ -62,7 +62,16 @@ public abstract class SvgResolver {
             }
             return DefaultColor.WHITE.toString();
         }
+        if (DefaultColor.getColor(color) != null) {
+            return DefaultColorResolver.resolve(color);
+        } else if ("random".equals(color)) {
+            return RandomColorResolver.resolve();
+        }
         return ColorResolver.resolve(color);
+    }
+
+    protected String getColor(Map<String, String> params, String bg) {
+        return "edge".equals(params.get("theme")) ? bg : resolveColor(params.get("color"), bg);
     }
 
     protected String resolveTextLength(String title, String size) {

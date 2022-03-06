@@ -30,7 +30,7 @@ public class TitleResolver extends SvgResolver {
                 .width(resolveWidth(params.get("size"), params.get("title")))//
                 .height(resolveHeight(params.get("size")))//
                 .bg(bg)//
-                .color(resolveColor(params.get("color"), bg))//
+                .color(getColor(params, bg))//
                 .build().render();
     }
 
