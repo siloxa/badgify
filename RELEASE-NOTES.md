@@ -1,6 +1,7 @@
 # badgify Release Notes
 
 ## next release
+- Farsi README.md
 
 ## 1.1.0 (2022-03-03)
 ### New Features
