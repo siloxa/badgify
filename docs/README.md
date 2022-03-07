@@ -1,8 +1,6 @@
 # Welcome to badgify documentation
+Please choose your language:
 
-## Table of content
+[![](https://badgify.thex.solutions/api/badge/link?title=ENGLISH&icon=flag.us&bg=fff&size=m)](https://github.com/TheXSolutions/badgify/tree/main/docs/EN/README.md)
 
-- [Introduction](https://github.com/TheXSolutions/badgify/tree/main/docs/00-intro.md)
-- [Colors](https://github.com/TheXSolutions/badgify/tree/main/docs/01-colors)
-- [Badges](https://github.com/TheXSolutions/badgify/tree/main/docs/02-badges)
-- [List of Icons and Icons](https://github.com/TheXSolutions/badgify/tree/main/docs/03-icons.md)
+[![](https://badgify.thex.solutions/api/badge/link?title=%D9%81%D8%A7%D8%B1%D8%B3%DB%8C&icon=flag.ir&bg=fff&size=m)](https://github.com/TheXSolutions/badgify/tree/main/docs/FA/README.md)
