@@ -59,6 +59,7 @@
 - &#x202b;پشتیبانی از آیکون پرچم های کشور ها
 - پشتیبانی از آیکون های رنگی لوگوهای &#x202b;Iconscout
 - &#x202b;افزودن دو تم جدید sharp و edge
+- &#x202b;افزودن مستندات فارسی
 
 ## فهرست
 - [میزبان ها](#میزبان-ها)
@@ -417,4 +418,4 @@ badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_SHORT_DESIGN>
 \
 \
 \
-![](https://badgify.thex.solutions/api/badge/title?title=%D8%B3%D8%A7%D8%AE%D8%AA%D9%87%20%D8%B4%D8%AF%D9%87%20%D8%A8%D8%A7%20❤%20%D9%88%20%D8%AC%D8%A7%D9%88%D8%A7%3D%29%29&bg=lavender&size=l)
+![](https://badgify.thex.solutions/api/badge/title?title=%28%28%3D%D8%B3%D8%A7%D8%AE%D8%AA%D9%87%20%D8%B4%D8%AF%D9%87%20%D8%A8%D8%A7%20❤%20%D9%88%20%D8%AC%D8%A7%D9%88%D8%A7&bg=lavender&size=l)

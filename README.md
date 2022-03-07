@@ -59,6 +59,7 @@
 - Add flags icon support.
 - Add iconscout colory brands icons.
 - Add two new sharp and edge themes.
+- Add Farsi docs.
 
 ## Contents
 - [Hosts](#hosts)
