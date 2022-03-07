@@ -416,4 +416,4 @@ A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing t
 \
 \
 \
-![](https://badgify.thex.solutions/api/badge/title?title=Made%20with%20❤%20and%20Java=))&bg=lavender&size=l)
+![](https://badgify.thex.solutions/api/badge/title?title=Made%20with%20❤%20and%20Java%3D%29%29&bg=lavender&size=l)
