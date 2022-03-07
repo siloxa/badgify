@@ -13,7 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
  * for application security configurations.
  *
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.2.0
  * @since 1.0.0
  */
 @Configuration
@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http//
                 .authorizeRequests()
-                .antMatchers("/favicon.ico", "/icons/**", "/api/**").permitAll()//
+                .antMatchers("/favicon.ico", "/api/**").permitAll()//
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
                 .antMatchers("/user/**").hasAnyAuthority("USER")//
                 .anyRequest().authenticated()//

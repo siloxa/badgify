@@ -2,6 +2,13 @@
 
 ## next release
 
+## 1.2.0 (2022-03-07)
+### New Features
+- Add flags icon support.
+- Add iconscout colory brands icons.
+- Add two new sharp and edge themes.
+- Add Farsi docs.
+
 ## 1.1.0 (2022-03-03)
 ### New Features
 - support for inline query params.

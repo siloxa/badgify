@@ -9,7 +9,7 @@ import java.util.Map;
  * An implementation of {@link solutions.thex.badgify.svg.SvgGenerator} which generates a icon badge SVG.
  *
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.2.0
  * @since 1.0.0
  */
 @Builder

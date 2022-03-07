@@ -14,7 +14,7 @@ import java.util.Map;
  * title badge SVG as a response.
  *
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.1.0
  * @since 1.0.0
  */
 public class TitleAsResponseWrapper implements SvgAsResponseWrapper {
@@ -23,7 +23,7 @@ public class TitleAsResponseWrapper implements SvgAsResponseWrapper {
     public ResponseEntity<String> wrap(Map<String, String> params) throws IOException {
         if ("-1".equals(params.get("title")))
             return new ResponseEntity<>(//
-                    new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
+                    new ErrorAsBadge(422, "Title not provided!").toString(),//
                     HttpStatus.UNPROCESSABLE_ENTITY);
 
         return new ResponseEntity<>(//

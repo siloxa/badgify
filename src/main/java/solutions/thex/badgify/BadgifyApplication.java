@@ -10,7 +10,7 @@ import java.util.TimeZone;
  * BadgifyApplication.
  *
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.2.0
  * @see https://github.com/TheXSolutions/badgify
  * @see https://badgify.thex.solurions
  * @since 1.0.0

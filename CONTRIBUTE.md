@@ -2,11 +2,15 @@
 
 if you want to contribute to the badgify project, this contributing guide is helpful.
 
-## !Badge Theme
+## Badge Themes
 
 If you are good at working with SVGs, please help us to extend our theme library. You can join our discord server to discuss more about ideas.
 
-[![](https://badgify.thex.solutions/api/badge/link?title=TheX's%20server&icon=discord&bg=5858be)](https://discord.gg/u3SsX89J)
+[![](https://badgify.thex.solutions/api/badge/link?title=TheX's%20server&icon=discord&bg=5858be)](https://discord.gg/u3SsX89J) [![](https://badgify.thex.solutions/api/badge/link?title=TheX's%20group&icon=telegram&bg=1e869e)](https://t.me/TheXSolutions)
+
+## Translate Documents In Your Language
+
+If badgify's documentation has not been translated into your language, you can do this to help us provide better services to your compatriots.
 
 ## start contributing
 

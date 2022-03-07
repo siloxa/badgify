@@ -14,7 +14,7 @@ import java.util.Map;
  * icon badge SVG as a response.
  *
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.2.0
  * @since 1.0.0
  */
 public class IconAsResponseWrapper implements SvgAsResponseWrapper {
