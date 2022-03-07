@@ -31,7 +31,7 @@
     </a>
 </p>
 <p align="center">
-	If you like this project, please buy us a coffee!
+	If you like this project, please buy us a coffee ❤
 </p>
 <p align="center">
 	<a href="https://thex.solutions/donate">
@@ -88,7 +88,7 @@
 - [Acknowledgement](#acknowledgement)
 
 ## Hosts
-You can use any of the following hosts to badgify APIs:
+You can use any of the following hosts to use badgify APIs:
 
 ```md
 https://badgify.thex.solutions
@@ -97,7 +97,7 @@ https://badgify.thex.solutions
 ## APIs
 
 ### Profile Badge
-For generating profile badges you can use the following api with your desired GitHub account id param :
+For generating profile badges you can use the following APIs with your desired GitHub account id param :
 
 ```md
 badgify.thex.solutions/api/badge/profile?id=<YOUR-GITHUB-ACCOUNT-ID>
@@ -118,7 +118,7 @@ badgify.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<
 [![](https://badgify.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions) [![](https://badgify.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
 
 ### Link Badge
-For generating link badges you can use the following api with two title and icon params :
+For generating link badges you can use the following APIs with two `title` and `icon` params :
 
 ```md
 badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe
@@ -138,7 +138,7 @@ badgify.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>
 
 ![](https://badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&bg=gray)
 
-To make an RTL link badge you must pass a dir parameter:
+To make an RTL link badge you must pass a `dir=rtl` parameter:
 
 ```md
 badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl
@@ -149,7 +149,7 @@ badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl
 **! Learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
 
 ### Icon Badge
-For generating icon badges you can use the following api with a icon param :
+For generating icon badges you can use the following APIs with an `icon` param :
 
 ```md
 badgify.thex.solutions/api/badge/icon?icon=peace
@@ -169,10 +169,10 @@ badgify.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>
 
 ![](https://badgify.thex.solutions/api/badge/icon?icon=peace&bg=gray)
 
-**! See list of supported icons and icons and learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
+**! See list of supported icons and learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
 
 ### Title Badge
-for generating title badges you can use the following api with a title param :
+For generating title badges you can use the following APIs with a `title` param :
 
 ```md
 badgify.thex.solutions/api/badge/title?title=peace
@@ -195,7 +195,7 @@ badgify.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>
 **! Learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
 
 ## How To Use
-Here is a quick example of how to use APIs. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).
+Here are quick examples of how to use APIs. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).
 
 ### Default Colors
 Instead of passing colors as hex you can use our pre-defined default colors names:
@@ -231,7 +231,7 @@ badgify.thex.solutions/api/badge/title?title=random&bg=random
 
 ![](https://badgify.thex.solutions/api/badge/title?title=random&bg=random&size=m)
 
-**We strongly recommend you to do not use random colors for badge's text color! Because the random color produced can not match the background color in contrast and make it difficult to see your text in the badge.**
+**We strongly recommend you to do not use random colors for badge's text color! Because the produced random color may not match the background color in contrast and make it difficult to see your text in the badge.**
 
 ### Themes
 You can choose one of the available themes for your badge.
@@ -258,7 +258,7 @@ badgify.thex.solutions/api/badge/icon?icon=github
 ![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray)
 
 #### Sharp
-To use this theme in your badges, you must pass theme=sharp parameter in your request.
+To use this theme in your badges, you must pass `theme=sharp` parameter in your request.
 
 ```md
 badgify.thex.solutions/api/badge/link?title=Sharp&icon=github&theme=sharp
@@ -305,7 +305,7 @@ Any idea about new themes? Feel free to tell us<3
 There are three renderable sizes for badges. Small, medium and large that you can choose any of these sizes for your badge.
 
 #### Small
-Simple is default size of badges. If you want to use this size, you do not need to pass it in parameters.
+Small is default size of badges. If you want to use this size, you do not need to pass it in parameters.
 
 ```md
 badgify.thex.solutions/api/badge/link?title=Small&icon=github
@@ -327,7 +327,7 @@ badgify.thex.solutions/api/badge/icon?icon=github
 ![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray)
 
 #### Medium
-To use medium size for your badges, you must pass size=m parameter in your request.
+To use medium size for your badges, you must pass `size=m` parameter in your request.
 
 ```md
 badgify.thex.solutions/api/badge/link?title=Medium&icon=github&size=m
@@ -349,7 +349,7 @@ badgify.thex.solutions/api/badge/icon?icon=github&size=m
 ![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray&size=m)
 
 #### Large
-To use large size for your badges, you must pass size=l parameter in your request.
+To use large size for your badges, you must pass `size=l` parameter in your request.
 
 ```md
 badgify.thex.solutions/api/badge/link?title=Large&icon=github&size=l
@@ -392,7 +392,7 @@ You can use underscore, hyphen or space as a param splitter.
 
 `param1-param2-param3...`
 
-**Please take a look at each badge's examples to see how to inline params.**
+**Please take a look at each badge's examples to see how to use inline params.**
 
 ## Authors
 badgify is developed by [Soroush Shemshadi](https://github.com/shuoros) and [contributors](https://github.com/TheXSolutions/badgify/blob/main/CONTRIBUTORS.md).
@@ -411,6 +411,8 @@ To learn how to work with badgify, please take a look at the [/docs](https://git
 
 ## Acknowledgement
 A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the icon.
+
+And thanks to all the contributors, the people who reported the bugs and all those who made it possible for us to provide this great software.
 \
 \
 \
