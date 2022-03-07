@@ -47,7 +47,7 @@
 	<img src="https://badgify.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s" /> & <img src="https://badgify.thex.solutions/api/badge/icon?icon=peace&bg=fff&color=0286a9&size=s" /> 
 </p>
 <p align="center">
-	<a href="https://github.com/TheXSolutions/badgify/blob/main/README.md">
+	<a href="#">
 		<img src="https://badgify.thex.solutions/api/badge/link?title=ENGLISH&icon=flag.us&bg=254a79&size=m" />
 	</a>
     <a href="https://github.com/TheXSolutions/badgify/tree/main/docs/READMES/FA.md">
@@ -246,7 +246,7 @@ badgify.thex.solutions/api/badge/link?title=Simple&icon=github
 ![](https://badgify.thex.solutions/api/badge/link?title=Simple&icon=github&bg=gray)
 
 ```md
-badgify.thex.solutions/api/badge/title?title=Simple&theme=simple
+badgify.thex.solutions/api/badge/title?title=Simple
 ```
 
 ![](https://badgify.thex.solutions/api/badge/title?title=Simple&bg=gray)
@@ -411,6 +411,9 @@ To learn how to work with badgify, please take a look at the [/docs](https://git
 
 ## Acknowledgement
 A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the icon.
-
-
-Made with Love and Java=))
+\
+\
+\
+\
+\
+![](https://badgify.thex.solutions/api/badge/title?title=Made%20with%20❤%20and%20Java=))&bg=lavender&size=l)
