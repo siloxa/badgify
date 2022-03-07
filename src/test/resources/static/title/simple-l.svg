@@ -1,26 +1,26 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118" height="35" role="img" aria-label="repo-reporter">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68" height="35" role="img" aria-label="badgify">
     <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link"/>
     <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-general-link"/>
     <style xmlns="" lang="en" type="text/css" id="dark-mode-custom-style"/>
     <style xmlns="" lang="en" type="text/css" id="dark-mode-native-style"/>
-    <title>repo-reporter</title>
+    <title>badgify</title>
     <a target="_blank" xlink:href="#">
         <linearGradient id="s" x2="0" y2="100%">
             <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
             <stop offset="1" stop-opacity=".1"/>
         </linearGradient>
         <clipPath id="r">
-            <rect width="118" height="35" rx="3" fill="#fff"/>
+            <rect width="68" height="35" rx="3" fill="#fff"/>
         </clipPath>
         <g clip-path="url(#r)">
             <rect width="0" height="35" fill="#555"/>
-            <rect x="0" width="118" height="35" fill="rgb(0, 0, 0)"/>
-            <rect width="118" height="35" fill="url(#s)"/>
+            <rect x="0" width="68" height="35" fill="rgb(0, 0, 0)"/>
+            <rect width="68" height="35" fill="url(#s)"/>
         </g>
         <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="150">
-            <text aria-hidden="true" x="590" y="225" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="1080">repo-reporter</text>
-            <text x="590" y="215" transform="scale(.1)" fill="rgb(255, 255, 255)" textLength="1080">repo-reporter</text>
+            <text aria-hidden="true" x="340" y="225" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="580">badgify</text>
+            <text x="340" y="215" transform="scale(.1)" fill="rgb(255, 255, 255)" textLength="580">badgify</text>
         </g>
     </a>
 </svg>

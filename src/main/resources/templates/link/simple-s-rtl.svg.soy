@@ -1,12 +1,12 @@
-{namespace solutions.thex.reporeporter}
+{namespace solutions.thex.badgify}
 {template .svg kind="text"}
 
 {@param title: string}
-{@param logo: string}
+{@param icon: string}
 {@param link: string}
 {@param textLength: string}
 {@param titleXPosition: string}
-{@param logoXPosition: string}
+{@param iconXPosition: string}
 {@param width: string}
 {@param height: string}
 {@param bg: string}
@@ -34,7 +34,7 @@
             <rect width="{/literal}{$width}{literal}" height="{/literal}{$height}{literal}" fill="url(#s)"/>
         </g>
         <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
-            <image x="{/literal}{$logoXPosition}{literal}" y="4" width="16" height="16" xlink:href="data:image/svg+xml;utf-8,{/literal}{$logo}{literal}"/>
+            <image x="{/literal}{$iconXPosition}{literal}" y="4" width="16" height="16" xlink:href="{/literal}{$icon}{literal}"/>
             <text aria-hidden="true" x="{/literal}{$titleXPosition}{literal}" y="170" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="{/literal}{$textLength}{literal}">{/literal}{$title}{literal}</text>
             <text x="{/literal}{$titleXPosition}{literal}" y="160" transform="scale(.1)" fill="{/literal}{$color}{literal}" textLength="{/literal}{$textLength}{literal}">{/literal}{$title}{literal}</text>
         </g>

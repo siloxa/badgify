@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.shuoros</groupId>
-    <artifactId>repo-reporter</artifactId>
-    <version>1.1.0</version>
-    <name>repo-reporter</name>
-    <description>repo-reporter</description>
+    <artifactId>badgify</artifactId>
+    <version>1.2.0</version>
+    <name>badgify</name>
+    <description>badgify</description>
 
     <developers>
         <developer>

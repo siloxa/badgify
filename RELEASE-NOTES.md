@@ -1,6 +1,13 @@
-# repo-reporter Release Notes
+# badgify Release Notes
 
 ## next release
+
+## 1.2.0 (2022-03-07)
+### New Features
+- Add flags icon support.
+- Add iconscout colory brands icons.
+- Add two new sharp and edge themes.
+- Add Farsi docs.
 
 ## 1.1.0 (2022-03-03)
 ### New Features
@@ -13,4 +20,4 @@
 ## 1.0.0 (2022-02-27)
 ### New Features
 - fully customizable API for generating online custom badges.
-- link, logo, title and GitHub profile badges.
+- link, icon, title and GitHub profile badges.

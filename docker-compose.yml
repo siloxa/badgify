@@ -5,13 +5,13 @@ networks:
     external: true
 
 services:
-  repo-reporter:
+  badgify:
     build:
       context: .
       args:
-        JAR_FILE: "./target/repo-reporter-1.1.0.jar"
-    image: repo-reporter
-    container_name: repo-reporter
+        JAR_FILE: "./target/badgify-1.1.0.jar"
+    image: badgify
+    container_name: badgify
     ports:
       - "127.0.0.1:8081:8585"
     networks:
