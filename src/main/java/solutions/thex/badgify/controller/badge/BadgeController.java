@@ -1,5 +1,7 @@
 package solutions.thex.badgify.controller.badge;
 
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +27,12 @@ import java.util.Map;
 @RequestMapping("/api/badge")
 public class BadgeController {
 
-    private final ControllerLogger logger = new ControllerLogger(this.getClass());
+    private final ControllerLogger logger;
+
+    @Autowired
+    public BadgeController(ObjectProvider<ControllerLogger> controllerLoggerProvider) {
+        this.logger = controllerLoggerProvider.getObject(this.getClass());
+    }
 
     /**
      * Creates custom badges.

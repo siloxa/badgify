@@ -1,5 +1,7 @@
 package solutions.thex.badgify.controller.badge.ready;
 
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import solutions.thex.badgify.log.ControllerLogger;
@@ -12,7 +14,12 @@ import java.util.Map;
 @RequestMapping("/api/social")
 public class SocialBadgeController {
 
-    private final ControllerLogger logger = new ControllerLogger(this.getClass());
+    private final ControllerLogger logger;
+
+    @Autowired
+    public SocialBadgeController(ObjectProvider<ControllerLogger> controllerLoggerProvider) {
+        this.logger = controllerLoggerProvider.getObject(this.getClass());
+    }
 
     @GetMapping(path = "/app-store/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> appStore(HttpServletRequest request,//
