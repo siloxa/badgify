@@ -15,30 +15,33 @@ import java.util.Map;
 public class SocialBadgeController {
 
     private final ControllerLogger logger;
+    private final LinkAsResponseWrapper linkAsResponseWrapper;
 
     @Autowired
-    public SocialBadgeController(ObjectProvider<ControllerLogger> controllerLoggerProvider) {
+    public SocialBadgeController(ObjectProvider<ControllerLogger> controllerLoggerProvider,//
+                                 LinkAsResponseWrapper linkAsResponseWrapper) {
         this.logger = controllerLoggerProvider.getObject(this.getClass());
+        this.linkAsResponseWrapper = linkAsResponseWrapper;
     }
 
     @GetMapping(path = "/app-store/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> appStore(HttpServletRequest request,//
-                                          @PathVariable(value = "title") String title,//
-                                          @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                  String theme,//
-                                          @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                  String size,//
-                                          @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                  String direction,//
-                                          @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                  String link,//
-                                          @RequestParam(value = "bg", required = false, defaultValue = "1588b6")//
-                                                  String bg,//
-                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                  String color) throws Exception {
+                                           @PathVariable(value = "title") String title,//
+                                           @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                   String theme,//
+                                           @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                   String size,//
+                                           @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                   String direction,//
+                                           @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                   String link,//
+                                           @RequestParam(value = "bg", required = false, defaultValue = "1588b6")//
+                                                   String bg,//
+                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                   String color) throws Exception {
         logger.payloadLog("app-store", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "app-store",//
                 "theme", theme,//
@@ -66,7 +69,7 @@ public class SocialBadgeController {
                                                   String color) throws Exception {
         logger.payloadLog("behance", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "behance",//
                 "theme", theme,//
@@ -94,7 +97,7 @@ public class SocialBadgeController {
                                                   String color) throws Exception {
         logger.payloadLog("discord", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "discord",//
                 "theme", theme,//
@@ -107,22 +110,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/dockerhub/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> dockerhub(HttpServletRequest request,//
-                                          @PathVariable(value = "title") String title,//
-                                          @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                  String theme,//
-                                          @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                  String size,//
-                                          @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                  String direction,//
-                                          @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                  String link,//
-                                          @RequestParam(value = "bg", required = false, defaultValue = "2486bb")//
-                                                  String bg,//
-                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                  String color) throws Exception {
+                                            @PathVariable(value = "title") String title,//
+                                            @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                    String theme,//
+                                            @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                    String size,//
+                                            @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                    String direction,//
+                                            @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                    String link,//
+                                            @RequestParam(value = "bg", required = false, defaultValue = "2486bb")//
+                                                    String bg,//
+                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                    String color) throws Exception {
         logger.payloadLog("dockerhub", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "docker",//
                 "theme", theme,//
@@ -135,22 +138,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/dribbble/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> dribbble(HttpServletRequest request,//
-                                          @PathVariable(value = "title") String title,//
-                                          @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                  String theme,//
-                                          @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                  String size,//
-                                          @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                  String direction,//
-                                          @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                  String link,//
-                                          @RequestParam(value = "bg", required = false, defaultValue = "e53f6a")//
-                                                  String bg,//
-                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                  String color) throws Exception {
+                                           @PathVariable(value = "title") String title,//
+                                           @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                   String theme,//
+                                           @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                   String size,//
+                                           @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                   String direction,//
+                                           @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                   String link,//
+                                           @RequestParam(value = "bg", required = false, defaultValue = "e53f6a")//
+                                                   String bg,//
+                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                   String color) throws Exception {
         logger.payloadLog("dribbble", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "dribbble",//
                 "theme", theme,//
@@ -163,22 +166,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/dropbox/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> dropbox(HttpServletRequest request,//
-                                           @PathVariable(value = "title") String title,//
-                                           @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                   String theme,//
-                                           @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                   String size,//
-                                           @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                   String direction,//
-                                           @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                   String link,//
-                                           @RequestParam(value = "bg", required = false, defaultValue = "0058c9")//
-                                                   String bg,//
-                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                   String color) throws Exception {
+                                          @PathVariable(value = "title") String title,//
+                                          @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                  String theme,//
+                                          @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                  String size,//
+                                          @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                  String direction,//
+                                          @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                  String link,//
+                                          @RequestParam(value = "bg", required = false, defaultValue = "0058c9")//
+                                                  String bg,//
+                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                  String color) throws Exception {
         logger.payloadLog("dropbox", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "dropbox",//
                 "theme", theme,//
@@ -206,7 +209,7 @@ public class SocialBadgeController {
                                                    String color) throws Exception {
         logger.payloadLog("facebook", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "facebook",//
                 "theme", theme,//
@@ -234,7 +237,7 @@ public class SocialBadgeController {
                                                  String color) throws Exception {
         logger.payloadLog("github", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "github",//
                 "theme", theme,//
@@ -262,7 +265,7 @@ public class SocialBadgeController {
                                                  String color) throws Exception {
         logger.payloadLog("gitlab", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "gitlab",//
                 "theme", theme,//
@@ -290,7 +293,7 @@ public class SocialBadgeController {
                                                     String color) throws Exception {
         logger.payloadLog("goodreads", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "goodreads",//
                 "theme", theme,//
@@ -303,34 +306,6 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/google-drive/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> googleDrive(HttpServletRequest request,//
-                                            @PathVariable(value = "title") String title,//
-                                            @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                    String theme,//
-                                            @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                    String size,//
-                                            @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                    String direction,//
-                                            @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                    String link,//
-                                            @RequestParam(value = "bg", required = false, defaultValue = "ea3c2a")//
-                                                    String bg,//
-                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                    String color) throws Exception {
-        logger.payloadLog("google-drive", request, title, theme, size, direction, link, bg, color);
-
-        return new LinkAsResponseWrapper().wrap(Map.of(//
-                "title", title,//
-                "icon", "google-drive",//
-                "theme", theme,//
-                "size", size,//
-                "direction", direction,//
-                "link", link,//
-                "bg", bg,//
-                "color", color));
-    }
-
-    @GetMapping(path = "/google-play/{title}", produces = "image/svg+xml")
-    public ResponseEntity<String> googlePlay(HttpServletRequest request,//
                                               @PathVariable(value = "title") String title,//
                                               @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                       String theme,//
@@ -344,9 +319,37 @@ public class SocialBadgeController {
                                                       String bg,//
                                               @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                       String color) throws Exception {
+        logger.payloadLog("google-drive", request, title, theme, size, direction, link, bg, color);
+
+        return linkAsResponseWrapper.wrap(Map.of(//
+                "title", title,//
+                "icon", "google-drive",//
+                "theme", theme,//
+                "size", size,//
+                "direction", direction,//
+                "link", link,//
+                "bg", bg,//
+                "color", color));
+    }
+
+    @GetMapping(path = "/google-play/{title}", produces = "image/svg+xml")
+    public ResponseEntity<String> googlePlay(HttpServletRequest request,//
+                                             @PathVariable(value = "title") String title,//
+                                             @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                     String theme,//
+                                             @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                     String size,//
+                                             @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                     String direction,//
+                                             @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                     String link,//
+                                             @RequestParam(value = "bg", required = false, defaultValue = "ea3c2a")//
+                                                     String bg,//
+                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                     String color) throws Exception {
         logger.payloadLog("google-play", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "google-play",//
                 "theme", theme,//
@@ -374,7 +377,7 @@ public class SocialBadgeController {
                                                     String color) throws Exception {
         logger.payloadLog("instagram", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "instagram",//
                 "theme", theme,//
@@ -387,22 +390,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/kaggle/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> kaggle(HttpServletRequest request,//
-                                              @PathVariable(value = "title") String title,//
-                                              @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                      String theme,//
-                                              @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                      String size,//
-                                              @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                      String direction,//
-                                              @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                      String link,//
-                                              @RequestParam(value = "bg", required = false, defaultValue = "349ead")//
-                                                      String bg,//
-                                              @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                      String color) throws Exception {
+                                         @PathVariable(value = "title") String title,//
+                                         @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                 String theme,//
+                                         @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                 String size,//
+                                         @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                 String direction,//
+                                         @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                 String link,//
+                                         @RequestParam(value = "bg", required = false, defaultValue = "349ead")//
+                                                 String bg,//
+                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                 String color) throws Exception {
         logger.payloadLog("kaggle", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "kaggle",//
                 "theme", theme,//
@@ -415,22 +418,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/kickstarter/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> kickstarter(HttpServletRequest request,//
-                                            @PathVariable(value = "title") String title,//
-                                            @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                    String theme,//
-                                            @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                    String size,//
-                                            @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                    String direction,//
-                                            @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                    String link,//
-                                            @RequestParam(value = "bg", required = false, defaultValue = "05b85f")//
-                                                    String bg,//
-                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                    String color) throws Exception {
+                                              @PathVariable(value = "title") String title,//
+                                              @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                      String theme,//
+                                              @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                      String size,//
+                                              @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                      String direction,//
+                                              @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                      String link,//
+                                              @RequestParam(value = "bg", required = false, defaultValue = "05b85f")//
+                                                      String bg,//
+                                              @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                      String color) throws Exception {
         logger.payloadLog("kickstarter", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "kickstarter",//
                 "theme", theme,//
@@ -458,7 +461,7 @@ public class SocialBadgeController {
                                                    String color) throws Exception {
         logger.payloadLog("linkedin", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "linkedin",//
                 "theme", theme,//
@@ -486,7 +489,7 @@ public class SocialBadgeController {
                                                  String color) throws Exception {
         logger.payloadLog("medium", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "medium",//
                 "theme", theme,//
@@ -499,22 +502,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/paypal/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> paypal(HttpServletRequest request,//
-                                            @PathVariable(value = "title") String title,//
-                                            @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                    String theme,//
-                                            @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                    String size,//
-                                            @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                    String direction,//
-                                            @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                    String link,//
-                                            @RequestParam(value = "bg", required = false, defaultValue = "005387")//
-                                                    String bg,//
-                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                    String color) throws Exception {
+                                         @PathVariable(value = "title") String title,//
+                                         @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                 String theme,//
+                                         @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                 String size,//
+                                         @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                 String direction,//
+                                         @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                 String link,//
+                                         @RequestParam(value = "bg", required = false, defaultValue = "005387")//
+                                                 String bg,//
+                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                 String color) throws Exception {
         logger.payloadLog("paypal", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "paypal",//
                 "theme", theme,//
@@ -542,7 +545,7 @@ public class SocialBadgeController {
                                                     String color) throws Exception {
         logger.payloadLog("pinterest", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "pinterest",//
                 "theme", theme,//
@@ -570,7 +573,7 @@ public class SocialBadgeController {
                                                 String color) throws Exception {
         logger.payloadLog("quora", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "quora",//
                 "theme", theme,//
@@ -598,7 +601,7 @@ public class SocialBadgeController {
                                                  String color) throws Exception {
         logger.payloadLog("reddit", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "reddit",//
                 "theme", theme,//
@@ -626,7 +629,7 @@ public class SocialBadgeController {
                                                 String color) throws Exception {
         logger.payloadLog("skype", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "skype",//
                 "theme", theme,//
@@ -639,34 +642,6 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/slack/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> slack(HttpServletRequest request,//
-                                           @PathVariable(value = "title") String title,//
-                                           @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                   String theme,//
-                                           @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                   String size,//
-                                           @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                   String direction,//
-                                           @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                   String link,//
-                                           @RequestParam(value = "bg", required = false, defaultValue = "4a133b")//
-                                                   String bg,//
-                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                   String color) throws Exception {
-        logger.payloadLog("slack", request, title, theme, size, direction, link, bg, color);
-
-        return new LinkAsResponseWrapper().wrap(Map.of(//
-                "title", title,//
-                "icon", "slack",//
-                "theme", theme,//
-                "size", size,//
-                "direction", direction,//
-                "link", "http://" +(link.equals("#") ? title : link) + ".slack.com",//
-                "bg", bg,//
-                "color", color));
-    }
-
-    @GetMapping(path = "/snapchat/{title}", produces = "image/svg+xml")
-    public ResponseEntity<String> snapchat(HttpServletRequest request,//
                                         @PathVariable(value = "title") String title,//
                                         @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                 String theme,//
@@ -676,13 +651,41 @@ public class SocialBadgeController {
                                                 String direction,//
                                         @RequestParam(value = "link", required = false, defaultValue = "#")//
                                                 String link,//
-                                        @RequestParam(value = "bg", required = false, defaultValue = "f7da00")//
+                                        @RequestParam(value = "bg", required = false, defaultValue = "4a133b")//
                                                 String bg,//
                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                 String color) throws Exception {
+        logger.payloadLog("slack", request, title, theme, size, direction, link, bg, color);
+
+        return linkAsResponseWrapper.wrap(Map.of(//
+                "title", title,//
+                "icon", "slack",//
+                "theme", theme,//
+                "size", size,//
+                "direction", direction,//
+                "link", "http://" + (link.equals("#") ? title : link) + ".slack.com",//
+                "bg", bg,//
+                "color", color));
+    }
+
+    @GetMapping(path = "/snapchat/{title}", produces = "image/svg+xml")
+    public ResponseEntity<String> snapchat(HttpServletRequest request,//
+                                           @PathVariable(value = "title") String title,//
+                                           @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                   String theme,//
+                                           @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                   String size,//
+                                           @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                   String direction,//
+                                           @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                   String link,//
+                                           @RequestParam(value = "bg", required = false, defaultValue = "f7da00")//
+                                                   String bg,//
+                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                   String color) throws Exception {
         logger.payloadLog("snapchat", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "snapchat",//
                 "theme", theme,//
@@ -710,7 +713,7 @@ public class SocialBadgeController {
                                                   String color) throws Exception {
         logger.payloadLog("spotify", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "spotify",//
                 "theme", theme,//
@@ -738,7 +741,7 @@ public class SocialBadgeController {
                                                         String color) throws Exception {
         logger.payloadLog("stack-exchange", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "stack-exchange",//
                 "theme", theme,//
@@ -766,7 +769,7 @@ public class SocialBadgeController {
                                                         String color) throws Exception {
         logger.payloadLog("stackoverflow", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "stack-overflow",//
                 "theme", theme,//
@@ -794,7 +797,7 @@ public class SocialBadgeController {
                                                 String color) throws Exception {
         logger.payloadLog("steam", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "steam",//
                 "theme", theme,//
@@ -822,7 +825,7 @@ public class SocialBadgeController {
                                                    String color) throws Exception {
         logger.payloadLog("telegram", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "telegram",//
                 "theme", theme,//
@@ -835,22 +838,22 @@ public class SocialBadgeController {
 
     @GetMapping(path = "/tiktok/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> tiktok(HttpServletRequest request,//
-                                           @PathVariable(value = "title") String title,//
-                                           @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                   String theme,//
-                                           @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                   String size,//
-                                           @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                   String direction,//
-                                           @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                   String link,//
-                                           @RequestParam(value = "bg", required = false, defaultValue = "010101")//
-                                                   String bg,//
-                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                   String color) throws Exception {
+                                         @PathVariable(value = "title") String title,//
+                                         @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                 String theme,//
+                                         @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                 String size,//
+                                         @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                 String direction,//
+                                         @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                 String link,//
+                                         @RequestParam(value = "bg", required = false, defaultValue = "010101")//
+                                                 String bg,//
+                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                 String color) throws Exception {
         logger.payloadLog("tiktok", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "tiktok",//
                 "theme", theme,//
@@ -878,35 +881,35 @@ public class SocialBadgeController {
                                                  String color) throws Exception {
         logger.payloadLog("tumblr", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "tumblr",//
                 "theme", theme,//
                 "size", size,//
                 "direction", direction,//
-                "link", "https://" + (link.equals("#") ? title : link) +".tumblr.com",//
+                "link", "https://" + (link.equals("#") ? title : link) + ".tumblr.com",//
                 "bg", bg,//
                 "color", color));
     }
 
     @GetMapping(path = "/twitch/{title}", produces = "image/svg+xml")
     public ResponseEntity<String> twitch(HttpServletRequest request,//
-                                          @PathVariable(value = "title") String title,//
-                                          @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                  String theme,//
-                                          @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                  String size,//
-                                          @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                  String direction,//
-                                          @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                  String link,//
-                                          @RequestParam(value = "bg", required = false, defaultValue = "913fc9")//
-                                                  String bg,//
-                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                  String color) throws Exception {
+                                         @PathVariable(value = "title") String title,//
+                                         @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                 String theme,//
+                                         @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                 String size,//
+                                         @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                 String direction,//
+                                         @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                 String link,//
+                                         @RequestParam(value = "bg", required = false, defaultValue = "913fc9")//
+                                                 String bg,//
+                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                 String color) throws Exception {
         logger.payloadLog("twitch", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "twitch",//
                 "theme", theme,//
@@ -934,7 +937,7 @@ public class SocialBadgeController {
                                                   String color) throws Exception {
         logger.payloadLog("twitter", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "twitter",//
                 "theme", theme,//
@@ -962,7 +965,7 @@ public class SocialBadgeController {
                                                     String color) throws Exception {
         logger.payloadLog("yahoo-mail", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "yahoo",//
                 "theme", theme,//
@@ -990,7 +993,7 @@ public class SocialBadgeController {
                                                   String color) throws Exception {
         logger.payloadLog("youtube", request, title, theme, size, direction, link, bg, color);
 
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "youtube",//
                 "theme", theme,//

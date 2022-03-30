@@ -2,7 +2,8 @@ package solutions.thex.badgify.svg.responseWrapper.badge;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import solutions.thex.badgify.controller.error.ErrorAsBadge;
+import org.springframework.stereotype.Service;
+import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
 import solutions.thex.badgify.svg.SvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.ProfileResolver;
 
@@ -17,16 +18,27 @@ import java.util.Map;
  * @version 1.0.0
  * @since 1.0.0
  */
+@Service
 public class ProfileAsResponseWrapper implements SvgAsResponseWrapper {
+
+    private final ProfileResolver profileResolver;
+    private final ErrorAsBadge errorAsBadge;
+
+    public ProfileAsResponseWrapper(ProfileResolver profileResolver, ErrorAsBadge errorAsBadge) {
+        this.profileResolver = profileResolver;
+        this.errorAsBadge = errorAsBadge;
+    }
+
     @Override
     public ResponseEntity<String> wrap(Map<String, String> params) throws IOException {
         if ("-1".equals(params.get("id")))
             return new ResponseEntity<>(//
-                    new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
+                    errorAsBadge.generate(422, "Title or icon not provided!"),//
                     HttpStatus.UNPROCESSABLE_ENTITY);
 
         return new ResponseEntity<>(//
-                new ProfileResolver().resolve(params) //
+                profileResolver.resolve(params) //
                 , HttpStatus.OK);
     }
+
 }

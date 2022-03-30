@@ -1,8 +1,10 @@
 package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import solutions.thex.badgify.controller.error.ErrorAsBadge;
+import org.springframework.stereotype.Service;
+import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
 import solutions.thex.badgify.svg.InlineSvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.LTRLinkResolver;
 import solutions.thex.badgify.svg.resolver.badge.RTLLinkResolver;
@@ -12,14 +14,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * An implementation of {@link solutions.thex.badgify.svg.InlineSvgAsResponseWrapper} which wrap up generated
+ * An implementation of {@link InlineSvgAsResponseWrapper} which wrap up generated
  * inline link badge SVG as a response.
  *
  * @author Soroush Shemshadi
  * @version 1.2.0
  * @since 1.1.0
  */
+@Service
 public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
+
+    private final LTRLinkResolver ltrLinkResolver;
+    private final RTLLinkResolver rtlLinkResolver;
+    private final ErrorAsBadge errorAsBadge;
+
+    public InlineLinkAsResponseWrapper(@Qualifier("LTRLinkResolver") LTRLinkResolver ltrLinkResolver,//
+                                       RTLLinkResolver rtlLinkResolver,//
+                                       ErrorAsBadge errorAsBadge) {
+        this.ltrLinkResolver = ltrLinkResolver;
+        this.rtlLinkResolver = rtlLinkResolver;
+        this.errorAsBadge = errorAsBadge;
+    }
 
     @Override
     public ResponseEntity<String> wrap(String design) throws IOException {
@@ -28,17 +43,17 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractDesign(design);
             if (params.size() == 0) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
+                        errorAsBadge.generate(422, "Title or icon not provided!"),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
                     "ltr".equals(params.get("direction")) ?//
-                            new LTRLinkResolver().resolve(params) ://
-                            new RTLLinkResolver().resolve(params)//
+                            ltrLinkResolver.resolve(params) ://
+                            rtlLinkResolver.resolve(params)//
                     , HttpStatus.OK);
         }
         return new ResponseEntity<>(//
-                new ErrorAsBadge(422, "Design syntax error!").toString(),//
+                errorAsBadge.generate(422, "Design syntax error!"),//
                 HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
@@ -49,17 +64,17 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractShortDesign(design);
             if (params.size() == 4) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
+                        errorAsBadge.generate(422, "Title or icon not provided!"),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
                     "ltr".equals(params.get("direction")) ?//
-                            new LTRLinkResolver().resolve(params) ://
-                            new RTLLinkResolver().resolve(params)//
+                            ltrLinkResolver.resolve(params) ://
+                            rtlLinkResolver.resolve(params)//
                     , HttpStatus.OK);
         }
         return new ResponseEntity<>(//
-                new ErrorAsBadge(422, "Design syntax error!").toString(),//
+                errorAsBadge.generate(422, "Design syntax error!"),//
                 HttpStatus.UNPROCESSABLE_ENTITY);
     }
 

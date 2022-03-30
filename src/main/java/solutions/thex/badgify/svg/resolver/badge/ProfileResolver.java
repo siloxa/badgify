@@ -2,6 +2,7 @@ package solutions.thex.badgify.svg.resolver.badge;
 
 import org.json.JSONObject;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import solutions.thex.badgify.svg.SvgResolver;
 import solutions.thex.badgify.svg.generator.badge.ProfileGenerator;
@@ -22,6 +23,7 @@ import java.util.Map;
  * @version 1.0.0
  * @since 1.0.0
  */
+@Service
 public class ProfileResolver extends SvgResolver {
 
     @Override

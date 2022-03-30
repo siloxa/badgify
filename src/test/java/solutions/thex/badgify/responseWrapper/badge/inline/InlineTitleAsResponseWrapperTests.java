@@ -3,6 +3,7 @@ package solutions.thex.badgify.responseWrapper.badge.inline;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineTitleAsResponseWrapper;
@@ -18,8 +19,8 @@ public class InlineTitleAsResponseWrapperTests {
     private InlineTitleAsResponseWrapper inlineTitleAsResponseWrapper;
 
     @BeforeEach
-    void setup() {
-        inlineTitleAsResponseWrapper = new InlineTitleAsResponseWrapper();
+    void setup(@Autowired InlineTitleAsResponseWrapper inlineTitleAsResponseWrapper) {
+        this.inlineTitleAsResponseWrapper = inlineTitleAsResponseWrapper;
     }
 
     @Test

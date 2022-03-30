@@ -2,7 +2,8 @@ package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import solutions.thex.badgify.controller.error.ErrorAsBadge;
+import org.springframework.stereotype.Service;
+import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
 import solutions.thex.badgify.svg.InlineSvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.ProfileResolver;
 
@@ -18,7 +19,16 @@ import java.util.Map;
  * @version 1.1.0
  * @since 1.1.0
  */
+@Service
 public class InlineProfileAsResponseWrapper extends InlineSvgAsResponseWrapper {
+
+    private final ProfileResolver profileResolver;
+    private final ErrorAsBadge errorAsBadge;
+
+    public InlineProfileAsResponseWrapper(ProfileResolver profileResolver, ErrorAsBadge errorAsBadge) {
+        this.profileResolver = profileResolver;
+        this.errorAsBadge = errorAsBadge;
+    }
 
     @Override
     public ResponseEntity<String> wrap(String design) throws IOException {
@@ -27,15 +37,15 @@ public class InlineProfileAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractDesign(design);
             if (params.size() == 0) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "GitHub id not provided!").toString(),//
+                        errorAsBadge.generate(422, "GitHub id not provided!"),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
-                    new ProfileResolver().resolve(params) //
+                    profileResolver.resolve(params) //
                     , HttpStatus.OK);
         }
         return new ResponseEntity<>(//
-                new ErrorAsBadge(422, "Design syntax error!").toString(),//
+                errorAsBadge.generate(422, "Design syntax error!"),//
                 HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
@@ -46,15 +56,15 @@ public class InlineProfileAsResponseWrapper extends InlineSvgAsResponseWrapper {
                     extractShortDesign(design);
             if (params.size() == 1) {
                 return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "GitHub id not provided!").toString(),//
+                        errorAsBadge.generate(422, "GitHub id not provided!"),//
                         HttpStatus.UNPROCESSABLE_ENTITY);
             }
             return new ResponseEntity<>(//
-                    new ProfileResolver().resolve(params) //
+                    profileResolver.resolve(params) //
                     , HttpStatus.OK);
         }
         return new ResponseEntity<>(//
-                new ErrorAsBadge(422, "Design syntax error!").toString(),//
+                errorAsBadge.generate(422, "Design syntax error!"),//
                 HttpStatus.UNPROCESSABLE_ENTITY);
     }
 

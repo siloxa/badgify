@@ -1,5 +1,6 @@
 package solutions.thex.badgify.svg.resolver.badge;
 
+import org.springframework.stereotype.Service;
 import solutions.thex.badgify.svg.SvgResolver;
 import solutions.thex.badgify.svg.generator.badge.TitleGenerator;
 
@@ -14,6 +15,7 @@ import java.util.Map;
  * @version 1.2.0
  * @since 1.0.0
  */
+@Service
 public class TitleResolver extends SvgResolver {
 
     @Override
