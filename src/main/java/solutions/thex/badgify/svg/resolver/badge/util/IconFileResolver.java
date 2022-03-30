@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class IconResolver {
+public class IconFileResolver {
 
     protected static String retrieveIconFile(String icon) {
         return new BufferedReader(//
