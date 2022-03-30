@@ -1,4 +1,4 @@
-package solutions.thex.badgify.config;
+package solutions.thex.badgify.config.security;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
