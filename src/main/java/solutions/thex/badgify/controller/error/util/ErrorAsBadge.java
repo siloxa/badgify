@@ -1,5 +1,6 @@
-package solutions.thex.badgify.controller.error;
+package solutions.thex.badgify.controller.error.util;
 
+import org.springframework.stereotype.Component;
 import solutions.thex.badgify.svg.resolver.badge.LTRLinkResolver;
 
 import java.io.IOException;
@@ -13,12 +14,11 @@ import java.util.Map;
  * @version 1.0.0
  * @since 1.0.0
  */
+@Component
 public class ErrorAsBadge extends LTRLinkResolver {
 
-    private final String svg;
-
-    public ErrorAsBadge(int status, String error) throws IOException {
-        this.svg = resolve(Map.of(//
+    public String generate(int status, String error) throws IOException {
+        return resolve(Map.of(//
                 "theme", "simple",//
                 "size", "m",//
                 "direction", "ltr",//
@@ -27,10 +27,6 @@ public class ErrorAsBadge extends LTRLinkResolver {
                 "icon", "triangle-exclamation",//
                 "bg", "c4160a",//
                 "color", "rgb(255, 255, 255)"));
-    }
-
-    public String toString() {
-        return svg;
     }
 
 }
