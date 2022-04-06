@@ -3,7 +3,7 @@ package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
+import solutions.thex.badgify.exception.NotSatisfiedParametersException;
 import solutions.thex.badgify.svg.InlineSvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.TitleResolver;
 
@@ -23,11 +23,9 @@ import java.util.Map;
 public class InlineTitleAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     private final TitleResolver titleResolver;
-    private final ErrorAsBadge errorAsBadge;
 
-    public InlineTitleAsResponseWrapper(TitleResolver titleResolver, ErrorAsBadge errorAsBadge) {
+    public InlineTitleAsResponseWrapper(TitleResolver titleResolver) {
         this.titleResolver = titleResolver;
-        this.errorAsBadge = errorAsBadge;
     }
 
     @Override
@@ -35,18 +33,13 @@ public class InlineTitleAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractDesign(design);
-            if (params.size() == 0) {
-                return new ResponseEntity<>(//
-                        errorAsBadge.generate(422, "Title not provided!"),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 0) throw new NotSatisfiedParametersException("Title parameter is required!");
+
             return new ResponseEntity<>(//
                     titleResolver.resolve(params) //
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                errorAsBadge.generate(422, "Design syntax error!"),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     @Override
@@ -54,18 +47,13 @@ public class InlineTitleAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractShortDesign(design);
-            if (params.size() == 3) {
-                return new ResponseEntity<>(//
-                        errorAsBadge.generate(422, "Title not provided!"),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 3) throw new NotSatisfiedParametersException("Title parameter is required!");
+
             return new ResponseEntity<>(//
                     titleResolver.resolve(params) //
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                errorAsBadge.generate(422, "Design syntax error!"),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     private Map<String, String> extractShortDesign(String design) {

@@ -3,7 +3,7 @@ package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
+import solutions.thex.badgify.exception.NotSatisfiedParametersException;
 import solutions.thex.badgify.svg.InlineSvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.IconResolver;
 
@@ -23,11 +23,9 @@ import java.util.Map;
 public class InlineIconAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     private final IconResolver iconResolver;
-    private final ErrorAsBadge errorAsBadge;
 
-    public InlineIconAsResponseWrapper(IconResolver iconResolver, ErrorAsBadge errorAsBadge) {
+    public InlineIconAsResponseWrapper(IconResolver iconResolver) {
         this.iconResolver = iconResolver;
-        this.errorAsBadge = errorAsBadge;
     }
 
     @Override
@@ -35,18 +33,13 @@ public class InlineIconAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractDesign(design);
-            if (params.size() == 0) {
-                return new ResponseEntity<>(//
-                        errorAsBadge.generate(422, "Icon not provided!"),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 0) throw new NotSatisfiedParametersException("Icon parameter is required!");
+
             return new ResponseEntity<>(//
                     iconResolver.resolve(params) //
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                errorAsBadge.generate(422, "Design syntax error!"),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     @Override
@@ -54,18 +47,13 @@ public class InlineIconAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractShortDesign(design);
-            if (params.size() == 3) {
-                return new ResponseEntity<>(//
-                        errorAsBadge.generate(422, "Icon not provided!"),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 3) throw new NotSatisfiedParametersException("Icon parameter is required!");
+
             return new ResponseEntity<>(//
                     iconResolver.resolve(params) //
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                errorAsBadge.generate(422, "Design syntax error!"),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     private Map<String, String> extractShortDesign(String design) {

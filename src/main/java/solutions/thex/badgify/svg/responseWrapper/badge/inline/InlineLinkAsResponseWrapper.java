@@ -1,10 +1,9 @@
 package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
+import solutions.thex.badgify.exception.NotSatisfiedParametersException;
 import solutions.thex.badgify.svg.InlineSvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.LTRLinkResolver;
 import solutions.thex.badgify.svg.resolver.badge.RTLLinkResolver;
@@ -26,14 +25,11 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     private final LTRLinkResolver ltrLinkResolver;
     private final RTLLinkResolver rtlLinkResolver;
-    private final ErrorAsBadge errorAsBadge;
 
-    public InlineLinkAsResponseWrapper(@Qualifier("LTRLinkResolver") LTRLinkResolver ltrLinkResolver,//
-                                       RTLLinkResolver rtlLinkResolver,//
-                                       ErrorAsBadge errorAsBadge) {
+    public InlineLinkAsResponseWrapper(LTRLinkResolver ltrLinkResolver,//
+                                       RTLLinkResolver rtlLinkResolver) {
         this.ltrLinkResolver = ltrLinkResolver;
         this.rtlLinkResolver = rtlLinkResolver;
-        this.errorAsBadge = errorAsBadge;
     }
 
     @Override
@@ -41,20 +37,16 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractDesign(design);
-            if (params.size() == 0) {
-                return new ResponseEntity<>(//
-                        errorAsBadge.generate(422, "Title or icon not provided!"),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 0)
+                throw new NotSatisfiedParametersException("Title and Icon parameters are required!");
+
             return new ResponseEntity<>(//
                     "ltr".equals(params.get("direction")) ?//
                             ltrLinkResolver.resolve(params) ://
                             rtlLinkResolver.resolve(params)//
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                errorAsBadge.generate(422, "Design syntax error!"),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     @Override
@@ -62,20 +54,16 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractShortDesign(design);
-            if (params.size() == 4) {
-                return new ResponseEntity<>(//
-                        errorAsBadge.generate(422, "Title or icon not provided!"),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 4)
+                throw new NotSatisfiedParametersException("Title and Icon parameters are required!");
+
             return new ResponseEntity<>(//
                     "ltr".equals(params.get("direction")) ?//
                             ltrLinkResolver.resolve(params) ://
                             rtlLinkResolver.resolve(params)//
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                errorAsBadge.generate(422, "Design syntax error!"),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     private Map<String, String> extractShortDesign(String design) {

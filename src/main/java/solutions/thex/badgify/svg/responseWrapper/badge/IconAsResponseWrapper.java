@@ -1,9 +1,10 @@
 package solutions.thex.badgify.svg.responseWrapper.badge;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import solutions.thex.badgify.controller.error.util.ErrorAsBadge;
+import solutions.thex.badgify.exception.NotSatisfiedParametersException;
 import solutions.thex.badgify.svg.SvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.IconResolver;
 
@@ -22,19 +23,15 @@ import java.util.Map;
 public class IconAsResponseWrapper implements SvgAsResponseWrapper {
 
     private final IconResolver iconResolver;
-    private final ErrorAsBadge errorAsBadge;
 
-    public IconAsResponseWrapper(IconResolver iconResolver, ErrorAsBadge errorAsBadge) {
+    @Autowired
+    public IconAsResponseWrapper(IconResolver iconResolver) {
         this.iconResolver = iconResolver;
-        this.errorAsBadge = errorAsBadge;
     }
 
     @Override
-    public ResponseEntity<String> wrap(Map<String, String> params) throws IOException {
-        if ("-1".equals(params.get("icon")))
-            return new ResponseEntity<>(//
-                    errorAsBadge.generate(422, "Title or icon not provided!"),//
-                    HttpStatus.UNPROCESSABLE_ENTITY);
+    public ResponseEntity<String> wrap(Map<String, String> params) throws IOException, NotSatisfiedParametersException {
+        if ("-1".equals(params.get("icon"))) throw new NotSatisfiedParametersException("Icon parameter is required!");
 
         return new ResponseEntity<>(//
                 iconResolver.resolve(params) //
