@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @Component
 public class LogAspect {
 
-    @Before(value = "execution(* solutions.thex.badgify.controller..*(..))")
+    @Before(value = "execution(* solutions.thex.badgify.controller.badge..*(..))")
     public void logBefore(JoinPoint joinPoint) {
         AtomicReference<String> payload = new AtomicReference<>("");
         Arrays.stream(joinPoint.getArgs()).filter(arg -> arg instanceof String).forEach(arg -> {
