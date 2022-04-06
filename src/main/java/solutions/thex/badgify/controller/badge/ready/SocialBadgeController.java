@@ -1,10 +1,8 @@
 package solutions.thex.badgify.controller.badge.ready;
 
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import solutions.thex.badgify.log.ControllerLogger;
 import solutions.thex.badgify.svg.responseWrapper.badge.LinkAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,13 +12,10 @@ import java.util.Map;
 @RequestMapping("/api/social")
 public class SocialBadgeController {
 
-    private final ControllerLogger logger;
     private final LinkAsResponseWrapper linkAsResponseWrapper;
 
     @Autowired
-    public SocialBadgeController(ObjectProvider<ControllerLogger> controllerLoggerProvider,//
-                                 LinkAsResponseWrapper linkAsResponseWrapper) {
-        this.logger = controllerLoggerProvider.getObject(this.getClass());
+    public SocialBadgeController(LinkAsResponseWrapper linkAsResponseWrapper) {
         this.linkAsResponseWrapper = linkAsResponseWrapper;
     }
 
@@ -39,8 +34,6 @@ public class SocialBadgeController {
                                                    String bg,//
                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                    String color) throws Exception {
-        logger.payloadLog("app-store", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "app-store",//
@@ -67,8 +60,6 @@ public class SocialBadgeController {
                                                   String bg,//
                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                   String color) throws Exception {
-        logger.payloadLog("behance", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "behance",//
@@ -95,8 +86,6 @@ public class SocialBadgeController {
                                                   String bg,//
                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                   String color) throws Exception {
-        logger.payloadLog("discord", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "discord",//
@@ -123,8 +112,6 @@ public class SocialBadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("dockerhub", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "docker",//
@@ -151,8 +138,6 @@ public class SocialBadgeController {
                                                    String bg,//
                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                    String color) throws Exception {
-        logger.payloadLog("dribbble", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "dribbble",//
@@ -179,8 +164,6 @@ public class SocialBadgeController {
                                                   String bg,//
                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                   String color) throws Exception {
-        logger.payloadLog("dropbox", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "dropbox",//
@@ -207,8 +190,6 @@ public class SocialBadgeController {
                                                    String bg,//
                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                    String color) throws Exception {
-        logger.payloadLog("facebook", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "facebook",//
@@ -235,8 +216,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("github", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "github",//
@@ -263,8 +242,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("gitlab", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "gitlab",//
@@ -291,8 +268,6 @@ public class SocialBadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("goodreads", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "goodreads",//
@@ -319,8 +294,6 @@ public class SocialBadgeController {
                                                       String bg,//
                                               @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                       String color) throws Exception {
-        logger.payloadLog("google-drive", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "google-drive",//
@@ -347,8 +320,6 @@ public class SocialBadgeController {
                                                      String bg,//
                                              @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                      String color) throws Exception {
-        logger.payloadLog("google-play", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "google-play",//
@@ -375,8 +346,6 @@ public class SocialBadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("instagram", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "instagram",//
@@ -403,8 +372,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("kaggle", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "kaggle",//
@@ -431,8 +398,6 @@ public class SocialBadgeController {
                                                       String bg,//
                                               @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                       String color) throws Exception {
-        logger.payloadLog("kickstarter", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "kickstarter",//
@@ -459,8 +424,6 @@ public class SocialBadgeController {
                                                    String bg,//
                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                    String color) throws Exception {
-        logger.payloadLog("linkedin", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "linkedin",//
@@ -487,8 +450,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("medium", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "medium",//
@@ -515,8 +476,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("paypal", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "paypal",//
@@ -543,8 +502,6 @@ public class SocialBadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("pinterest", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "pinterest",//
@@ -571,8 +528,6 @@ public class SocialBadgeController {
                                                 String bg,//
                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                 String color) throws Exception {
-        logger.payloadLog("quora", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "quora",//
@@ -599,8 +554,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("reddit", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "reddit",//
@@ -627,8 +580,6 @@ public class SocialBadgeController {
                                                 String bg,//
                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                 String color) throws Exception {
-        logger.payloadLog("skype", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "skype",//
@@ -655,8 +606,6 @@ public class SocialBadgeController {
                                                 String bg,//
                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                 String color) throws Exception {
-        logger.payloadLog("slack", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "slack",//
@@ -683,8 +632,6 @@ public class SocialBadgeController {
                                                    String bg,//
                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                    String color) throws Exception {
-        logger.payloadLog("snapchat", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "snapchat",//
@@ -711,8 +658,6 @@ public class SocialBadgeController {
                                                   String bg,//
                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                   String color) throws Exception {
-        logger.payloadLog("spotify", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "spotify",//
@@ -739,8 +684,6 @@ public class SocialBadgeController {
                                                         String bg,//
                                                 @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                         String color) throws Exception {
-        logger.payloadLog("stack-exchange", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "stack-exchange",//
@@ -767,8 +710,6 @@ public class SocialBadgeController {
                                                         String bg,//
                                                 @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                         String color) throws Exception {
-        logger.payloadLog("stackoverflow", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "stack-overflow",//
@@ -795,8 +736,6 @@ public class SocialBadgeController {
                                                 String bg,//
                                         @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                 String color) throws Exception {
-        logger.payloadLog("steam", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "steam",//
@@ -823,8 +762,6 @@ public class SocialBadgeController {
                                                    String bg,//
                                            @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                    String color) throws Exception {
-        logger.payloadLog("telegram", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "telegram",//
@@ -851,8 +788,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("tiktok", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "tiktok",//
@@ -879,8 +814,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("tumblr", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "tumblr",//
@@ -907,8 +840,6 @@ public class SocialBadgeController {
                                                  String bg,//
                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                  String color) throws Exception {
-        logger.payloadLog("twitch", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "twitch",//
@@ -935,8 +866,6 @@ public class SocialBadgeController {
                                                   String bg,//
                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                   String color) throws Exception {
-        logger.payloadLog("twitter", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "twitter",//
@@ -963,8 +892,6 @@ public class SocialBadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("yahoo-mail", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "yahoo",//
@@ -991,8 +918,6 @@ public class SocialBadgeController {
                                                   String bg,//
                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                   String color) throws Exception {
-        logger.payloadLog("youtube", request, title, theme, size, direction, link, bg, color);
-
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "youtube",//

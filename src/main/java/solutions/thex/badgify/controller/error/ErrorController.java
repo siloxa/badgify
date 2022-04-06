@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import solutions.thex.badgify.controller.error.util.ErrorAsJson;
-import solutions.thex.badgify.log.ControllerLogger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +20,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController {
 
-    private final ControllerLogger logger;
     private final ErrorAsJson errorAsJson;
 
     @Autowired
-    public ErrorController(ObjectProvider<ControllerLogger> controllerLoggerProvider,//
-                           ErrorAsJson errorAsJson) {
-        this.logger = controllerLoggerProvider.getObject(this.getClass());
+    public ErrorController(ErrorAsJson errorAsJson) {
         this.errorAsJson = errorAsJson;
     }
 
@@ -40,9 +36,6 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     @RequestMapping(value = "/error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-
-        logger.payloadLog("handleError", request);
-
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
 
