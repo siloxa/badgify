@@ -1,6 +1,7 @@
-package solutions.thex.badgify.controller.error;
+package solutions.thex.badgify.controller.error.util;
 
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
@@ -11,20 +12,16 @@ import java.util.Date;
  * @version 1.0.0
  * @since 1.0.0
  */
+@Component
 public class ErrorAsJson {
 
-    JSONObject json = new JSONObject();
-
-    public ErrorAsJson(int status, String error, String message, String path) {
+    public String generate(int status, String error, String message, String path) {
+        JSONObject json = new JSONObject();
         json.put("status", status);
         json.put("error", error);
         json.put("message", message);
         json.put("path", path);
         json.put("timestamp", new Date().toString());
-    }
-
-
-    public String toString() {
         return json.toString();
     }
 

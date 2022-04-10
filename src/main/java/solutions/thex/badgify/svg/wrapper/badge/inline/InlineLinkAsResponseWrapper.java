@@ -1,8 +1,10 @@
-package solutions.thex.badgify.svg.responseWrapper.badge.inline;
+package solutions.thex.badgify.svg.wrapper.badge.inline;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import solutions.thex.badgify.controller.error.ErrorAsBadge;
+import org.springframework.stereotype.Service;
+import solutions.thex.badgify.exception.NotSatisfiedParametersException;
 import solutions.thex.badgify.svg.InlineSvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.LTRLinkResolver;
 import solutions.thex.badgify.svg.resolver.badge.RTLLinkResolver;
@@ -12,34 +14,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * An implementation of {@link solutions.thex.badgify.svg.InlineSvgAsResponseWrapper} which wrap up generated
+ * An implementation of {@link InlineSvgAsResponseWrapper} which wrap up generated
  * inline link badge SVG as a response.
  *
  * @author Soroush Shemshadi
  * @version 1.2.0
  * @since 1.1.0
  */
+@Service
 public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
+
+    private final LTRLinkResolver ltrLinkResolver;
+    private final RTLLinkResolver rtlLinkResolver;
+
+    @Autowired
+    public InlineLinkAsResponseWrapper(LTRLinkResolver ltrLinkResolver,//
+                                       RTLLinkResolver rtlLinkResolver) {
+        this.ltrLinkResolver = ltrLinkResolver;
+        this.rtlLinkResolver = rtlLinkResolver;
+    }
 
     @Override
     public ResponseEntity<String> wrap(String design) throws IOException {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractDesign(design);
-            if (params.size() == 0) {
-                return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 0)
+                throw new NotSatisfiedParametersException("Title and Icon parameters are required!");
+
             return new ResponseEntity<>(//
                     "ltr".equals(params.get("direction")) ?//
-                            new LTRLinkResolver().resolve(params) ://
-                            new RTLLinkResolver().resolve(params)//
+                            ltrLinkResolver.resolve(params) ://
+                            rtlLinkResolver.resolve(params)//
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                new ErrorAsBadge(422, "Design syntax error!").toString(),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     @Override
@@ -47,20 +56,16 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
         if (super.isDesignValid(design)) {
             final Map<String, String> params =//
                     extractShortDesign(design);
-            if (params.size() == 4) {
-                return new ResponseEntity<>(//
-                        new ErrorAsBadge(422, "Title or icon not provided!").toString(),//
-                        HttpStatus.UNPROCESSABLE_ENTITY);
-            }
+            if (params.size() == 4)
+                throw new NotSatisfiedParametersException("Title and Icon parameters are required!");
+
             return new ResponseEntity<>(//
                     "ltr".equals(params.get("direction")) ?//
-                            new LTRLinkResolver().resolve(params) ://
-                            new RTLLinkResolver().resolve(params)//
+                            ltrLinkResolver.resolve(params) ://
+                            rtlLinkResolver.resolve(params)//
                     , HttpStatus.OK);
         }
-        return new ResponseEntity<>(//
-                new ErrorAsBadge(422, "Design syntax error!").toString(),//
-                HttpStatus.UNPROCESSABLE_ENTITY);
+        throw new NotSatisfiedParametersException("Design syntax error!");
     }
 
     private Map<String, String> extractShortDesign(String design) {

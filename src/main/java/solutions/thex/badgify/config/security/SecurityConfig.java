@@ -1,4 +1,4 @@
-package solutions.thex.badgify.config;
+package solutions.thex.badgify.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -20,14 +20,18 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private final UnauthorizedEntryPoint unauthorizedEntryPoint;
+
     @Autowired
-    private UnauthorizedEntryPoint unauthorizedEntryPoint;
+    public SecurityConfig(UnauthorizedEntryPoint unauthorizedEntryPoint) {
+        this.unauthorizedEntryPoint = unauthorizedEntryPoint;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http//
                 .authorizeRequests()
-                .antMatchers("/favicon.ico", "/api/**").permitAll()//
+                .antMatchers("/favicon.ico", "/error", "/api/**").permitAll()//
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
                 .antMatchers("/user/**").hasAnyAuthority("USER")//
                 .anyRequest().authenticated()//

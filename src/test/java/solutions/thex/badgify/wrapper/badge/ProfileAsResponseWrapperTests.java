@@ -1,11 +1,12 @@
-package solutions.thex.badgify.responseWrapper.badge;
+package solutions.thex.badgify.wrapper.badge;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.badgify.svg.responseWrapper.badge.TitleAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.ProfileAsResponseWrapper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -14,46 +15,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class TitleAsResponseWrapperTests {
+public class ProfileAsResponseWrapperTests {
 
-    private TitleAsResponseWrapper titleAsResponseWrapper;
+    private ProfileAsResponseWrapper profileAsResponseWrapper;
 
     @BeforeEach
-    void setup() {
-        titleAsResponseWrapper = new TitleAsResponseWrapper();
+    void setup(@Autowired ProfileAsResponseWrapper profileAsResponseWrapper) {
+        this.profileAsResponseWrapper = profileAsResponseWrapper;
     }
 
     @Test
-    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenTitleNotProvided() throws IOException {
+    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenIdNotProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "title", "-1",//
+                "id", "-1",//
                 "theme", "simple",//
-                "size", "s",//
-                "link", "#",//
                 "bg", "000",//
                 "color", "rgb(255, 255, 255)");
 
         // When
-        var response = titleAsResponseWrapper.wrap(params);
+        var response = profileAsResponseWrapper.wrap(params);
 
         // Then
         assertEquals(response.getStatusCode(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @Test
-    void wrapMustReturnOKHttpStatusAsResponseEntityWhenTitleProvided() throws IOException {
+    void wrapMustReturnOKHttpStatusAsResponseEntityWhenIdProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "title", "badgify",//
+                "id", "TheXSolutions",//
                 "theme", "simple",//
-                "size", "s",//
-                "link", "#",//
                 "bg", "000",//
                 "color", "rgb(255, 255, 255)");
 
         // When
-        var response = titleAsResponseWrapper.wrap(params);
+        var response = profileAsResponseWrapper.wrap(params);
 
         // Then
         assertEquals(response.getStatusCode(), HttpStatus.OK);

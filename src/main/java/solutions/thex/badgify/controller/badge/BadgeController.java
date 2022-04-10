@@ -1,15 +1,15 @@
 package solutions.thex.badgify.controller.badge;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import solutions.thex.badgify.log.ControllerLogger;
-import solutions.thex.badgify.svg.responseWrapper.badge.LinkAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.IconAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.ProfileAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.TitleAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.IconAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.LinkAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.ProfileAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.TitleAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -25,11 +25,24 @@ import java.util.Map;
 @RequestMapping("/api/badge")
 public class BadgeController {
 
-    private final ControllerLogger logger = new ControllerLogger(this.getClass());
+    private final LinkAsResponseWrapper linkAsResponseWrapper;
+    private final IconAsResponseWrapper iconAsResponseWrapper;
+    private final TitleAsResponseWrapper titleAsResponseWrapper;
+    private final ProfileAsResponseWrapper profileAsResponseWrapper;
+
+    @Autowired
+    public BadgeController(LinkAsResponseWrapper linkAsResponseWrapper,//
+                           IconAsResponseWrapper iconAsResponseWrapper,//
+                           TitleAsResponseWrapper titleAsResponseWrapper,//
+                           ProfileAsResponseWrapper profileAsResponseWrapper) {
+        this.linkAsResponseWrapper = linkAsResponseWrapper;
+        this.iconAsResponseWrapper = iconAsResponseWrapper;
+        this.titleAsResponseWrapper = titleAsResponseWrapper;
+        this.profileAsResponseWrapper = profileAsResponseWrapper;
+    }
 
     /**
      * Creates custom badges.
-     *
      * Example: /link?title=badgify&icon=github&theme=simple&size=s&dir=ltr&bg=f48024&color=fff
      * &link=https://badgify.thex.solutions
      *
@@ -60,9 +73,7 @@ public class BadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("linkBadge", request, title, icon, theme, size, direction, link, bg, color);
-
-        return new LinkAsResponseWrapper().wrap(Map.of(//
+        return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", icon,//
                 "theme", theme,//
@@ -75,7 +86,6 @@ public class BadgeController {
 
     /**
      * Creates icon badges.
-     *
      * Example: /icon?icon=github&theme=simple&size=s&bg=f48024&color=fff&link=https://badgify.thex.solutions
      *
      * @param request The request.
@@ -102,9 +112,7 @@ public class BadgeController {
                                                     String bg,//
                                             @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                     String color) throws Exception {
-        logger.payloadLog("iconBadge", request, icon, theme, size, link, bg, color);
-
-        return new IconAsResponseWrapper().wrap(Map.of(//
+        return iconAsResponseWrapper.wrap(Map.of(//
                 "icon", icon,//
                 "theme", theme,//
                 "size", size,//
@@ -115,7 +123,6 @@ public class BadgeController {
 
     /**
      * Creates title badges.
-     *
      * Example: /title?title=badgify&theme=simple&size=s&bg=f48024&color=fff
      * &link=https://badgify.thex.solutions
      *
@@ -143,9 +150,7 @@ public class BadgeController {
                                                      String bg,//
                                              @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                      String color) throws Exception {
-        logger.payloadLog("titleBadge", request, title, theme, size, link, bg, color);
-
-        return new TitleAsResponseWrapper().wrap(Map.of(//
+        return titleAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "theme", theme,//
                 "size", size,//
@@ -156,7 +161,6 @@ public class BadgeController {
 
     /**
      * Creates profile badges.
-     *
      * Example: /profile?id=TheXSolutions&theme=simple&size=s&bg=f48024&color=fff
      *
      * @param request The request.
@@ -176,9 +180,7 @@ public class BadgeController {
                                                        String bg,//
                                                @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                        String color) throws Exception {
-        logger.payloadLog("profileBadge", request, id, theme, bg, color);
-
-        return new ProfileAsResponseWrapper().wrap(Map.of(//
+        return profileAsResponseWrapper.wrap(Map.of(//
                 "id", id,//
                 "theme", theme,//
                 "bg", bg,//

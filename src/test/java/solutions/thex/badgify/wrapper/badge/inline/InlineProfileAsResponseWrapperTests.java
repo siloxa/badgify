@@ -1,11 +1,12 @@
-package solutions.thex.badgify.responseWrapper.badge.inline;
+package solutions.thex.badgify.wrapper.badge.inline;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineProfileAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineProfileAsResponseWrapper;
 
 import java.io.IOException;
 
@@ -18,8 +19,8 @@ public class InlineProfileAsResponseWrapperTests {
     private InlineProfileAsResponseWrapper inlineProfileAsResponseWrapper;
 
     @BeforeEach
-    void setup() {
-        inlineProfileAsResponseWrapper = new InlineProfileAsResponseWrapper();
+    void setup(@Autowired InlineProfileAsResponseWrapper inlineProfileAsResponseWrapper) {
+        this.inlineProfileAsResponseWrapper = inlineProfileAsResponseWrapper;
     }
 
     @Test

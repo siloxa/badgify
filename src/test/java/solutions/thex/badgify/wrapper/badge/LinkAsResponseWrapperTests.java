@@ -1,11 +1,12 @@
-package solutions.thex.badgify.responseWrapper.badge;
+package solutions.thex.badgify.wrapper.badge;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.badgify.svg.responseWrapper.badge.LinkAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.LinkAsResponseWrapper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -19,8 +20,8 @@ public class LinkAsResponseWrapperTests {
     private LinkAsResponseWrapper linkAsResponseWrapper;
 
     @BeforeEach
-    void setup() {
-        linkAsResponseWrapper = new LinkAsResponseWrapper();
+    void setup(@Autowired LinkAsResponseWrapper linkAsResponseWrapper) {
+        this.linkAsResponseWrapper = linkAsResponseWrapper;
     }
 
     @Test

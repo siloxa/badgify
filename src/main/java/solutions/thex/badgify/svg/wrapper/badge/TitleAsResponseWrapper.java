@@ -1,8 +1,10 @@
-package solutions.thex.badgify.svg.responseWrapper.badge;
+package solutions.thex.badgify.svg.wrapper.badge;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import solutions.thex.badgify.controller.error.ErrorAsBadge;
+import org.springframework.stereotype.Service;
+import solutions.thex.badgify.exception.NotSatisfiedParametersException;
 import solutions.thex.badgify.svg.SvgAsResponseWrapper;
 import solutions.thex.badgify.svg.resolver.badge.TitleResolver;
 
@@ -17,17 +19,22 @@ import java.util.Map;
  * @version 1.1.0
  * @since 1.0.0
  */
+@Service
 public class TitleAsResponseWrapper implements SvgAsResponseWrapper {
+
+    private final TitleResolver titleResolver;
+
+    @Autowired
+    public TitleAsResponseWrapper(TitleResolver titleResolver) {
+        this.titleResolver = titleResolver;
+    }
 
     @Override
     public ResponseEntity<String> wrap(Map<String, String> params) throws IOException {
-        if ("-1".equals(params.get("title")))
-            return new ResponseEntity<>(//
-                    new ErrorAsBadge(422, "Title not provided!").toString(),//
-                    HttpStatus.UNPROCESSABLE_ENTITY);
+        if ("-1".equals(params.get("title"))) throw new NotSatisfiedParametersException("Title parameter is required!");
 
         return new ResponseEntity<>(//
-                new TitleResolver().resolve(params) //
+                titleResolver.resolve(params) //
                 , HttpStatus.OK);
     }
 

@@ -2,6 +2,7 @@ package solutions.thex.badgify.svg.resolver.badge;
 
 import org.json.JSONObject;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import solutions.thex.badgify.svg.SvgResolver;
 import solutions.thex.badgify.svg.generator.badge.ProfileGenerator;
@@ -22,6 +23,7 @@ import java.util.Map;
  * @version 1.0.0
  * @since 1.0.0
  */
+@Service
 public class ProfileResolver extends SvgResolver {
 
     @Override
@@ -33,7 +35,7 @@ public class ProfileResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .title(resolveTitle(user))//
                 .link(resolveLink(params.get("id")))//
-                .width(resolveWidth(params.get("size"), idOrNameToResolveWidth(params.get("id"), user.getString("name"))))//
+                .width(resolveWidth(idOrNameToResolveWidth(params.get("id"), user.getString("name"))))//
                 .bg(bg)//
                 .color(resolveColor(params.get("color"), bg))//
                 .id(user.getString("login"))//
@@ -88,8 +90,7 @@ public class ProfileResolver extends SvgResolver {
         in.close();
     }
 
-    @Override
-    protected String resolveWidth(String size, String title) {
+    private String resolveWidth(String title) {
         return String.valueOf((int) Math.ceil(title.length() * 8.6441176 + 103.05));
     }
 

@@ -106,31 +106,4 @@ public abstract class SvgResolver {
         return "edge".equals(params.get("theme")) ? bg : resolveColor(params.get("color"), bg);
     }
 
-    protected String resolveTextLength(String title, String size) {
-        return switch (size) {
-            case "s" -> String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
-            case "m" -> String.valueOf((int) Math.ceil(title.length() * 7.05882353) * 10);
-            case "l" -> String.valueOf((int) Math.ceil(title.length() * 8.2352941) * 10);
-            default -> "";
-        };
-    }
-
-    protected String resolveWidth(String size, String title) {
-        return switch (size) {
-            case "s" -> String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
-            case "m" -> String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
-            case "l" -> String.valueOf((int) Math.ceil((title.length() * 8.2352941) + 40));
-            default -> "";
-        };
-    }
-
-    protected String resolveHeight(String size) {
-        return switch (size) {
-            case "s" -> "24";
-            case "m" -> "29";
-            case "l" -> "35";
-            default -> "";
-        };
-    }
-
 }
