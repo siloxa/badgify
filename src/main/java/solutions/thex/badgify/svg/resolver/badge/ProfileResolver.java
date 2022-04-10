@@ -35,7 +35,7 @@ public class ProfileResolver extends SvgResolver {
                 .theme(params.get("theme"))//
                 .title(resolveTitle(user))//
                 .link(resolveLink(params.get("id")))//
-                .width(resolveWidth(params.get("size"), idOrNameToResolveWidth(params.get("id"), user.getString("name"))))//
+                .width(resolveWidth(idOrNameToResolveWidth(params.get("id"), user.getString("name"))))//
                 .bg(bg)//
                 .color(resolveColor(params.get("color"), bg))//
                 .id(user.getString("login"))//
@@ -90,8 +90,7 @@ public class ProfileResolver extends SvgResolver {
         in.close();
     }
 
-    @Override
-    protected String resolveWidth(String size, String title) {
+    private String resolveWidth(String title) {
         return String.valueOf((int) Math.ceil(title.length() * 8.6441176 + 103.05));
     }
 

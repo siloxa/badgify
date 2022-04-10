@@ -37,11 +37,38 @@ public class LTRLinkResolver extends SvgResolver {
                 .build().render();
     }
 
+    private String resolveTextLength(String title, String size) {
+        return switch (size) {
+            case "s" -> String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
+            case "m" -> String.valueOf((int) Math.ceil(title.length() * 7.05882353) * 10);
+            case "l" -> String.valueOf((int) Math.ceil(title.length() * 8.2352941) * 10);
+            default -> "";
+        };
+    }
+
     private String resolveTitleXPosition(String title, String size) {
         return switch (size) {
             case "s" -> String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 24)) * 10);
             case "m" -> String.valueOf((int) Math.ceil((((title.length() * 7.05882353) / 2) + 27)) * 10);
             case "l" -> String.valueOf((int) Math.ceil((((title.length() * 8.2352941) / 2) + 34)) * 10);
+            default -> "";
+        };
+    }
+
+    private String resolveWidth(String size, String title) {
+        return switch (size) {
+            case "s" -> String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
+            case "m" -> String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
+            case "l" -> String.valueOf((int) Math.ceil((title.length() * 8.2352941) + 40));
+            default -> "";
+        };
+    }
+
+    private String resolveHeight(String size) {
+        return switch (size) {
+            case "s" -> "24";
+            case "m" -> "29";
+            case "l" -> "35";
             default -> "";
         };
     }

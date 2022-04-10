@@ -28,14 +28,22 @@ public class IconResolver extends SvgResolver {
                 .title(params.get("icon"))//
                 .icon(resolveIcon(params.get("icon"), getColor(params, bg)))//
                 .link(params.get("link"))//
-                .width(resolveWidth(params.get("size"), params.get("title")))//
+                .width(resolveWidth(params.get("size")))//
                 .height(resolveHeight(params.get("size")))//
                 .bg(bg)//
                 .build().render();
     }
 
-    @Override
-    protected String resolveWidth(String size, String title) {
+    private String resolveWidth(String size) {
+        return switch (size) {
+            case "s" -> "24";
+            case "m" -> "29";
+            case "l" -> "35";
+            default -> "";
+        };
+    }
+
+    private String resolveHeight(String size) {
         return switch (size) {
             case "s" -> "24";
             case "m" -> "29";
