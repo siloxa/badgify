@@ -1,4 +1,4 @@
-package solutions.thex.badgify.controller;
+package solutions.thex.badgify.controller.error;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
