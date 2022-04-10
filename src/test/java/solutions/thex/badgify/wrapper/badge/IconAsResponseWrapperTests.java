@@ -1,4 +1,4 @@
-package solutions.thex.badgify.responseWrapper.badge;
+package solutions.thex.badgify.wrapper.badge;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.badgify.svg.responseWrapper.badge.TitleAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.IconAsResponseWrapper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,20 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class TitleAsResponseWrapperTests {
+public class IconAsResponseWrapperTests {
 
-    private TitleAsResponseWrapper titleAsResponseWrapper;
+    private IconAsResponseWrapper iconAsResponseWrapper;
 
     @BeforeEach
-    void setup(@Autowired TitleAsResponseWrapper titleAsResponseWrapper) {
-        this.titleAsResponseWrapper = titleAsResponseWrapper;
+    void setup(@Autowired IconAsResponseWrapper iconAsResponseWrapper) {
+        this.iconAsResponseWrapper = iconAsResponseWrapper;
     }
 
     @Test
-    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenTitleNotProvided() throws IOException {
+    void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenIconNotProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "title", "-1",//
+                "icon", "-1",//
                 "theme", "simple",//
                 "size", "s",//
                 "link", "#",//
@@ -36,17 +36,17 @@ public class TitleAsResponseWrapperTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        var response = titleAsResponseWrapper.wrap(params);
+        var response = iconAsResponseWrapper.wrap(params);
 
         // Then
         assertEquals(response.getStatusCode(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @Test
-    void wrapMustReturnOKHttpStatusAsResponseEntityWhenTitleProvided() throws IOException {
+    void wrapMustReturnOKHttpStatusAsResponseEntityWhenIconProvided() throws IOException {
         // Given
         Map<String, String> params = Map.of(//
-                "title", "badgify",//
+                "icon", "github",//
                 "theme", "simple",//
                 "size", "s",//
                 "link", "#",//
@@ -54,7 +54,7 @@ public class TitleAsResponseWrapperTests {
                 "color", "rgb(255, 255, 255)");
 
         // When
-        var response = titleAsResponseWrapper.wrap(params);
+        var response = iconAsResponseWrapper.wrap(params);
 
         // Then
         assertEquals(response.getStatusCode(), HttpStatus.OK);

@@ -1,4 +1,4 @@
-package solutions.thex.badgify.svg.responseWrapper.badge.inline;
+package solutions.thex.badgify.svg.wrapper.badge.inline;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

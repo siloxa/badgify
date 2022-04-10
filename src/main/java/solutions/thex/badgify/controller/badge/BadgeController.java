@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import solutions.thex.badgify.svg.responseWrapper.badge.IconAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.LinkAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.ProfileAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.TitleAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.IconAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.LinkAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.ProfileAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.TitleAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;

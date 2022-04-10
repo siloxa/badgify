@@ -3,7 +3,7 @@ package solutions.thex.badgify.controller.badge.ready;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import solutions.thex.badgify.svg.responseWrapper.badge.LinkAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.LinkAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;

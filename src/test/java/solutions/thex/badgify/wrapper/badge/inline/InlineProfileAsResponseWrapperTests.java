@@ -1,4 +1,4 @@
-package solutions.thex.badgify.responseWrapper.badge.inline;
+package solutions.thex.badgify.wrapper.badge.inline;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineIconAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineProfileAsResponseWrapper;
 
 import java.io.IOException;
 
@@ -14,23 +14,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class InlineIconAsResponseWrapperTests {
+public class InlineProfileAsResponseWrapperTests {
 
-    private InlineIconAsResponseWrapper inlineIconAsResponseWrapper;
+    private InlineProfileAsResponseWrapper inlineProfileAsResponseWrapper;
 
     @BeforeEach
-    void setup(@Autowired InlineIconAsResponseWrapper inlineIconAsResponseWrapper) {
-        this.inlineIconAsResponseWrapper = inlineIconAsResponseWrapper;
+    void setup(@Autowired InlineProfileAsResponseWrapper inlineProfileAsResponseWrapper) {
+        this.inlineProfileAsResponseWrapper = inlineProfileAsResponseWrapper;
     }
 
     @Test
     void wrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenAnyOfParamsNotProvided() throws IOException {
         // Given
-        // missing icon param for example
-        String design = "s_simple_black_white_#";
+        // missing id param for example
+        String design = "simple_black_white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrap(design);
+        var response = inlineProfileAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
@@ -39,10 +39,10 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void wrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithWhiteSpaceSplitter() throws IOException {
         // Given
-        String design = "s simple github black white #";
+        String design = "simple TheXSolutions black white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrap(design);
+        var response = inlineProfileAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -51,10 +51,10 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void wrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithUnderLineSplitter() throws IOException {
         // Given
-        String design = "s_simple_github_black_white_#";
+        String design = "simple_TheXSolutions_black_white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrap(design);
+        var response = inlineProfileAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -63,10 +63,10 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void wrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithHyphenSplitter() throws IOException {
         // Given
-        String design = "s-simple-github-black-white-#";
+        String design = "simple-TheXSolutions-black-white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrap(design);
+        var response = inlineProfileAsResponseWrapper.wrap(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -75,11 +75,11 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnUnprocessableEntityHttpStatusAsResponseEntityWhenAnyOfRequiredParamsNotProvided() throws IOException {
         // Given
-        // missing icon param for example
+        // missing id param for example
         String design = "black_white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrapShort(design);
+        var response = inlineProfileAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
@@ -88,10 +88,10 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithWhiteSpaceSplitter() throws IOException {
         // Given
-        String design = "github black s";
+        String design = "TheXSolutions black white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrapShort(design);
+        var response = inlineProfileAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -100,10 +100,10 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithUnderLineSplitter() throws IOException {
         // Given
-        String design = "github_black_s";
+        String design = "TheXSolutions_black_white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrapShort(design);
+        var response = inlineProfileAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -112,10 +112,10 @@ public class InlineIconAsResponseWrapperTests {
     @Test
     void shortWrapMustReturnOkHttpStatusAsResponseEntityWhenAllParamsProvidedWithHyphenSplitter() throws IOException {
         // Given
-        String design = "github-black-s";
+        String design = "TheXSolutions-black-white";
 
         // When
-        var response = inlineIconAsResponseWrapper.wrapShort(design);
+        var response = inlineProfileAsResponseWrapper.wrapShort(design);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());

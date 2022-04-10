@@ -1,16 +1,15 @@
 package solutions.thex.badgify.controller.badge;
 
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineIconAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineLinkAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineProfileAsResponseWrapper;
-import solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineTitleAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineIconAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineLinkAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineProfileAsResponseWrapper;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineTitleAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
