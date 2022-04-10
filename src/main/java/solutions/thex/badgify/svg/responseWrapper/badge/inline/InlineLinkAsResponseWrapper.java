@@ -1,5 +1,6 @@
 package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class InlineLinkAsResponseWrapper extends InlineSvgAsResponseWrapper {
     private final LTRLinkResolver ltrLinkResolver;
     private final RTLLinkResolver rtlLinkResolver;
 
+    @Autowired
     public InlineLinkAsResponseWrapper(LTRLinkResolver ltrLinkResolver,//
                                        RTLLinkResolver rtlLinkResolver) {
         this.ltrLinkResolver = ltrLinkResolver;

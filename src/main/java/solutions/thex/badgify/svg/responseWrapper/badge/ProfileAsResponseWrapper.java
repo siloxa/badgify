@@ -1,5 +1,6 @@
 package solutions.thex.badgify.svg.responseWrapper.badge;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class ProfileAsResponseWrapper implements SvgAsResponseWrapper {
 
     private final ProfileResolver profileResolver;
 
+    @Autowired
     public ProfileAsResponseWrapper(ProfileResolver profileResolver) {
         this.profileResolver = profileResolver;
     }

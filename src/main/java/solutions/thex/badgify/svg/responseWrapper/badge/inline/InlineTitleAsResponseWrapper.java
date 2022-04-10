@@ -1,5 +1,6 @@
 package solutions.thex.badgify.svg.responseWrapper.badge.inline;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class InlineTitleAsResponseWrapper extends InlineSvgAsResponseWrapper {
 
     private final TitleResolver titleResolver;
 
+    @Autowired
     public InlineTitleAsResponseWrapper(TitleResolver titleResolver) {
         this.titleResolver = titleResolver;
     }
