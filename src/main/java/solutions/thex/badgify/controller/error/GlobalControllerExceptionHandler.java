@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import solutions.thex.badgify.exception.NotSatisfiedParametersException;
+import solutions.thex.badgify.exception.ServerException;
 import solutions.thex.badgify.svg.resolver.badge.LTRLinkResolver;
 
 import java.io.IOException;
@@ -34,6 +35,21 @@ public class GlobalControllerExceptionHandler {
                         "bg", "c4160a",//
                         "color", "rgb(255, 255, 255)")),//
                 HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(ServerException.class)
+    public ResponseEntity<String> handleServerException(ServerException ex) throws IOException {
+        return new ResponseEntity<>(//
+                ltrLinkResolver.resolve(Map.of(//
+                        "theme", "simple",//
+                        "size", "m",//
+                        "direction", "ltr",//
+                        "link", "#",//
+                        "title", "503: " + ex.getMessage(),//
+                        "icon", "triangle-exclamation",//
+                        "bg", "c4160a",//
+                        "color", "rgb(255, 255, 255)")),//
+                HttpStatus.SERVICE_UNAVAILABLE);
     }
 
 }
