@@ -3,19 +3,18 @@ package solutions.thex.badgify.dao;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@CompoundIndex(def = "{'storeId': 1, 'number': 1}", unique = true)
-@Document("repo-view")
+@Document("profile-view")
 @Builder
 @Data
-public class RepositoryView {
+public class GitProfileView {
 
     @Id
     private String id;
+    @Indexed(unique=true)
     private String profile;
-    private String repo;
     private long count;
 
 }
