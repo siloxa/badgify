@@ -18,7 +18,7 @@ services:
     volumes:
       - ./data:/var/lib/mongodb
     environment:
-    MONGO_INITDB_ROOT_USERNAME: USERNAME
-    MONGO_INITDB_ROOT_PASSWORD: PASSWORD
+      MONGO_INITDB_ROOT_USERNAME: USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: PASSWORD
     ports:
       - "27017:27017"
