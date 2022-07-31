@@ -181,6 +181,7 @@ public class ViewCounterBadgeController {
         try {
             profileViewService.save(profileView);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ServerException();
         }
     }
@@ -190,6 +191,7 @@ public class ViewCounterBadgeController {
         try {
             profileView = profileViewService.getByProfile(profile);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ServerException();
         }
         return profileView;
@@ -213,6 +215,7 @@ public class ViewCounterBadgeController {
         try {
             repositoryViewService.save(repositoryView);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ServerException();
         }
     }
@@ -226,6 +229,7 @@ public class ViewCounterBadgeController {
         try {
             repositoryViewService.save(repositoryView);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ServerException();
         }
     }
