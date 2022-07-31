@@ -1,4 +1,4 @@
-FROM openjdk:17-oracle
+FROM openjdk:18-oracle
 ARG JAR_FILE
 
 ADD ${JAR_FILE} app.jar
