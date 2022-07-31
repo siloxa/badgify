@@ -1,0 +1,27 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="24" role="img" aria-label="badgify">
+    <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link"/>
+    <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-general-link"/>
+    <style xmlns="" lang="en" type="text/css" id="dark-mode-custom-style"/>
+    <style xmlns="" lang="en" type="text/css" id="dark-mode-native-style"/>
+    <title>badgify</title>
+    <a target="_blank" xlink:href="https://behance.net/badgify">
+        <linearGradient id="s" x2="0" y2="100%">
+            <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+            <stop offset="1" stop-opacity=".1"/>
+        </linearGradient>
+        <clipPath id="r">
+            <rect width="74" height="24" rx="3" fill="#fff"/>
+        </clipPath>
+        <g clip-path="url(#r)">
+            <rect width="0" height="24" fill="#555"/>
+            <rect x="0" width="74" height="24" fill="rgb(0, 74, 191)"/>
+            <rect width="74" height="24" fill="url(#s)"/>
+        </g>
+        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+            <image x="4" y="4" width="16" height="16" xlink:href="data:image/svg+xml;utf-8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 576 512&quot;&gt;&lt;!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --&gt;&lt;path fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M232 237.2c31.8-15.2 48.4-38.2 48.4-74 0-70.6-52.6-87.8-113.3-87.8H0v354.4h171.8c64.4 0 124.9-30.9 124.9-102.9 0-44.5-21.1-77.4-64.7-89.7zM77.9 135.9H151c28.1 0 53.4 7.9 53.4 40.5 0 30.1-19.7 42.2-47.5 42.2h-79v-82.7zm83.3 233.7H77.9V272h84.9c34.3 0 56 14.3 56 50.6 0 35.8-25.9 47-57.6 47zm358.5-240.7H376V94h143.7v34.9zM576 305.2c0-75.9-44.4-139.2-124.9-139.2-78.2 0-131.3 58.8-131.3 135.8 0 79.9 50.3 134.7 131.3 134.7 61.3 0 101-27.6 120.1-86.3H509c-6.7 21.9-34.3 33.5-55.7 33.5-41.3 0-63-24.2-63-65.3h185.1c.3-4.2.6-8.7.6-13.2zM390.4 274c2.3-33.7 24.7-54.8 58.5-54.8 35.4 0 53.2 20.8 56.2 54.8H390.4z&quot;/&gt;&lt;/svg&gt;"/>
+            <text aria-hidden="true" x="470" y="170" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="450">badgify</text>
+            <text x="470" y="160" transform="scale(.1)" fill="rgb(255, 255, 255)" textLength="450">badgify</text>
+        </g>
+    </a>
+</svg>

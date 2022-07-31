@@ -1,9 +1,5 @@
 version: '3.3'
 
-networks:
-  spring-admin-network:
-    external: true
-
 services:
   badgify:
     build:
@@ -14,5 +10,15 @@ services:
     container_name: badgify
     ports:
       - "127.0.0.1:8081:8585"
-    networks:
-      - spring-admin-network
+    depends_on:
+      - mongo_db
+  mongo_db:
+    image: "mongo:latest"
+    container_name: mongo_db
+    volumes:
+      - ./data:/var/lib/mongodb
+    environment:
+    MONGO_INITDB_ROOT_USERNAME: USERNAME
+    MONGO_INITDB_ROOT_PASSWORD: PASSWORD
+    ports:
+      - "27017:27017"

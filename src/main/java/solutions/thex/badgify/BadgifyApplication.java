@@ -2,6 +2,8 @@ package solutions.thex.badgify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
@@ -16,6 +18,10 @@ import java.util.TimeZone;
  * @since 1.0.0
  */
 @SpringBootApplication
+@PropertySources({
+        @PropertySource("classpath:application.properties"),
+        @PropertySource("classpath:application-mongodb.properties")
+})
 public class BadgifyApplication {
 
     public static void main(String[] args) {
