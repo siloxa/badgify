@@ -22,17 +22,14 @@ public class ViewCounterBadgeController {
     private final GitProfileViewService profileViewService;
     private final GitRepositoryViewService repositoryViewService;
     private final LinkAsResponseWrapper linkAsResponseWrapper;
-    private final TitleAsResponseWrapper titleAsResponseWrapper;
 
     @Autowired
     public ViewCounterBadgeController(GitProfileViewService profileViewService, //
                                       GitRepositoryViewService repositoryViewService,//
-                                      LinkAsResponseWrapper linkAsResponseWrapper,//
-                                      TitleAsResponseWrapper titleAsResponseWrapper) {
+                                      LinkAsResponseWrapper linkAsResponseWrapper) {
         this.profileViewService = profileViewService;
         this.repositoryViewService = repositoryViewService;
         this.linkAsResponseWrapper = linkAsResponseWrapper;
-        this.titleAsResponseWrapper = titleAsResponseWrapper;
     }
 
     @GetMapping(path = "/github/profile/{profile}", produces = "image/svg+xml")
@@ -68,7 +65,7 @@ public class ViewCounterBadgeController {
     public ResponseEntity<String> githubRepoViews(HttpServletRequest request,//
                                                 @PathVariable(value = "profile") String profile,//
                                                 @PathVariable(value = "repo") String repo,//
-                                                @RequestParam(value = "title", required = false, defaultValue = "Profile Views")//
+                                                @RequestParam(value = "title", required = false, defaultValue = "Repository Views")//
                                                         String title,//
                                                 @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                         String theme,//
@@ -127,7 +124,7 @@ public class ViewCounterBadgeController {
     public ResponseEntity<String> gitlabRepoViews(HttpServletRequest request,//
                                                   @PathVariable(value = "profile") String profile,//
                                                   @PathVariable(value = "repo") String repo,//
-                                                  @RequestParam(value = "title", required = false, defaultValue = "Profile Views")//
+                                                  @RequestParam(value = "title", required = false, defaultValue = "Repository Views")//
                                                           String title,//
                                                   @RequestParam(value = "theme", required = false, defaultValue = "simple")//
                                                           String theme,//
