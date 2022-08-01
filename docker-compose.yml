@@ -11,7 +11,7 @@ services:
     ports:
       - "127.0.0.1:8081:8585"
     depends_on:
-      - mongo_db
+      - mongo_badgify
   mongo_badgify:
     image: "mongo:latest"
     container_name: mongo_badgify
