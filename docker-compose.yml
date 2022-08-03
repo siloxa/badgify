@@ -12,8 +12,7 @@ services:
       - "127.0.0.1:8081:8585"
     depends_on:
       - mongo_badgify
-    networks:
-      - badgify-net
+
   mongo_badgify:
     image: "mongo:latest"
     container_name: mongo_badgify
@@ -24,9 +23,3 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: PASSWORD
     ports:
       - "27017:27017"
-    networks:
-      - badgify-net
-
-networks:
-  badgify-net:
-    driver: bridge
