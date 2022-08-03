@@ -245,11 +245,11 @@ public class ViewCounterBadgeController {
     private String summerizeView(long views) {
         final DecimalFormat dfSharp = new DecimalFormat("#.#");
         if (views >= 1000 && views < 1000000) {
-            return dfSharp.format(views / 1000) + "K";
+            return dfSharp.format(views / 1000D) + "K";
         } else if (views >= 1000000 && views < 1000000000) {
-            return dfSharp.format(views / 1000000) + "M";
+            return dfSharp.format(views / 1000000D) + "M";
         } else if (views >= 1000000000 && views < 1000000000000L) {
-            return dfSharp.format(views / 1000000000) + "B";
+            return dfSharp.format(views / 1000000000D) + "B";
         }
         return String.valueOf(views);
     }
