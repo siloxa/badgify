@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
@@ -33,11 +34,9 @@ public class ProfileAsResponseWrapperTests {
                 "bg", "000",//
                 "color", "rgb(255, 255, 255)");
 
-        // When
-        var response = profileAsResponseWrapper.wrap(params);
-
-        // Then
-        assertEquals(response.getStatusCode(), HttpStatus.UNPROCESSABLE_ENTITY);
+        // Act & Assert
+        assertThrows(solutions.thex.badgify.exception.NotSatisfiedParametersException.class,//
+                () -> profileAsResponseWrapper.wrap(params));
     }
 
     @Test

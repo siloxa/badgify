@@ -11,6 +11,7 @@ import solutions.thex.badgify.svg.wrapper.badge.inline.InlineProfileAsResponseWr
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
@@ -78,11 +79,9 @@ public class InlineProfileAsResponseWrapperTests {
         // missing id param for example
         String design = "black_white";
 
-        // When
-        var response = inlineProfileAsResponseWrapper.wrapShort(design);
-
-        // Then
-        assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
+        // Act & Assert
+        assertThrows(solutions.thex.badgify.exception.NotSatisfiedParametersException.class,//
+                () -> inlineProfileAsResponseWrapper.wrap(design));
     }
 
     @Test

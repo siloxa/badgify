@@ -11,6 +11,7 @@ import solutions.thex.badgify.svg.wrapper.badge.inline.InlineIconAsResponseWrapp
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
@@ -29,11 +30,9 @@ public class InlineIconAsResponseWrapperTests {
         // missing icon param for example
         String design = "s_simple_black_white_#";
 
-        // When
-        var response = inlineIconAsResponseWrapper.wrap(design);
-
-        // Then
-        assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
+        // Act & Assert
+        assertThrows(solutions.thex.badgify.exception.NotSatisfiedParametersException.class,//
+                () -> inlineIconAsResponseWrapper.wrap(design));
     }
 
     @Test
@@ -78,11 +77,9 @@ public class InlineIconAsResponseWrapperTests {
         // missing icon param for example
         String design = "black_white";
 
-        // When
-        var response = inlineIconAsResponseWrapper.wrapShort(design);
-
-        // Then
-        assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
+        // Act & Assert
+        assertThrows(solutions.thex.badgify.exception.NotSatisfiedParametersException.class,//
+                () -> inlineIconAsResponseWrapper.wrap(design));
     }
 
     @Test
