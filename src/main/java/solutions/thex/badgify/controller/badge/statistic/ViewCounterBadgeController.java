@@ -9,9 +9,9 @@ import solutions.thex.badgify.dao.service.GitProfileViewService;
 import solutions.thex.badgify.dao.service.GitRepositoryViewService;
 import solutions.thex.badgify.exception.ServerException;
 import solutions.thex.badgify.svg.wrapper.badge.LinkAsResponseWrapper;
-import solutions.thex.badgify.svg.wrapper.badge.TitleAsResponseWrapper;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Optional;
 
@@ -34,21 +34,21 @@ public class ViewCounterBadgeController {
 
     @GetMapping(path = "/github/profile/{profile}", produces = "image/svg+xml")
     public ResponseEntity<String> githubProfileViews(HttpServletRequest request,//
-                                                   @PathVariable(value = "profile") String profile,//
-                                                   @RequestParam(value = "title", required = false, defaultValue = "Profile Views")//
-                                                           String title,//
-                                                   @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                           String theme,//
-                                                   @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                           String size,//
-                                                   @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                           String direction,//
-                                                   @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                           String link,//
-                                                   @RequestParam(value = "bg", required = false, defaultValue = "25425f")//
-                                                           String bg,//
-                                                   @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                           String color) throws Exception {
+                                                     @PathVariable(value = "profile") String profile,//
+                                                     @RequestParam(value = "title", required = false, defaultValue = "Profile Views")//
+                                                             String title,//
+                                                     @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                             String theme,//
+                                                     @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                             String size,//
+                                                     @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                             String direction,//
+                                                     @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                             String link,//
+                                                     @RequestParam(value = "bg", required = false, defaultValue = "25425f")//
+                                                             String bg,//
+                                                     @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                             String color) throws Exception {
         title += " " + calculateProfileView(profile);
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
@@ -63,22 +63,22 @@ public class ViewCounterBadgeController {
 
     @GetMapping(path = "/github/repo/{profile}/{repo}", produces = "image/svg+xml")
     public ResponseEntity<String> githubRepoViews(HttpServletRequest request,//
-                                                @PathVariable(value = "profile") String profile,//
-                                                @PathVariable(value = "repo") String repo,//
-                                                @RequestParam(value = "title", required = false, defaultValue = "Repository Views")//
-                                                        String title,//
-                                                @RequestParam(value = "theme", required = false, defaultValue = "simple")//
-                                                        String theme,//
-                                                @RequestParam(value = "size", required = false, defaultValue = "s")//
-                                                        String size,//
-                                                @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
-                                                        String direction,//
-                                                @RequestParam(value = "link", required = false, defaultValue = "#")//
-                                                        String link,//
-                                                @RequestParam(value = "bg", required = false, defaultValue = "25425f")//
-                                                        String bg,//
-                                                @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
-                                                        String color) throws Exception {
+                                                  @PathVariable(value = "profile") String profile,//
+                                                  @PathVariable(value = "repo") String repo,//
+                                                  @RequestParam(value = "title", required = false, defaultValue = "Repository Views")//
+                                                          String title,//
+                                                  @RequestParam(value = "theme", required = false, defaultValue = "simple")//
+                                                          String theme,//
+                                                  @RequestParam(value = "size", required = false, defaultValue = "s")//
+                                                          String size,//
+                                                  @RequestParam(value = "dir", required = false, defaultValue = "ltr")//
+                                                          String direction,//
+                                                  @RequestParam(value = "link", required = false, defaultValue = "#")//
+                                                          String link,//
+                                                  @RequestParam(value = "bg", required = false, defaultValue = "25425f")//
+                                                          String bg,//
+                                                  @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                                          String color) throws Exception {
         title += " " + calculateRepoView(profile, repo);
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
@@ -157,8 +157,7 @@ public class ViewCounterBadgeController {
             GitProfileView profileView = maybeProfileView.get();
             profileView.setCount(profileView.getCount() + 1);
             updateProfileView(profileView);
-            return String.valueOf(//
-                    profileView.getCount());
+            return summerizeView(profileView.getCount());
         } else {
             signUpNewProfileView(profile);
             return "1";
@@ -203,8 +202,7 @@ public class ViewCounterBadgeController {
             GitRepositoryView repositoryView = maybeRepoView.get();
             repositoryView.setCount(repositoryView.getCount() + 1);
             updateRepoView(repositoryView);
-            return String.valueOf(//
-                    repositoryView.getCount());
+            return summerizeView(repositoryView.getCount());
         } else {
             signUpNewRepoView(profile, repo);
             return "1";
@@ -242,6 +240,18 @@ public class ViewCounterBadgeController {
             throw new ServerException();
         }
         return repositoryView;
+    }
+
+    private String summerizeView(long views) {
+        final DecimalFormat dfSharp = new DecimalFormat("#.#");
+        if (views >= 1000 && views < 1000000) {
+            return dfSharp.format(views / 1000) + "K";
+        } else if (views >= 1000000 && views < 1000000000) {
+            return dfSharp.format(views / 1000000) + "M";
+        } else if (views >= 1000000000 && views < 1000000000000L) {
+            return dfSharp.format(views / 1000000000) + "B";
+        }
+        return String.valueOf(views);
     }
 
 }
