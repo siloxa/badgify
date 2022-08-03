@@ -21,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Disabled
 public class ViewCounterBadgeControllerTests extends MongoDBContainerBaseTest {
 
     @Autowired
