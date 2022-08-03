@@ -7,10 +7,10 @@ import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @CompoundIndex(def = "{'storeId': 1, 'number': 1}", unique = true)
-@Document("repo-view")
+@Document("gitlab-repo-view")
 @Builder
 @Data
-public class GitRepositoryView {
+public class GitLabRepositoryView {
 
     @Id
     private String id;

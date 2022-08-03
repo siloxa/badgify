@@ -3,10 +3,14 @@ package solutions.thex.badgify.controller.badge.statistic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import solutions.thex.badgify.dao.GitProfileView;
-import solutions.thex.badgify.dao.GitRepositoryView;
-import solutions.thex.badgify.dao.service.GitProfileViewService;
-import solutions.thex.badgify.dao.service.GitRepositoryViewService;
+import solutions.thex.badgify.dao.GitHubProfileView;
+import solutions.thex.badgify.dao.GitHubRepositoryView;
+import solutions.thex.badgify.dao.GitLabProfileView;
+import solutions.thex.badgify.dao.GitLabRepositoryView;
+import solutions.thex.badgify.dao.service.GitHubProfileViewService;
+import solutions.thex.badgify.dao.service.GitHubRepositoryViewService;
+import solutions.thex.badgify.dao.service.GitLabProfileViewService;
+import solutions.thex.badgify.dao.service.GitLabRepositoryViewService;
 import solutions.thex.badgify.exception.ServerException;
 import solutions.thex.badgify.svg.wrapper.badge.LinkAsResponseWrapper;
 
@@ -19,16 +23,22 @@ import java.util.Optional;
 @RequestMapping("/api/counter")
 public class ViewCounterBadgeController {
 
-    private final GitProfileViewService profileViewService;
-    private final GitRepositoryViewService repositoryViewService;
+    private final GitHubProfileViewService gitHubProfileViewService;
+    private final GitHubRepositoryViewService gitHubRepositoryViewService;
+    private final GitLabProfileViewService gitLabProfileViewService;
+    private final GitLabRepositoryViewService gitLabRepositoryViewService;
     private final LinkAsResponseWrapper linkAsResponseWrapper;
 
     @Autowired
-    public ViewCounterBadgeController(GitProfileViewService profileViewService, //
-                                      GitRepositoryViewService repositoryViewService,//
+    public ViewCounterBadgeController(GitHubProfileViewService gitHubProfileViewService, //
+                                      GitHubRepositoryViewService gitHubRepositoryViewService,//
+                                      GitLabProfileViewService gitLabProfileViewService,//
+                                      GitLabRepositoryViewService gitLabRepositoryViewService,//
                                       LinkAsResponseWrapper linkAsResponseWrapper) {
-        this.profileViewService = profileViewService;
-        this.repositoryViewService = repositoryViewService;
+        this.gitHubProfileViewService = gitHubProfileViewService;
+        this.gitHubRepositoryViewService = gitHubRepositoryViewService;
+        this.gitLabProfileViewService = gitLabProfileViewService;
+        this.gitLabRepositoryViewService = gitLabRepositoryViewService;
         this.linkAsResponseWrapper = linkAsResponseWrapper;
     }
 
@@ -49,7 +59,7 @@ public class ViewCounterBadgeController {
                                                              String bg,//
                                                      @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                              String color) throws Exception {
-        title += " " + calculateProfileView(profile);
+        title += " " + calculateGitHubProfileView(profile);
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "eye",//
@@ -79,7 +89,7 @@ public class ViewCounterBadgeController {
                                                           String bg,//
                                                   @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                           String color) throws Exception {
-        title += " " + calculateRepoView(profile, repo);
+        title += " " + calculateGitHubRepoView(profile, repo);
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "eye",//
@@ -89,6 +99,97 @@ public class ViewCounterBadgeController {
                 "link", link,//
                 "bg", bg,//
                 "color", color));
+    }
+
+    private String calculateGitHubProfileView(String profile) {
+        Optional<GitHubProfileView> maybeProfileView = getGitHubProfileView(profile);
+        if (maybeProfileView.isPresent()) {
+            GitHubProfileView profileView = maybeProfileView.get();
+            profileView.setCount(profileView.getCount() + 1);
+            updateGitHubProfileView(profileView);
+            return summerizeView(profileView.getCount());
+        } else {
+            signUpNewGitHubProfileView(profile);
+            return "1";
+        }
+    }
+
+    private void updateGitHubProfileView(GitHubProfileView profileView) {
+        try {
+            gitHubProfileViewService.save(profileView);
+        } catch (Exception e) {
+            throw new ServerException();
+        }
+    }
+
+    private void signUpNewGitHubProfileView(String profile) {
+        GitHubProfileView profileView = GitHubProfileView.builder()//
+                .profile(profile)//
+                .count(1)//
+                .build();
+        try {
+            gitHubProfileViewService.save(profileView);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ServerException();
+        }
+    }
+
+    private Optional<GitHubProfileView> getGitHubProfileView(String profile) {
+        Optional<GitHubProfileView> profileView;
+        try {
+            profileView = gitHubProfileViewService.getByProfile(profile);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ServerException();
+        }
+        return profileView;
+    }
+
+    private String calculateGitHubRepoView(String profile, String repo) {
+        Optional<GitHubRepositoryView> maybeRepoView = getGitHubRepoView(profile, repo);
+        if (maybeRepoView.isPresent()) {
+            GitHubRepositoryView repositoryView = maybeRepoView.get();
+            repositoryView.setCount(repositoryView.getCount() + 1);
+            updateGitHubRepoView(repositoryView);
+            return summerizeView(repositoryView.getCount());
+        } else {
+            signUpNewGitHubRepoView(profile, repo);
+            return "1";
+        }
+    }
+
+    private void updateGitHubRepoView(GitHubRepositoryView repositoryView) {
+        try {
+            gitHubRepositoryViewService.save(repositoryView);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ServerException();
+        }
+    }
+
+    private void signUpNewGitHubRepoView(String profile, String repo) {
+        GitHubRepositoryView repositoryView = GitHubRepositoryView.builder()//
+                .profile(profile)//
+                .repo(repo)//
+                .count(1)//
+                .build();
+        try {
+            gitHubRepositoryViewService.save(repositoryView);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ServerException();
+        }
+    }
+
+    private Optional<GitHubRepositoryView> getGitHubRepoView(String profile, String repo) {
+        Optional<GitHubRepositoryView> repositoryView;
+        try {
+            repositoryView = gitHubRepositoryViewService.getByProfileAndRepo(profile, repo);
+        } catch (Exception e) {
+            throw new ServerException();
+        }
+        return repositoryView;
     }
 
     @GetMapping(path = "/gitlab/profile/{profile}", produces = "image/svg+xml")
@@ -108,7 +209,7 @@ public class ViewCounterBadgeController {
                                                              String bg,//
                                                      @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                              String color) throws Exception {
-        title += " " + calculateProfileView(profile);
+        title += " " + calculateGitLabProfileView(profile);
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "eye",//
@@ -138,7 +239,7 @@ public class ViewCounterBadgeController {
                                                           String bg,//
                                                   @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
                                                           String color) throws Exception {
-        title += " " + calculateRepoView(profile, repo);
+        title += " " + calculateGitLabRepoView(profile, repo);
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
                 "icon", "eye",//
@@ -151,44 +252,44 @@ public class ViewCounterBadgeController {
     }
 
 
-    private String calculateProfileView(String profile) {
-        Optional<GitProfileView> maybeProfileView = getProfileView(profile);
+    private String calculateGitLabProfileView(String profile) {
+        Optional<GitLabProfileView> maybeProfileView = getGitLabProfileView(profile);
         if (maybeProfileView.isPresent()) {
-            GitProfileView profileView = maybeProfileView.get();
+            GitLabProfileView profileView = maybeProfileView.get();
             profileView.setCount(profileView.getCount() + 1);
-            updateProfileView(profileView);
+            updateGitLabProfileView(profileView);
             return summerizeView(profileView.getCount());
         } else {
-            signUpNewProfileView(profile);
+            signUpNewGitLabProfileView(profile);
             return "1";
         }
     }
 
-    private void updateProfileView(GitProfileView profileView) {
+    private void updateGitLabProfileView(GitLabProfileView profileView) {
         try {
-            profileViewService.save(profileView);
+            gitLabProfileViewService.save(profileView);
         } catch (Exception e) {
             throw new ServerException();
         }
     }
 
-    private void signUpNewProfileView(String profile) {
-        GitProfileView profileView = GitProfileView.builder()//
+    private void signUpNewGitLabProfileView(String profile) {
+        GitLabProfileView profileView = GitLabProfileView.builder()//
                 .profile(profile)//
                 .count(1)//
                 .build();
         try {
-            profileViewService.save(profileView);
+            gitLabProfileViewService.save(profileView);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServerException();
         }
     }
 
-    private Optional<GitProfileView> getProfileView(String profile) {
-        Optional<GitProfileView> profileView;
+    private Optional<GitLabProfileView> getGitLabProfileView(String profile) {
+        Optional<GitLabProfileView> profileView;
         try {
-            profileView = profileViewService.getByProfile(profile);
+            profileView = gitLabProfileViewService.getByProfile(profile);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServerException();
@@ -196,12 +297,12 @@ public class ViewCounterBadgeController {
         return profileView;
     }
 
-    private String calculateRepoView(String profile, String repo) {
-        Optional<GitRepositoryView> maybeRepoView = getRepoView(profile, repo);
+    private String calculateGitLabRepoView(String profile, String repo) {
+        Optional<GitLabRepositoryView> maybeRepoView = getGitLabRepoView(profile, repo);
         if (maybeRepoView.isPresent()) {
-            GitRepositoryView repositoryView = maybeRepoView.get();
+            GitLabRepositoryView repositoryView = maybeRepoView.get();
             repositoryView.setCount(repositoryView.getCount() + 1);
-            updateRepoView(repositoryView);
+            updateGitLabRepoView(repositoryView);
             return summerizeView(repositoryView.getCount());
         } else {
             signUpNewRepoView(profile, repo);
@@ -209,9 +310,9 @@ public class ViewCounterBadgeController {
         }
     }
 
-    private void updateRepoView(GitRepositoryView repositoryView) {
+    private void updateGitLabRepoView(GitLabRepositoryView repositoryView) {
         try {
-            repositoryViewService.save(repositoryView);
+            gitLabRepositoryViewService.save(repositoryView);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServerException();
@@ -219,23 +320,23 @@ public class ViewCounterBadgeController {
     }
 
     private void signUpNewRepoView(String profile, String repo) {
-        GitRepositoryView repositoryView = GitRepositoryView.builder()//
+        GitLabRepositoryView repositoryView = GitLabRepositoryView.builder()//
                 .profile(profile)//
                 .repo(repo)//
                 .count(1)//
                 .build();
         try {
-            repositoryViewService.save(repositoryView);
+            gitLabRepositoryViewService.save(repositoryView);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServerException();
         }
     }
 
-    private Optional<GitRepositoryView> getRepoView(String profile, String repo) {
-        Optional<GitRepositoryView> repositoryView;
+    private Optional<GitLabRepositoryView> getGitLabRepoView(String profile, String repo) {
+        Optional<GitLabRepositoryView> repositoryView;
         try {
-            repositoryView = repositoryViewService.getByProfileAndRepo(profile, repo);
+            repositoryView = gitLabRepositoryViewService.getByProfileAndRepo(profile, repo);
         } catch (Exception e) {
             throw new ServerException();
         }

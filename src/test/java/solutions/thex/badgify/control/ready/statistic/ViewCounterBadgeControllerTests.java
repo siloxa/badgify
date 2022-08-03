@@ -9,8 +9,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import solutions.thex.badgify.MongoDBContainerBaseTest;
-import solutions.thex.badgify.dao.repository.GitProfileViewRepository;
-import solutions.thex.badgify.dao.repository.GitRepositoryViewRepository;
+import solutions.thex.badgify.dao.repository.GitHubProfileViewRepository;
+import solutions.thex.badgify.dao.repository.GitHubRepositoryViewRepository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,9 +25,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ViewCounterBadgeControllerTests extends MongoDBContainerBaseTest {
 
     @Autowired
-    private GitProfileViewRepository gitProfileViewRepository;
+    private GitHubProfileViewRepository gitProfileViewRepository;
     @Autowired
-    private GitRepositoryViewRepository gitRepositoryViewRepository;
+    private GitHubRepositoryViewRepository gitRepositoryViewRepository;
     @Autowired
     private MockMvc mvc;
 
