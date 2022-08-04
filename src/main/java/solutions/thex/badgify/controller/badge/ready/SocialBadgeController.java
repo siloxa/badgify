@@ -630,7 +630,7 @@ public class SocialBadgeController {
                                                    String link,//
                                            @RequestParam(value = "bg", required = false, defaultValue = "f7da00")//
                                                    String bg,//
-                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                           @RequestParam(value = "color", required = false, defaultValue = "rgb(0, 0, 0)")//
                                                    String color) throws Exception {
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
@@ -656,7 +656,7 @@ public class SocialBadgeController {
                                                   String link,//
                                           @RequestParam(value = "bg", required = false, defaultValue = "1ed760")//
                                                   String bg,//
-                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(255, 255, 255)")//
+                                          @RequestParam(value = "color", required = false, defaultValue = "rgb(0, 0, 0)")//
                                                   String color) throws Exception {
         return linkAsResponseWrapper.wrap(Map.of(//
                 "title", title,//
