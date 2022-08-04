@@ -30,11 +30,9 @@ public class InlineProfileAsResponseWrapperTests {
         // missing id param for example
         String design = "simple_black_white";
 
-        // When
-        var response = inlineProfileAsResponseWrapper.wrap(design);
-
-        // Then
-        assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
+        // Act & Assert
+        assertThrows(solutions.thex.badgify.exception.NotSatisfiedParametersException.class,//
+                () -> inlineProfileAsResponseWrapper.wrap(design));
     }
 
     @Test
