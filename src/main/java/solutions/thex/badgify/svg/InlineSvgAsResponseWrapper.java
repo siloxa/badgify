@@ -1,13 +1,14 @@
 package solutions.thex.badgify.svg;
 
 import org.springframework.http.ResponseEntity;
+import solutions.thex.badgify.svg.wrapper.badge.inline.InlineLinkAsResponseWrapper;
 import solutions.thex.badgify.util.Regex;
 
 import java.io.IOException;
 
 /**
  * Wraps the generated svg as a response entity for inline requests. For example see
- * {@link solutions.thex.badgify.svg.responseWrapper.badge.inline.InlineLinkAsResponseWrapper}.
+ * {@link InlineLinkAsResponseWrapper}.
  *
  * @author Soroush Shemshadi
  * @version 1.1.0

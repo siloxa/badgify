@@ -1,18 +1,26 @@
 version: '3.3'
 
-networks:
-  spring-admin-network:
-    external: true
-
 services:
   badgify:
     build:
       context: .
       args:
-        JAR_FILE: "./target/badgify-1.1.0.jar"
+        JAR_FILE: "./target/badgify-1.3.0.jar"
     image: badgify
     container_name: badgify
     ports:
       - "127.0.0.1:8081:8585"
-    networks:
-      - spring-admin-network
+    depends_on:
+      - mongo_badgify
+
+  mongo_badgify:
+    restart: always
+    image: "mongo:latest"
+    container_name: mongo_badgify
+    volumes:
+      - ./data:/var/lib/mongo_badgify
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: PASSWORD
+    ports:
+      - "27017:27017"

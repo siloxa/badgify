@@ -1,5 +1,6 @@
 package solutions.thex.badgify.svg.resolver.badge;
 
+import org.springframework.stereotype.Service;
 import solutions.thex.badgify.svg.SvgResolver;
 import solutions.thex.badgify.svg.generator.badge.RTLLinkGenerator;
 
@@ -14,6 +15,7 @@ import java.util.Map;
  * @version 1.2.0
  * @since 1.0.0
  */
+@Service
 public class RTLLinkResolver extends SvgResolver {
 
     public String resolve(Map<String, String> params) throws IOException {
@@ -35,6 +37,15 @@ public class RTLLinkResolver extends SvgResolver {
                 .build().render();
     }
 
+    private String resolveTextLength(String title, String size) {
+        return switch (size) {
+            case "s" -> String.valueOf((int) Math.ceil(title.length() * 6.4117647) * 10);
+            case "m" -> String.valueOf((int) Math.ceil(title.length() * 7.05882353) * 10);
+            case "l" -> String.valueOf((int) Math.ceil(title.length() * 8.2352941) * 10);
+            default -> "";
+        };
+    }
+
     private String resolveTitleXPosition(String title, String size) {
         return switch (size) {
             case "s" -> String.valueOf((int) Math.ceil((((title.length() * 6.4117647) / 2) + 4)) * 10);
@@ -49,6 +60,24 @@ public class RTLLinkResolver extends SvgResolver {
             case "s" -> String.valueOf((int) Math.ceil(((title.length() * 6.4117647) + 8)));
             case "m" -> String.valueOf((int) Math.ceil(((title.length() * 7.05882353) + 8)));
             case "l" -> String.valueOf((int) Math.ceil(((title.length() * 8.2352941) + 8)));
+            default -> "";
+        };
+    }
+
+    private String resolveWidth(String size, String title) {
+        return switch (size) {
+            case "s" -> String.valueOf((int) Math.ceil((title.length() * 6.4117647) + 29));
+            case "m" -> String.valueOf((int) Math.ceil((title.length() * 7.05882353) + 33));
+            case "l" -> String.valueOf((int) Math.ceil((title.length() * 8.2352941) + 40));
+            default -> "";
+        };
+    }
+
+    private String resolveHeight(String size) {
+        return switch (size) {
+            case "s" -> "24";
+            case "m" -> "29";
+            case "l" -> "35";
             default -> "";
         };
     }

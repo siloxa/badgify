@@ -1,8 +1,8 @@
 package solutions.thex.badgify.svg.resolver.badge.util.icon;
 
-import solutions.thex.badgify.svg.resolver.badge.util.IconResolver;
+import solutions.thex.badgify.svg.resolver.badge.util.IconFileResolver;
 
-public class FontAwesomeIconResolver extends IconResolver {
+public class FontAwesomeIconResolver extends IconFileResolver {
 
     public static String resolve(String icon, String color){
         String file = retrieveIconFile("font-awesome/" + icon);

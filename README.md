@@ -1,26 +1,29 @@
 <p align="center">
+ <img src="https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify?title=Badgify Visits" align="center" alt="badgify" />
+ </br>
+ </br>
  <img src="https://user-images.githubusercontent.com/45015114/157028899-efb256dd-efe6-47a8-895d-86a61f4f31c6.png" align="center" alt="badgify" />
  <h2 align="center">Badgify</h2>
  <p align="center">Is an easy-to-use API for generating online custom badges and GitHub profiles' summaries and repositories' reports as SVG.</p>
 </p>
 <p align="center">
-    	<a href="https://github.com/TheXSolutions/badgify/releases/tag/v1.2.0">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=badgify%20v1.2.0&icon=github&size=m&bg=random" />
+    	<a href="https://github.com/shuoros/badgify/releases/tag/v1.2.0">
+      		<img src="https://badgify.thex.solutions/api/badge/link?title=badgify%20v1.3.0&icon=github&size=m&bg=random" />
     	</a>
-    	<a href="https://github.com/TheXSolutions/badgify/search?l=java">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=17&icon=java&size=m&bg=random" />
+    	<a href="https://github.com/shuoros/badgify/search?l=java">
+      		<img src="https://badgify.thex.solutions/api/badge/link?title=18&icon=java&size=m&bg=random" />
     	</a>
-	<a href="https://github.com/TheXSolutions/badgify/blob/main/LICENSE">
+	<a href="https://github.com/shuoros/badgify/blob/main/LICENSE">
       		<img src="https://badgify.thex.solutions/api/badge/link?title=MIT&icon=scale-balanced&size=m&bg=random" />
     </a>
-    <a href="https://github.com/TheXSolutions/badgify/releases/tag/v1.2.0">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=%D8%A8%D8%AF%D8%AC%DB%8C%D9%81%D8%A7%DB%8C%20%D9%86%D8%B3%D8%AE%D9%87%20%DB%B1.%DB%B2.%DB%B0&icon=github&size=m&dir=rtl&bg=random" />
+    <a href="https://github.com/shuoros/badgify/releases/tag/v1.2.0">
+      		<img src="https://badgify.thex.solutions/api/badge/link?title=%D8%A8%D8%AF%D8%AC%DB%8C%D9%81%D8%A7%DB%8C%20%D9%86%D8%B3%D8%AE%D9%87%20%DB%B1.%DB%B3.%DB%B0&icon=github&size=m&dir=rtl&bg=random" />
     </a>
 <p align="center">
-    <a href="https://github.com/TheXSolutions/badgify/issues/new/choose">
+    <a href="https://github.com/shuoros/badgify/issues/new/choose">
       		<img src="https://badgify.thex.solutions/api/badge/title?title=Reoprt%20Bug&bg=gray&size=m&theme=edge" />
     </a>
-    <a href="https://github.com/TheXSolutions/badgify/issues/new/choose">
+    <a href="https://github.com/shuoros/badgify/issues/new/choose">
       		<img src="https://badgify.thex.solutions/api/badge/title?title=Request%20Feature&bg=gray&size=m&theme=edge" />
     </a>
     <a href="#contribution">
@@ -31,16 +34,11 @@
     </a>
 </p>
 <p align="center">
-	If you like this project, please buy us a coffee ❤
+	If you like this project, please buy a cup of coffee for me=))☕
 </p>
 <p align="center">
-	<a href="https://thex.solutions/donate">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=bc1qr3k6c9gh5ef6wk3ynmjpjkr2kjj0tckdcn8aa7&icon=bitcoin-sign&bg=fff&color=ef730f&size=m" />
-	</a>
-</p>
-<p align="center">
-	<a href="https://thex.solutions/donate">
-		<img src="https://badgify.thex.solutions/api/badge/link?title=0x130a1a681fd6ec43fd23a6a46bcaea7f311595fe&icon=ethereum&bg=fff&color=413946&size=m" />
+	<a href="https://commerce.coinbase.com/checkout/6e1472f5-3481-4949-84cf-a915e0cb8d0c">
+      		<img src="https://badgify.thex.solutions/api/badge/link?title=Donate%20With%20Crypto&icon=hand-holding-dollar&bg=ef730f&size=m&theme=edge" />
 	</a>
 </p>
 <p align="center">
@@ -50,20 +48,25 @@
 	<a href="#">
 		<img src="https://badgify.thex.solutions/api/badge/link?title=ENGLISH&icon=flag.us&bg=254a79&size=m" />
 	</a>
-    <a href="https://github.com/TheXSolutions/badgify/tree/main/docs/READMES/FA.md">
+    <a href="https://github.com/shuoros/badgify/tree/main/docs/READMES/FA.md">
 		<img src="https://badgify.thex.solutions/api/badge/link?title=%D9%81%D8%A7%D8%B1%D8%B3%DB%8C&icon=flag.ir&bg=fff&size=m" />
 	</a>
 </p>
 
-## What Is In V1.2.0
+## What Is In V1.3.0
 - Add flags icon support.
 - Add iconscout colory brands icons.
 - Add two new sharp and edge themes.
 - Add Farsi docs.
+- Ready To Use Social Badges
+- A counter badge. Profiles and Repository view counter. 
 
 ## Contents
 - [Hosts](#hosts)
 - [APIs](#apis)
+  - [Counter Badge](#counter-badge) 
+  - [Social Badges](#social-badges)
+    - [Supported Socials](#supported-socials) 
   - [Profile Badge](#profile-badge)
   - [Link Badge](#link-badge)
   - [Icon Badge](#icon-badge)
@@ -97,12 +100,247 @@ https://badgify.thex.solutions
 
 ## APIs
 
-### Profile Badge
-For generating profile badges you can use the following APIs with your desired GitHub account id param :
+### Counter Badge
+With counter badges you can count anything you want=))
+
+Count views of your GitHub profile:
 
 ```md
-badgify.thex.solutions/api/badge/profile?id=<YOUR-GITHUB-ACCOUNT-ID>
+badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>
 ```
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros)
+
+Count views of your GitHub Repository:
+
+```md
+badgify.thex.solutions/api/counter/github/repo/<YOUR-GITHUB-ACCOUNT-ID>/<YOUR-REPOSITORY>
+```
+
+![](https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify)
+
+You can count views on your `GitLab` profile and repository too:
+
+```md
+badgify.thex.solutions/api/counter/gitlab/profile/<YOUR-GITLAB-ACCOUNT-ID>
+```
+
+![](https://badgify.thex.solutions/api/counter/gitlab/profile/shuoros)
+
+```md
+badgify.thex.solutions/api/counter/gitlab/repo/<YOUR-GITLAB-ACCOUNT-ID>/<YOUR-REPOSITORY>
+```
+
+![](https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify)
+
+
+Change the title as you wish:
+
+```md
+badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?title=Soroush's%20Profile%20Views
+```
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?title=Soroush's%20Profile%20Views)
+
+Count views of your GitHub Repository:
+
+```md
+badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>
+```
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros)
+
+Change the background color as you wish:
+
+```md
+badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?bg=lavender
+```
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?bg=lavender)
+
+Change the title color as you wish:
+
+```md
+badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?color=green
+```
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?color=green)
+
+Change the Size of badge as you wish:
+
+```md
+badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?size=m
+```
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros)
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?size=m)
+
+![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?size=l)
+
+### Social Badges
+Create badge of your social medias easy. Just give the badgify your social media and your user ID
+
+```md
+badgify.thex.solutions/api/social/<SOCIAL-MEDIA>/<YOUR-ACCOUNT-ID>
+```
+
+For example for GitHub: 
+
+`badgify.thex.solutions/api/social/github/shuoros`
+
+![](https://badgify.thex.solutions/api/social/github/shuoros)
+
+#### Supported Socials
+
+`app-store`
+
+![](https://badgify.thex.solutions/api/social/app-store/badgify)
+
+`behance`
+
+![](https://badgify.thex.solutions/api/social/behance/badgify)
+
+`discord`
+
+![](https://badgify.thex.solutions/api/social/discord/badgify)
+
+`dockerhub`
+
+![](https://badgify.thex.solutions/api/social/dockerhub/badgify)
+
+`dribbble`
+
+![](https://badgify.thex.solutions/api/social/dribbble/badgify)
+
+`dropbox`
+
+![](https://badgify.thex.solutions/api/social/dropbox/badgify)
+
+`facebook`
+
+![](https://badgify.thex.solutions/api/social/facebook/badgify)
+
+`github`
+
+![](https://badgify.thex.solutions/api/social/github/badgify)
+
+`gitlab`
+
+![](https://badgify.thex.solutions/api/social/gitlab/badgify)
+
+`goodreads`
+
+![](https://badgify.thex.solutions/api/social/goodreads/badgify)
+
+`google-drive`
+
+![](https://badgify.thex.solutions/api/social/google-drive/badgify)
+
+`google-play`
+
+![](https://badgify.thex.solutions/api/social/google-play/badgify)
+
+`instagram`
+
+![](https://badgify.thex.solutions/api/social/instagram/badgify)
+
+`kaggle`
+
+![](https://badgify.thex.solutions/api/social/kaggle/badgify)
+
+`kickstarter`
+
+![](https://badgify.thex.solutions/api/social/kickstarter/badgify)
+
+`linkedin`
+
+![](https://badgify.thex.solutions/api/social/linkedin/badgify)
+
+`medium`
+
+![](https://badgify.thex.solutions/api/social/medium/badgify)
+
+`paypal`
+
+![](https://badgify.thex.solutions/api/social/paypal/badgify)
+
+`pinterest`
+
+![](https://badgify.thex.solutions/api/social/pinterest/badgify)
+
+`quora`
+
+![](https://badgify.thex.solutions/api/social/quora/badgify)
+
+`reddit`
+
+![](https://badgify.thex.solutions/api/social/reddit/badgify)
+
+`skype`
+
+![](https://badgify.thex.solutions/api/social/skype/badgify)
+
+`slack`
+
+![](https://badgify.thex.solutions/api/social/slack/badgify)
+
+`snapchat`
+
+![](https://badgify.thex.solutions/api/social/snapchat/badgify)
+
+`app-store`
+
+![](https://badgify.thex.solutions/api/social/app-store/badgify)
+
+`spotify`
+
+![](https://badgify.thex.solutions/api/social/spotify/badgify)
+
+`stack-exchange`
+
+![](https://badgify.thex.solutions/api/social/stack-exchange/badgify)
+
+`stackoverflow`
+
+![](https://badgify.thex.solutions/api/social/stackoverflow/badgify)
+
+`steam`
+
+![](https://badgify.thex.solutions/api/social/steam/badgify)
+
+`telegram`
+
+![](https://badgify.thex.solutions/api/social/telegram/badgify)
+
+`tiktok`
+
+![](https://badgify.thex.solutions/api/social/tiktok/badgify)
+
+`tumblr`
+
+![](https://badgify.thex.solutions/api/social/tumblr/badgify)
+
+`twitch`
+
+![](https://badgify.thex.solutions/api/social/twitch/badgify)
+
+`twitter`
+
+![](https://badgify.thex.solutions/api/social/twitter/badgify)
+
+`yahoo-mail`
+
+![](https://badgify.thex.solutions/api/social/yahoo-mail/badgify)
+
+`youtube`
+
+![](https://badgify.thex.solutions/api/social/youtube/badgify)
+
+**If there is a missed social media please let me now by creating a new Issue**
+
+### Profile Badge
+For generating profile badges you can use the following APIs with your desired GitHub account id param :
 
 Inline example:
 
@@ -116,7 +354,7 @@ Short inline example:
 badgify.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>
 ```
 
-[![](https://badgify.thex.solutions/api/badge/profile?id=TheXSolutions&color=787878)](https://github.com/TheXSolutions) [![](https://badgify.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
+[![](https://badgify.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
 
 ### Link Badge
 For generating link badges you can use the following APIs with two `title` and `icon` params :
@@ -147,7 +385,7 @@ badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl
 
 ![](https://badgify.thex.solutions/api/badge/link?title=سلام%20دنیا&icon=globe&dir=rtl&bg=gray)
 
-**! Learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
+**! Learn about other params in [/docs](https://github.com/shuoros/badgify/tree/main/docs).**
 
 ### Icon Badge
 For generating icon badges you can use the following APIs with an `icon` param :
@@ -170,7 +408,7 @@ badgify.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>
 
 ![](https://badgify.thex.solutions/api/badge/icon?icon=peace&bg=gray)
 
-**! See list of supported icons and learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
+**! See list of supported icons and learn about other params in [/docs](https://github.com/shuoros/badgify/tree/main/docs).**
 
 ### Title Badge
 For generating title badges you can use the following APIs with a `title` param :
@@ -193,10 +431,10 @@ badgify.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>
 
 ![](https://badgify.thex.solutions/api/badge/title?title=Peace&bg=gray)
 
-**! Learn about other params in [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).**
+**! Learn about other params in [/docs](https://github.com/shuoros/badgify/tree/main/docs).**
 
 ## How To Use
-Here are quick examples of how to use APIs. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs).
+Here are quick examples of how to use APIs. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [/docs](https://github.com/shuoros/badgify/tree/main/docs).
 
 ### Default Colors
 Instead of passing colors as hex you can use our pre-defined default colors names:
@@ -396,19 +634,19 @@ You can use underscore, hyphen or space as a param splitter.
 **Please take a look at each badge's examples to see how to use inline params.**
 
 ## Authors
-badgify is developed by [Soroush Shemshadi](https://github.com/shuoros) and [contributors](https://github.com/TheXSolutions/badgify/blob/main/CONTRIBUTORS.md).
+badgify is developed by [Soroush Shemshadi](https://github.com/shuoros) and [contributors](https://github.com/shuoros/badgify/blob/main/CONTRIBUTORS.md).
 
 ## Contribution
-If you want to contribute on this project, Please read the [contribution guide](https://github.com/TheXSolutions/badgify/blob/main/CONTRIBUTE.md).
+If you want to contribute on this project, Please read the [contribution guide](https://github.com/shuoros/badgify/blob/main/CONTRIBUTE.md).
 
 ## Releases
-To see the changes in different versions of badgify, you can read the [release notes](https://github.com/TheXSolutions/badgify/blob/main/RELEASENOTES.md).
+To see the changes in different versions of badgify, you can read the [release notes](https://github.com/shuoros/badgify/blob/main/RELEASENOTES.md).
 
 ## Issues
-If you encounter a bug or vulnerability, please read the [issue policy](https://github.com/TheXSolutions/badgify/blob/main/ISSUES.md).
+If you encounter a bug or vulnerability, please read the [issue policy](https://github.com/shuoros/badgify/blob/main/ISSUES.md).
 
 ## Documentation
-To learn how to work with badgify, please take a look at the [/docs](https://github.com/TheXSolutions/badgify/tree/main/docs) folder.
+To learn how to work with badgify, please take a look at the [/docs](https://github.com/shuoros/badgify/tree/main/docs) folder.
 
 ## Acknowledgement
 A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the icon.
