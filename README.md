@@ -1,4 +1,7 @@
 <p align="center">
+ <img src="https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify?title=Badgify Visits" align="center" alt="badgify" />
+ </br>
+ </br>
  <img src="https://user-images.githubusercontent.com/45015114/157028899-efb256dd-efe6-47a8-895d-86a61f4f31c6.png" align="center" alt="badgify" />
  <h2 align="center">Badgify</h2>
  <p align="center">Is an easy-to-use API for generating online custom badges and GitHub profiles' summaries and repositories' reports as SVG.</p>
