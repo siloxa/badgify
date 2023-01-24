@@ -1,660 +1,228 @@
-<p align="center">
- <img src="https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify?title=Badgify Visits" align="center" alt="badgify" />
- </br>
- </br>
- <img src="https://user-images.githubusercontent.com/45015114/157028899-efb256dd-efe6-47a8-895d-86a61f4f31c6.png" align="center" alt="badgify" />
- <h2 align="center">Badgify</h2>
- <p align="center">Is an easy-to-use API for generating online custom badges and GitHub profiles' summaries and repositories' reports as SVG.</p>
-</p>
-<p align="center">
-    	<a href="https://github.com/shuoros/badgify/releases/tag/v1.2.0">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=badgify%20v1.3.0&icon=github&size=m&bg=random" />
-    	</a>
-    	<a href="https://github.com/shuoros/badgify/search?l=java">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=18&icon=java&size=m&bg=random" />
-    	</a>
-	<a href="https://github.com/shuoros/badgify/blob/main/LICENSE">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=MIT&icon=scale-balanced&size=m&bg=random" />
-    </a>
-    <a href="https://github.com/shuoros/badgify/releases/tag/v1.2.0">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=%D8%A8%D8%AF%D8%AC%DB%8C%D9%81%D8%A7%DB%8C%20%D9%86%D8%B3%D8%AE%D9%87%20%DB%B1.%DB%B3.%DB%B0&icon=github&size=m&dir=rtl&bg=random" />
-    </a>
-<p align="center">
-    <a href="https://github.com/shuoros/badgify/issues/new/choose">
-      		<img src="https://badgify.thex.solutions/api/badge/title?title=Reoprt%20Bug&bg=gray&size=m&theme=edge" />
-    </a>
-    <a href="https://github.com/shuoros/badgify/issues/new/choose">
-      		<img src="https://badgify.thex.solutions/api/badge/title?title=Request%20Feature&bg=gray&size=m&theme=edge" />
-    </a>
-    <a href="#contribution">
-      		<img src="https://badgify.thex.solutions/api/badge/title?title=Contribute&bg=gray&size=m&theme=edge" />
-    </a>
-    <a href="#contents">
-      		<img src="https://badgify.thex.solutions/api/badge/title?title=How%20To%20Use&bg=gray&size=m&theme=edge" />
-    </a>
-</p>
-<p align="center">
-	If you like this project, please buy a cup of coffee for me=))☕
-</p>
-<p align="center">
-	<a href="https://commerce.coinbase.com/checkout/6e1472f5-3481-4949-84cf-a915e0cb8d0c">
-      		<img src="https://badgify.thex.solutions/api/badge/link?title=Donate%20With%20Crypto&icon=hand-holding-dollar&bg=ef730f&size=m&theme=edge" />
-	</a>
-</p>
-<p align="center">
-	<img src="https://badgify.thex.solutions/api/badge/icon?icon=heart&bg=fff&color=f23d96&size=s" /> & <img src="https://badgify.thex.solutions/api/badge/icon?icon=peace&bg=fff&color=0286a9&size=s" /> 
-</p>
-<p align="center">
-	<a href="#">
-		<img src="https://badgify.thex.solutions/api/badge/link?title=ENGLISH&icon=flag.us&bg=254a79&size=m" />
-	</a>
-    <a href="https://github.com/shuoros/badgify/tree/main/docs/READMES/FA.md">
-		<img src="https://badgify.thex.solutions/api/badge/link?title=%D9%81%D8%A7%D8%B1%D8%B3%DB%8C&icon=flag.ir&bg=fff&size=m" />
-	</a>
-</p>
+# Badgify
 
-## What Is In V1.3.0
-- Add flags icon support.
-- Add iconscout colory brands icons.
-- Add two new sharp and edge themes.
-- Add Farsi docs.
-- Ready To Use Social Badges
-- A counter badge. Profiles and Repository view counter. 
+This application was generated using JHipster 7.9.2, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.9.2](https://www.jhipster.tech/documentation-archive/v7.9.2).
 
-## Contents
-- [Hosts](#hosts)
-- [APIs](#apis)
-  - [Counter Badge](#counter-badge) 
-  - [Social Badges](#social-badges)
-    - [Supported Socials](#supported-socials) 
-  - [Profile Badge](#profile-badge)
-  - [Link Badge](#link-badge)
-  - [Icon Badge](#icon-badge)
-  - [Title Badge](#title-badge)
-- [How To Use](#how-to-use)
-  - [Default Colors](#default-colors)
-  - [Random Colors](#random-colors)
-  - [Themes](#themes)
-    - [Simple](#simple)
-    - [Sharp](#sharp)
-    - [Edge](#edge)
-  - [Sizes](#sizes)
-    - [Small](#small)
-    - [Medium](#medium)
-    - [Large](#large)
-  - [Inline Query Params](#inline-query-params)
-    - [Params Splitters](#params-splitters)
-- [Authors](#authors)
-- [Contribution](#contribution)
-- [Releases](#releases)
-- [Issues](#issues)
-- [Documentation](#documentation)
-- [Acknowledgement](#acknowledgement)
+## Project Structure
 
-## Hosts
-You can use any of the following hosts to use badgify APIs:
+Node is required for generation and recommended for development. `package.json` is always generated for a better development experience with prettier, commit hooks, scripts and so on.
 
-```md
-https://badgify.thex.solutions
+In the project root, JHipster generates configuration files for tools like git, prettier, eslint, husky, and others that are well known and you can find references in the web.
+
+`/src/*` structure follows default Java structure.
+
+- `.yo-rc.json` - Yeoman configuration file
+  JHipster configuration is stored in this file at `generator-jhipster` key. You may find `generator-jhipster-*` for specific blueprints configuration.
+- `.yo-resolve` (optional) - Yeoman conflict resolver
+  Allows to use a specific action when conflicts are found skipping prompts for files that matches a pattern. Each line should match `[pattern] [action]` with pattern been a [Minimatch](https://github.com/isaacs/minimatch#minimatch) pattern and action been one of skip (default if ommited) or force. Lines starting with `#` are considered comments and are ignored.
+- `.jhipster/*.json` - JHipster entity configuration files
+
+- `npmw` - wrapper to use locally installed npm.
+  JHipster installs Node and npm locally using the build tool by default. This wrapper makes sure npm is installed locally and uses it avoiding some differences different versions can cause. By using `./npmw` instead of the traditional `npm` you can configure a Node-less environment to develop or test your application.
+- `/src/main/docker` - Docker configurations for the application and services that the application depends on
+
+## Development
+
+Before you can build this project, you must install and configure the following dependencies on your machine:
+
+1. [Node.js][]: We use Node to run a development web server and build the project.
+   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+
+After installing Node, you should be able to run the following command to install development tools.
+You will only need to run this command when dependencies change in [package.json](package.json).
+
+```
+npm install
 ```
 
-## APIs
+We use npm scripts and [Webpack][] as our build system.
 
-### Counter Badge
-With counter badges you can count anything you want=))
+Run the following commands in two separate terminals to create a blissful development experience where your browser
+auto-refreshes when files change on your hard drive.
 
-Count views of your GitHub profile:
-
-```md
-badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>
+```
+./mvnw
+npm start
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros)
+Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
+specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
+Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
 
-Count views of your GitHub Repository:
+The `npm run` command will list all of the scripts available to run for this project.
 
-```md
-badgify.thex.solutions/api/counter/github/repo/<YOUR-GITHUB-ACCOUNT-ID>/<YOUR-REPOSITORY>
+### PWA Support
+
+JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
+
+The service worker initialization code is commented out by default. To enable it, uncomment the following code in `src/main/webapp/index.html`:
+
+```html
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(function () {
+      console.log('Service Worker Registered');
+    });
+  }
+</script>
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify)
+Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker. It dynamically generates the `service-worker.js` file.
 
-You can count views on your `GitLab` profile and repository too:
+### Managing dependencies
 
-```md
-badgify.thex.solutions/api/counter/gitlab/profile/<YOUR-GITLAB-ACCOUNT-ID>
+For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
+
+```
+npm install --save --save-exact leaflet
 ```
 
-![](https://badgify.thex.solutions/api/counter/gitlab/profile/shuoros)
+To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
 
-```md
-badgify.thex.solutions/api/counter/gitlab/repo/<YOUR-GITLAB-ACCOUNT-ID>/<YOUR-REPOSITORY>
+```
+npm install --save-dev --save-exact @types/leaflet
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/repo/shuoros/badgify)
+Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
+Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
 
+For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
-Change the title as you wish:
+### JHipster Control Center
 
-```md
-badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?title=Soroush's%20Profile%20Views
+JHipster Control Center can help you manage and control your application(s). You can start a local control center server (accessible on http://localhost:7419) with:
+
+```
+docker-compose -f src/main/docker/jhipster-control-center.yml up
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?title=Soroush's%20Profile%20Views)
+## Building for production
 
-Count views of your GitHub Repository:
+### Packaging as jar
 
-```md
-badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>
+To build the final jar and optimize the Badgify application for production, run:
+
+```
+./mvnw -Pprod clean verify
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros)
+This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
+To ensure everything worked, run:
 
-Change the background color as you wish:
-
-```md
-badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?bg=lavender
+```
+java -jar target/*.jar
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?bg=lavender)
+Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
-Change the title color as you wish:
+Refer to [Using JHipster in production][] for more details.
 
-```md
-badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?color=green
+### Packaging as war
+
+To package your application as a war in order to deploy it to an application server, run:
+
+```
+./mvnw -Pprod,war clean verify
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?color=green)
+## Testing
 
-Change the Size of badge as you wish:
+To launch your application's tests, run:
 
-```md
-badgify.thex.solutions/api/counter/github/profile/<YOUR-GITHUB-ACCOUNT-ID>?size=m
+```
+./mvnw verify
 ```
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros)
+### Client tests
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?size=m)
+Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
 
-![](https://badgify.thex.solutions/api/counter/github/profile/shuoros?size=l)
-
-### Social Badges
-Create badge of your social medias easy. Just give the badgify your social media and your user ID
-
-```md
-badgify.thex.solutions/api/social/<SOCIAL-MEDIA>/<YOUR-ACCOUNT-ID>
+```
+npm test
 ```
 
-For example for GitHub: 
+For more information, refer to the [Running tests page][].
 
-`badgify.thex.solutions/api/social/github/shuoros`
+### Code quality
 
-![](https://badgify.thex.solutions/api/social/github/shuoros)
+Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
 
-#### Supported Socials
-
-`app-store`
-
-![](https://badgify.thex.solutions/api/social/app-store/badgify)
-
-`behance`
-
-![](https://badgify.thex.solutions/api/social/behance/badgify)
-
-`discord`
-
-![](https://badgify.thex.solutions/api/social/discord/badgify)
-
-`dockerhub`
-
-![](https://badgify.thex.solutions/api/social/dockerhub/badgify)
-
-`dribbble`
-
-![](https://badgify.thex.solutions/api/social/dribbble/badgify)
-
-`dropbox`
-
-![](https://badgify.thex.solutions/api/social/dropbox/badgify)
-
-`facebook`
-
-![](https://badgify.thex.solutions/api/social/facebook/badgify)
-
-`github`
-
-![](https://badgify.thex.solutions/api/social/github/badgify)
-
-`gitlab`
-
-![](https://badgify.thex.solutions/api/social/gitlab/badgify)
-
-`goodreads`
-
-![](https://badgify.thex.solutions/api/social/goodreads/badgify)
-
-`google-drive`
-
-![](https://badgify.thex.solutions/api/social/google-drive/badgify)
-
-`google-play`
-
-![](https://badgify.thex.solutions/api/social/google-play/badgify)
-
-`instagram`
-
-![](https://badgify.thex.solutions/api/social/instagram/badgify)
-
-`kaggle`
-
-![](https://badgify.thex.solutions/api/social/kaggle/badgify)
-
-`kickstarter`
-
-![](https://badgify.thex.solutions/api/social/kickstarter/badgify)
-
-`linkedin`
-
-![](https://badgify.thex.solutions/api/social/linkedin/badgify)
-
-`medium`
-
-![](https://badgify.thex.solutions/api/social/medium/badgify)
-
-`paypal`
-
-![](https://badgify.thex.solutions/api/social/paypal/badgify)
-
-`pinterest`
-
-![](https://badgify.thex.solutions/api/social/pinterest/badgify)
-
-`quora`
-
-![](https://badgify.thex.solutions/api/social/quora/badgify)
-
-`reddit`
-
-![](https://badgify.thex.solutions/api/social/reddit/badgify)
-
-`skype`
-
-![](https://badgify.thex.solutions/api/social/skype/badgify)
-
-`slack`
-
-![](https://badgify.thex.solutions/api/social/slack/badgify)
-
-`snapchat`
-
-![](https://badgify.thex.solutions/api/social/snapchat/badgify)
-
-`app-store`
-
-![](https://badgify.thex.solutions/api/social/app-store/badgify)
-
-`spotify`
-
-![](https://badgify.thex.solutions/api/social/spotify/badgify)
-
-`stack-exchange`
-
-![](https://badgify.thex.solutions/api/social/stack-exchange/badgify)
-
-`stackoverflow`
-
-![](https://badgify.thex.solutions/api/social/stackoverflow/badgify)
-
-`steam`
-
-![](https://badgify.thex.solutions/api/social/steam/badgify)
-
-`telegram`
-
-![](https://badgify.thex.solutions/api/social/telegram/badgify)
-
-`tiktok`
-
-![](https://badgify.thex.solutions/api/social/tiktok/badgify)
-
-`tumblr`
-
-![](https://badgify.thex.solutions/api/social/tumblr/badgify)
-
-`twitch`
-
-![](https://badgify.thex.solutions/api/social/twitch/badgify)
-
-`twitter`
-
-![](https://badgify.thex.solutions/api/social/twitter/badgify)
-
-`yahoo-mail`
-
-![](https://badgify.thex.solutions/api/social/yahoo-mail/badgify)
-
-`youtube`
-
-![](https://badgify.thex.solutions/api/social/youtube/badgify)
-
-**If there is a missed social media please let me now by creating a new Issue**
-
-### Profile Badge
-For generating profile badges you can use the following APIs with your desired GitHub account id param :
-
-Inline example:
-
-```md
-badgify.thex.solutions/api/badge/inline/profile/<THEME>-<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>
+```
+docker-compose -f src/main/docker/sonar.yml up -d
 ```
 
-Short inline example:
+Note: we have turned off authentication in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
 
-```md
-badgify.thex.solutions/api/badge/inline/short/profile/<YOUR-GITHUB-ACCOUNT-ID>-<BG>-<COLOR>
+You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
+
+Then, run a Sonar analysis:
+
+```
+./mvnw -Pprod clean verify sonar:sonar
 ```
 
-[![](https://badgify.thex.solutions/api/badge/profile?id=shuoros&color=787878)](https://github.com/shuoros)
+If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
 
-### Link Badge
-For generating link badges you can use the following APIs with two `title` and `icon` params :
-
-```md
-badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe
+```
+./mvnw initialize sonar:sonar
 ```
 
-Inline example:
+For more information, refer to the [Code quality page][].
 
-```md
-badgify.thex.solutions/api/badge/inline/link/<DIRCTION>-<SIZE>-<THEME>-<TITLE>-<LOGO>-<BG>-<COLOR>-<LINK>
+## Using Docker to simplify development (optional)
+
+You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+
+For example, to start a mysql database in a docker container, run:
+
+```
+docker-compose -f src/main/docker/mysql.yml up -d
 ```
 
-Short inline example:
+To stop it and remove the container, run:
 
-```md
-badgify.thex.solutions/api/badge/inline/short/link/<TITLE>-<LOGO>-<BG>-<SIZE>
+```
+docker-compose -f src/main/docker/mysql.yml down
 ```
 
-![](https://badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&bg=gray)
+You can also fully dockerize your application and all the services that it depends on.
+To achieve this, first build a docker image of your app by running:
 
-To make an RTL link badge you must pass a `dir=rtl` parameter:
-
-```md
-badgify.thex.solutions/api/badge/link?title=Hello%20World&icon=globe&dir=rtl
+```
+npm run java:docker
 ```
 
-![](https://badgify.thex.solutions/api/badge/link?title=سلام%20دنیا&icon=globe&dir=rtl&bg=gray)
+Or build a arm64 docker image when using an arm64 processor os like MacOS with M1 processor family running:
 
-**! Learn about other params in [/docs](https://github.com/shuoros/badgify/tree/main/docs).**
-
-### Icon Badge
-For generating icon badges you can use the following APIs with an `icon` param :
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=peace
+```
+npm run java:docker:arm64
 ```
 
-Inline example:
+Then run:
 
-```md
-badgify.thex.solutions/api/badge/inline/icon/<SIZE>-<THEME>-<LOGO>-<BG>-<COLOR>-<LINK>
+```
+docker-compose -f src/main/docker/app.yml up -d
 ```
 
-Short inline example:
-
-```md
-badgify.thex.solutions/api/badge/inline/short/icon/<LOGO>-<BG>-<SIZE>
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=peace&bg=gray)
-
-**! See list of supported icons and learn about other params in [/docs](https://github.com/shuoros/badgify/tree/main/docs).**
-
-### Title Badge
-For generating title badges you can use the following APIs with a `title` param :
-
-```md
-badgify.thex.solutions/api/badge/title?title=peace
-```
-
-Inline example:
-
-```md
-badgify.thex.solutions/api/badge/inline/title/<SIZE>-<THEME>-<TITLE>-<BG>-<COLOR>-<LINK>
-```
-
-Short inline example:
-
-```md
-badgify.thex.solutions/api/badge/inline/short/title/<TITLE>-<BG>-<SIZE>
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Peace&bg=gray)
-
-**! Learn about other params in [/docs](https://github.com/shuoros/badgify/tree/main/docs).**
-
-## How To Use
-Here are quick examples of how to use APIs. For more information, please visit the [badgify website](https://badgify.thex.solutions/) or read the [/docs](https://github.com/shuoros/badgify/tree/main/docs).
-
-### Default Colors
-Instead of passing colors as hex you can use our pre-defined default colors names:
-
-```md
-badgify.thex.solutions/api/badge/title?title=color&bg=<COLOR_NAME>
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=red&bg=red&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=blue&bg=blue&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=cyan&bg=cyan&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=green&bg=green&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=yellow&bg=yellow&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=orange&bg=orange&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=purple&bg=purple&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=pink&bg=pink&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=lavender&bg=lavender&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=brown&bg=brown&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=gray&bg=gray&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=black&bg=black&size=m)
-![](https://badgify.thex.solutions/api/badge/title?title=white&bg=white&size=m)
-
-**Colors names aren't case-sensitive!**
-
-Thinking of a new cool color? Please let us know<3.
-
-### Random Colors
-For generating random colors you can use the following api with a random param as `bg` or `color` :
-
-```md
-badgify.thex.solutions/api/badge/title?title=random&bg=random
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=random&bg=random&size=m)
-
-**We strongly recommend you to do not use random colors for badge's text color! Because the produced random color may not match the background color in contrast and make it difficult to see your text in the badge.**
-
-### Themes
-You can choose one of the available themes for your badge.
-
-#### Simple
-Simple is default theme of badges. If you want to use this theme, you do not need to pass it in parameters.
-
-```md
-badgify.thex.solutions/api/badge/link?title=Simple&icon=github
-```
-
-![](https://badgify.thex.solutions/api/badge/link?title=Simple&icon=github&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/title?title=Simple
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Simple&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=github
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray)
-
-#### Sharp
-To use this theme in your badges, you must pass `theme=sharp` parameter in your request.
-
-```md
-badgify.thex.solutions/api/badge/link?title=Sharp&icon=github&theme=sharp
-```
-
-![](https://badgify.thex.solutions/api/badge/link?title=Sharp&icon=github&theme=sharp&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/title?title=Sharp&theme=sharp
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Sharp&theme=sharp&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=github&theme=sharp
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=github&theme=sharp&bg=gray)
-
-#### Edge
-To use this theme in your badges, you must pass theme=edge parameter in your request.
-
-```md
-badgify.thex.solutions/api/badge/link?title=Edge&icon=github&theme=edge
-```
-
-![](https://badgify.thex.solutions/api/badge/link?title=Edge&icon=github&theme=edge&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/title?title=Edge&theme=edge
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Edge&theme=edge&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=github&theme=edge
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=github&theme=edge&bg=gray)
-
-Any idea about new themes? Feel free to tell us<3
-
-### Sizes
-There are three renderable sizes for badges. Small, medium and large that you can choose any of these sizes for your badge.
-
-#### Small
-Small is default size of badges. If you want to use this size, you do not need to pass it in parameters.
-
-```md
-badgify.thex.solutions/api/badge/link?title=Small&icon=github
-```
-
-![](https://badgify.thex.solutions/api/badge/link?title=Small&icon=github&bg=gray)
-
-```md
-badgify.thex.solutions/api/badge/title?title=Small
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Small&bg=gray)
-
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=github
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray)
-
-#### Medium
-To use medium size for your badges, you must pass `size=m` parameter in your request.
-
-```md
-badgify.thex.solutions/api/badge/link?title=Medium&icon=github&size=m
-```
-
-![](https://badgify.thex.solutions/api/badge/link?title=Medium&icon=github&bg=gray&size=m)
-
-```md
-badgify.thex.solutions/api/badge/title?title=Medium&size=m
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Medium&bg=gray&size=m)
-
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=github&size=m
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray&size=m)
-
-#### Large
-To use large size for your badges, you must pass `size=l` parameter in your request.
-
-```md
-badgify.thex.solutions/api/badge/link?title=Large&icon=github&size=l
-```
-
-![](https://badgify.thex.solutions/api/badge/link?title=Large&icon=github&bg=gray&size=l)
-
-```md
-badgify.thex.solutions/api/badge/title?title=Large&size=l
-```
-
-![](https://badgify.thex.solutions/api/badge/title?title=Large&bg=gray&size=l)
-
-
-```md
-badgify.thex.solutions/api/badge/icon?icon=github&size=l
-```
-
-![](https://badgify.thex.solutions/api/badge/icon?icon=github&bg=gray&size=l)
-
-### Inline Query Params
-Instead of passing the params as query params you can use inline params to just pass a string as design:
-
-```md
-badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_DESIGN>
-```
-
-Or want to pass less params? You can use short inline:
-
-```md
-badgify.thex.solutions/api/badge/inline/<BADGE>/<SOME_SHORT_DESIGN>
-```
-
-#### Params Splitters
-You can use underscore, hyphen or space as a param splitter.
-
-`param1 param2 param3...`
-
-`param1_param2_param3...`
-
-`param1-param2-param3...`
-
-**Please take a look at each badge's examples to see how to use inline params.**
-
-## Authors
-badgify is developed by [Soroush Shemshadi](https://github.com/shuoros) and [contributors](https://github.com/shuoros/badgify/blob/main/CONTRIBUTORS.md).
-
-## Contribution
-If you want to contribute on this project, Please read the [contribution guide](https://github.com/shuoros/badgify/blob/main/CONTRIBUTE.md).
-
-## Releases
-To see the changes in different versions of badgify, you can read the [release notes](https://github.com/shuoros/badgify/blob/main/RELEASENOTES.md).
-
-## Issues
-If you encounter a bug or vulnerability, please read the [issue policy](https://github.com/shuoros/badgify/blob/main/ISSUES.md).
-
-## Documentation
-To learn how to work with badgify, please take a look at the [/docs](https://github.com/shuoros/badgify/tree/main/docs) folder.
-
-## Acknowledgement
-A great thanks to [@sarahrajabi](https://github.com/sarahrajabi) for designing the icon.
-
-And thanks to all the contributors, the people who reported the bugs and all those who made it possible for us to provide this great software.
-\
-\
-\
-\
-\
-![](https://badgify.thex.solutions/api/badge/title?title=Made%20with%20❤%20and%20Java%3D%29%29&bg=lavender&size=l)
+When running Docker Desktop on MacOS Big Sur or later, consider enabling experimental `Use the new Virtualization framework` for better processing performance ([disk access performance is worse](https://github.com/docker/roadmap/issues/7)).
+
+For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+
+## Continuous Integration (optional)
+
+To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+
+[jhipster homepage and latest documentation]: https://www.jhipster.tech
+[jhipster 7.9.2 archive]: https://www.jhipster.tech/documentation-archive/v7.9.2
+[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v7.9.2/development/
+[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v7.9.2/docker-compose
+[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v7.9.2/production/
+[running tests page]: https://www.jhipster.tech/documentation-archive/v7.9.2/running-tests/
+[code quality page]: https://www.jhipster.tech/documentation-archive/v7.9.2/code-quality/
+[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v7.9.2/setting-up-ci/
+[node.js]: https://nodejs.org/
+[npm]: https://www.npmjs.com/
+[webpack]: https://webpack.github.io/
+[browsersync]: https://www.browsersync.io/
+[jest]: https://facebook.github.io/jest/
+[leaflet]: https://leafletjs.com/
+[definitelytyped]: https://definitelytyped.org/
