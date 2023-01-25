@@ -1,0 +1,10 @@
+
+entity Badge {
+    id UUID
+    badge String
+    count Long
+}
+
+relationship ManyToOne {
+    Badge to User
+}

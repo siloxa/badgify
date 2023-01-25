@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230125185506",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "badge",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "badge",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "count",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Badge",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "badge",
+      "relationshipName": "user",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
