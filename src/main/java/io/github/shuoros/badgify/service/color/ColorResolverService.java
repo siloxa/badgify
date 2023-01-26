@@ -1,9 +1,12 @@
 package io.github.shuoros.badgify.service.color;
 
+import io.github.shuoros.badgify.domain.enumeration.DefaultColor;
 import io.github.shuoros.badgify.domain.model.color.Color;
 import io.github.shuoros.badgify.domain.model.color.HexColor;
 import io.github.shuoros.badgify.domain.model.color.RgbColor;
 import io.github.shuoros.badgify.service.color.errors.InvalidColorException;
+import java.util.Objects;
+import java.util.Random;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +22,9 @@ public class ColorResolverService {
         } else if (color.matches(HEX_REGEX)) {
             return resolveHex(color);
         } else if ("random".equalsIgnoreCase(color)) {
-            return null;
+            return resolveRandomColor(color);
+        } else if (DefaultColor.findByName(color) != null) {
+            return Objects.requireNonNull(DefaultColor.findByName(color)).getRgbColor();
         }
         throw new InvalidColorException();
     }
@@ -36,5 +41,10 @@ public class ColorResolverService {
 
     private HexColor resolveHex(String color) {
         return HexColor.builder().value(color).build();
+    }
+
+    private RgbColor resolveRandomColor(String color) {
+        final Random random = new Random();
+        return DefaultColor.values()[random.nextInt(DefaultColor.values().length)].getRgbColor();
     }
 }

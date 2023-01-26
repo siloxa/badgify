@@ -11,7 +11,6 @@ public class HexColor implements Color {
 
     @Override
     public String toString() {
-        System.out.println("hey biatch");
         String result = getValue();
         if (result.replace("#", "").length() == 3) result = standardize3HexTo6Hex(result);
         return "#" + result;
