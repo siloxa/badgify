@@ -1,7 +1,11 @@
 package io.github.shuoros.badgify.web.controller;
 
+import io.github.shuoros.badgify.aop.controller.InterceptIconBadgeController;
+import io.github.shuoros.badgify.aop.controller.InterceptLabelBadgeController;
+import io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController;
+import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
-import javax.servlet.http.HttpServletRequest;
+import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class BadgeController {
 
     @GetMapping(path = "/link")
-    public ResponseEntity<LabelBadge> linkBadge(HttpServletRequest request, LabelBadge labelBadge) throws Exception {
-        return ResponseEntity.ok().body(labelBadge);
+    @InterceptLabelBadgeController
+    public ResponseEntity<LabelBadge> linkBadge(LabelBadge badge) throws Exception {
+        return ResponseEntity.ok().body(badge);
+    }
+
+    @GetMapping(path = "/icon")
+    @InterceptIconBadgeController
+    public ResponseEntity<IconBadge> iconBadge(IconBadge badge) throws Exception {
+        return ResponseEntity.ok().body(badge);
+    }
+
+    @GetMapping(path = "/text")
+    @InterceptTextBadgeController
+    public ResponseEntity<TextBadge> textBadge(TextBadge badge) throws Exception {
+        return ResponseEntity.ok().body(badge);
     }
 }
