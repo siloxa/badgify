@@ -17,6 +17,9 @@
             <column name="badge" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="badge_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="count" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -45,6 +48,7 @@
                   usePreparedStatements="true">
             <column name="id" type="string"/>
             <column name="badge" type="string"/>
+            <column name="badge_type" type="string"/>
             <column name="count" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

@@ -6,10 +6,12 @@ import UserService from '@/entities/user/user.service';
 
 import { IBadge, Badge } from '@/shared/model/badge.model';
 import BadgeService from './badge.service';
+import { BadgeType } from '@/shared/model/enumerations/badge-type.model';
 
 const validations: any = {
   badge: {
     badge: {},
+    badgeType: {},
     count: {},
   },
 };
@@ -26,6 +28,7 @@ export default class BadgeUpdate extends Vue {
   @Inject('userService') private userService: () => UserService;
 
   public users: Array<any> = [];
+  public badgeTypeValues: string[] = Object.keys(BadgeType);
   public isSaving = false;
   public currentLanguage = '';
 

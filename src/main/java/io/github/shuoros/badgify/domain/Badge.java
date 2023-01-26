@@ -1,5 +1,6 @@
 package io.github.shuoros.badgify.domain;
 
+import io.github.shuoros.badgify.domain.enumeration.BadgeType;
 import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.*;
@@ -12,6 +13,8 @@ import org.hibernate.annotations.Type;
 @Table(name = "badge")
 public class Badge implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
     @Type(type = "uuid-char")
@@ -20,6 +23,10 @@ public class Badge implements Serializable {
 
     @Column(name = "badge")
     private String badge;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "badge_type")
+    private BadgeType badgeType;
 
     @Column(name = "count")
     private Long count;
@@ -53,6 +60,19 @@ public class Badge implements Serializable {
 
     public void setBadge(String badge) {
         this.badge = badge;
+    }
+
+    public BadgeType getBadgeType() {
+        return this.badgeType;
+    }
+
+    public Badge badgeType(BadgeType badgeType) {
+        this.setBadgeType(badgeType);
+        return this;
+    }
+
+    public void setBadgeType(BadgeType badgeType) {
+        this.badgeType = badgeType;
     }
 
     public Long getCount() {
@@ -106,6 +126,7 @@ public class Badge implements Serializable {
         return "Badge{" +
             "id=" + getId() +
             ", badge='" + getBadge() + "'" +
+            ", badgeType='" + getBadgeType() + "'" +
             ", count=" + getCount() +
             "}";
     }

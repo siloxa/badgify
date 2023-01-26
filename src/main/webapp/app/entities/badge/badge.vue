@@ -29,6 +29,7 @@
           <tr>
             <th scope="row"><span>ID</span></th>
             <th scope="row"><span>Badge</span></th>
+            <th scope="row"><span>Badge Type</span></th>
             <th scope="row"><span>Count</span></th>
             <th scope="row"><span>User</span></th>
             <th scope="row"></th>
@@ -40,6 +41,7 @@
               <router-link :to="{ name: 'BadgeView', params: { badgeId: badge.id } }">{{ badge.id }}</router-link>
             </td>
             <td>{{ badge.badge }}</td>
+            <td>{{ badge.badgeType }}</td>
             <td>{{ badge.count }}</td>
             <td>
               {{ badge.user ? badge.user.id : '' }}

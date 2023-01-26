@@ -4,6 +4,7 @@ import sinon from 'sinon';
 
 import BadgeService from '@/entities/badge/badge.service';
 import { Badge } from '@/shared/model/badge.model';
+import { BadgeType } from '@/shared/model/enumerations/badge-type.model';
 
 const error = {
   response: {
@@ -29,7 +30,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       service = new BadgeService();
-      elemDefault = new Badge('9fec3727-3421-4967-b213-ba36557ca194', 'AAAAAAA', 0);
+      elemDefault = new Badge('9fec3727-3421-4967-b213-ba36557ca194', 'AAAAAAA', BadgeType.LABEL, 0);
     });
 
     describe('Service methods', () => {
@@ -82,6 +83,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             badge: 'BBBBBB',
+            badgeType: 'BBBBBB',
             count: 1,
           },
           elemDefault
@@ -109,7 +111,7 @@ describe('Service Tests', () => {
       it('should partial update a Badge', async () => {
         const patchObject = Object.assign(
           {
-            count: 1,
+            badgeType: 'BBBBBB',
           },
           new Badge()
         );
@@ -138,6 +140,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             badge: 'BBBBBB',
+            badgeType: 'BBBBBB',
             count: 1,
           },
           elemDefault

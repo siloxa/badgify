@@ -1,7 +1,14 @@
+enum BadgeType {
+    LABEL
+    ICON
+    TEXT
+    COUNTER
+}
 
 entity Badge {
     id UUID
     badge String
+    badgeType BadgeType
     count Long
 }
 

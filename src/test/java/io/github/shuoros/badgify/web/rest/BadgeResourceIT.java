@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import io.github.shuoros.badgify.IntegrationTest;
 import io.github.shuoros.badgify.domain.Badge;
+import io.github.shuoros.badgify.domain.enumeration.BadgeType;
 import io.github.shuoros.badgify.repository.BadgeRepository;
 import java.util.List;
 import java.util.UUID;
@@ -30,6 +31,9 @@ class BadgeResourceIT {
 
     private static final String DEFAULT_BADGE = "AAAAAAAAAA";
     private static final String UPDATED_BADGE = "BBBBBBBBBB";
+
+    private static final BadgeType DEFAULT_BADGE_TYPE = BadgeType.LABEL;
+    private static final BadgeType UPDATED_BADGE_TYPE = BadgeType.ICON;
 
     private static final Long DEFAULT_COUNT = 1L;
     private static final Long UPDATED_COUNT = 2L;
@@ -55,7 +59,7 @@ class BadgeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Badge createEntity(EntityManager em) {
-        Badge badge = new Badge().badge(DEFAULT_BADGE).count(DEFAULT_COUNT);
+        Badge badge = new Badge().badge(DEFAULT_BADGE).badgeType(DEFAULT_BADGE_TYPE).count(DEFAULT_COUNT);
         return badge;
     }
 
@@ -66,7 +70,7 @@ class BadgeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Badge createUpdatedEntity(EntityManager em) {
-        Badge badge = new Badge().badge(UPDATED_BADGE).count(UPDATED_COUNT);
+        Badge badge = new Badge().badge(UPDATED_BADGE).badgeType(UPDATED_BADGE_TYPE).count(UPDATED_COUNT);
         return badge;
     }
 
@@ -89,6 +93,7 @@ class BadgeResourceIT {
         assertThat(badgeList).hasSize(databaseSizeBeforeCreate + 1);
         Badge testBadge = badgeList.get(badgeList.size() - 1);
         assertThat(testBadge.getBadge()).isEqualTo(DEFAULT_BADGE);
+        assertThat(testBadge.getBadgeType()).isEqualTo(DEFAULT_BADGE_TYPE);
         assertThat(testBadge.getCount()).isEqualTo(DEFAULT_COUNT);
     }
 
@@ -123,6 +128,7 @@ class BadgeResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(badge.getId().toString())))
             .andExpect(jsonPath("$.[*].badge").value(hasItem(DEFAULT_BADGE)))
+            .andExpect(jsonPath("$.[*].badgeType").value(hasItem(DEFAULT_BADGE_TYPE.toString())))
             .andExpect(jsonPath("$.[*].count").value(hasItem(DEFAULT_COUNT.intValue())));
     }
 
@@ -139,6 +145,7 @@ class BadgeResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(badge.getId().toString()))
             .andExpect(jsonPath("$.badge").value(DEFAULT_BADGE))
+            .andExpect(jsonPath("$.badgeType").value(DEFAULT_BADGE_TYPE.toString()))
             .andExpect(jsonPath("$.count").value(DEFAULT_COUNT.intValue()));
     }
 
@@ -161,7 +168,7 @@ class BadgeResourceIT {
         Badge updatedBadge = badgeRepository.findById(badge.getId()).get();
         // Disconnect from session so that the updates on updatedBadge are not directly saved in db
         em.detach(updatedBadge);
-        updatedBadge.badge(UPDATED_BADGE).count(UPDATED_COUNT);
+        updatedBadge.badge(UPDATED_BADGE).badgeType(UPDATED_BADGE_TYPE).count(UPDATED_COUNT);
 
         restBadgeMockMvc
             .perform(
@@ -176,6 +183,7 @@ class BadgeResourceIT {
         assertThat(badgeList).hasSize(databaseSizeBeforeUpdate);
         Badge testBadge = badgeList.get(badgeList.size() - 1);
         assertThat(testBadge.getBadge()).isEqualTo(UPDATED_BADGE);
+        assertThat(testBadge.getBadgeType()).isEqualTo(UPDATED_BADGE_TYPE);
         assertThat(testBadge.getCount()).isEqualTo(UPDATED_COUNT);
     }
 
@@ -247,7 +255,7 @@ class BadgeResourceIT {
         Badge partialUpdatedBadge = new Badge();
         partialUpdatedBadge.setId(badge.getId());
 
-        partialUpdatedBadge.count(UPDATED_COUNT);
+        partialUpdatedBadge.badgeType(UPDATED_BADGE_TYPE);
 
         restBadgeMockMvc
             .perform(
@@ -262,7 +270,8 @@ class BadgeResourceIT {
         assertThat(badgeList).hasSize(databaseSizeBeforeUpdate);
         Badge testBadge = badgeList.get(badgeList.size() - 1);
         assertThat(testBadge.getBadge()).isEqualTo(DEFAULT_BADGE);
-        assertThat(testBadge.getCount()).isEqualTo(UPDATED_COUNT);
+        assertThat(testBadge.getBadgeType()).isEqualTo(UPDATED_BADGE_TYPE);
+        assertThat(testBadge.getCount()).isEqualTo(DEFAULT_COUNT);
     }
 
     @Test
@@ -277,7 +286,7 @@ class BadgeResourceIT {
         Badge partialUpdatedBadge = new Badge();
         partialUpdatedBadge.setId(badge.getId());
 
-        partialUpdatedBadge.badge(UPDATED_BADGE).count(UPDATED_COUNT);
+        partialUpdatedBadge.badge(UPDATED_BADGE).badgeType(UPDATED_BADGE_TYPE).count(UPDATED_COUNT);
 
         restBadgeMockMvc
             .perform(
@@ -292,6 +301,7 @@ class BadgeResourceIT {
         assertThat(badgeList).hasSize(databaseSizeBeforeUpdate);
         Badge testBadge = badgeList.get(badgeList.size() - 1);
         assertThat(testBadge.getBadge()).isEqualTo(UPDATED_BADGE);
+        assertThat(testBadge.getBadgeType()).isEqualTo(UPDATED_BADGE_TYPE);
         assertThat(testBadge.getCount()).isEqualTo(UPDATED_COUNT);
     }
 

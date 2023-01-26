@@ -21,6 +21,19 @@
             />
           </div>
           <div class="form-group">
+            <label class="form-control-label" for="badge-badgeType">Badge Type</label>
+            <select
+              class="form-control"
+              name="badgeType"
+              :class="{ valid: !$v.badge.badgeType.$invalid, invalid: $v.badge.badgeType.$invalid }"
+              v-model="$v.badge.badgeType.$model"
+              id="badge-badgeType"
+              data-cy="badgeType"
+            >
+              <option v-for="badgeType in badgeTypeValues" :key="badgeType" v-bind:value="badgeType">{{ badgeType }}</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label class="form-control-label" for="badge-count">Count</label>
             <input
               type="number"

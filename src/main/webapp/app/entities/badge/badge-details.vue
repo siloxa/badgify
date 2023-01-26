@@ -11,6 +11,12 @@
             <span>{{ badge.badge }}</span>
           </dd>
           <dt>
+            <span>Badge Type</span>
+          </dt>
+          <dd>
+            <span>{{ badge.badgeType }}</span>
+          </dd>
+          <dt>
             <span>Count</span>
           </dt>
           <dd>

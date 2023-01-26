@@ -123,6 +123,9 @@ public class BadgeResource {
                 if (badge.getBadge() != null) {
                     existingBadge.setBadge(badge.getBadge());
                 }
+                if (badge.getBadgeType() != null) {
+                    existingBadge.setBadgeType(badge.getBadgeType());
+                }
                 if (badge.getCount() != null) {
                     existingBadge.setCount(badge.getCount());
                 }
