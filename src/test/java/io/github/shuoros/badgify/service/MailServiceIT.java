@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 import io.github.shuoros.badgify.IntegrationTest;
 import io.github.shuoros.badgify.config.Constants;
 import io.github.shuoros.badgify.domain.User;
+import io.github.shuoros.badgify.service.web.MailService;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;

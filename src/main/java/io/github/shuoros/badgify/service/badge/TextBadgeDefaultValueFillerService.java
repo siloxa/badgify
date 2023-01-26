@@ -4,7 +4,9 @@ import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.domain.model.color.HexColor;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TextBadgeDefaultValueFillerService extends AbstractBadgeDefaultValueFillerService<TextBadge> {
 
     @Override

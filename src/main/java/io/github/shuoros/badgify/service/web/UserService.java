@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service;
+package io.github.shuoros.badgify.service.web;
 
 import io.github.shuoros.badgify.config.Constants;
 import io.github.shuoros.badgify.domain.Authority;
@@ -7,8 +7,11 @@ import io.github.shuoros.badgify.repository.AuthorityRepository;
 import io.github.shuoros.badgify.repository.UserRepository;
 import io.github.shuoros.badgify.security.AuthoritiesConstants;
 import io.github.shuoros.badgify.security.SecurityUtils;
-import io.github.shuoros.badgify.service.dto.AdminUserDTO;
-import io.github.shuoros.badgify.service.dto.UserDTO;
+import io.github.shuoros.badgify.service.web.dto.AdminUserDTO;
+import io.github.shuoros.badgify.service.web.dto.UserDTO;
+import io.github.shuoros.badgify.service.web.errors.EmailAlreadyUsedException;
+import io.github.shuoros.badgify.service.web.errors.InvalidPasswordException;
+import io.github.shuoros.badgify.service.web.errors.UsernameAlreadyUsedException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;

@@ -6,5 +6,5 @@ __________             .___      .__  _____
  |______  /(____  /\____ |\___  /|__||__|  / ____|
         \/      \/      \/_____/           \/
 
-${AnsiColor.ORANGE}:: By Soroush Shemshadi 🤓👨‍💻  :: Running Spring Boot ${spring-boot.version} ::
-:: https://github.com/shuoros ::${AnsiColor.DEFAULT}
+:: By Soroush Shemshadi 🤓👨‍💻  :: Running Spring Boot ${spring-boot.version} ::
+:: https://github.com/shuoros ::

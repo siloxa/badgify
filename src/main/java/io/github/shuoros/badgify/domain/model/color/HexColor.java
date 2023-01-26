@@ -11,7 +11,20 @@ public class HexColor implements Color {
 
     @Override
     public String toString() {
-        if (value.startsWith("#")) return getValue();
-        return "#" + getValue();
+        System.out.println("hey biatch");
+        String result = getValue();
+        if (result.replace("#", "").length() == 3) result = standardize3HexTo6Hex(result);
+        return "#" + result;
+    }
+
+    private String standardize3HexTo6Hex(String color) {
+        return (
+            String.valueOf(color.charAt(0)) +
+            String.valueOf(color.charAt(0)) +
+            String.valueOf(color.charAt(1)) +
+            String.valueOf(color.charAt(1)) +
+            String.valueOf(color.charAt(2)) +
+            String.valueOf(color.charAt(2))
+        );
     }
 }

@@ -6,14 +6,27 @@ import io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
+import io.github.shuoros.badgify.domain.model.color.Color;
+import io.github.shuoros.badgify.util.ColorEditor;
+import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/badge")
 public class BadgeController {
+
+    @Resource
+    private ColorEditor colorEditor;
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(Color.class, colorEditor);
+    }
 
     @GetMapping(path = "/link")
     @InterceptLabelBadgeController

@@ -32,7 +32,7 @@ public class BadgeControllerAspect {
     @Pointcut("@annotation(io.github.shuoros.badgify.aop.controller.InterceptIconBadgeController)")
     public void interceptIconBadgeControllerAnnotation() {}
 
-    @Pointcut("@annotation(io.github.shuoros.badgify.aop.controller.InterceptLabelTextController)")
+    @Pointcut("@annotation(io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController)")
     public void interceptTextBadgeControllerAnnotation() {}
 
     @Around("interceptLabelBadgeControllerAnnotation()")

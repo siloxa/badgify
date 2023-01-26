@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.dto;
+package io.github.shuoros.badgify.service.web.dto;
 
 import io.github.shuoros.badgify.config.Constants;
 import io.github.shuoros.badgify.domain.Authority;

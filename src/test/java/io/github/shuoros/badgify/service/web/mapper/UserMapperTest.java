@@ -1,10 +1,10 @@
-package io.github.shuoros.badgify.service.mapper;
+package io.github.shuoros.badgify.service.web.mapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.shuoros.badgify.domain.User;
-import io.github.shuoros.badgify.service.dto.AdminUserDTO;
-import io.github.shuoros.badgify.service.dto.UserDTO;
+import io.github.shuoros.badgify.service.web.dto.AdminUserDTO;
+import io.github.shuoros.badgify.service.web.dto.UserDTO;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

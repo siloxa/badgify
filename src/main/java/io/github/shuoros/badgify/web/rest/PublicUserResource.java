@@ -1,7 +1,7 @@
 package io.github.shuoros.badgify.web.rest;
 
-import io.github.shuoros.badgify.service.UserService;
-import io.github.shuoros.badgify.service.dto.UserDTO;
+import io.github.shuoros.badgify.service.web.UserService;
+import io.github.shuoros.badgify.service.web.dto.UserDTO;
 import java.util.*;
 import java.util.Collections;
 import org.slf4j.Logger;

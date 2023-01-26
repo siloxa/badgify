@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service;
+package io.github.shuoros.badgify.service.web.errors;
 
 public class UsernameAlreadyUsedException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service;
+package io.github.shuoros.badgify.service.web;
 
 import io.github.shuoros.badgify.domain.User;
 import java.nio.charset.StandardCharsets;

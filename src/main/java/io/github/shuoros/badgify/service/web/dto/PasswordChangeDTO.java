@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.dto;
+package io.github.shuoros.badgify.service.web.dto;
 
 /**
  * A DTO representing a password change required data - current and new password.

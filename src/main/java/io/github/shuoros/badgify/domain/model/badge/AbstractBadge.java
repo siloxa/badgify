@@ -3,6 +3,8 @@ package io.github.shuoros.badgify.domain.model.badge;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.domain.model.color.Color;
+import io.github.shuoros.badgify.util.ColorEditor;
+import javax.persistence.Convert;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,7 @@ public abstract class AbstractBadge {
 
     private Size size;
 
+    @Convert(converter = ColorEditor.class)
     private Color backgroundColor;
 
     private Color fontColor;

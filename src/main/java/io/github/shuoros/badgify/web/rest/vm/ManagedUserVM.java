@@ -1,6 +1,6 @@
 package io.github.shuoros.badgify.web.rest.vm;
 
-import io.github.shuoros.badgify.service.dto.AdminUserDTO;
+import io.github.shuoros.badgify.service.web.dto.AdminUserDTO;
 import javax.validation.constraints.Size;
 
 /**

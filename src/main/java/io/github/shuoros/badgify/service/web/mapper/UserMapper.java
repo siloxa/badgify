@@ -1,9 +1,9 @@
-package io.github.shuoros.badgify.service.mapper;
+package io.github.shuoros.badgify.service.web.mapper;
 
 import io.github.shuoros.badgify.domain.Authority;
 import io.github.shuoros.badgify.domain.User;
-import io.github.shuoros.badgify.service.dto.AdminUserDTO;
-import io.github.shuoros.badgify.service.dto.UserDTO;
+import io.github.shuoros.badgify.service.web.dto.AdminUserDTO;
+import io.github.shuoros.badgify.service.web.dto.UserDTO;
 import java.util.*;
 import java.util.stream.Collectors;
 import org.mapstruct.BeanMapping;
