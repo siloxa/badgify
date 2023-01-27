@@ -1,19 +1,21 @@
 package io.github.shuoros.badgify.domain;
 
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import io.github.shuoros.badgify.domain.enumeration.BadgeType;
+import io.github.shuoros.badgify.domain.model.badge.AbstractBadge;
 import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.*;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 /**
  * A Badge.
  */
 @Entity
 @Table(name = "badge")
+@TypeDef(name = "json", typeClass = JsonType.class)
 public class Badge implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
@@ -21,8 +23,9 @@ public class Badge implements Serializable {
     @Column(name = "id", length = 36)
     private UUID id;
 
-    @Column(name = "badge")
-    private String badge;
+    @Type(type = "json")
+    @Column(name = "badge", columnDefinition = "json")
+    private AbstractBadge badge;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "badge_type")
@@ -49,16 +52,16 @@ public class Badge implements Serializable {
         this.id = id;
     }
 
-    public String getBadge() {
+    public AbstractBadge getBadge() {
         return this.badge;
     }
 
-    public Badge badge(String badge) {
+    public Badge badge(AbstractBadge badge) {
         this.setBadge(badge);
         return this;
     }
 
-    public void setBadge(String badge) {
+    public void setBadge(AbstractBadge badge) {
         this.badge = badge;
     }
 

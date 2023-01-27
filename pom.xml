@@ -91,6 +91,7 @@
 
         <!-- jhipster-needle-maven-property -->
         <lombok.version>1.18.24</lombok.version>
+        <hibernate-types-52.version>2.20.0</hibernate-types-52.version>
     </properties>
 
     <dependencyManagement>
@@ -308,6 +309,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>${hibernate-types-52.version}</version>
         </dependency>
     </dependencies>
 
