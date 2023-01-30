@@ -19,6 +19,7 @@ public class LabelBadgeDefaultValueFillerService extends AbstractBadgeDefaultVal
             .size(Size.S)
             .backgroundColor(HexColor.builder().value("000").build())
             .fontColor(HexColor.builder().value("FFF").build())
+            .link("https://github.com/shuoros")
             .build();
     }
 }

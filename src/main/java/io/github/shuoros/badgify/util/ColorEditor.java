@@ -1,7 +1,7 @@
 package io.github.shuoros.badgify.util;
 
 import io.github.shuoros.badgify.domain.model.color.Color;
-import io.github.shuoros.badgify.service.color.ColorResolverService;
+import io.github.shuoros.badgify.service.badge.ColorResolverService;
 import java.beans.PropertyEditorSupport;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;

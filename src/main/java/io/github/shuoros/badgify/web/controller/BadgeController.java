@@ -7,6 +7,7 @@ import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.domain.model.color.Color;
+import io.github.shuoros.badgify.service.badge.LabelBadgeGeneratorService;
 import io.github.shuoros.badgify.util.ColorEditor;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
@@ -23,15 +24,24 @@ public class BadgeController {
     @Resource
     private ColorEditor colorEditor;
 
+    @Resource
+    private LabelBadgeGeneratorService labelBadgeGeneratorService;
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Color.class, colorEditor);
     }
 
-    @GetMapping(path = "/link")
+    /**
+     *  http://localhost:8080/api/badge/label?text=hey
+     * @param labelBadge
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(path = "/label", produces = "image/svg+xml")
     @InterceptLabelBadgeController
-    public ResponseEntity<LabelBadge> linkBadge(LabelBadge badge) throws Exception {
-        return ResponseEntity.ok().body(badge);
+    public ResponseEntity<String> labelBadge(LabelBadge labelBadge) throws Exception {
+        return ResponseEntity.ok().body(labelBadgeGeneratorService.generate(labelBadge));
     }
 
     @GetMapping(path = "/icon")

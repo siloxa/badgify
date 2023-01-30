@@ -12,6 +12,10 @@ entity Badge {
     count Long
 }
 
+entity SoyTemplate {
+
+}
+
 relationship ManyToOne {
     Badge to User
 }

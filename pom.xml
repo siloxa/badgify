@@ -92,6 +92,9 @@
         <!-- jhipster-needle-maven-property -->
         <lombok.version>1.18.24</lombok.version>
         <hibernate-types-52.version>2.20.0</hibernate-types-52.version>
+        <soy.version>2022-10-26</soy.version>
+        <commons-text.version>1.9</commons-text.version>
+        <commons-io.version>2.11.0</commons-io.version>
     </properties>
 
     <dependencyManagement>
@@ -314,6 +317,21 @@
             <groupId>com.vladmihalcea</groupId>
             <artifactId>hibernate-types-52</artifactId>
             <version>${hibernate-types-52.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.template</groupId>
+            <artifactId>soy</artifactId>
+            <version>${soy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>${commons-text.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
     </dependencies>
 
