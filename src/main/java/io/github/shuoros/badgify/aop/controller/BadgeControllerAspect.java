@@ -39,6 +39,7 @@ public class BadgeControllerAspect {
     public Object handleLabelBadge(final ProceedingJoinPoint joinPoint) throws Throwable {
         final LabelBadge labelBadge = (LabelBadge) joinPoint.getArgs()[0];
         labelBadgeDefaultValueFillerService.fillInDefaultValues(labelBadge);
+        labelBadge.getIcon().resolve(labelBadge.getFontColor());
         return joinPoint.proceed();
     }
 
@@ -46,6 +47,7 @@ public class BadgeControllerAspect {
     public Object handleIconBadge(final ProceedingJoinPoint joinPoint) throws Throwable {
         final IconBadge iconBadge = (IconBadge) joinPoint.getArgs()[0];
         iconBadgeDefaultValueFillerService.fillInDefaultValues(iconBadge);
+        iconBadge.getIcon().resolve(iconBadge.getFontColor());
         return joinPoint.proceed();
     }
 

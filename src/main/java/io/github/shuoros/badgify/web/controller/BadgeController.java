@@ -6,9 +6,11 @@ import io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
-import io.github.shuoros.badgify.domain.model.color.Color;
+import io.github.shuoros.badgify.domain.model.color.AbstractColor;
+import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
+import io.github.shuoros.badgify.service.badge.ColorEditor;
+import io.github.shuoros.badgify.service.badge.IconEditor;
 import io.github.shuoros.badgify.service.badge.LabelBadgeGeneratorService;
-import io.github.shuoros.badgify.util.ColorEditor;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
@@ -25,11 +27,15 @@ public class BadgeController {
     private ColorEditor colorEditor;
 
     @Resource
+    private IconEditor iconEditor;
+
+    @Resource
     private LabelBadgeGeneratorService labelBadgeGeneratorService;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Color.class, colorEditor);
+        binder.registerCustomEditor(AbstractColor.class, colorEditor);
+        binder.registerCustomEditor(AbstractIcon.class, iconEditor);
     }
 
     /**

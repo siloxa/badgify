@@ -2,10 +2,12 @@ package io.github.shuoros.badgify.domain.model.color;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Builder
-public class RgbColor implements Color {
+@EqualsAndHashCode(callSuper = true)
+public class RgbColor extends AbstractColor {
 
     private Integer r;
 

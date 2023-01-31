@@ -1,6 +1,12 @@
 package io.github.shuoros.badgify.domain.model.badge;
 
-import lombok.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
@@ -12,7 +18,8 @@ public class LabelBadge extends AbstractBadge {
 
     private String text;
 
-    private String icon;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private AbstractIcon icon;
 
     @Override
     public void fillByDefaultValues(AbstractBadge defaultBadge) {

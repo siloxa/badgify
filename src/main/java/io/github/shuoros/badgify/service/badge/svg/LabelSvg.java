@@ -24,8 +24,8 @@ public class LabelSvg implements Svg {
     @Override
     public Map<String, Object> toMap() {
         final Map<String, Object> mapOfLabelBadge = toStringObjectMap(this.labelBadge);
+        System.out.println(mapOfLabelBadge);
         mapOfLabelBadge.putAll(toStringObjectMap(this));
-        System.out.println("hoy koskesh" + mapOfLabelBadge);
         return mapOfLabelBadge;
     }
 

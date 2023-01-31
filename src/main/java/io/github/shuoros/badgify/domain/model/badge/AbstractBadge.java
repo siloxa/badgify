@@ -4,9 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
-import io.github.shuoros.badgify.domain.model.color.Color;
-import io.github.shuoros.badgify.util.ColorEditor;
-import javax.persistence.Convert;
+import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,10 +21,10 @@ public abstract class AbstractBadge {
     private Size size;
 
     @JsonSerialize(using = ToStringSerializer.class)
-    private Color backgroundColor;
+    private AbstractColor backgroundColor;
 
     @JsonSerialize(using = ToStringSerializer.class)
-    private Color fontColor;
+    private AbstractColor fontColor;
 
     private String link;
 

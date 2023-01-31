@@ -1,6 +1,5 @@
 package io.github.shuoros.badgify.service.badge.svg;
 
-import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import java.util.Map;
 import lombok.Builder;
 

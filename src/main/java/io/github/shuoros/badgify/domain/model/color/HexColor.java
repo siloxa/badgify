@@ -2,10 +2,12 @@ package io.github.shuoros.badgify.domain.model.color;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Builder
-public class HexColor implements Color {
+@EqualsAndHashCode(callSuper = true)
+public class HexColor extends AbstractColor {
 
     private String value;
 
