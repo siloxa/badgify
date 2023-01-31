@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.badge.svg.soy;
+package io.github.shuoros.badgify.util.svg.soy;
 
 import com.google.template.soy.AbstractSoyCompiler;
 import com.google.template.soy.SoyFileSet;

@@ -1,7 +1,6 @@
-package io.github.shuoros.badgify.service.badge.svg;
+package io.github.shuoros.badgify.util.svg;
 
-import io.github.shuoros.badgify.domain.model.badge.AbstractBadge;
-import io.github.shuoros.badgify.service.badge.svg.soy.ISoyConfiguration;
+import io.github.shuoros.badgify.util.svg.soy.ISoyConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;

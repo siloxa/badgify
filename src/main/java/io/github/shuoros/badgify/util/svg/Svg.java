@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.badge.svg;
+package io.github.shuoros.badgify.util.svg;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

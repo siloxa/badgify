@@ -3,14 +3,17 @@ package io.github.shuoros.badgify.web.controller;
 import io.github.shuoros.badgify.aop.controller.InterceptIconBadgeController;
 import io.github.shuoros.badgify.aop.controller.InterceptLabelBadgeController;
 import io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController;
+import io.github.shuoros.badgify.domain.enumeration.Size;
+import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
-import io.github.shuoros.badgify.service.badge.ColorEditor;
-import io.github.shuoros.badgify.service.badge.IconEditor;
 import io.github.shuoros.badgify.service.badge.LabelBadgeGeneratorService;
+import io.github.shuoros.badgify.util.editor.CaseInsensitiveEnumEditor;
+import io.github.shuoros.badgify.util.editor.ColorEditor;
+import io.github.shuoros.badgify.util.editor.IconEditor;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
@@ -29,6 +32,12 @@ public class BadgeController {
     @Resource
     private IconEditor iconEditor;
 
+    @Resource(name = "theme-enum-editor")
+    private CaseInsensitiveEnumEditor themeCaseInsensitiveEnumEditor;
+
+    @Resource(name = "size-enum-editor")
+    private CaseInsensitiveEnumEditor sizeCaseInsensitiveEnumEditor;
+
     @Resource
     private LabelBadgeGeneratorService labelBadgeGeneratorService;
 
@@ -36,6 +45,8 @@ public class BadgeController {
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(AbstractColor.class, colorEditor);
         binder.registerCustomEditor(AbstractIcon.class, iconEditor);
+        binder.registerCustomEditor(Theme.class, themeCaseInsensitiveEnumEditor);
+        binder.registerCustomEditor(Size.class, sizeCaseInsensitiveEnumEditor);
     }
 
     /**

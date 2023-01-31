@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.badge.svg.soy;
+package io.github.shuoros.badgify.util.svg.soy;
 
 import com.google.template.soy.jbcsrc.api.SoySauce.Renderer;
 import java.io.ByteArrayOutputStream;
@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringEscapeUtils;
 

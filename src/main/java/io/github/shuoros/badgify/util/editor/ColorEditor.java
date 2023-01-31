@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.badge;
+package io.github.shuoros.badgify.util.editor;
 
 import io.github.shuoros.badgify.service.badge.ColorResolverService;
 import java.beans.PropertyEditorSupport;

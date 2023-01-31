@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service.badge.svg;
+package io.github.shuoros.badgify.util.svg;
 
 import java.util.Map;
 import lombok.Builder;

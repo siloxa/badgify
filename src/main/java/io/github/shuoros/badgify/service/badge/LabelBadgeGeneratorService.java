@@ -1,8 +1,8 @@
 package io.github.shuoros.badgify.service.badge;
 
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
-import io.github.shuoros.badgify.service.badge.svg.LabelSvg;
-import io.github.shuoros.badgify.service.badge.svg.LabelSvgRenderer;
+import io.github.shuoros.badgify.util.svg.LabelSvg;
+import io.github.shuoros.badgify.util.svg.LabelSvgRenderer;
 import java.io.IOException;
 import org.springframework.stereotype.Service;
 
