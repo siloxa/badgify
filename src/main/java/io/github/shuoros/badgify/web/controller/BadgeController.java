@@ -12,6 +12,7 @@ import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
 import io.github.shuoros.badgify.service.badge.IconBadgeGeneratorService;
 import io.github.shuoros.badgify.service.badge.LabelBadgeGeneratorService;
+import io.github.shuoros.badgify.service.badge.TextBadgeGeneratorService;
 import io.github.shuoros.badgify.util.editor.CaseInsensitiveEnumEditor;
 import io.github.shuoros.badgify.util.editor.ColorEditor;
 import io.github.shuoros.badgify.util.editor.IconEditor;
@@ -45,6 +46,9 @@ public class BadgeController {
     @Resource
     private IconBadgeGeneratorService iconBadgeGeneratorService;
 
+    @Resource
+    private TextBadgeGeneratorService textBadgeGeneratorService;
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(AbstractColor.class, colorEditor);
@@ -54,7 +58,7 @@ public class BadgeController {
     }
 
     /**
-     * http://localhost:8080/api/badge/label?text=hey&fontColor=lavender&size=l&theme=edge
+     * http://localhost:8080/api/badge/label?text=Badgify&fontColor=lavender&size=l&theme=edge
      *
      * @param labelBadge
      * @return
@@ -79,9 +83,16 @@ public class BadgeController {
         return ResponseEntity.ok().body(iconBadgeGeneratorService.generate(iconBadge));
     }
 
-    @GetMapping(path = "/text")
+    /**
+     * http://localhost:8080/api/badge/text?text=Badgify&fontColor=lavender&size=l&theme=edge
+     *
+     * @param textBadge
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(path = "/text", produces = "image/svg+xml")
     @InterceptTextBadgeController
-    public ResponseEntity<TextBadge> textBadge(TextBadge badge) throws Exception {
-        return ResponseEntity.ok().body(badge);
+    public ResponseEntity<String> textBadge(TextBadge textBadge) throws Exception {
+        return ResponseEntity.ok().body(textBadgeGeneratorService.generate(textBadge));
     }
 }

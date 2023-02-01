@@ -12,9 +12,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public abstract class AbstractSvg {
 
-    private static final double SMALL_SVG_CHAR_LENGTH_FACTOR = 6.4117647;
-    private static final double MEDIUM_SVG_CHAR_LENGTH_FACTOR = 7.05882353;
-    private static final double LARGE_SVG_CHAR_LENGTH_FACTOR = 8.2352941;
+    protected static final double SMALL_SVG_CHAR_LENGTH_FACTOR = 6.4117647;
+    protected static final double MEDIUM_SVG_CHAR_LENGTH_FACTOR = 7.05882353;
+    protected static final double LARGE_SVG_CHAR_LENGTH_FACTOR = 8.2352941;
     private static final int SMALL_SVG_WIDTH_PADDING = 29;
     private static final int MEDIUM_SVG_WIDTH_PADDING = 33;
     private static final int LARGE_SVG_WIDTH_PADDING = 40;
@@ -33,8 +33,8 @@ public abstract class AbstractSvg {
     private static final int SMALL_SVG_TEXT_X_POSITION_LEFT_MARGIN = 24;
     private static final int MEDIUM_SVG_TEXT_X_POSITION_LEFT_MARGIN = 27;
     private static final int LARGE_SVG_TEXT_X_POSITION_LEFT_MARGIN = 34;
-    private static final int TEN_FACTOR = 10;
-    private static final int MIDDLE_DIVIDER = 2;
+    protected static final int TEN_FACTOR = 10;
+    protected static final int MIDDLE_DIVIDER = 2;
     private static final int SMALL_SVG_TEXT_Y_POSITION = 160;
     private static final int MEDIUM_SVG_TEXT_Y_POSITION = 185;
     private static final int LARGE_SVG_TEXT_Y_POSITION = 215;

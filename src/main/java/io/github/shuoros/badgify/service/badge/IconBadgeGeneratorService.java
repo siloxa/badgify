@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class IconBadgeGeneratorService {
 
     public String generate(IconBadge iconBadge) throws IOException {
-        return IconSvgRenderer.builder().iconSvg(createLabelSvg(iconBadge)).build().render();
+        return IconSvgRenderer.builder().svg(createLabelSvg(iconBadge)).build().render();
     }
 
     private IconSvg createLabelSvg(IconBadge iconBadge) {
-        return IconSvg.builder().iconBadge(iconBadge).build().calculateSvgParams();
+        return IconSvg.builder().badge(iconBadge).build().calculateSvgParams();
     }
 }

@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 public class IconSvg extends AbstractSvg {
 
     @JsonIgnore
-    private IconBadge iconBadge;
+    private IconBadge badge;
 
     private Integer width;
 
@@ -27,18 +27,18 @@ public class IconSvg extends AbstractSvg {
 
     @Override
     public Map<String, Object> toMap() {
-        final Map<String, Object> mapOfLabelBadge = toStringObjectMap(this.iconBadge);
+        final Map<String, Object> mapOfLabelBadge = toStringObjectMap(this.badge);
         System.out.println(mapOfLabelBadge);
         mapOfLabelBadge.putAll(toStringObjectMap(this));
         return mapOfLabelBadge;
     }
 
     public IconSvg calculateSvgParams() {
-        this.width = resolveHeight(this.iconBadge.getSize());
-        this.height = resolveHeight(this.iconBadge.getSize());
-        this.fontSize = resolveFontSize(this.iconBadge.getSize());
-        this.iconSize = resolveIconSize(this.iconBadge.getSize());
-        this.iconPosition = resolveIconPosition(this.iconBadge.getSize());
+        this.width = resolveHeight(this.badge.getSize());
+        this.height = resolveHeight(this.badge.getSize());
+        this.fontSize = resolveFontSize(this.badge.getSize());
+        this.iconSize = resolveIconSize(this.badge.getSize());
+        this.iconPosition = resolveIconPosition(this.badge.getSize());
         return this;
     }
 }

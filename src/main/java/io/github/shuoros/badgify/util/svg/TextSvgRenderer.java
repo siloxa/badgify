@@ -4,9 +4,9 @@ import java.util.Map;
 import lombok.Builder;
 
 @Builder
-public class IconSvgRenderer extends AbstractSvgRenderer {
+public class TextSvgRenderer extends AbstractSvgRenderer {
 
-    private IconSvg svg;
+    private TextSvg svg;
 
     @Override
     public Map<String, Object> getParameters() {
@@ -15,6 +15,6 @@ public class IconSvgRenderer extends AbstractSvgRenderer {
 
     @Override
     public String getTemplatePath() {
-        return ("templates/svg/icon/" + svg.getBadge().getTheme().toString() + ".svg.soy");
+        return ("templates/svg/text/" + svg.getBadge().getTheme().toString() + ".svg.soy");
     }
 }

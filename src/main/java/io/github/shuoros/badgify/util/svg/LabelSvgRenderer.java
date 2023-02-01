@@ -6,15 +6,15 @@ import lombok.Builder;
 @Builder
 public class LabelSvgRenderer extends AbstractSvgRenderer {
 
-    private LabelSvg labelSvg;
+    private LabelSvg svg;
 
     @Override
     public Map<String, Object> getParameters() {
-        return labelSvg.toMap();
+        return svg.toMap();
     }
 
     @Override
     public String getTemplatePath() {
-        return ("templates/svg/label/" + labelSvg.getLabelBadge().getTheme().toString() + ".svg.soy");
+        return ("templates/svg/label/" + svg.getBadge().getTheme().toString() + ".svg.soy");
     }
 }
