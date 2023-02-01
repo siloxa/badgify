@@ -15,6 +15,6 @@ public class LabelSvgRenderer extends AbstractSvgRenderer {
 
     @Override
     public String getTemplatePath() {
-        return ("templates/svg/link/" + labelSvg.getLabelBadge().getTheme().toString() + ".svg.soy");
+        return ("templates/svg/label/" + labelSvg.getLabelBadge().getTheme().toString() + ".svg.soy");
     }
 }
