@@ -5,10 +5,13 @@ import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import java.util.Map;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
-public class LabelSvg implements Svg {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class LabelSvg extends AbstractSvg {
 
     @JsonIgnore
     private LabelBadge labelBadge;
@@ -17,9 +20,19 @@ public class LabelSvg implements Svg {
 
     private Integer height;
 
+    private Integer fontSize;
+
+    private Integer iconSize;
+
+    private Integer iconPosition;
+
     private Integer textLength;
 
-    private Integer textPosition;
+    private Integer textXPosition;
+
+    private Integer textYPosition;
+
+    private Integer shadowYPosition;
 
     @Override
     public Map<String, Object> toMap() {
@@ -32,8 +45,13 @@ public class LabelSvg implements Svg {
     public LabelSvg calculateSvgParams() {
         this.width = resolveWidth(this.labelBadge.getSize(), this.labelBadge.getText().length());
         this.height = resolveHeight(this.labelBadge.getSize());
+        this.fontSize = resolveFontSize(this.labelBadge.getSize());
+        this.iconSize = resolveIconSize(this.labelBadge.getSize());
+        this.iconPosition = resolveIconPosition(this.labelBadge.getSize());
         this.textLength = resolveTextLength(this.labelBadge.getSize(), this.labelBadge.getText().length());
-        this.textPosition = resolveTextPosition(this.labelBadge.getSize(), this.labelBadge.getText().length());
+        this.textXPosition = resolveTextXPosition(this.labelBadge.getSize(), this.labelBadge.getText().length());
+        this.textYPosition = resolveTextYPosition(this.labelBadge.getSize());
+        this.shadowYPosition = resolveShadowYPosition(this.labelBadge.getSize());
         return this;
     }
 }
