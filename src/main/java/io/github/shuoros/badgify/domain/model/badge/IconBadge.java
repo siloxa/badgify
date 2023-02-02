@@ -19,7 +19,6 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 public class IconBadge extends AbstractBadge {
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private AbstractIcon icon;
 
     @Override

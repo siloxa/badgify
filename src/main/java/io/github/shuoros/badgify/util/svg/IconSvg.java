@@ -26,10 +26,9 @@ public class IconSvg extends AbstractSvg {
     private Integer iconPosition;
 
     @Override
-    public Map<String, Object> toMap() {
-        final Map<String, Object> mapOfLabelBadge = toStringObjectMap(this.badge);
-        System.out.println(mapOfLabelBadge);
-        mapOfLabelBadge.putAll(toStringObjectMap(this));
+    public Map<String, String> toMap() {
+        final Map<String, String> mapOfLabelBadge = objectToMap(this.badge);
+        mapOfLabelBadge.putAll(objectToMap(this));
         return mapOfLabelBadge;
     }
 

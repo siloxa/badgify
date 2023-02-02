@@ -1,10 +1,11 @@
 package io.github.shuoros.badgify.domain.model.badge;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,16 +15,23 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class AbstractBadge {
+@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
+@JsonSubTypes(
+    {
+        @JsonSubTypes.Type(CounterBadge.class),
+        @JsonSubTypes.Type(IconBadge.class),
+        @JsonSubTypes.Type(LabelBadge.class),
+        @JsonSubTypes.Type(TextBadge.class),
+    }
+)
+public abstract class AbstractBadge implements Serializable {
 
     private Theme theme;
 
     private Size size;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private AbstractColor backgroundColor;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private AbstractColor fontColor;
 
     private String link;

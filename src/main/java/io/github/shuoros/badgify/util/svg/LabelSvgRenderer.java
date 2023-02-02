@@ -9,7 +9,7 @@ public class LabelSvgRenderer extends AbstractSvgRenderer {
     private LabelSvg svg;
 
     @Override
-    public Map<String, Object> getParameters() {
+    public Map<String, String> getParameters() {
         return svg.toMap();
     }
 

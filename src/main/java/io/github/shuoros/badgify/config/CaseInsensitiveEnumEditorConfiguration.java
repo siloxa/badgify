@@ -1,5 +1,6 @@
 package io.github.shuoros.badgify.config;
 
+import io.github.shuoros.badgify.domain.enumeration.CounterBadgeType;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.util.editor.CaseInsensitiveEnumEditor;
@@ -17,5 +18,10 @@ public class CaseInsensitiveEnumEditorConfiguration {
     @Bean(name = "size-enum-editor")
     public CaseInsensitiveEnumEditor getSizeCaseInsensitiveEnumEditor() {
         return new CaseInsensitiveEnumEditor(Size.class);
+    }
+
+    @Bean(name = "counterBadgeType-enum-editor")
+    public CaseInsensitiveEnumEditor getCounterBadgeTypeCaseInsensitiveEnumEditor() {
+        return new CaseInsensitiveEnumEditor(CounterBadgeType.class);
     }
 }

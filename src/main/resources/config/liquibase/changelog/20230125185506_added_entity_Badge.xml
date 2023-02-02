@@ -14,7 +14,7 @@
             <column name="id" type="${uuidType}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="badge" type="varchar(255)">
+            <column name="badge" type="json">
                 <constraints nullable="true" />
             </column>
             <column name="badge_type" type="varchar(255)">

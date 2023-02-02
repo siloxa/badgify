@@ -13,7 +13,7 @@ public interface ISoyConfiguration {
     /**
      * @return map of soy parameters
      */
-    Map<String, Object> getParameters();
+    Map<String, String> getParameters();
 
     /**
      * @return template file path

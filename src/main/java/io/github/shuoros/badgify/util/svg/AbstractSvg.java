@@ -1,9 +1,9 @@
 package io.github.shuoros.badgify.util.svg;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.service.badge.errors.InvalidSizeException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -40,12 +40,25 @@ public abstract class AbstractSvg {
     private static final int LARGE_SVG_TEXT_Y_POSITION = 215;
     private static final int Y_SHADOW_LENGTH = 10;
 
-    public abstract Map<String, Object> toMap();
+    public abstract Map<String, String> toMap();
 
     public abstract AbstractSvg calculateSvgParams();
 
-    protected static Map<String, Object> toStringObjectMap(Object obj) {
-        return new ObjectMapper().convertValue(obj, new TypeReference<Map<String, Object>>() {});
+    protected static Map<String, String> objectToMap(Object obj) {
+        Map<String, String> hashMap = new HashMap<>();
+        try {
+            final Class<?> aClass = obj.getClass();
+            final Method[] methods = aClass.getMethods();
+            for (Method method : methods) {
+                if (method.getName().indexOf("get") == 0) {
+                    String name = method.getName().toLowerCase().charAt(3) + method.getName().substring(4);
+                    hashMap.put(name, method.invoke(obj).toString());
+                }
+            }
+        } catch (Throwable e) {
+            //log error
+        }
+        return hashMap;
     }
 
     protected static Integer resolveWidth(Size size, Integer textChars) {

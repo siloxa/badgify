@@ -1,5 +1,8 @@
 package io.github.shuoros.badgify.domain.model.icon;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.github.shuoros.badgify.util.jackson.ToIconDeserializer;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +12,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class AbstractIcon implements IconFileResolver {
+@JsonDeserialize(using = ToIconDeserializer.class)
+public abstract class AbstractIcon implements IconFileResolver, Serializable {
 
     private String name;
 

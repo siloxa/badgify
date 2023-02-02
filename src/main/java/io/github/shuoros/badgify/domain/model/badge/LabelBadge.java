@@ -18,7 +18,6 @@ public class LabelBadge extends AbstractBadge {
 
     private String text;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private AbstractIcon icon;
 
     @Override

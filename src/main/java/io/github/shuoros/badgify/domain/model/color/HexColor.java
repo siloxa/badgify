@@ -1,11 +1,12 @@
 package io.github.shuoros.badgify.domain.model.color;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class HexColor extends AbstractColor {
 
@@ -13,8 +14,8 @@ public class HexColor extends AbstractColor {
 
     @Override
     public String toString() {
-        String result = getValue();
-        if (result.replace("#", "").length() == 3) result = standardize3HexTo6Hex(result);
+        String result = getValue().replace("#", "");
+        if (result.length() == 3) result = standardize3HexTo6Hex(result);
         return "#" + result;
     }
 

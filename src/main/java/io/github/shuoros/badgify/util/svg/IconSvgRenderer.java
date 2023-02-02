@@ -9,7 +9,7 @@ public class IconSvgRenderer extends AbstractSvgRenderer {
     private IconSvg svg;
 
     @Override
-    public Map<String, Object> getParameters() {
+    public Map<String, String> getParameters() {
         return svg.toMap();
     }
 

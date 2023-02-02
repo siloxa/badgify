@@ -1,11 +1,10 @@
 package io.github.shuoros.badgify.aop.controller;
 
+import io.github.shuoros.badgify.domain.model.badge.CounterBadge;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
-import io.github.shuoros.badgify.service.badge.IconBadgeDefaultValueFillerService;
-import io.github.shuoros.badgify.service.badge.LabelBadgeDefaultValueFillerService;
-import io.github.shuoros.badgify.service.badge.TextBadgeDefaultValueFillerService;
+import io.github.shuoros.badgify.service.badge.*;
 import javax.annotation.Resource;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -18,6 +17,9 @@ import org.springframework.stereotype.Component;
 public class BadgeControllerAspect {
 
     @Resource
+    private ColorConverterService colorConverterService;
+
+    @Resource
     private LabelBadgeDefaultValueFillerService labelBadgeDefaultValueFillerService;
 
     @Resource
@@ -25,6 +27,9 @@ public class BadgeControllerAspect {
 
     @Resource
     private TextBadgeDefaultValueFillerService textBadgeDefaultValueFillerService;
+
+    @Resource
+    private CounterBadgeDefaultValueFillerService counterBadgeDefaultValueFillerService;
 
     @Pointcut("@annotation(io.github.shuoros.badgify.aop.controller.InterceptLabelBadgeController)")
     public void interceptLabelBadgeControllerAnnotation() {}
@@ -34,6 +39,9 @@ public class BadgeControllerAspect {
 
     @Pointcut("@annotation(io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController)")
     public void interceptTextBadgeControllerAnnotation() {}
+
+    @Pointcut("@annotation(io.github.shuoros.badgify.aop.controller.InterceptCounterBadgeController)")
+    public void interceptCounterBadgeControllerAnnotation() {}
 
     @Around("interceptLabelBadgeControllerAnnotation()")
     public Object handleLabelBadge(final ProceedingJoinPoint joinPoint) throws Throwable {
@@ -55,6 +63,17 @@ public class BadgeControllerAspect {
     public Object handleTextBadge(final ProceedingJoinPoint joinPoint) throws Throwable {
         final TextBadge textBadge = (TextBadge) joinPoint.getArgs()[0];
         textBadgeDefaultValueFillerService.fillInDefaultValues(textBadge);
+        return joinPoint.proceed();
+    }
+
+    @Around("interceptCounterBadgeControllerAnnotation()")
+    public Object handleCounterBadge(final ProceedingJoinPoint joinPoint) throws Throwable {
+        final CounterBadge counterBadge = (CounterBadge) joinPoint.getArgs()[0];
+        if (counterBadge.getId() == null || (counterBadge.getText() == null && counterBadge.getType() == null)) throw new RuntimeException(
+            "id or type is null"
+        ); //TODO: I must implement an error handler for badges
+        counterBadgeDefaultValueFillerService.fillInDefaultValues(counterBadge);
+        counterBadge.getIcon().resolve(colorConverterService.ToRgb(counterBadge.getFontColor()));
         return joinPoint.proceed();
     }
 }

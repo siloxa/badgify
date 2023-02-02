@@ -1,15 +1,19 @@
 package io.github.shuoros.badgify.web.controller;
 
+import io.github.shuoros.badgify.aop.controller.InterceptCounterBadgeController;
 import io.github.shuoros.badgify.aop.controller.InterceptIconBadgeController;
 import io.github.shuoros.badgify.aop.controller.InterceptLabelBadgeController;
 import io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController;
+import io.github.shuoros.badgify.domain.enumeration.CounterBadgeType;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
+import io.github.shuoros.badgify.domain.model.badge.CounterBadge;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
+import io.github.shuoros.badgify.service.badge.CounterBadgeGeneratorService;
 import io.github.shuoros.badgify.service.badge.IconBadgeGeneratorService;
 import io.github.shuoros.badgify.service.badge.LabelBadgeGeneratorService;
 import io.github.shuoros.badgify.service.badge.TextBadgeGeneratorService;
@@ -40,6 +44,9 @@ public class BadgeController {
     @Resource(name = "size-enum-editor")
     private CaseInsensitiveEnumEditor sizeCaseInsensitiveEnumEditor;
 
+    @Resource(name = "counterBadgeType-enum-editor")
+    private CaseInsensitiveEnumEditor counterBadgeTypeCaseInsensitiveEnumEditor;
+
     @Resource
     private LabelBadgeGeneratorService labelBadgeGeneratorService;
 
@@ -49,12 +56,16 @@ public class BadgeController {
     @Resource
     private TextBadgeGeneratorService textBadgeGeneratorService;
 
+    @Resource
+    private CounterBadgeGeneratorService counterBadgeGeneratorService;
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(AbstractColor.class, colorEditor);
         binder.registerCustomEditor(AbstractIcon.class, iconEditor);
         binder.registerCustomEditor(Theme.class, themeCaseInsensitiveEnumEditor);
         binder.registerCustomEditor(Size.class, sizeCaseInsensitiveEnumEditor);
+        binder.registerCustomEditor(CounterBadgeType.class, counterBadgeTypeCaseInsensitiveEnumEditor);
     }
 
     /**
@@ -94,5 +105,18 @@ public class BadgeController {
     @InterceptTextBadgeController
     public ResponseEntity<String> textBadge(TextBadge textBadge) throws Exception {
         return ResponseEntity.ok().body(textBadgeGeneratorService.generate(textBadge));
+    }
+
+    /**
+     * http://localhost:8080/api/badge/counter
+     *
+     * @param counterBadge
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(path = "/counter", produces = "image/svg+xml")
+    @InterceptCounterBadgeController
+    public ResponseEntity<String> counterBadge(CounterBadge counterBadge) throws Exception {
+        return ResponseEntity.ok().body(counterBadgeGeneratorService.generate(counterBadge));
     }
 }
