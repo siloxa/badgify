@@ -24,7 +24,10 @@ import lombok.experimental.SuperBuilder;
         @JsonSubTypes.Type(TextBadge.class),
     }
 )
-public abstract class AbstractBadge implements Serializable {
+public abstract class AbstractBadge implements SvgRenderer, Serializable {
+
+    protected static final String TEMPLATES_SVG_PATH = "templates/svg/";
+    protected static final String SVG_SOY_EXTENSION = ".svg.soy";
 
     private Theme theme;
 

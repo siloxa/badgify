@@ -5,7 +5,6 @@ import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
 import io.github.shuoros.badgify.domain.model.color.HexColor;
 import io.github.shuoros.badgify.domain.model.icon.FontAwesomeIcon;
-import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -3,26 +3,27 @@ package io.github.shuoros.badgify.service.badge;
 import io.github.shuoros.badgify.domain.Badge;
 import io.github.shuoros.badgify.domain.enumeration.BadgeType;
 import io.github.shuoros.badgify.domain.enumeration.CounterBadgeType;
+import io.github.shuoros.badgify.domain.model.badge.AbstractBadge;
 import io.github.shuoros.badgify.domain.model.badge.CounterBadge;
 import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.repository.BadgeRepository;
-import io.github.shuoros.badgify.util.svg.LabelSvg;
-import io.github.shuoros.badgify.util.svg.LabelSvgRenderer;
-import io.github.shuoros.badgify.util.svg.TextSvg;
-import io.github.shuoros.badgify.util.svg.TextSvgRenderer;
 import java.io.IOException;
 import javax.annotation.Resource;
 import org.apache.commons.lang3.SerializationUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CounterBadgeGeneratorService {
+public class BadgeService {
 
     @Resource
     private BadgeRepository badgeRepository;
 
-    public String generate(CounterBadge counterBadge) throws IOException {
+    public String generateBadge(AbstractBadge badge) throws IOException {
+        return badge.render();
+    }
+
+    public String generateCounterBadge(CounterBadge counterBadge) throws IOException {
         final Badge badge = badgeRepository
             .findByBadge_id(counterBadge.getId())
             .orElseGet(() -> new Badge().badge(counterBadge).badgeType(BadgeType.COUNTER).count(0L));
@@ -41,11 +42,7 @@ public class CounterBadgeGeneratorService {
     }
 
     private String generateTextBadge(CounterBadge counterBadge, Long count) throws IOException {
-        return TextSvgRenderer.builder().svg(createTextSvg(counterBadge, count)).build().render();
-    }
-
-    private TextSvg createTextSvg(CounterBadge counterBadge, Long count) {
-        return TextSvg.builder().badge(createTextBadge(counterBadge, count)).build().calculateSvgParams();
+        return generateBadge(createTextBadge(counterBadge, count));
     }
 
     private TextBadge createTextBadge(CounterBadge counterBadge, Long count) {
@@ -61,11 +58,7 @@ public class CounterBadgeGeneratorService {
     }
 
     private String generateLabelBadge(CounterBadge counterBadge, Long count) throws IOException {
-        return LabelSvgRenderer.builder().svg(createLabelSvg(counterBadge, count)).build().render();
-    }
-
-    private LabelSvg createLabelSvg(CounterBadge counterBadge, Long count) {
-        return LabelSvg.builder().badge(createLabelBadge(counterBadge, count)).build().calculateSvgParams();
+        return generateBadge(createLabelBadge(counterBadge, count));
     }
 
     private LabelBadge createLabelBadge(CounterBadge counterBadge, Long count) {

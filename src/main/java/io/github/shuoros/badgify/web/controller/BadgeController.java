@@ -13,10 +13,7 @@ import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
-import io.github.shuoros.badgify.service.badge.CounterBadgeGeneratorService;
-import io.github.shuoros.badgify.service.badge.IconBadgeGeneratorService;
-import io.github.shuoros.badgify.service.badge.LabelBadgeGeneratorService;
-import io.github.shuoros.badgify.service.badge.TextBadgeGeneratorService;
+import io.github.shuoros.badgify.service.badge.BadgeService;
 import io.github.shuoros.badgify.util.editor.CaseInsensitiveEnumEditor;
 import io.github.shuoros.badgify.util.editor.ColorEditor;
 import io.github.shuoros.badgify.util.editor.IconEditor;
@@ -48,16 +45,7 @@ public class BadgeController {
     private CaseInsensitiveEnumEditor counterBadgeTypeCaseInsensitiveEnumEditor;
 
     @Resource
-    private LabelBadgeGeneratorService labelBadgeGeneratorService;
-
-    @Resource
-    private IconBadgeGeneratorService iconBadgeGeneratorService;
-
-    @Resource
-    private TextBadgeGeneratorService textBadgeGeneratorService;
-
-    @Resource
-    private CounterBadgeGeneratorService counterBadgeGeneratorService;
+    private BadgeService badgeService;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -78,7 +66,7 @@ public class BadgeController {
     @GetMapping(path = "/label", produces = "image/svg+xml")
     @InterceptLabelBadgeController
     public ResponseEntity<String> labelBadge(LabelBadge labelBadge) throws Exception {
-        return ResponseEntity.ok().body(labelBadgeGeneratorService.generate(labelBadge));
+        return ResponseEntity.ok().body(badgeService.generateBadge(labelBadge));
     }
 
     /**
@@ -91,7 +79,7 @@ public class BadgeController {
     @GetMapping(path = "/icon", produces = "image/svg+xml")
     @InterceptIconBadgeController
     public ResponseEntity<String> iconBadge(IconBadge iconBadge) throws Exception {
-        return ResponseEntity.ok().body(iconBadgeGeneratorService.generate(iconBadge));
+        return ResponseEntity.ok().body(badgeService.generateBadge(iconBadge));
     }
 
     /**
@@ -104,11 +92,11 @@ public class BadgeController {
     @GetMapping(path = "/text", produces = "image/svg+xml")
     @InterceptTextBadgeController
     public ResponseEntity<String> textBadge(TextBadge textBadge) throws Exception {
-        return ResponseEntity.ok().body(textBadgeGeneratorService.generate(textBadge));
+        return ResponseEntity.ok().body(badgeService.generateBadge(textBadge));
     }
 
     /**
-     * http://localhost:8080/api/badge/counter
+     * http://localhost:8080/api/badge/counter?id=shuoros&type=profile
      *
      * @param counterBadge
      * @return
@@ -117,6 +105,6 @@ public class BadgeController {
     @GetMapping(path = "/counter", produces = "image/svg+xml")
     @InterceptCounterBadgeController
     public ResponseEntity<String> counterBadge(CounterBadge counterBadge) throws Exception {
-        return ResponseEntity.ok().body(counterBadgeGeneratorService.generate(counterBadge));
+        return ResponseEntity.ok().body(badgeService.generateCounterBadge(counterBadge));
     }
 }

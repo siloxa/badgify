@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.util.svg.soy;
+package io.github.shuoros.badgify.util.soy;
 
 import java.io.File;
 import java.io.IOException;
