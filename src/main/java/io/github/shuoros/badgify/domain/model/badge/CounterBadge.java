@@ -39,11 +39,40 @@ public class CounterBadge extends AbstractBadge {
 
     @Override
     public String getTemplatePath() {
-        return null;
+        return (
+            TEMPLATES_SVG_PATH + ((getNoIcon()) ? TextBadge.TEXT_PATH : LabelBadge.LABEL_PATH) + getTheme().toString() + SVG_SOY_EXTENSION
+        );
     }
 
     @Override
     public Map<String, String> getParameters() {
-        return null;
+        return (getNoIcon()) ? getParametersAsTextBadge() : getParametersAsLabelBadge();
+    }
+
+    private Map<String, String> getParametersAsTextBadge() {
+        return TextBadge
+            .builder()
+            .text(getText())
+            .theme(getTheme())
+            .size(getSize())
+            .backgroundColor(getBackgroundColor())
+            .fontColor(getFontColor())
+            .link(getLink())
+            .build()
+            .getParameters();
+    }
+
+    private Map<String, String> getParametersAsLabelBadge() {
+        return LabelBadge
+            .builder()
+            .text(getText())
+            .icon(getIcon())
+            .theme(getTheme())
+            .size(getSize())
+            .backgroundColor(getBackgroundColor())
+            .fontColor(getFontColor())
+            .link(getLink())
+            .build()
+            .getParameters();
     }
 }

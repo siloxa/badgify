@@ -1,5 +1,6 @@
 package io.github.shuoros.badgify.domain.model.badge;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.shuoros.badgify.util.soy.ISoyConfiguration;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import org.apache.commons.io.FileUtils;
  * @since 1.0.0
  */
 public interface SvgRenderer extends Svg, ISoyConfiguration {
+    @JsonIgnore
     String getTemplatePath();
 
     @Override
