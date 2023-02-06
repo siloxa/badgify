@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
+import io.github.shuoros.badgify.domain.model.badge.svg.SvgRenderer;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;

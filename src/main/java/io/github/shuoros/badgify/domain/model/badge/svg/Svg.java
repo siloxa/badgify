@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.domain.model.badge;
+package io.github.shuoros.badgify.domain.model.badge.svg;
 
 import io.github.shuoros.badgify.domain.enumeration.Size;
 import io.github.shuoros.badgify.service.badge.errors.InvalidSizeException;

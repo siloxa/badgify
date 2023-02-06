@@ -17,13 +17,11 @@ import io.github.shuoros.badgify.service.badge.BadgeService;
 import io.github.shuoros.badgify.util.editor.CaseInsensitiveEnumEditor;
 import io.github.shuoros.badgify.util.editor.ColorEditor;
 import io.github.shuoros.badgify.util.editor.IconEditor;
+import java.util.UUID;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/badge")
@@ -54,6 +52,18 @@ public class BadgeController {
         binder.registerCustomEditor(Theme.class, themeCaseInsensitiveEnumEditor);
         binder.registerCustomEditor(Size.class, sizeCaseInsensitiveEnumEditor);
         binder.registerCustomEditor(CounterBadgeType.class, counterBadgeTypeCaseInsensitiveEnumEditor);
+    }
+
+    /**
+     * http://localhost:8080/api/badge/{id}
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(path = "/{id}", produces = "image/svg+xml")
+    public ResponseEntity<String> persistedBadge(@PathVariable("id") UUID id) throws Exception {
+        return ResponseEntity.ok().body(badgeService.generatePersistedBadge(id));
     }
 
     /**

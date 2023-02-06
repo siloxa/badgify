@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.domain.model.badge;
+package io.github.shuoros.badgify.domain.model.badge.svg;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.shuoros.badgify.util.soy.ISoyConfiguration;
