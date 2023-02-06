@@ -24,7 +24,7 @@ public class ColorResolverService {
         } else if ("random".equalsIgnoreCase(color)) {
             return resolveRandomColor(color);
         } else if (DefaultColor.findByName(color) != null) {
-            return Objects.requireNonNull(DefaultColor.findByName(color)).getRgbColor();
+            return Objects.requireNonNull(DefaultColor.findByName(color)).getColor();
         }
         throw new InvalidColorException();
     }
@@ -45,6 +45,6 @@ public class ColorResolverService {
 
     private RgbColor resolveRandomColor(String color) {
         final Random random = new Random();
-        return DefaultColor.values()[random.nextInt(DefaultColor.values().length)].getRgbColor();
+        return DefaultColor.values()[random.nextInt(DefaultColor.values().length)].getColor();
     }
 }

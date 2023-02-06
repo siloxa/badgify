@@ -6,6 +6,7 @@ import io.github.shuoros.badgify.aop.controller.InterceptLabelBadgeController;
 import io.github.shuoros.badgify.aop.controller.InterceptTextBadgeController;
 import io.github.shuoros.badgify.domain.enumeration.CounterBadgeType;
 import io.github.shuoros.badgify.domain.enumeration.Size;
+import io.github.shuoros.badgify.domain.enumeration.SocialBadge;
 import io.github.shuoros.badgify.domain.enumeration.Theme;
 import io.github.shuoros.badgify.domain.model.badge.CounterBadge;
 import io.github.shuoros.badgify.domain.model.badge.IconBadge;
@@ -13,6 +14,7 @@ import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.domain.model.badge.TextBadge;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
+import io.github.shuoros.badgify.domain.model.icon.FontAwesomeIcon;
 import io.github.shuoros.badgify.service.badge.BadgeService;
 import io.github.shuoros.badgify.util.editor.CaseInsensitiveEnumEditor;
 import io.github.shuoros.badgify.util.editor.ColorEditor;
@@ -116,5 +118,41 @@ public class BadgeController {
     @InterceptCounterBadgeController
     public ResponseEntity<String> counterBadge(CounterBadge counterBadge) throws Exception {
         return ResponseEntity.ok().body(badgeService.generateCounterBadge(counterBadge));
+    }
+
+    /**
+     *
+     * @param socialBadge
+     * @param id
+     * @param theme
+     * @param size
+     * @param link
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(path = "/{social}/{id}", produces = "image/svg+xml")
+    public ResponseEntity<String> socialBadge(
+        @PathVariable("social") SocialBadge socialBadge,
+        @PathVariable("id") String id,
+        @RequestParam(value = "theme", required = false, defaultValue = "simple") Theme theme,
+        @RequestParam(value = "size", required = false, defaultValue = "s") Size size,
+        @RequestParam(value = "link", required = false, defaultValue = "#") String link
+    ) throws Exception {
+        return ResponseEntity
+            .ok()
+            .body(
+                badgeService.generateSocialBadge(
+                    LabelBadge
+                        .builder()
+                        .theme(theme)
+                        .size(size)
+                        .backgroundColor(socialBadge.getBackgroundColor())
+                        .fontColor(socialBadge.getFontColor())
+                        .link(("#".equals(link)) ? socialBadge.getLink() + id : link)
+                        .text(id)
+                        .icon(FontAwesomeIcon.builder().name(socialBadge.getIcon()).build())
+                        .build()
+                )
+            );
     }
 }

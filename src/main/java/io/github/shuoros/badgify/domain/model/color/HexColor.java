@@ -15,6 +15,10 @@ public class HexColor extends AbstractColor {
 
     private String value;
 
+    public static HexColor of(String value) {
+        return HexColor.builder().value(value).build();
+    }
+
     @Override
     public String toString() {
         String result = getValue().replace("#", "");

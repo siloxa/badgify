@@ -3,8 +3,11 @@ package io.github.shuoros.badgify.service.badge;
 import io.github.shuoros.badgify.domain.Badge;
 import io.github.shuoros.badgify.domain.enumeration.BadgeType;
 import io.github.shuoros.badgify.domain.enumeration.CounterBadgeType;
+import io.github.shuoros.badgify.domain.enumeration.SocialBadge;
 import io.github.shuoros.badgify.domain.model.badge.AbstractBadge;
 import io.github.shuoros.badgify.domain.model.badge.CounterBadge;
+import io.github.shuoros.badgify.domain.model.badge.IconBadge;
+import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.repository.BadgeRepository;
 import java.io.IOException;
 import java.util.UUID;
@@ -37,6 +40,11 @@ public class BadgeService {
         updateCountedText(counterBadge, badge);
         badgeRepository.save(badge);
         return generateBadge(counterBadge);
+    }
+
+    public String generateSocialBadge(LabelBadge labelBadge) throws IOException {
+        labelBadge.getIcon().resolve(labelBadge.getFontColor());
+        return generateBadge(labelBadge);
     }
 
     private static void countOne(Badge badge) {

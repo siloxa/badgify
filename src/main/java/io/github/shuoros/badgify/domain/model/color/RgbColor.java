@@ -19,6 +19,10 @@ public class RgbColor extends AbstractColor {
 
     private Integer b;
 
+    public static RgbColor of(Integer r, Integer g, Integer b) {
+        return RgbColor.builder().r(r).g(g).b(b).build();
+    }
+
     @Override
     public String toString() {
         return "rgb(" + getR() + ", " + getG() + ", " + getB() + ")";
