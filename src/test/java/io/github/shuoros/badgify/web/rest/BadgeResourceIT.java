@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import io.github.shuoros.badgify.IntegrationTest;
 import io.github.shuoros.badgify.domain.Badge;
 import io.github.shuoros.badgify.domain.enumeration.BadgeType;
+import io.github.shuoros.badgify.domain.model.badge.LabelBadge;
 import io.github.shuoros.badgify.repository.BadgeRepository;
 import java.util.List;
 import java.util.UUID;
@@ -29,8 +30,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class BadgeResourceIT {
 
-    private static final String DEFAULT_BADGE = "AAAAAAAAAA";
-    private static final String UPDATED_BADGE = "BBBBBBBBBB";
+    private static final LabelBadge DEFAULT_BADGE = LabelBadge.builder().text("AAAAAAAAAA").build();
+    private static final LabelBadge UPDATED_BADGE = LabelBadge.builder().text("BBBBBBBBBB").build();
 
     private static final BadgeType DEFAULT_BADGE_TYPE = BadgeType.LABEL;
     private static final BadgeType UPDATED_BADGE_TYPE = BadgeType.ICON;

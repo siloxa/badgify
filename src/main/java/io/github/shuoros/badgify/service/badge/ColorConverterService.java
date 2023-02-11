@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ColorConverterService {
 
-    public RgbColor ToRgb(AbstractColor color) {
+    public RgbColor toRgb(AbstractColor color) {
         if (color instanceof HexColor) return RgbColor
             .builder()
             .r(Integer.parseInt(color.toString().substring(1, 3), 16))
@@ -18,7 +18,7 @@ public class ColorConverterService {
         return (RgbColor) color;
     }
 
-    public HexColor ToHex(AbstractColor color) {
+    public HexColor toHex(AbstractColor color) {
         if (color instanceof RgbColor) return HexColor
             .builder()
             .value(

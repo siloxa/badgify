@@ -73,7 +73,7 @@ public class BadgeControllerAspect {
             "id or type is null"
         ); //TODO: I must implement an error handler for badges
         counterBadgeDefaultValueFillerService.fillInDefaultValues(counterBadge);
-        counterBadge.getIcon().resolve(colorConverterService.ToRgb(counterBadge.getFontColor()));
+        counterBadge.getIcon().resolve(colorConverterService.toRgb(counterBadge.getFontColor()));
         return joinPoint.proceed();
     }
 }

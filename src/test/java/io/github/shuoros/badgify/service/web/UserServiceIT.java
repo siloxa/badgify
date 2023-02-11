@@ -1,4 +1,4 @@
-package io.github.shuoros.badgify.service;
+package io.github.shuoros.badgify.service.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
