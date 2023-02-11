@@ -10,46 +10,46 @@ import org.junit.jupiter.api.Test;
 @IntegrationTest
 public class ColorConverterServiceTests {
 
+    private static final RgbColor RGB_COLOR = RgbColor.of(255, 255, 255);
+
+    private static final HexColor HEX_COLOR = HexColor.of("ffffff");
+
     @Resource
     private ColorConverterService colorConverterService;
-
-    private static final RgbColor rgbColor = RgbColor.of(255, 255, 255);
-
-    private static final HexColor hexColor = HexColor.of("ffffff");
 
     @Test
     void toRgbWhenAHexColorGivenMustConvertThatHexColorToRgbColor() {
         // Act
-        RgbColor convertedToRgbColor = colorConverterService.toRgb(hexColor);
+        RgbColor convertedToRgbColor = colorConverterService.toRgb(HEX_COLOR);
 
         // Assert
-        Assertions.assertEquals(rgbColor.toString(), convertedToRgbColor.toString());
+        Assertions.assertEquals(RGB_COLOR.toString(), convertedToRgbColor.toString());
     }
 
     @Test
     void toRgbWhenARgbColorGivenMustJustReturnThatRgbColor() {
         // Act
-        RgbColor convertedToRgbColor = colorConverterService.toRgb(rgbColor);
+        RgbColor convertedToRgbColor = colorConverterService.toRgb(RGB_COLOR);
 
         // Assert
-        Assertions.assertEquals(rgbColor, convertedToRgbColor);
+        Assertions.assertEquals(RGB_COLOR, convertedToRgbColor);
     }
 
     @Test
     void toHexWhenARgbColorGivenMustConvertThatRgbColorToHexColor() {
         // Act
-        HexColor convertedToHexColor = colorConverterService.toHex(rgbColor);
+        HexColor convertedToHexColor = colorConverterService.toHex(RGB_COLOR);
 
         // Assert
-        Assertions.assertEquals(hexColor.toString(), convertedToHexColor.toString());
+        Assertions.assertEquals(HEX_COLOR.toString(), convertedToHexColor.toString());
     }
 
     @Test
     void toHexWhenAHexColorGivenMustJustReturnThatHexColor() {
         // Act
-        HexColor convertedToHexColor = colorConverterService.toHex(hexColor);
+        HexColor convertedToHexColor = colorConverterService.toHex(HEX_COLOR);
 
         // Assert
-        Assertions.assertEquals(hexColor, convertedToHexColor);
+        Assertions.assertEquals(HEX_COLOR, convertedToHexColor);
     }
 }

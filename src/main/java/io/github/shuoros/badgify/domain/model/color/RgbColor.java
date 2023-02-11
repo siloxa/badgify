@@ -25,6 +25,6 @@ public class RgbColor extends AbstractColor {
 
     @Override
     public String toString() {
-        return "rgb(" + getR() + ", " + getG() + ", " + getB() + ")";
+        return "rgb(" + getR() + "," + getG() + "," + getB() + ")";
     }
 }
