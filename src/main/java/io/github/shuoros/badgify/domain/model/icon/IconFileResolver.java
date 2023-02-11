@@ -2,35 +2,26 @@ package io.github.shuoros.badgify.domain.model.icon;
 
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import org.springframework.core.io.ClassPathResource;
 
 public interface IconFileResolver {
     String DATA_IMAGE_SVG_XML_UTF_8 = "data:image/svg+xml;utf-8,";
-
     String DATA_IMAGE_SVG_XML_BASE_64 = "data:image/svg+xml;base64,";
+    String SVG_EXTENSION = ".svg";
+    String SLASH = "/";
 
-    void resolve(AbstractColor color);
+    void resolve(AbstractColor color) throws IOException;
 
-    default String retrieveIconFile(String iconName) {
+    default String retrieveIconFile(String iconName) throws IOException {
         return new BufferedReader(
             new InputStreamReader(
-                Objects.requireNonNull(
-                    Thread
-                        .currentThread()
-                        .getContextClassLoader()
-                        .getResourceAsStream(
-                            "static/icons/" +
-                            iconName.split("/")[0].toLowerCase(Locale.ROOT) +
-                            "/" +
-                            iconName.split("/")[1].toLowerCase(Locale.ROOT) +
-                            ".svg"
-                        )
-                ),
+                Objects.requireNonNull(new ClassPathResource(iconName + SVG_EXTENSION).getInputStream()),
                 StandardCharsets.UTF_8
             )
         )
