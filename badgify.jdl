@@ -1,0 +1,21 @@
+enum BadgeType {
+    LABEL
+    ICON
+    TEXT
+    COUNTER
+}
+
+entity Badge {
+    id UUID
+    badge String
+    badgeType BadgeType
+    count Long
+}
+
+entity SoyTemplate {
+
+}
+
+relationship ManyToOne {
+    Badge to User
+}
