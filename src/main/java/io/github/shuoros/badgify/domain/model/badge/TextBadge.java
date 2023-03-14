@@ -1,7 +1,7 @@
 package io.github.shuoros.badgify.domain.model.badge;
 
 import io.github.shuoros.badgify.domain.enumeration.Size;
-import io.github.shuoros.badgify.service.badge.errors.InvalidSizeException;
+import io.github.shuoros.badgify.domain.model.errors.InvalidSizeException;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;

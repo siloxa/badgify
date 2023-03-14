@@ -1,9 +1,9 @@
 package io.github.shuoros.badgify.service.badge;
 
+import io.github.shuoros.badgify.domain.model.errors.InvalidIconException;
 import io.github.shuoros.badgify.domain.model.icon.AbstractIcon;
 import io.github.shuoros.badgify.domain.model.icon.FlagIcon;
 import io.github.shuoros.badgify.domain.model.icon.FontAwesomeIcon;
-import io.github.shuoros.badgify.service.badge.errors.InvalidIconException;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,7 +1,7 @@
 package io.github.shuoros.badgify.domain.model.badge.svg;
 
 import io.github.shuoros.badgify.domain.enumeration.Size;
-import io.github.shuoros.badgify.service.badge.errors.InvalidSizeException;
+import io.github.shuoros.badgify.domain.model.errors.InvalidSizeException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;

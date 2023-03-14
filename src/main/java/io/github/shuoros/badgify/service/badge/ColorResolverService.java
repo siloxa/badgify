@@ -4,7 +4,7 @@ import io.github.shuoros.badgify.domain.enumeration.DefaultColor;
 import io.github.shuoros.badgify.domain.model.color.AbstractColor;
 import io.github.shuoros.badgify.domain.model.color.HexColor;
 import io.github.shuoros.badgify.domain.model.color.RgbColor;
-import io.github.shuoros.badgify.service.badge.errors.InvalidColorException;
+import io.github.shuoros.badgify.domain.model.errors.InvalidColorException;
 import java.util.Objects;
 import java.util.Random;
 import org.springframework.stereotype.Service;
