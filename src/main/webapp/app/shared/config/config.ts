@@ -44,7 +44,6 @@ import Vuelidate from 'vuelidate';
 import Vue2Filters from 'vue2-filters';
 
 import * as filters from '@/shared/date/filters';
-import { accountStore } from '@/shared/config/store/account-store';
 
 export function initVueApp(vue) {
   vue.use(VueCookie);
@@ -93,13 +92,4 @@ export function initFortAwesome(vue) {
     faUsersCog,
     faWrench
   );
-}
-
-export function initVueXStore(vue) {
-  vue.use(Vuex);
-  return new Vuex.Store({
-    modules: {
-      accountStore,
-    },
-  });
 }
