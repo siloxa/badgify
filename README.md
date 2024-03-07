@@ -519,7 +519,7 @@ http://localhost:8080/api/badge/twitch/{id}
 
 `twitter`
 ```url
-http://localhost:8080/api/badge/app_store/{id}
+http://localhost:8080/api/badge/twitter/{id}
 ```
 
 ![image](https://github.com/shuoros/badgify/assets/45015114/037abb2d-cc31-4986-9451-ec2c9042f48b)
