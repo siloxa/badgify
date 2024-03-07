@@ -8,11 +8,6 @@ Component.registerHooks([
 import Router, { RouteConfig } from 'vue-router';
 
 const Home = () => import('@/core/home/home.vue');
-const Error = () => import('@/core/error/error.vue');
-import account from '@/router/account';
-import admin from '@/router/admin';
-import entities from '@/router/entities';
-import pages from '@/router/pages';
 
 Vue.use(Router);
 
@@ -25,22 +20,6 @@ const router = new Router({
       name: 'Home',
       component: Home
     },
-    {
-      path: '/forbidden',
-      name: 'Forbidden',
-      component: Error,
-      meta: { error403: true }
-    },
-    {
-      path: '/not-found',
-      name: 'NotFound',
-      component: Error,
-      meta: { error404: true }
-    },
-    ...account,
-    ...admin,
-    entities,
-    ...pages
   ]
 });
 

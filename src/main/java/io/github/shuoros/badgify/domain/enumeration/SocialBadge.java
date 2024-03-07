@@ -20,7 +20,7 @@ public enum SocialBadge {
     GOOGLE_PLAY("google-play", "#", HexColor.of("ea3c2a"), RgbColor.of(255, 255, 255)),
     INSTAGRAM("instagram", "https://instagram.com/", HexColor.of("ba0063"), RgbColor.of(255, 255, 255)),
     KAGGLE("kaggle", "https://www.kaggle.com/profile/", HexColor.of("349ead"), RgbColor.of(255, 255, 255)),
-    KIKSTARTER("kickstarter", "https://kickstarter.com/profile/", HexColor.of("05b85f"), RgbColor.of(255, 255, 255)),
+    KICKSTARTER("kickstarter", "https://kickstarter.com/profile/", HexColor.of("05b85f"), RgbColor.of(255, 255, 255)),
     LINKEDIN("linkedin", "https://www.linkedin.com/in/", HexColor.of("0072b1"), RgbColor.of(255, 255, 255)),
     MEDIUM("medium", "https://medium.com/@", HexColor.of("080706"), RgbColor.of(255, 255, 255)),
     PAYPAL("paypal", "https://paypal.me/", HexColor.of("005387"), RgbColor.of(255, 255, 255)),
