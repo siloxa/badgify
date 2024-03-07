@@ -7,7 +7,7 @@
 
     <groupId>io.github.shuoros.badgify</groupId>
     <artifactId>badgify</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.4.0</version>
     <packaging>jar</packaging>
     <name>Badgify</name>
     <description>Description for Badgify</description>
