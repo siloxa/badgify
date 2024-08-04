@@ -1,0 +1,25 @@
+footer {
+  background-color: rgba(52, 91, 156, 1);
+  padding: 40px 24px;
+}
+.container {
+  width: 95%;
+  margin: auto;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footerRight ul {
+  display: flex;
+  list-style: none;
+}
+.footerRight ul li {
+  margin-left: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.5px;
+  letter-spacing: 0.0015em;
+  text-align: center;
+}

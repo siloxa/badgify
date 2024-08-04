@@ -1,0 +1,53 @@
+.container {
+  width: 95%;
+  margin: auto;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+.icon{
+    margin-top: 12px;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  cursor: pointer;
+}
+nav ul li {
+  margin-left: 16px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.5px;
+  letter-spacing: 0.0015em;
+  text-align: center;
+}
+nav ul li:hover {
+    border-bottom: 1px solid white;
+}
+.btn {
+  display: flex;
+  justify-content: space-between;
+}
+.btn button {
+  width: 112px;
+  height: 48px;
+  border-radius: 12px;
+  margin-left: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btnLeft {
+  color: white;
+  background-color: transparent;
+}
+.btnRight {
+  background-color: white;
+  color: rgba(52, 91, 156, 1);
+}
