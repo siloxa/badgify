@@ -1,6 +1,8 @@
 footer {
+  width: 100%;
   background-color: rgba(52, 91, 156, 1);
   padding: 40px 24px;
+  margin-top: 24px;
 }
 .container {
   width: 95%;
@@ -15,11 +17,14 @@ footer {
   display: flex;
   list-style: none;
 }
+.footerLeft p{
+  color: white;
+}
 .footerRight ul li {
-  margin-left: 12px;
+  color: white;
+  margin-left: 20px;
   font-size: 16px;
   font-weight: 500;
-  line-height: 19.5px;
   letter-spacing: 0.0015em;
   text-align: center;
 }
