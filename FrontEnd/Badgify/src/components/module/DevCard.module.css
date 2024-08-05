@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  
   padding: 10px;
   
 }
@@ -10,18 +9,21 @@
   height: 296px;
   width: 384px;
   border-radius: 8px;
+  
 }
 .card h6{
   font-size: 20px;
   content: #070707;
+  font-weight: 400;
 }
 .card span{
   color: #85A0CE;
-  size: 16px;
+  size: 16px; 
 }
 .card p {
   color: #757575;
   size: 16px;
+  margin-top: 24px;
 }
 .icons{
   display: flex;
