@@ -1,39 +1,38 @@
-.card{
+.card {
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 10px;
-  
+  overflow: hidden;
 }
 .card img {
   height: 296px;
   width: 384px;
   border-radius: 8px;
-  
 }
-.card h6{
+.card h6 {
   font-size: 20px;
   content: #070707;
   font-weight: 400;
 }
-.card span{
-  color: #85A0CE;
-  size: 16px; 
+.card span {
+  color: #85a0ce;
+  size: 16px;
 }
 .card p {
   color: #757575;
   size: 16px;
   margin-top: 24px;
 }
-.icons{
+.icons {
   display: flex;
   gap: 20px;
 }
-.info{
+.info {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.info span{
+.info span {
   margin-bottom: 18px;
 }

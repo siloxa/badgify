@@ -1,18 +1,17 @@
-.card{
+.card {
   display: flex;
   gap: 24px;
   padding: 10px;
-
 }
 .container {
-margin-top: 24px;
-display: flex;
-flex-direction: column;
-gap: 32px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
-.container h1{
+.container h1 {
   text-align: center;
-padding: 0px, 32px, 0px, 32px;
-font-weight: 300;
-color: #101828;
+  padding: 0px, 32px, 0px, 32px;
+  font-weight: 300;
+  color: #101828;
 }

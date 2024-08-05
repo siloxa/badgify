@@ -6,13 +6,12 @@ function Developer() {
   return (
     <>
       <div className={style.container}>
-
-      <h1>Meet out team</h1>
-      <div className={style.card}>
-        {devData.map(i => (
-          <DevCard key={i.id} data={i} />
-        ))}
-      </div>
+        <h1>Meet out team</h1>
+        <div className={style.card}>
+          {devData.map(i => (
+            <DevCard key={i.id} data={i} />
+          ))}
+        </div>
       </div>
     </>
   );
