@@ -10,32 +10,13 @@
   background-color: transparent;
 }
 .icon{
-    margin-top: 12px;
     width: 14%;
 }
-nav{
-  width: 60%;
+.navbar{
+  display: flex;
   justify-content: center;
-  display: flex;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
-  cursor: pointer;
-}
-nav ul li {
-  margin-left: 16px;
-  padding: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 19.5px;
-  letter-spacing: 0.0015em;
-  text-align: center;
-}
-nav ul li:hover {
-    border-bottom: 2px solid rgba(52, 91, 156, 1);
+  gap: 2rem;
+  text-decoration: none;
 }
 .btn {
   display: flex;

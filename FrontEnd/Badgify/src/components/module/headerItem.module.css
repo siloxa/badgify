@@ -1,0 +1,21 @@
+.active {
+  font-weight: bold;
+}
+
+.activeIndicator {
+  color: black;
+}
+.flexDoted {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navLink {
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+}
+span {
+  text-decoration: none;
+}

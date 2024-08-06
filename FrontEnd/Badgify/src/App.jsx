@@ -6,16 +6,16 @@ import Developer from './components/template/Developer';
 import Opensource from './components/template/Opensource';
 function App() {
   return (
-    <Layout>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/developer" element={<Developer />} />
-          <Route path="/opensource" element={<Opensource />} />
+          <Route path='/' element={<Layout/>}>
+            <Route path="/" element={<Home />} />
+            <Route path="/donate" element={<Donate />} />
+            <Route path="/developer" element={<Developer />} />
+            <Route path="/opensource" element={<Opensource />} />
+          </Route>
         </Routes>
       </BrowserRouter>
-    </Layout>
   );
 }
 

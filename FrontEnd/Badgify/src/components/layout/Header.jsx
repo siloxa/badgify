@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './header.module.css';
-
+import { Link, NavLink } from 'react-router-dom';
+import HeaderItem from '../module/HeaderItem';
 
 function Header() {
   return (
@@ -54,12 +55,13 @@ function Header() {
             </svg>
           </div>
           <nav className={styles.navbar}>
-            <ul>
-              <li>Home</li>
-              <li>Donate</li>
-              <li>Open source</li>
-              <li>Developers</li>
-            </ul>
+            <HeaderItem to={'/'}>home</HeaderItem>
+
+            <HeaderItem to={'/donate'}>Donate</HeaderItem>
+
+            <HeaderItem to={'/developer'}>Developer</HeaderItem>
+
+            <HeaderItem to={'/opensource'}>Open source</HeaderItem>
           </nav>
           <div className={styles.btn}>
             <button className={styles.btnLeft}>LOGIN</button>
