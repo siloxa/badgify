@@ -1,0 +1,14 @@
+.maininpute {
+  width: 660px;
+  height: 381px;
+  padding: 40px 32px 40px 32px;
+  border-radius: 16px;
+  background-color: rgba(233, 239, 249, 0.16);
+}
+.topInpute{
+    display: flex;
+    justify-content: space-around;
+}
+.topInpute select,input{
+    width: 290px;
+}

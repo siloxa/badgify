@@ -1,21 +1,20 @@
-import { FileIcon, PencilIcon, PuzzleIcon, ShieldIcon } from '../../data/Icon'
-import styles from '../template/Home.module.css'
-
+import { FileIcon, PencilIcon, PuzzleIcon, ShieldIcon } from '../../data/Icon';
+import MainInput from '../module/MainInput';
+import styles from '../template/Home.module.css';
 
 function Home() {
   return (
     <container className={styles.container}>
       <section className={styles.hero}>
-      <div className={styles.heroBg}>
-        <div className={styles.heroTextBox}>
-          <h3>Badgify, an easy-to-use API for generating custom badges</h3>
-        <button className={styles.heroBtn}>CREATE BADGE </button>
+        <div className={styles.heroBg}>
+          <div className={styles.heroTextBox}>
+            <h3>Badgify, an easy-to-use API for generating custom badges</h3>
+            <button className={styles.heroBtn}>CREATE BADGE </button>
+          </div>
         </div>
-       
-      </div>
       </section>
       <section className={styles.infoBox}>
-      <div className={styles.info}>
+        <div className={styles.info}>
           <div className={styles.infoPack}>
             <h2>150</h2>
             <h6>Generated Badge</h6>
@@ -35,9 +34,8 @@ function Home() {
         </div>
       </section>
       <section className={styles.offerBox}>
-      <h4>What Badgify offers you</h4>
+        <h4>What Badgify offers you</h4>
         <div className={styles.offer}>
-          
           <div className={styles.offerPack}>
             <PencilIcon />
             <h6>Making full customazable badges</h6>
@@ -55,10 +53,9 @@ function Home() {
             <h6>Syncing with different social medias and platforms</h6>
           </div>
         </div>
-     </section>
+      </section>
     </container>
-    
-  )
+  );
 }
 
-export default Home
+export default Home;
