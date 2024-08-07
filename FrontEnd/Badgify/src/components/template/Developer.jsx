@@ -2,7 +2,7 @@ import DevCard from '../module/DevCard';
 import { devData } from '../../data/DeveloperData';
 import style from '../template/Developer.module.css';
 function Developer() {
-  console.log(devData);
+  
   return (
     <>
       <div className={style.container}>
