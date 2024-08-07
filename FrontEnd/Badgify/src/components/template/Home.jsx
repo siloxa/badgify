@@ -1,4 +1,4 @@
-import { FileIcon, PencilIcon, PuzzleIcon, ShieldIcon } from '../../data/Icon'
+import { FileIcon, PencilIcon, PuzzleIcon, RightArrow, ShieldIcon } from '../../data/Icon'
 import styles from '../template/Home.module.css'
 
 
@@ -8,8 +8,8 @@ function Home() {
       <section className={styles.hero}>
       <div className={styles.heroBg}>
         <div className={styles.heroTextBox}>
-          <h3>Badgify, an easy-to-use API for generating custom badges</h3>
-        <button className={styles.heroBtn}>CREATE BADGE </button>
+          <h3><span>Badgify,</span>an easy-to-use API for generating custom badges</h3>
+        <button className={styles.heroBtn}>CREATE BADGE <RightArrow/> </button>
         </div>
        
       </div>

@@ -33,28 +33,38 @@
 .heroTextBox h3{
   color: #fff;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 400;
   isolation: isolate;
+}
+.heroTextBox span{
+  font-weight: 600;
 }
 .heroBtn{
   width: 212px;
   height: 48px;
+  font-weight: 500;
   padding: 16px 32px 16px 32px;
   border-radius:8px;
   background-color:#fff;
   color:#304B78;
   border: none;
   font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
   
 }
 .info{
   display: flex;
   gap: 32px;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #E9EFF9;
   padding: 48px, 64px, 48px, 64px;
   width: 1142px;
+  height: 204px;
   border-radius: 16px;
+  margin-top: -50px;
 
 }
 .infoBox{
@@ -68,10 +78,24 @@
   align-items: center;
   gap: 20px;
 }
+.infoPack h2 {
+  color: #304B78;
+  font-weight: 400;
+  font-size: 59px;
+}
+.infoPack h6{
+  font-size: 20px;
+  font-weight: 500;
+}
 .offerBox{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 50px;
+}
+.offerBox h4{
+  font-weight: 500;
+  font-size: 34px;
 }
 .offer{
   display: flex;
@@ -82,4 +106,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+.offerPack h6{
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
 }
