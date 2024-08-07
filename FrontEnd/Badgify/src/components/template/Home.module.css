@@ -3,6 +3,7 @@
   height: 70vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  
 }
 .heroBg {
   background-blend-mode: overlay;
@@ -52,10 +53,15 @@
   align-items: center;
   justify-content: center;
 }
+.input{
+  display: flex;
+  align-items: center;
+}
 .info {
   display: flex;
   gap: 32px;
   justify-content: space-around;
+  align-items: center;
   background-color: #e9eff9;
   padding: 48px, 64px, 48px, 64px;
   width: 1142px;
