@@ -4,11 +4,51 @@
   padding: 40px 32px 40px 32px;
   border-radius: 16px;
   background-color: rgba(233, 239, 249, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
-.topInpute{
-    display: flex;
-    justify-content: space-around;
+.inputTop {
+  display: flex;
+  justify-content: space-around;
 }
-.topInpute select,input{
-    width: 290px;
+.topLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.topLeft select,
+input {
+  border: none;
+  padding: 10px;
+  width: 290px;
+  box-shadow: rgba(16, 24, 40, 0.05);
+  border-radius: 12px;
+}
+.topLeft label {
+  color: white;
+  font-weight: 500;
+  size: 14px;
+  line-height: 17.07px;
+}
+.badgContain {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.badg {
+  width: 98px;
+  height: 35px;
+  padding: 6px;
+  gap: 4px;
+  border-radius: 4px;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.badg p {
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
 }

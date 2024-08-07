@@ -11,8 +11,8 @@ function Home() {
             <h3>Badgify, an easy-to-use API for generating custom badges</h3>
             <button className={styles.heroBtn}>CREATE BADGE </button>
           </div>
-          =======
         </div>
+        <MainInput />
       </section>
       <section className={styles.infoBox}>
         <div className={styles.info}>

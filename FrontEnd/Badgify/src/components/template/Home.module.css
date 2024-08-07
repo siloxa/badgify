@@ -1,16 +1,14 @@
-
-.hero{
-  background: linear-gradient(to left , #263652,#214787,#527BBD);
-  height:70vh;
+.hero {
+  background: linear-gradient(to left, #263652, #214787, #527bbd);
+  height: 70vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.heroBg{
+.heroBg {
   background-blend-mode: overlay;
   position: relative;
-  
 }
-.heroBg::before{
+.heroBg::before {
   background-image: url('../../assets/image/Background.png');
   content: '';
   background-size: 70%;
@@ -19,7 +17,7 @@
   opacity: 0.5;
   inset: 0;
 }
-.heroTextBox{
+.heroTextBox {
   width: 620px;
   height: 237px;
   display: flex;
@@ -30,86 +28,83 @@
   top: 30%;
   left: 20%;
 }
-.heroTextBox h3{
+.heroTextBox h3 {
   color: #fff;
   font-size: 48px;
   font-weight: 400;
   isolation: isolate;
 }
-.heroTextBox span{
+.heroTextBox span {
   font-weight: 600;
 }
-.heroBtn{
+.heroBtn {
   width: 212px;
   height: 48px;
   font-weight: 500;
   padding: 16px 32px 16px 32px;
-  border-radius:8px;
-  background-color:#fff;
-  color:#304B78;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #304b78;
   border: none;
   font-size: 14px;
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
-  
 }
-.info{
+.info {
   display: flex;
   gap: 32px;
   justify-content: space-around;
-  background-color: #E9EFF9;
+  background-color: #e9eff9;
   padding: 48px, 64px, 48px, 64px;
   width: 1142px;
   height: 204px;
   border-radius: 16px;
   margin-top: -50px;
-
 }
-.infoBox{
+.infoBox {
   display: flex;
   justify-content: center;
-  
 }
-.infoPack{
+.infoPack {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 .infoPack h2 {
-  color: #304B78;
+  color: #304b78;
   font-weight: 400;
   font-size: 59px;
 }
-.infoPack h6{
+.infoPack h6 {
   font-size: 20px;
   font-weight: 500;
 }
-.offerBox{
+.offerBox {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 50px;
 }
-.offerBox h4{
+.offerBox h4 {
   font-weight: 500;
   font-size: 34px;
 }
-.offer{
+.offer {
   display: flex;
   padding: 24px;
   gap: 48px;
 }
-.offerPack{
+.offerPack {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   padding: 24px;
 }
-.offerPack h6{
+.offerPack h6 {
   font-weight: 500;
   font-size: 20px;
   text-align: center;
