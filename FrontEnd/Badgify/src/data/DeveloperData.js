@@ -1,7 +1,6 @@
 import avatar1 from '../assets/image/developer/dev1.jpg'
 import avatar2 from '../assets/image/developer/dev2.jpg'
 import avatar3 from '../assets/image/developer/dev3.jpg'
-import avatar4 from '../assets/image/developer/dev2.jpg'
 const devData = [
   {
     id: 1,

@@ -5,7 +5,7 @@
     width: 94%;
     margin: auto;
 }
-.badg {
+.badge {
   background-color: rgba(233, 239, 249, 1);
   width: 80%;
   height: 100vh;
@@ -13,12 +13,12 @@
 .sidbar {
   width: 20%;
 }
-.badgbtn {
+.badgeBtn {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
 }
-.badgbtn button {
+.badgeBtn button {
   padding: 16px 32px 16px 32px;
   background-color: rgba(30, 47, 75, 1);
   text-align: center;
@@ -26,7 +26,7 @@
   border-radius: 8px;
   border: none;
 }
-.badgbtn input {
+.badgeBtn input {
   width: 320px;
   height: 44px;
   gap: 8px;
