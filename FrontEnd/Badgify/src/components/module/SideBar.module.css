@@ -18,7 +18,7 @@ padding: 8px 16px;
 
 .sidebar li{
   cursor: pointer;
-  color: #070707;
+  /* color: #070707; */
 }
 .sidebar li:hover{
   color: #304B78;
