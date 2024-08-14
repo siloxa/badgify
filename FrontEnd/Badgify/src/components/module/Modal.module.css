@@ -11,14 +11,45 @@
 }
 .modal{
   background-color: #ffff;
+  border-radius: 12px;
   width: 492px;
   height: 616px;
   padding: 24px;
 }
 .modalBox{
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+  width: 444px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 24px;
 }
+.headBox{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.headBox h6{
+  margin-left: 8px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.headBox button{
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+}
+.form{
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+.form select{
+  /* display: flex; */
+  width: 210px;
+  border: 1px solid #CBCBCB;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+}
+
