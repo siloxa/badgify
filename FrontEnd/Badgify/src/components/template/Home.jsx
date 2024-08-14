@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FileIcon, PencilIcon, PuzzleIcon, RightArrow, ShieldIcon } from '../../data/Icon';
 import MainInput from '../module/MainInput';
 import styles from '../template/Home.module.css';
@@ -9,7 +10,9 @@ function Home() {
         <div className={styles.heroBg}>
           <div className={styles.heroTextBox}>
             <h3> <span>Badgify,</span>an easy-to-use API for generating custom badges</h3>
-            <button className={styles.heroBtn}>CREATE BADGE <RightArrow /> </button>
+            <Link to="/badge" className={styles.heroBtn}>
+            CREATE BADGE <RightArrow /> 
+            </Link>
           </div>
           
         </div>
