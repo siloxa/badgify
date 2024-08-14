@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './header.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import HeaderItem from '../module/HeaderItem';
 
 function Header() {
+  const location = useLocation();
+  const btnLeftStyle = location.pathname === '/' ? styles.btnLeft : styles.btnLeftTwo;
+  const btnRightStyle = location.pathname === '/' ? styles.btnRight : styles.btnRightTwo;
+
   return (
     <header>
       <div className={styles.container}>
@@ -64,8 +68,8 @@ function Header() {
             <HeaderItem to={'/opensource'}>Open source</HeaderItem>
           </nav>
           <div className={styles.btn}>
-            <button className={styles.btnLeft}>LOGIN</button>
-            <button className={styles.btnRight}>SIGN UP</button>
+            <button className={btnLeftStyle}>LOGIN</button>
+            <button className={btnRightStyle}>SIGN UP</button>
           </div>
         </div>
       </div>

@@ -3,6 +3,9 @@
 }
 
 .activeIndicator {
+  color:white;
+}
+.activeIndicatorTwo{
   color: black;
 }
 .flexDoted {
@@ -13,8 +16,14 @@
 }
 .navLink {
   text-decoration: none;
+  color: white;
+  padding: 8px;
+}
+.navLinkTwo{
+  text-decoration: none;
   color: black;
   padding: 8px;
+
 }
 span {
   text-decoration: none;

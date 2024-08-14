@@ -1,15 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from './headerItem.module.css';
 
 function HeaderItem({ children, to }) {
+  const location = useLocation();
+  const navStyle = location.pathname === '/' ? styles.navLink : styles.navLinkTwo;
+  const dotStyle = location.pathname === '/' ? styles.activeIndicator : styles.activeIndicatorTwo;
   return (
     <div>
-      <NavLink to={to}  className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+      <NavLink to={to} className={({ isActive }) => (isActive ? `${navStyle} ${styles.active}` : navStyle)}>
         {({ isActive }) => (
           <div className={styles.flexDoted}>
             {children}
-            {isActive && <span className={styles.activeIndicator}>●</span>}
+            {isActive && <span className={dotStyle}>●</span>}
           </div>
         )}
       </NavLink>

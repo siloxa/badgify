@@ -8,11 +8,12 @@
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
+  background-color: powderblue;
 }
-.icon{
-    width: 14%;
+.icon {
+  width: 14%;
 }
-.navbar{
+.navbar {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -37,4 +38,12 @@
 .btnRight {
   background-color: white;
   color: rgba(52, 91, 156, 1);
+}
+.btnLeftTwo {
+  background-color: transparent;
+  color: rgba(52, 91, 156, 1);
+}
+.btnRightTwo {
+  color: white;
+  background-color: rgba(52, 91, 156, 1);
 }
