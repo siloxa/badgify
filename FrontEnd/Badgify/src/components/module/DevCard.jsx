@@ -7,7 +7,7 @@ function DevCard({ data }) {
       <div className={style.card}>
         <img src={image} />
         <div className={style.info}>
-          <div>
+          <div className={style.innerInfo}>
             <h6>{name}</h6>
             <span>{role}</span>
             <p>{description}</p>

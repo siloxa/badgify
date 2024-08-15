@@ -1,14 +1,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
   padding: 10px;
   overflow: hidden;
+  width: 100%;
 }
 .card img {
-  height: 296px;
-  width: 384px;
+  width:90%;
   border-radius: 8px;
+}
+.innerInfo{
+
 }
 .card h6 {
   font-size: 20px;
@@ -22,7 +25,7 @@
 .card p {
   color: #757575;
   size: 16px;
-  margin-top: 24px;
+  margin-top: 14px;
 }
 .icons {
   display: flex;

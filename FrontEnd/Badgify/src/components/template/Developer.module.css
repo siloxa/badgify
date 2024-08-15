@@ -1,7 +1,7 @@
 .card {
   display: flex;
-  gap: 24px;
-  padding: 10px;
+  gap: 14px;
+  padding: 8px;
 }
 .container {
   margin-top: 24px;
@@ -11,7 +11,7 @@
 }
 .container h1 {
   text-align: center;
-  padding: 0px, 32px, 0px, 32px;
+  padding: 0px, 22px, 0px, 22px;
   font-weight: 300;
   color: #101828;
 }
