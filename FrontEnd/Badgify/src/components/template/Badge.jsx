@@ -4,6 +4,7 @@ import Modal from '../module/Modal';
 import { useState } from 'react';
 function Badge() {
   const [modal, setModal] = useState(true);
+ 
   return (
     <div className={styles.main}>
       <div className={styles.sidbar}>
@@ -16,7 +17,7 @@ function Badge() {
             <button>CREATE CUSTOMIZED BADGE</button>
           </div>
         </div>
-        {!!modal && <Modal />}
+        {!!modal && <Modal setModal={setModal} />}
       </div>
     </div>
   );

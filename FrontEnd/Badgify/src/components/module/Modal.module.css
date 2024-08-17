@@ -37,14 +37,15 @@
   margin-left: auto;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 .form{
 display: flex;
 flex-direction: column;
-gap: 6px;
+gap: 16px;
 }
 .form select{
-  /* display: flex; */
+  display: flex;
   width: 210px;
   border: 1px solid #CBCBCB;
   border-radius: 8px;
@@ -52,4 +53,25 @@ gap: 6px;
   font-weight: 500;
   padding: 10px;
 }
+.selectBox{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+}
+.selectBox select{
 
+}
+
+.inputBox{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+}
+.inputBox input{
+  width: 90%;
+  border: 1px solid #CBCBCB;
+  border-radius: 8px;
+  padding: 10px;
+}
