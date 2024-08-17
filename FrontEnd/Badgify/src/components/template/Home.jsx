@@ -9,12 +9,14 @@ function Home() {
       <section className={styles.hero}>
         <div className={styles.heroBg}>
           <div className={styles.heroTextBox}>
-            <h3> <span>Badgify,</span>an easy-to-use API for generating custom badges</h3>
+            <h3>
+              {' '}
+              <span>Badgify,</span>an easy-to-use API for generating custom badges
+            </h3>
             <Link to="/badge" className={styles.heroBtn}>
-            CREATE BADGE <RightArrow /> 
+              CREATE BADGE <RightArrow />
             </Link>
           </div>
-          
         </div>
         <div className={styles.input}>
           <MainInput />

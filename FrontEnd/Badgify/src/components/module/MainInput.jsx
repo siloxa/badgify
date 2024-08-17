@@ -40,6 +40,10 @@ function MainInput() {
           <p>Badgify</p>
         </div>
       </div>
+      <div className={styles.inputBtn}>
+        <input placeholder='https://badgify.com/badge'/>
+        <button>COPY</button>
+      </div>
     </div>
   );
 }
