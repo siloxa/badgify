@@ -5,6 +5,7 @@ import Donate from './components/template/Donate';
 import Developer from './components/template/Developer';
 import Opensource from './components/template/Opensource';
 import Badge from './components/template/Badge';
+import Createbadge from './components/template/Createbadge';
 function App() {
   return (
       <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
             <Route path="/developer" element={<Developer />} />
             <Route path="/opensource" element={<Opensource />} />
             <Route path='/badge' element={<Badge/>}  />
+            <Route path='/create' element={<Createbadge/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
