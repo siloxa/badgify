@@ -1,10 +1,16 @@
 import { Note, XClose } from '../../data/Icon';
 import styles from '../module/Modal.module.css';
 import rectangle from '../../assets/image/Rectangle.jpg'
+import { useState } from 'react';
 function Modal({ setModal }) {
+  
+  const [selectedOption,setSelectedOption]=useState("textBadge")
   const closeHandler = () => {
     setModal(false);
   };
+  const selectHandler = (event) => {
+    setSelectedOption(event.target.value);
+  }
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
@@ -19,8 +25,10 @@ function Modal({ setModal }) {
           <div className={styles.form}>
             <div className={styles.type}>
               <label htmlFor="type">Type</label>
-              <select value="textBadge" name="badge">
+              <select value={selectedOption} name="badge" onChange={selectHandler}>
                 <option value="textBadge">Text badge</option>
+                <option value="iconBadge">Icon badge</option>
+                <option value="labelBadge">Lable badge</option>
               </select>
             </div>
 
@@ -53,7 +61,9 @@ function Modal({ setModal }) {
               </div>
             </div>
             <div className={styles.inputBox}>
-              <div>
+              {selectedOption === "textBadge" && (
+                <>
+                <div>
                 <label>Link</label>
                 <input placeholder="Type your link" />
               </div>
@@ -61,7 +71,48 @@ function Modal({ setModal }) {
                 <label>Text</label>
                 <input placeholder="type your text" />
               </div>
+                </>
+              )}
+              {
+                selectedOption === "iconBadge" && (
+                  <>
+                  <div>
+                <label>Link</label>
+                <input placeholder="Type your link" />
+                    </div>
+                    <div>
+                <label htmlFor="icon">Icon</label>
+                <select name="icon">
+                  <option value="" disabled selected hidden></option>
+                </select>
+              </div>
+                  </>
+                )
+              }
+              {selectedOption === "labelBadge" && (
+                <>
+                  
+                <div>
+                <label>Link</label>
+                <input placeholder="Type your link" />
+              </div>
+              <div>
+                <label>Text</label>
+                <input placeholder="type your text" />
+                  </div>
+                </>
+                
+              )}
+              
             </div>
+            {selectedOption === "labelBadge" && (
+                <div>
+                <label htmlFor="icon">Icon</label>
+                <select name="icon">
+                  <option value="" disabled selected hidden></option>
+                </select>
+              </div>
+              )}
             <div className={styles.bottom}>
               <img src={rectangle} />
               <div className={styles.inputBtn}>

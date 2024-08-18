@@ -13,7 +13,7 @@
   background-color: #ffff;
   border-radius: 12px;
   width: 492px;
-  height: 616px;
+  height: 85%;
   padding: 24px;
 }
 .modalBox {
@@ -63,7 +63,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 16px;
+  gap:6px;
 }
 .inputBox input {
   width: 90%;
