@@ -13,7 +13,7 @@
   background-color: #ffff;
   border-radius: 12px;
   width: 492px;
-  height: 85%;
+  height: fit-content;
   padding: 24px;
 }
 .modalBox {
