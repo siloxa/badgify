@@ -1,34 +1,73 @@
-.container{
-    width: 60%;
-    margin: auto;
+.container {
+  width: 60%;
+  margin: auto;
 }
-.form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
-.inputcon{
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+.inputcon {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
-.inputcon .inputmain{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.inputcon .inputmain {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-.inputcon .inputmain select,input{
-    width: 370px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    border: 1px solid rgba(203, 203, 203, 1);
+.inputcon .inputmain select {
+  width: 420px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid rgba(203, 203, 203, 1);
 }
-.inputcon .inputmain input::placeholder{
-    color:  rgba(203, 203, 203, 1);
+.inputcon .inputmain input::placeholder {
+  color: rgba(203, 203, 203, 1);
 }
-.inputcon .inputmain label{
-    font-size: 14px;
-    font-weight: 500;
+.inputcon .inputmain label {
+  font-size: 14px;
+  font-weight: 500;
+}
+.inputcon .inputmain .inputs {
+  width: 420px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid rgba(203, 203, 203, 1);
+}
+.inputBot {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.inputBot .bot {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+.inputBot .bot input {
+  width: 342px;
+  border: none;
+  border-radius: 0px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border: 1px solid rgba(203, 203, 203, 1);
+}
+.inputBot .bot input::placeholder {
+  color: rgba(203, 203, 203, 1);
+}
+.inputBot .bot button {
+  padding: 14px;
+  background-color: rgba(233, 239, 249, 1);
+  border: none;
+  color: rgba(52, 91, 156, 1);
+  font-weight: 700;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  text-align: center;
 }

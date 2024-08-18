@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './createbadge.module.css';
-
 function Createbadge() {
   return (
     <div className={styles.container}>
@@ -8,7 +7,12 @@ function Createbadge() {
         <div className={styles.inputcon}>
           <div className={styles.inputmain}>
             <label>Type</label>
-            <select></select>
+            <select>
+              <option>Lable badge</option>
+              <option>Text badge</option>
+              <option>Icon badge</option>
+              <option></option>
+            </select>
           </div>
           <div className={styles.inputmain}>
             <label>Theme</label>
@@ -17,12 +21,22 @@ function Createbadge() {
         </div>
         <div className={styles.inputcon}>
           <div className={styles.inputmain}>
-            <label>Color</label>
-            <input placeholder="Type hex code or color’s name" />
+            <label>Size</label>
+            <input className={styles.inputs} placeholder="Type hex code or color’s name" />
           </div>
           <div className={styles.inputmain}>
-            <label>ID</label>
-            <input placeholder="Type your ID" />
+            <label>Title</label>
+            <input className={styles.inputs} placeholder="Type your ID" />
+          </div>
+        </div>
+        <div className={styles.inputcon}>
+          <div className={styles.inputmain}>
+            <label>Background Color</label>
+            <input className={styles.inputs} placeholder="Type hex code or color’s name" />
+          </div>
+          <div className={styles.inputmain}>
+            <label>Text Color</label>
+            <input className={styles.inputs} placeholder="Type your ID" />
           </div>
         </div>
       </form>
@@ -32,7 +46,7 @@ function Createbadge() {
           <button>COPY</button>
         </div>
         <div>
-            <img></img>
+          <img></img>
         </div>
       </div>
     </div>
