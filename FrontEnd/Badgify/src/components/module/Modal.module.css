@@ -71,3 +71,36 @@
   border-radius: 8px;
   padding: 10px;
 }
+.bottom{
+  margin-top: 48px;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.bottom img{
+  width: 45%;
+  margin: auto;
+}
+.inputBtn {
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+}
+.inputBtn input {
+  padding: 14px;
+  width: 290px;
+  border-radius: 0px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.inputBtn button {
+  padding: 14px;
+  background-color: rgba(233, 239, 249, 1);
+  border: none;
+  color: rgba(52, 91, 156, 1);
+  font-weight: 700;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  text-align: center;
+}

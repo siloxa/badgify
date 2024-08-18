@@ -1,5 +1,6 @@
 import { Note, XClose } from '../../data/Icon';
 import styles from '../module/Modal.module.css';
+import rectangle from '../../assets/image/Rectangle.jpg'
 function Modal({ setModal }) {
   const closeHandler = () => {
     setModal(false);
@@ -49,6 +50,23 @@ function Modal({ setModal }) {
               <div className={styles.textColor}>
                 <label>Text Color</label>
                 <input placeholder="#fff" />
+              </div>
+            </div>
+            <div className={styles.inputBox}>
+              <div>
+                <label>Link</label>
+                <input placeholder="Type your link" />
+              </div>
+              <div>
+                <label>Text</label>
+                <input placeholder="type your text" />
+              </div>
+            </div>
+            <div className={styles.bottom}>
+              <img src={rectangle} />
+              <div className={styles.inputBtn}>
+                <input placeholder='https://badgify.com/badge' />
+                <button>COPY</button>
               </div>
             </div>
           </div>
