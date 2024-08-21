@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 import { FileIcon, PencilIcon, PuzzleIcon, RightArrow, ShieldIcon } from '../../data/Icon';
 import MainInput from '../module/MainInput';
 import styles from '../template/Home.module.css';
 
 function Home() {
   return (
-    <container className={styles.container}>
-      <section className={styles.hero}>
+    <React.Fragment className={styles.container}>
+      <div className={styles.sectionHero}>
         <div className={styles.heroBg}>
           <div className={styles.heroTextBox}>
             <h3>
-              {' '}
               <span>Badgify,</span>an easy-to-use API for generating custom badges
             </h3>
             <Link to="/badge" className={styles.heroBtn}>
@@ -21,8 +21,8 @@ function Home() {
         <div className={styles.input}>
           <MainInput />
         </div>
-      </section>
-      <section className={styles.infoBox}>
+      </div>
+      <div className={styles.infoBox}>
         <div className={styles.info}>
           <div className={styles.infoPack}>
             <h2>150</h2>
@@ -41,8 +41,8 @@ function Home() {
             <h6>Solved issues</h6>
           </div>
         </div>
-      </section>
-      <section className={styles.offerBox}>
+      </div>
+      <div className={styles.offerBox}>
         <h4>What Badgify offers you</h4>
         <div className={styles.offer}>
           <div className={styles.offerPack}>
@@ -62,8 +62,8 @@ function Home() {
             <h6>Syncing with different social medias and platforms</h6>
           </div>
         </div>
-      </section>
-    </container>
+      </div>
+    </React.Fragment>
   );
 }
 
