@@ -4,9 +4,16 @@
   justify-content: space-around;
   padding-bottom: 80px;
 }
-
+.sectionHero .input{
+  flex: 1;
+  justify-content: center;
+}
 .heroBg {
  display: flex;
+ flex: 1;
+ background-image: url(../../assets//image/Background.png);
+ background-position: center;
+ background-size: cover;
  justify-content: center;
  align-items: center;
 }
@@ -18,9 +25,7 @@
  flex-direction: column;
  color: #fff;
  gap: 48px;
-align-self: flex-end; 
 margin: auto;
-z-index: 1000;
 }
 .heroTextBox h3 {
   width: 70%;
