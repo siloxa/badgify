@@ -5,36 +5,47 @@
   padding: 10px;
   overflow: hidden;
   width: 100%;
+  justify-content: center;
 }
-.card img {
-  width:90%;
+.card .cardImage {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+.card .cardImage img {
+  width: 100%;
   border-radius: 8px;
 }
-.innerInfo{
-
+.card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
 }
-.card h6 {
-  font-size: 20px;
+.card .info .innerInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.card h2 {
+  font-size: 24px;
   content: #070707;
-  font-weight: 400;
+  font-weight: 500;
 }
 .card span {
   color: #85a0ce;
-  size: 16px;
+  size: 14px;
 }
 .card p {
-  color: #757575;
-  size: 16px;
-  margin-top: 14px;
+  color: #9b9a9a;
+  font-size: 16px;
+  margin-top: 12px;
 }
 .icons {
   display: flex;
+  justify-content: center;
   gap: 20px;
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 }
 .info span {
   margin-bottom: 18px;

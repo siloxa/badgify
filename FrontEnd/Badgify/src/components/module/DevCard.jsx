@@ -5,10 +5,12 @@ function DevCard({ data }) {
   return (
     <>
       <div className={style.card}>
-        <img src={image} />
+        <div className={style.cardImage}>
+          <img src={image} />
+        </div>
         <div className={style.info}>
           <div className={style.innerInfo}>
-            <h6>{name}</h6>
+            <h2>{name}</h2>
             <span>{role}</span>
             <p>{description}</p>
           </div>
