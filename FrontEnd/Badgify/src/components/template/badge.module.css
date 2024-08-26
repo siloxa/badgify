@@ -1,5 +1,6 @@
 .main {
   display: flex;
+  padding-top: 85px;
 }
 .container{
     width: 94%;
