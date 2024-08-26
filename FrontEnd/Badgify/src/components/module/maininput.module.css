@@ -1,51 +1,51 @@
 .maininpute {
-  width: 660px;
-  height: 381px;
+  width: 596px;
   padding: 40px 32px 40px 32px;
   border-radius: 16px;
   background-color: rgba(233, 239, 249, 0.16);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 .inputTop {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 12px;
 }
 .topLeft {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 .topLeft select,
 input {
   border: none;
   padding: 14px;
-  width: 290px;
+  width: 266px;
   box-shadow: rgba(16, 24, 40, 0.05);
   border-radius: 12px;
 }
 .topLeft label {
   color: white;
   font-weight: 500;
-  size: 14px;
+  font-size: 14px;
   line-height: 17.07px;
 }
 .badgContain {
   display: flex;
   justify-content: center;
-  margin: 10px 0;
 }
 .badg {
   width: 98px;
   height: 35px;
   padding: 6px;
-  gap: 4px;
   border-radius: 4px;
   background-color: black;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 22px ;
+  margin-bottom: 12px;
 }
 .badg p {
   color: white;
@@ -58,11 +58,16 @@ input {
   gap: 0px;
 }
 .inputBtn input {
-  padding: 14px;
-  width: 290px;
+  padding:10px 14px;
+  width: 294px;
   border-radius: 0px;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+}
+.inputBtn input::placeholder{
+  color: rgba(102, 112, 133, 1);
+  font-weight: 500;
+  
 }
 .inputBtn button {
   padding: 14px;

@@ -5,6 +5,7 @@
 }
 .container {
   margin-top: 22px;
+  padding-top: 65px;
   display: flex;
   flex-direction: column;
   gap: 24px;

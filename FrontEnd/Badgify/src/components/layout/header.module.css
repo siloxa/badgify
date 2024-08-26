@@ -1,6 +1,10 @@
 .container {
   width: 95%;
   margin: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 .header {
   width: 100%;

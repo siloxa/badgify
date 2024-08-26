@@ -41,7 +41,7 @@ function MainInput() {
         </div>
       </div>
       <div className={styles.inputBtn}>
-        <input placeholder='https://badgify.com/badge'/>
+        <input placeholder="https://badgify.com/badge" />
         <button>COPY</button>
       </div>
     </div>
