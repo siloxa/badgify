@@ -1,27 +1,29 @@
-.card{
+.card {
   width: fit-content;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
   padding: 12px 16px 12px 16px;
   border-radius: 8px;
-
-
 }
-.card p {
-  
-}
-.card img{
+.card img {
   width: 45%;
   border-radius: 6px;
+  margin-top: 14px;
+  margin-bottom: 18px;
 }
-.card button{
-  background-color: #304B78;
+.card p {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  padding: 4px 0px;
+}
+.card button {
+  background-color: #304b78;
+  padding: 16px 38px;
   color: #fff;
-  width: 40%;
-  height: 48px;
   border: none;
   border-radius: 8px;
   font-size: 14px;
