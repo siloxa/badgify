@@ -42,8 +42,7 @@
 .inputBot {
   margin-top: 30px;
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  justify-content: space-between;
 }
 .inputBot .bot {
   display: flex;
