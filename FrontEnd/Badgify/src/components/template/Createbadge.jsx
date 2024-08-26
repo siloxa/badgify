@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './createbadge.module.css';
+import rectangle from '../../assets/image/Rectangle27.png'
 
 function Createbadge() {
   const [selectedItem, setSelectedItem] = useState('Lable badge');
@@ -141,12 +142,10 @@ function Createbadge() {
         )}
       </form>
       <div className={styles.inputBot}>
+          <img src={rectangle} />
         <div className={styles.bot}>
           <input placeholder="https://badgify.com/badge" />
           <button>COPY</button>
-        </div>
-        <div>
-          <img></img>
         </div>
       </div>
     </div>
