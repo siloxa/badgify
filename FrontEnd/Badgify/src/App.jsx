@@ -6,20 +6,30 @@ import Developer from './components/template/Developer';
 import Opensource from './components/template/Opensource';
 import Badge from './components/template/Badge';
 import Createbadge from './components/template/Createbadge';
+import LayoutAdmin from './components/layout/LayoutAdmin';
+import AuthProvider from './providers/AuthProvider';
+import ProtectedRoute from './components/layout/ProtectedRoute';
+
 function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      {/* <AuthProvider> */}
         <Routes>
-          <Route path='/' element={<Layout/>}>
-            <Route path="/" element={<Home />} />
+          <Route path="/" element={<Layout />}>
+            <Route index={true} element={<Home />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/developer" element={<Developer />} />
             <Route path="/opensource" element={<Opensource />} />
-            <Route path='/badge' element={<Badge/>}  />
-            <Route path='/create' element={<Createbadge/>}/>
           </Route>
+          {/* <Route path="/badge" element={<ProtectedRoute />}> */}
+            <Route path="/badge" element={<LayoutAdmin />}>
+              <Route index={true} element={<Badge />} />
+              <Route path="/badge/create" element={<Createbadge />} />
+            </Route>
+          {/* </Route> */}
         </Routes>
-      </BrowserRouter>
+      {/* </AuthProvider> */}
+    </BrowserRouter>
   );
 }
 

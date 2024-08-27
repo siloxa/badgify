@@ -1,12 +1,15 @@
 import styles from './badge.module.css';
 import SideBar from '../module/SideBar';
 import Modal from '../module/Modal';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import BadgeCard from '../module/BadgeCard';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../contexts/AuthContext';
 
 function Badge() {
   const [modal, setModal] = useState(false);
+  const {token}= useContext(AuthContext)
+  console.log(token)
  
   return (
     <div className={styles.main}>
@@ -17,7 +20,7 @@ function Badge() {
         <div className={styles.container}>
           <div className={styles.badgeBtn}>
             <input placeholder="search" />
-            <Link to="/create" className={styles.btn}>
+            <Link to="/badge/create" className={styles.btn}>
             CREATE CUSTOMIZED BADGE
             </Link>
           </div>
