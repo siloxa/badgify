@@ -4,13 +4,7 @@ import Modal from '../module/Modal';
 import { useContext, useState } from 'react';
 import BadgeCard from '../module/BadgeCard';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import AuthContext from '../../contexts/AuthContext';
-=======
-import search from '../../assets/image/searchLg.png'
-
->>>>>>> 90cde93 (Search Icon)
-
 function Badge() {
   const [modal, setModal] = useState(false);
   const {token}= useContext(AuthContext)
