@@ -4,7 +4,9 @@ import Modal from '../module/Modal';
 import { useContext, useState } from 'react';
 import BadgeCard from '../module/BadgeCard';
 import { Link } from 'react-router-dom';
+import { FiSearch } from "react-icons/fi";
 import AuthContext from '../../contexts/AuthContext';
+import SearchIcon from '../../assets/icons/search-lg.png'
 function Badge() {
   const [modal, setModal] = useState(false);
   const {token}= useContext(AuthContext)
@@ -18,7 +20,10 @@ function Badge() {
       <div className={styles.badge}>
         <div className={styles.container}>
           <div className={styles.badgeBtn}>
-            <input placeholder="search" />
+            <div className={styles.searchInput}>
+              <img src={SearchIcon} />
+              <input placeholder="Search" />
+            </div>
             <Link to="/badge/create" className={styles.btn}>
             CREATE CUSTOMIZED BADGE
             </Link>

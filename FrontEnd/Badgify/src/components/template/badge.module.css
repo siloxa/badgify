@@ -29,9 +29,26 @@
   border-radius: 8px;
 text-decoration: none;  
 }
-.badgeBtn input {
+/* .badgeBtn input {
   width: 320px;
   height: 44px;
   gap: 8px;
   border-radius: 8px;
+} */
+.searchInput{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #CBCBCB;
+  border-radius: 8px;
+  color: #CBCBCB;
+  gap: 4px;
+  padding: 4px;
+}
+.searchInput input{
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  padding: 4px;
+  
 }
